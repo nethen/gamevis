@@ -1,10 +1,873 @@
 [
   {
+    "game_id": "1",
+    "screenshot_id": "1",
+    "vis_id": "g1a",
+    "data": [
+      [
+        {
+          "data_value": "Player name",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Symbol", "Text"]],
+    "channels": [["Position", "Hue", "Text"]],
+    "vis_name": "Player indicator",
+    "vis_usage": ["Environment", "Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "player",
+        "relative_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Wayfinding", "Combat"]
+  },
+  {
+    "game_id": "1",
+    "screenshot_id": "2",
+    "vis_id": "g1a",
+    "data": [
+      [
+        {
+          "data_value": "Player character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player stocks",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Symbol_Array", "Text"]],
+    "channels": [["Text", "Length"]],
+    "vis_name": "Score",
+    "vis_usage": ["Player", "Enemy", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Vitals", "Health", "Score"]
+  },
+  {
+    "game_id": "1",
+    "screenshot_id": "3",
+    "vis_id": "g1a",
+    "data": [
+      [
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player shield",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Circle"]],
+    "channels": [["Hue", "Size"]],
+    "vis_name": "Player shield",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "player character",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Reduces in size as shield decreases",
+      "colored based on player order"
+    ],
+    "tags": ["Vitals", "Health"]
+  },
+  {
+    "game_id": "1",
+    "screenshot_id": "1",
+    "vis_id": "g1b",
+    "data": [
+      [
+        {
+          "data_value": "Player name",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player damage",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Hue", "Text"]],
+    "vis_name": "Player damage",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Damage percentage increases, making riskiness of play clearer",
+      "Shift from white to yellow to red as damage increases"
+    ],
+    "tags": ["Combat", "Health", "Vitals"]
+  },
+  {
+    "game_id": "1",
+    "screenshot_id": "2",
+    "vis_id": "g1b",
+    "data": [
+      [
+        {
+          "data_value": "Player character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player stocks",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Symbol_Array", "Text"]],
+    "channels": [["Length", "Text"]],
+    "vis_name": "Player stocks",
+    "vis_usage": ["Player", "Enemy", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Vitals", "Health"]
+  },
+  {
+    "game_id": "1",
+    "screenshot_id": "1",
+    "vis_id": "g1c",
+    "data": [
+      [
+        {
+          "data_value": "Player name",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player character",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Image", "Symbol"]],
+    "channels": [["Image", "Shape", "Hue", "Position"]],
+    "vis_name": "Player character / order",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": ["X position as player order"],
+    "tags": ["Character"]
+  },
+  {
+    "game_id": "1",
+    "screenshot_id": "1",
+    "vis_id": "g2a",
+    "data": [
+      [
+        {
+          "data_value": "Time remaining",
+          "data_type": "Temporal"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Time remaining",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      [
+        {
+          "screen_relativity": "Screen",
+          "screen_position": ["Top", "Right"],
+          "coords": "Camera"
+        }
+      ]
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Match", "Progression"]
+  },
+  {
+    "game_id": "2",
+    "screenshot_id": "1",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Player character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Rule", "Rule_Array"]],
+    "channels": [["Hue", "Length", "Text"]],
+    "vis_name": "Player health",
+    "vis_usage": ["Player", "Enemy", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Top", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Vitals", "Health", "Damage"]
+  },
+  {
+    "game_id": "2",
+    "screenshot_id": "2",
+    "vis_id": "ge1",
+    "data": [
+      [
+        {
+          "data_value": "Winning player character",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Match winner",
+    "vis_usage": ["Player", "Enemy", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Score", "Progression"]
+  },
+  {
+    "game_id": "2",
+    "screenshot_id": "1",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "Assist character",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Image", "Symbol"]],
+    "channels": [["Image", "Luminance"]],
+    "vis_name": "Player health",
+    "vis_usage": ["Player", "Enemy", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "id_g1",
+        "relative_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": ["Cameo image darkened when they’re used"],
+    "tags": ["Character", "Ability"]
+  },
+  {
+    "game_id": "2",
+    "screenshot_id": "2",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path"]],
+    "channels": [["Hue"]],
+    "vis_name": "Player health - low",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Top", "Left", "Top"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Vitals", "Health", "Damage"]
+  },
+  {
+    "game_id": "2",
+    "screenshot_id": "1",
+    "vis_id": "g3",
+    "data": [
+      [
+        {
+          "data_value": "Time remaining",
+          "data_type": "Temporal"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Remaining time",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Progression", "Match"]
+  },
+  {
+    "game_id": "2",
+    "screenshot_id": "1",
+    "vis_id": "g4",
+    "data": [
+      [
+        {
+          "data_value": "Special ability progress",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Rectangle_Array"]],
+    "channels": [["Length", "Luminance"]],
+    "vis_name": "Skill meter",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Character", "Ability", "Energy"]
+  },
+  {
+    "game_id": "2",
+    "screenshot_id": "1",
+    "vis_id": "g5",
+    "data": [
+      [
+        {
+          "data_value": "Damage dealt",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Combo",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Skill meter",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Top", "Left", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Damage", "Health", "Score"]
+  },
+  {
+    "game_id": "3",
+    "screenshot_id": "1",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Player character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        }
+      ],
+      [
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image"], ["Rectangle"]],
+    "channels": [["Image"], ["Hue", "Length"]],
+    "vis_name": "Player health",
+    "vis_usage": ["Player", "Enemy", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Top", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Red represents the damage you take",
+      "Absence of Colour represents health that's already gone"
+    ],
+    "tags": ["Vitals", "Health", "Damage", "Character"]
+  },
+  {
+    "game_id": "3",
+    "screenshot_id": "2",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Matches won",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Circle", "Circle_Array"]],
+    "channels": [["Luminance", "Length"]],
+    "vis_name": "Matches won",
+    "vis_usage": ["Player", "Enemy", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Score", "Match"]
+  },
+  {
+    "game_id": "3",
+    "screenshot_id": "1",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "Time remaining",
+          "data_type": "Temporal"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Time remaining",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Match", "Progression"]
+  },
+  {
+    "game_id": "3",
+    "screenshot_id": "2",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "Time remaining",
+          "data_type": "Temporal"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Time remaining",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Match", "Progression"]
+  },
+  {
+    "game_id": "3",
+    "screenshot_id": "1",
+    "vis_id": "g3",
+    "data": [
+      [
+        {
+          "data_value": "Player skill charge progress",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Rule", "Rule_Array"]],
+    "channels": [["Hue", "Length"]],
+    "vis_name": "Player skill meter",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "id_g1",
+        "relative_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Vitals", "Ability", "Energy", "Character"]
+  },
+  {
+    "game_id": "4",
+    "screenshot_id": "1",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Player character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        }
+      ],
+      [
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image"], ["Rectangle"]],
+    "channels": [["Image"], ["Hue", "Length"]],
+    "vis_name": "Player health",
+    "vis_usage": ["Player", "Enemy", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Top", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Main bar colour (pink & blue) helps differentiate the player vs the enemy",
+      "Yellow is damage you just took, before it removes it from the length"
+    ],
+    "tags": ["Vitals", "Health", "Damage", "Character"]
+  },
+  {
+    "game_id": "4",
+    "screenshot_id": "2",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Combo",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Combo count",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Top", "Left", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Damage", "Score"]
+  },
+  {
+    "game_id": "4",
+    "screenshot_id": "3",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Player character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        }
+      ],
+      [
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image"], ["Rectangle"]],
+    "channels": [["Image"], ["Hue", "Luminance", "Length"]],
+    "vis_name": "Player health",
+    "vis_usage": ["Player", "Enemy", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Top", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "The box containing the bar is coloured red instead of the standard gray"
+    ],
+    "tags": ["Vitals", "Health", "Damage", "Character"]
+  },
+  {
+    "game_id": "4",
+    "screenshot_id": "1",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Stamina (drive)",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Rectangle_Array"]],
+    "channels": [["Hue", "Length"]],
+    "vis_name": "Player drive gauge",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "id_g1",
+        "relative_position": ["Bottom", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Vitals", "Ability", "Energy", "Character", "Stamina"]
+  },
+  {
+    "game_id": "4",
+    "screenshot_id": "2",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "Player order",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Matches won",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image", "Image_Array"]],
+    "channels": [["Hue", "Length"]],
+    "vis_name": "Matches won",
+    "vis_usage": ["Player", "Enemy", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Score", "Match"]
+  },
+  {
+    "game_id": "4",
+    "screenshot_id": "3",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "Time remaining",
+          "data_type": "Temporal"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Time remaining",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Match", "Progression"]
+  },
+  {
+    "game_id": "4",
+    "screenshot_id": "1",
+    "vis_id": "ge3",
+    "data": [
+      [
+        {
+          "data_value": "Special move",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Text"]],
+    "channels": [["Hue", "Text"]],
+    "vis_name": "Special move announcement",
+    "vis_usage": ["Player", "Enemy", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Middle", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", true]],
+    "notes": [
+      "The type of action affects the bg colour of the text. positive is denoted with orange. negative is denoted with pink."
+    ],
+    "tags": ["Vitals", "Ability", "Energy", "Character", "Stamina"]
+  },
+  {
+    "game_id": "4",
+    "screenshot_id": "1",
+    "vis_id": "g4",
+    "data": [
+      [
+        {
+          "data_value": "Player skill charge progress",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Text"]],
+    "channels": [["Hue", "Length", "Text"]],
+    "vis_name": "Player skill meter (Super Arts)",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Vitals", "Ability", "Energy", "Character"]
+  },
+  {
     "game_id": "68",
     "screenshot_id": "1",
     "vis_id": "l1",
     "data": [
-      [{ "data_value": "Available hiding location", "data_type": "Spatial" }]
+      [
+        {
+          "data_value": "Available hiding location",
+          "data_type": "Spatial"
+        }
+      ]
     ],
     "marks": [["Circle"]],
     "channels": [["Hue", "Luminance", "Position"]],
@@ -27,10 +890,21 @@
     "screenshot_id": "1",
     "vis_id": "l2",
     "data": [
-      [{ "data_value": "Terrain", "data_type": "Spatial" }],
       [
-        { "data_value": "Player position", "data_type": "Spatial" },
-        { "data_value": "Player orientation", "data_type": "Ordinal" }
+        {
+          "data_value": "Terrain",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        }
       ]
     ],
     "marks": [["Path"], ["Symbol"]],
@@ -56,9 +930,17 @@
     "screenshot_id": "1",
     "vis_id": "l3",
     "data": [
-      [{ "data_value": "Selected player character", "data_type": "Nominal" }],
       [
-        { "data_value": "Player character health", "data_type": "Quantitative" }
+        {
+          "data_value": "Selected player character",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Player character health",
+          "data_type": "Quantitative"
+        }
       ],
       [
         {
@@ -86,7 +968,14 @@
     "game_id": "68",
     "screenshot_id": "1",
     "vis_id": "l4",
-    "data": [[{ "data_value": "Current mission", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Current mission",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Rectangle", "Text"]],
     "channels": [["Text"]],
     "vis_name": "Current mission",
@@ -108,8 +997,14 @@
     "vis_id": "l1",
     "data": [
       [
-        { "data_value": "Date", "data_type": "Temporal" },
-        { "data_value": "Weather", "data_type": "Nominal" }
+        {
+          "data_value": "Date",
+          "data_type": "Temporal"
+        },
+        {
+          "data_value": "Weather",
+          "data_type": "Nominal"
+        }
       ]
     ],
     "marks": [["Text", "Symbol"]],
@@ -135,8 +1030,14 @@
     "vis_id": "l2",
     "data": [
       [
-        { "data_value": "Conversable character", "data_type": "Nominal" },
-        { "data_value": "Conversation location", "data_type": "Spatial" }
+        {
+          "data_value": "Conversable character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Conversation location",
+          "data_type": "Spatial"
+        }
       ]
     ],
     "marks": [["Symbol"]],
@@ -159,7 +1060,14 @@
     "game_id": "68",
     "screenshot_id": "2",
     "vis_id": "l3",
-    "data": [[{ "data_value": "Current area", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Current area",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Path", "Text"]],
     "channels": [["Text"]],
     "vis_name": "Current region",
@@ -181,8 +1089,14 @@
     "vis_id": "l1a",
     "data": [
       [
-        { "data_value": "Targeted enemy", "data_type": "Ordinal" },
-        { "data_value": "Enemy health", "data_type": "Quantitative" }
+        {
+          "data_value": "Targeted enemy",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Enemy health",
+          "data_type": "Quantitative"
+        }
       ]
     ],
     "marks": [["Symbol", "Path"]],
@@ -207,12 +1121,29 @@
     "vis_id": "l1a",
     "data": [
       [
-        { "data_value": "Attack name", "data_type": "Nominal" },
-        { "data_value": "Damage type", "data_type": "Nominal" },
-        { "data_value": "Required stat", "data_type": "Nominal" },
-        { "data_value": "Stat usage amount", "data_type": "Quantitative" }
+        {
+          "data_value": "Attack name",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Damage type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Required stat",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Stat usage amount",
+          "data_type": "Quantitative"
+        }
       ],
-      [{ "data_value": "Selected attack", "data_type": "Nominal" }]
+      [
+        {
+          "data_value": "Selected attack",
+          "data_type": "Nominal"
+        }
+      ]
     ],
     "marks": [["Text", "Symbol"], ["Path"]],
     "channels": [["Shape", "Hue", "Text"], ["Position"]],
@@ -235,9 +1166,18 @@
     "vis_id": "l1",
     "data": [
       [
-        { "data_value": "Targeted enemy", "data_type": "Ordinal" },
-        { "data_value": "Damage dealt", "data_type": "Quantitative" },
-        { "data_value": "Enemy health", "data_type": "Quantitative" }
+        {
+          "data_value": "Targeted enemy",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Damage dealt",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Enemy health",
+          "data_type": "Quantitative"
+        }
       ]
     ],
     "marks": [["Symbol", "Path", "Text"]],
@@ -265,8 +1205,14 @@
     "vis_id": "l1",
     "data": [
       [
-        { "data_value": "Targeted enemy", "data_type": "Ordinal" },
-        { "data_value": "Damage type", "data_type": "Nominal" }
+        {
+          "data_value": "Targeted enemy",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Damage type",
+          "data_type": "Nominal"
+        }
       ]
     ],
     "marks": [["Text"]],
@@ -289,7 +1235,14 @@
     "game_id": "68",
     "screenshot_id": "7",
     "vis_id": "l1a",
-    "data": [[{ "data_value": "Enemy action", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Enemy action",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Path", "Text"]],
     "channels": [["Text"]],
     "vis_name": "Enemy action",
@@ -309,7 +1262,14 @@
     "game_id": "68",
     "screenshot_id": "3",
     "vis_id": "l1b",
-    "data": [[{ "data_value": "Targeted enemy name", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Targeted enemy name",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Path", "Text"]],
     "channels": [["Text"]],
     "vis_name": "Targeted enemy name",
@@ -329,7 +1289,14 @@
     "game_id": "68",
     "screenshot_id": "4",
     "vis_id": "l1b",
-    "data": [[{ "data_value": "Attack details", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Attack details",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Path", "Text", "Symbol"]],
     "channels": [["Text", "Shape"]],
     "vis_name": "Attack details",
@@ -350,7 +1317,12 @@
     "screenshot_id": "7",
     "vis_id": "lb",
     "data": [
-      [{ "data_value": "Damage received", "data_type": "Quantitative" }]
+      [
+        {
+          "data_value": "Damage received",
+          "data_type": "Quantitative"
+        }
+      ]
     ],
     "marks": [["Text", "Path", "Symbol"]],
     "channels": [["Text", "Length"]],
@@ -374,11 +1346,20 @@
     "vis_id": "l2",
     "data": [
       [
-        { "data_value": "Selected player character", "data_type": "Nominal" },
-        { "data_value": "Player character slot", "data_type": "Ordinal" }
+        {
+          "data_value": "Selected player character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player character slot",
+          "data_type": "Ordinal"
+        }
       ],
       [
-        { "data_value": "Player character health", "data_type": "Quantitative" }
+        {
+          "data_value": "Player character health",
+          "data_type": "Quantitative"
+        }
       ],
       [
         {
@@ -411,8 +1392,18 @@
     "screenshot_id": "1",
     "vis_id": "l1",
     "data": [
-      [{ "data_value": "Player health", "data_type": "Quantitative" }],
-      [{ "data_value": "Player currency (geo)", "data_type": "Quantitative" }],
+      [
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Player currency (geo)",
+          "data_type": "Quantitative"
+        }
+      ],
       [
         {
           "data_value": "Player potential health (soul)",
@@ -446,7 +1437,14 @@
     "game_id": "69",
     "screenshot_id": "2",
     "vis_id": "l1",
-    "data": [[{ "data_value": "Boss enemy name", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Boss enemy name",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Text"]],
     "channels": [["Text"]],
     "vis_name": "Boss battle start",
@@ -466,7 +1464,14 @@
     "game_id": "69",
     "screenshot_id": "3",
     "vis_id": "l1",
-    "data": [[{ "data_value": "Achievement", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Achievement",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Text", "Symbol"]],
     "channels": [["Shape", "Text"]],
     "vis_name": "Achievement unlocked",
@@ -488,10 +1493,21 @@
     "vis_id": "l1",
     "data": [
       [
-        { "data_value": "Equipped charm", "data_type": "Nominal" },
-        { "data_value": "Charm slot", "data_type": "Ordinal" }
+        {
+          "data_value": "Equipped charm",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Charm slot",
+          "data_type": "Ordinal"
+        }
       ],
-      [{ "data_value": "Max equipment (notches)", "data_type": "Quantitative" }]
+      [
+        {
+          "data_value": "Max equipment (notches)",
+          "data_type": "Quantitative"
+        }
+      ]
     ],
     "marks": [
       ["Text", "Image", "Image_Array"],
@@ -520,8 +1536,14 @@
     "vis_id": "l1",
     "data": [
       [
-        { "data_value": "Adjacent area name", "data_type": "Nominal" },
-        { "data_value": "Adjacent region position", "data_type": "Spatial" }
+        {
+          "data_value": "Adjacent area name",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Adjacent region position",
+          "data_type": "Spatial"
+        }
       ]
     ],
     "marks": [["Symbol", "Text"]],
@@ -544,7 +1566,14 @@
     "game_id": "69",
     "screenshot_id": "3",
     "vis_id": "l2",
-    "data": [[{ "data_value": "Item", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Item",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Text", "Symbol"]],
     "channels": [["Shape", "Text"]],
     "vis_name": "Achievement unlocked",
@@ -566,8 +1595,14 @@
     "vis_id": "l2",
     "data": [
       [
-        { "data_value": "Unlocked charm", "data_type": "Nominal" },
-        { "data_value": "Unlocked charm slot", "data_type": "Ordinal" }
+        {
+          "data_value": "Unlocked charm",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Unlocked charm slot",
+          "data_type": "Ordinal"
+        }
       ]
     ],
     "marks": [["Text", "Image", "Image_Array"]],
@@ -593,8 +1628,14 @@
     "vis_id": "l2",
     "data": [
       [
-        { "data_value": "Area of interest", "data_type": "Nominal" },
-        { "data_value": "Area of interest position", "data_type": "Spatial" }
+        {
+          "data_value": "Area of interest",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Area of interest position",
+          "data_type": "Spatial"
+        }
       ]
     ],
     "marks": [["Symbol"]],
@@ -617,7 +1658,14 @@
     "game_id": "69",
     "screenshot_id": "3",
     "vis_id": "l3a",
-    "data": [[{ "data_value": "Selected charm slot", "data_type": "Ordinal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Selected charm slot",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
     "marks": [["Circle", "Symbol"]],
     "channels": [["Hue", "Position"]],
     "vis_name": "Inventory - Selected charm",
@@ -640,8 +1688,14 @@
     "vis_id": "l3",
     "data": [
       [
-        { "data_value": "Area of interest", "data_type": "Nominal" },
-        { "data_value": "Area of interest position", "data_type": "Spatial" }
+        {
+          "data_value": "Area of interest",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Area of interest position",
+          "data_type": "Spatial"
+        }
       ]
     ],
     "marks": [["Symbol"]],
@@ -665,8 +1719,18 @@
     "screenshot_id": "3",
     "vis_id": "l3b",
     "data": [
-      [{ "data_value": "Charm", "data_type": "Nominal" }],
-      [{ "data_value": "Charm details", "data_type": "Nominal" }],
+      [
+        {
+          "data_value": "Charm",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Charm details",
+          "data_type": "Nominal"
+        }
+      ],
       [
         {
           "data_value": "Equipment cost (notches)",
@@ -695,8 +1759,14 @@
     "vis_id": "l4",
     "data": [
       [
-        { "data_value": "Equipped charm", "data_type": "Nominal" },
-        { "data_value": "Equipped charm slot", "data_type": "Ordinal" }
+        {
+          "data_value": "Equipped charm",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Equipped charm slot",
+          "data_type": "Ordinal"
+        }
       ]
     ],
     "marks": [["Image", "Circle"]],
@@ -719,7 +1789,14 @@
     "game_id": "70",
     "screenshot_id": "1",
     "vis_id": "l1a",
-    "data": [[{ "data_value": "Mission location", "data_type": "Spatial" }]],
+    "data": [
+      [
+        {
+          "data_value": "Mission location",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
     "marks": [["Symbol"]],
     "channels": [["Shape", "Luminance", "Position"]],
     "vis_name": "Mission location",
@@ -741,7 +1818,12 @@
     "screenshot_id": "2",
     "vis_id": "l1",
     "data": [
-      [{ "data_value": "Mission time remaining", "data_type": "Temporal" }]
+      [
+        {
+          "data_value": "Mission time remaining",
+          "data_type": "Temporal"
+        }
+      ]
     ],
     "marks": [["Text"]],
     "channels": [["Text"]],
@@ -764,8 +1846,14 @@
     "vis_id": "l1",
     "data": [
       [
-        { "data_value": "Current area", "data_type": "Nominal" },
-        { "data_value": "Player location", "data_type": "Spatial" }
+        {
+          "data_value": "Current area",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player location",
+          "data_type": "Spatial"
+        }
       ]
     ],
     "marks": [["Text"]],
@@ -787,7 +1875,14 @@
     "game_id": "70",
     "screenshot_id": "4",
     "vis_id": "l1",
-    "data": [[{ "data_value": "Current area", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Current area",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Rectangle", "Symbol", "Rule", "Text"]],
     "channels": [["Luminance", "Position", "Text"]],
     "vis_name": "Map - world view",
@@ -809,7 +1904,12 @@
     "screenshot_id": "5",
     "vis_id": "le1",
     "data": [
-      [{ "data_value": "Special ability name", "data_type": "Nominal" }]
+      [
+        {
+          "data_value": "Special ability name",
+          "data_type": "Nominal"
+        }
+      ]
     ],
     "marks": [["Text"]],
     "channels": [["Luminance", "Position", "Text"]],
@@ -832,7 +1932,12 @@
     "screenshot_id": "6",
     "vis_id": "le1",
     "data": [
-      [{ "data_value": "Damage received", "data_type": "Quantitative" }]
+      [
+        {
+          "data_value": "Damage received",
+          "data_type": "Quantitative"
+        }
+      ]
     ],
     "marks": [["Text"]],
     "channels": [["Hue", "Text"]],
@@ -855,7 +1960,12 @@
     "screenshot_id": "7",
     "vis_id": "le1",
     "data": [
-      [{ "data_value": "Healing received", "data_type": "Quantitative" }]
+      [
+        {
+          "data_value": "Healing received",
+          "data_type": "Quantitative"
+        }
+      ]
     ],
     "marks": [["Text"]],
     "channels": [["Hue", "Text"]],
@@ -878,7 +1988,12 @@
     "screenshot_id": "8",
     "vis_id": "le1",
     "data": [
-      [{ "data_value": "Boss special ability", "data_type": "Nominal" }]
+      [
+        {
+          "data_value": "Boss special ability",
+          "data_type": "Nominal"
+        }
+      ]
     ],
     "marks": [["Text"]],
     "channels": [["Hue", "Text"]],
@@ -902,8 +2017,14 @@
     "vis_id": "l1",
     "data": [
       [
-        { "data_value": "Stagger progress", "data_type": "Quantitative" },
-        { "data_value": "Stagger time remaining", "data_type": "Temporal" }
+        {
+          "data_value": "Stagger progress",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Stagger time remaining",
+          "data_type": "Temporal"
+        }
       ]
     ],
     "marks": [["Rectangle", "Text"]],
@@ -928,8 +2049,14 @@
     "vis_id": "l1b",
     "data": [
       [
-        { "data_value": "Mission location", "data_type": "Spatial" },
-        { "data_value": "Mission distance", "data_type": "Quantitative" }
+        {
+          "data_value": "Mission location",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Mission distance",
+          "data_type": "Quantitative"
+        }
       ]
     ],
     "marks": [["Line", "Symbol", "Text"]],
@@ -956,9 +2083,18 @@
     "vis_id": "l2a",
     "data": [
       [
-        { "data_value": "Mission name", "data_type": "Nominal" },
-        { "data_value": "Mission ID", "data_type": "Ordinal" },
-        { "data_value": "Mission location", "data_type": "Spatial" }
+        {
+          "data_value": "Mission name",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Mission ID",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Mission location",
+          "data_type": "Spatial"
+        }
       ]
     ],
     "marks": [["Symbol"]],
@@ -982,9 +2118,24 @@
     "screenshot_id": "5",
     "vis_id": "l2",
     "data": [
-      [{ "data_value": "Enemy name", "data_type": "Nominal" }],
-      [{ "data_value": "Enemy health", "data_type": "Quantitative" }],
-      [{ "data_value": "Stagger progress", "data_type": "Quantitative" }]
+      [
+        {
+          "data_value": "Enemy name",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Enemy health",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Stagger progress",
+          "data_type": "Quantitative"
+        }
+      ]
     ],
     "marks": [["Text"], ["Rectangle"], ["Rectangle"]],
     "channels": [
@@ -1011,7 +2162,12 @@
     "screenshot_id": "6",
     "vis_id": "l2",
     "data": [
-      [{ "data_value": "Stagger progress", "data_type": "Quantitative" }]
+      [
+        {
+          "data_value": "Stagger progress",
+          "data_type": "Quantitative"
+        }
+      ]
     ],
     "marks": [["Rectangle", "Text"]],
     "channels": [["Hue", "Text", "Length"]],
@@ -1037,8 +2193,14 @@
     "vis_id": "le2",
     "data": [
       [
-        { "data_value": "Damage type", "data_type": "Nominal" },
-        { "data_value": "Damage dealt", "data_type": "Quantitative" }
+        {
+          "data_value": "Damage type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Damage dealt",
+          "data_type": "Quantitative"
+        }
       ]
     ],
     "marks": [["Text"]],
@@ -1063,8 +2225,14 @@
     "vis_id": "le2",
     "data": [
       [
-        { "data_value": "Damage type", "data_type": "Nominal" },
-        { "data_value": "Damage dealt", "data_type": "Quantitative" }
+        {
+          "data_value": "Damage type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Damage dealt",
+          "data_type": "Quantitative"
+        }
       ]
     ],
     "marks": [["Text"]],
@@ -1087,7 +2255,14 @@
     "game_id": "70",
     "screenshot_id": "3",
     "vis_id": "l2b",
-    "data": [[{ "data_value": "Mission name", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Mission name",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Rectangle", "Symbol", "Text", "Rule"]],
     "channels": [["Text"]],
     "vis_name": "Map - Mission location details",
@@ -1108,7 +2283,14 @@
     "game_id": "70",
     "screenshot_id": "5",
     "vis_id": "l3",
-    "data": [[{ "data_value": "Targeted enemy", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Targeted enemy",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Symbol", "Text"]],
     "channels": [["Position"]],
     "vis_name": "Targeted enemy",
@@ -1130,9 +2312,17 @@
     "screenshot_id": "8",
     "vis_id": "l3",
     "data": [
-      [{ "data_value": "Player character", "data_type": "Nominal" }],
       [
-        { "data_value": "Player character health", "data_type": "Quantitative" }
+        {
+          "data_value": "Player character",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Player character health",
+          "data_type": "Quantitative"
+        }
       ],
       [
         {
@@ -1188,8 +2378,14 @@
     "vis_id": "l3",
     "data": [
       [
-        { "data_value": "Player orientation", "data_type": "Ordinal" },
-        { "data_value": "Player location", "data_type": "Spatial" }
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player location",
+          "data_type": "Spatial"
+        }
       ]
     ],
     "marks": [["Symbol"]],
@@ -1212,7 +2408,14 @@
     "game_id": "71",
     "screenshot_id": "1",
     "vis_id": "g1",
-    "data": [[{ "data_value": "Areas", "data_type": "Ordinal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Areas",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
     "marks": [["Symbol", "Text"]],
     "channels": [["Position", "Size", "Hue", "Shape"]],
     "vis_name": "Area Select",
@@ -1234,8 +2437,14 @@
     "vis_id": "l1a",
     "data": [
       [
-        { "data_value": "Player position", "data_type": "Spatial" },
-        { "data_value": "Player orientation", "data_type": "Ordinal" }
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        }
       ]
     ],
     "marks": [["Symbol", "Arc"]],
@@ -1258,7 +2467,14 @@
     "game_id": "71",
     "screenshot_id": "3",
     "vis_id": "g1",
-    "data": [[{ "data_value": "Total coins", "data_type": "Quantitative" }]],
+    "data": [
+      [
+        {
+          "data_value": "Total coins",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
     "marks": [["Symbol", "Text"]],
     "channels": [["Shape", "Text"]],
     "vis_name": "Currency counter (coins)",
@@ -1278,7 +2494,14 @@
     "game_id": "71",
     "screenshot_id": "4",
     "vis_id": "l1",
-    "data": [[{ "data_value": "Player trajectory", "data_type": "Spatial" }]],
+    "data": [
+      [
+        {
+          "data_value": "Player trajectory",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
     "marks": [["Symbol", "Path"]],
     "channels": [["Position", "Length", "Angle"]],
     "vis_name": "Chain Chomp Release",
@@ -1299,7 +2522,14 @@
     "game_id": "71",
     "screenshot_id": "1",
     "vis_id": "g2",
-    "data": [[{ "data_value": "Total moons", "data_type": "Quantitative" }]],
+    "data": [
+      [
+        {
+          "data_value": "Total moons",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
     "marks": [["Text", "Symbol", "Rectangle"]],
     "channels": [["Text"]],
     "vis_name": "Total moons collected",
@@ -1321,9 +2551,18 @@
     "vis_id": "l1b",
     "data": [
       [
-        { "data_value": "Waypoint name", "data_type": "Nominal" },
-        { "data_value": "Waypoint position", "data_type": "Spatial" },
-        { "data_value": "Selected", "data_type": "Nominal" }
+        {
+          "data_value": "Waypoint name",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Waypoint position",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Selected",
+          "data_type": "Nominal"
+        }
       ]
     ],
     "marks": [["Symbol", "Text"]],
@@ -1375,9 +2614,18 @@
     "vis_id": "l1c",
     "data": [
       [
-        { "data_value": "Waypoint name", "data_type": "Nominal" },
-        { "data_value": "Waypoint position", "data_type": "Spatial" },
-        { "data_value": "Selected", "data_type": "Nominal" }
+        {
+          "data_value": "Waypoint name",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Waypoint position",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Selected",
+          "data_type": "Nominal"
+        }
       ]
     ],
     "marks": [["Symbol"]],
@@ -1427,7 +2675,14 @@
     "game_id": "71",
     "screenshot_id": "3",
     "vis_id": "l3",
-    "data": [[{ "data_value": "Player health", "data_type": "Quantitative" }]],
+    "data": [
+      [
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
     "marks": [["Arc", "Text"]],
     "channels": [["Hue", "Angle", "Text"]],
     "vis_name": "Player health bar",
@@ -1452,7 +2707,14 @@
     "game_id": "71",
     "screenshot_id": "4",
     "vis_id": "l4",
-    "data": [[{ "data_value": "Player orientation", "data_type": "Ordinal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
     "marks": [["Arc", "Circle", "Symbol", "Text"]],
     "channels": [["Angle"]],
     "vis_name": "Compass",
