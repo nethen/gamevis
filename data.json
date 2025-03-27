@@ -329,7 +329,7 @@
       }
     ],
     "vis_visibility": [["Global", false]],
-    "notes": ["Cameo image darkened when they’re used"],
+    "notes": ["Cameo image darkened when they're used"],
     "tags": ["Character", "Ability"]
   },
   {
@@ -884,6 +884,5380 @@
     "vis_visibility": [["Local", false]],
     "notes": ["Hue and luminance as identity for visibility"],
     "tags": ["Wayfinding", "Progression", "Ability"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "1",
+    "vis_id": "g1a",
+    "data": [
+      [
+        {
+          "data_value": "player",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "health",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "money",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "weapon",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [
+      ["Image", "Rectangle"],
+      ["Rectangle", "Text"],
+      ["Text"],
+      ["Shape"]
+    ],
+    "channels": [["Hue", "Image"], ["Length", "Text"], ["Text"], ["Shape"]],
+    "vis_name": "All vitals",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Identifies if player is alive/dead and an ally; if so, indicate their health, savings and weapon loadout.",
+      "Border denotes which player is which.",
+      "Longer bar = more health.",
+      "More precise measurement of health."
+    ],
+    "tags": ["Vitals", "Health", "Currency", "Equipment"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "1",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Total money",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Team",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Hue", "Text"]],
+    "vis_name": "Personal savings",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Remind what team you're on",
+      "Precisely identify how much money you have"
+    ],
+    "tags": ["Currency"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "2",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Position of available weapon",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Weapon type",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Rule", "Circle"]],
+    "channels": [["Hue", "Shape", "Position"]],
+    "vis_name": "Available weapon dropped",
+    "vis_usage": ["Environment", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "weapon",
+        "relative_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Indicate that an available item is on ground, separating it from environment.",
+      "Gun indicates weapon type.",
+      "Circle indicates the spot on the in-game."
+    ],
+    "tags": ["Equipment"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "3",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Direction of damage received",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Arc"]],
+    "channels": [["Angle"]],
+    "vis_name": "Damage received",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Vitals", "Health", "Damage", "Combat"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "4",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Dead player",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Image"]],
+    "channels": [["Image", "Luminance"]],
+    "vis_name": "Team vitals - dead player",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": ["Player is dead.", "Lower luminance of killed player."],
+    "tags": ["Vitals", "Health", "Death"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "4",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Terrain",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Player",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Currently viewing player",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Currently viewing player location",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Path"], ["Circle", "Symbol"], ["Text"]],
+    "channels": [["Shape"], ["Hue", "Position", "Angle"], ["Text"]],
+    "vis_name": "Minimap",
+    "vis_usage": ["Environment", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Map areas and paths with colored text in a square.",
+      "Remind what team you're on.",
+      "Precisely identify name of the location of the player you are spectating."
+    ],
+    "tags": ["Wayfinding", "Map"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "5",
+    "vis_id": "le1",
+    "data": [
+      [
+        {
+          "data_value": "Bomb defusal time",
+          "data_type": "Temporal"
+        }
+      ]
+    ],
+    "marks": [["Arc", "Symbol", "Rectangle", "Text"]],
+    "channels": [["Angle", "Text"]],
+    "vis_name": "Bomb defusal timer",
+    "vis_usage": ["Game", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [
+      "Modal with arced path along circle accompanied by text statuses.",
+      "Vertical filled angled length showing progress of defusal.",
+      "Precisely show defusal status and time remaining in countdown."
+    ],
+    "tags": ["Ability", "Timer"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "1",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Health points",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Team",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Text", "Rectangle"]],
+    "channels": [["Length", "Text", "Hue"]],
+    "vis_name": "Health",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left", "Bottom"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Length equates to health.",
+      "Precisely identify how much health you have.",
+      "Remind what team you're on."
+    ],
+    "tags": ["Health", "Vitals"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "3",
+    "vis_id": "l2a",
+    "data": [
+      [
+        {
+          "data_value": "Health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Text"]],
+    "channels": [["Hue", "Length", "Text"]],
+    "vis_name": "Health bar - Damage Received",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left", "Bottom"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Damage has been taken.",
+      "Identify new value of health.",
+      "Mark proportionally how much damage was taken."
+    ],
+    "tags": ["Health", "Vitals", "Damage", "Combat"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "4",
+    "vis_id": "g2a",
+    "data": [
+      [
+        {
+          "data_value": "Killer",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player killed",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Weapon used",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Text", "Symbol"]],
+    "channels": [["Hue", "Shape", "Text"]],
+    "vis_name": "Kill notification",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Indicate order of who killed who",
+      "Identify team of killer/killed",
+      "Identify weapon used for kill",
+      "Indicate if headshot occurred",
+      "Left is the killer, Right is the killed"
+    ],
+    "tags": ["Alert", "Combat", "Death"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "12",
+    "vis_id": "g1b",
+    "data": [
+      [
+        {
+          "data_value": "Enemy/Ally player",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Enemy/Ally player position",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Money total",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Weapon loadout",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Text"], ["Text"], ["Symbol"]],
+    "channels": [["Hue", "Position", "Text"], ["Text"], ["Shape"]],
+    "vis_name": "Player Position",
+    "vis_usage": ["Player", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "player",
+        "relative_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Identifies where enemy/ally player is. Reveals ally savings and weapon loadout.",
+      "Player position marked with colored arrow and username."
+    ],
+    "tags": ["Vitals", "Health", "Currency", "Equipment"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "1",
+    "vis_id": "l3",
+    "data": [
+      [
+        {
+          "data_value": "Current team",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Symbol"]],
+    "channels": [["Hue", "Shape"]],
+    "vis_name": "Team insignia",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": ["Remind what team you're on.", "Detail which team you're on."],
+    "tags": ["Character"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "3",
+    "vis_id": "l2b",
+    "data": [
+      [
+        {
+          "data_value": "Health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Text"]],
+    "channels": [["Hue", "Length", "Text"]],
+    "vis_name": "All vitals - Damage Received",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Damage has been taken.",
+      "Identify new value of health.",
+      "Mark proportionally how much damage was taken."
+    ],
+    "tags": ["Health", "Vitals", "Damage", "Combat"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "4",
+    "vis_id": "g2b",
+    "data": [
+      [
+        {
+          "data_value": "Player",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Kills",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Symbol_Array"]],
+    "channels": [["Length"]],
+    "vis_name": "Kill counter",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Combat", "Score"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "12",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "time left",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "team",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "team score",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "remaining players",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"], ["Symbol", "Text"]],
+    "channels": [["Text"], ["Hue", "Text"]],
+    "vis_name": "Match timer and scores",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Timer", "Score", "Round"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "1",
+    "vis_id": "l4a",
+    "data": [
+      [
+        {
+          "data_value": "Weapon",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Selected weapon",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Text"]],
+    "channels": [["Hue", "Position", "Size", "Shape", "Text"]],
+    "vis_name": "Weapon loadout",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Remind what team you're on",
+      "Identify where in scroll wheel/keyboard you need to select",
+      "Larger weapon is selected",
+      "Distinguish weapon type",
+      "Precisely identify weapon name"
+    ],
+    "tags": ["Equipment"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "1",
+    "vis_id": "l4b",
+    "data": [
+      [
+        {
+          "data_value": "Ammo count",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Weapon type",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Length", "Text", "Shape", "Hue"]],
+    "vis_name": "Ammo remaining",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right", "Bottom"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Distinguish current ammo in clip vs. total in inventory.",
+      "Precisely identify how much ammo you have.",
+      "Distinguish ammunition type.",
+      "Remind what team you're on."
+    ],
+    "tags": ["Equipment", "Ammo"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "1",
+    "vis_id": "l5",
+    "data": [
+      [
+        {
+          "data_value": "Terrain",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        }
+      ],
+      [
+        {
+          "data_value": "Map region",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Path"], ["Symbol"], ["Text"]],
+    "channels": [["Shape"], ["Hue", "Position", "Angle"], ["Text"]],
+    "vis_name": "Minimap",
+    "vis_usage": ["Environment", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Remind what team you're on",
+      "Precisely identify name of the location that you are in"
+    ],
+    "tags": ["Map", "Wayfinding"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "1",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Jump phase timer",
+          "data_type": "Temporal"
+        }
+      ]
+    ],
+    "marks": [["Circle", "Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Jump phase timer",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Timer", "Round", "Progression"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "1",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Player",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Character",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path", "Text"], ["Image"], ["Rectangle"]],
+    "channels": [["Hue", "Text"], ["Image"], ["Length"]],
+    "vis_name": "Player health bar",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Character", "Vitals", "Health"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "2",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Ally player",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Ally player position",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Text"]],
+    "channels": [["Hue", "Text", "Position"]],
+    "vis_name": "Ally player position indicator",
+    "vis_usage": ["Player", "Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Ally player",
+        "relative_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Character", "Wayfinding"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "4",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Armor slots",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Rectangle_Array"]],
+    "channels": [["Luminance", "Length"]],
+    "vis_name": "Armor slots",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Equipment"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "5",
+    "vis_id": "le1",
+    "data": [
+      [
+        {
+          "data_value": "Collected credits",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text", "Symbol"]],
+    "channels": [["Text"]],
+    "vis_name": "Collected credits",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Currency"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "7",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Armor type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Armor rarity",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Armor upgrade progress",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path", "Text", "Symbol"]],
+    "channels": [["Hue", "Shape", "Text"]],
+    "vis_name": "Armor upgrade progress",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Equipment"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "8",
+    "vis_id": "le1a",
+    "data": [
+      [
+        {
+          "data_value": "Damage target",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Damage dealt",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text", "Symbol"]],
+    "channels": [["Hue", "Shape", "Text"]],
+    "vis_name": "Damage dealt",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "enemy",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Combat", "Damage"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "9",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Grenade endpoint",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Trail"]],
+    "channels": [["Hue", "Curvature"]],
+    "vis_name": "Grenade path",
+    "vis_usage": ["Player", "Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "player",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Combat", "Ammo", "Ability"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "10",
+    "vis_id": "le1",
+    "data": [
+      [
+        {
+          "data_value": "Direction of damage taken",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Symbol"]],
+    "channels": [["Hue", "Shape", "Angle"]],
+    "vis_name": "Damage taken indicator",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Combat", "Damage", "Vitals"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "11",
+    "vis_id": "g1a",
+    "data": [
+      [
+        {
+          "data_value": "Round time remaining",
+          "data_type": "Temporal"
+        }
+      ]
+    ],
+    "marks": [["Circle", "Text"]],
+    "channels": [["Size", "Text"]],
+    "vis_name": "Round timer",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Left", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Round", "Progression", "Timer", "Alert"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "11",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Ultimate ability duration",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path", "Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Ultimate ability duration",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Combat", "Ability", "Timer"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "12",
+    "vis_id": "le1",
+    "data": [
+      [
+        {
+          "data_value": "Killed player",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Damage dealt",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path", "Text"], ["Text"]],
+    "channels": [["Text"], ["Text"]],
+    "vis_name": "Player kill alert",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Combat", "Death", "Alert", "Score"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "13",
+    "vis_id": "g1a",
+    "data": [
+      [
+        {
+          "data_value": "Round time remaining",
+          "data_type": "Temporal"
+        }
+      ]
+    ],
+    "marks": [["Circle", "Text"]],
+    "channels": [["Size", "Text"]],
+    "vis_name": "Round timer",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Round", "Progression", "Timer", "Alert"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "14",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Challenge type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Challenge progress",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text", "Rectangle", "Symbol"]],
+    "channels": [["Length", "Shape", "Text"]],
+    "vis_name": "Objective progress",
+    "vis_usage": ["Game", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Progression", "Score"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "1",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Player",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Character",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path", "Text"], ["Image"], ["Rectangle"]],
+    "channels": [["Hue", "Text"], ["Image"], ["Length"]],
+    "vis_name": "Ally player health bar",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Character", "Vitals", "Health"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "2",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Terrain",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Path"], ["Symbol"]],
+    "channels": [["Shape"], ["Hue", "Position", "Angle"]],
+    "vis_name": "Minimap",
+    "vis_usage": ["Environment", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Remind what team you're on",
+      "Precisely identify name of the location that you are in"
+    ],
+    "tags": ["Map", "Wayfinding"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "3",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Available armor type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Armor value",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Weapon/attachment rarity",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Symbol", "Text", "Rule"]],
+    "channels": [["Hue", "Shape", "Text"]],
+    "vis_name": "Available armor details",
+    "vis_usage": ["Player", "Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Available armor",
+        "relative_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Equipment"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "5",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Total credits",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path", "Symbol", "Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Total currency",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Right", "Top"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Currency"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "6",
+    "vis_id": "ge1",
+    "data": [
+      [
+        {
+          "data_value": "Killer",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player killed",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Weapon involved",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Text", "Symbol"]],
+    "channels": [["Text", "Shape"]],
+    "vis_name": "Kill alert",
+    "vis_usage": ["Player", "Enemy", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", true]],
+    "notes": [],
+    "tags": ["Combat", "Alert", "Death"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "6",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Weapon/attachment type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Weapon/attachment rarity",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Text", "Symbol"]],
+    "channels": [["Hue", "Shape", "Text"]],
+    "vis_name": "Weapon/attachment details",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "weapon/attachment",
+        "relative_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Equipment"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "7",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Consumable type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Consumable count",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path", "Text", "Image"]],
+    "channels": [["Luminance", "Shape", "Text"]],
+    "vis_name": "Consumable resource hotkey",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Resource"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "8",
+    "vis_id": "le1b",
+    "data": [
+      [
+        {
+          "data_value": "Damage target",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Damage dealt",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text", "Symbol"]],
+    "channels": [["Hue", "Shape"]],
+    "vis_name": "Damage dealt - shield broken",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "enemy",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Combat", "Damage", "Equipment"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "9",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Ultimate ability progress",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path", "Symbol", "Text"]],
+    "channels": [["Hue", "Luminance", "Shape", "Text"]],
+    "vis_name": "Ultimate ability ready",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Combat", "Ability"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "11",
+    "vis_id": "g1b",
+    "data": [
+      [
+        {
+          "data_value": "Round time remaining",
+          "data_type": "Temporal"
+        }
+      ]
+    ],
+    "marks": [["Path", "Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Round timer - global",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Round", "Progression", "Timer", "Alert"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "12",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Ultimate ability duration",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path", "Symbol", "Text"]],
+    "channels": [["Hue", "Luminance", "Shape", "Text"]],
+    "vis_name": "Ultimate ability in use",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Combat", "Ability"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "14",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Terrain",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        }
+      ],
+      [
+        {
+          "data_value": "Unsafe area",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Path"], ["Symbol"], ["Path"]],
+    "channels": [["Shape"], ["Hue", "Position", "Angle"], ["Hue", "Shape"]],
+    "vis_name": "Map",
+    "vis_usage": ["Environment", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Map", "Wayfinding"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "2",
+    "vis_id": "l3",
+    "data": [
+      [
+        {
+          "data_value": "Remaining teams",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Remaining players",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Remaining players/teams",
+    "vis_usage": ["Game", "Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Map", "Wayfinding"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "7",
+    "vis_id": "l3a",
+    "data": [
+      [
+        {
+          "data_value": "Weapon type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Ammo count",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Ammo type",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [
+      ["Path", "Text", "Symbol"],
+      ["Path", "Symbol"]
+    ],
+    "channels": [
+      ["Shape", "Text"],
+      ["Hue", "Shape"]
+    ],
+    "vis_name": "Weapon and ammo count",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Equipment", "Ammo"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "11",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Consumable type",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Consumable timer",
+          "data_type": "Temporal"
+        }
+      ]
+    ],
+    "marks": [
+      ["Path", "Image"],
+      ["Rectangle", "Text"]
+    ],
+    "channels": [["Image"], ["Length", "Text"]],
+    "vis_name": "Consumable timer",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Resource", "Timer"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "14",
+    "vis_id": "l3",
+    "data": [
+      [
+        {
+          "data_value": "Kill count",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Kill count",
+    "vis_usage": ["Game", "Player", "Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Score", "Combat", "Death"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "2",
+    "vis_id": "l4",
+    "data": [
+      [
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Rule", "Rule_Array", "Text", "Text_Array"]],
+    "channels": [["Position", "Text"]],
+    "vis_name": "Compass",
+    "vis_usage": ["Player", "Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Wayfinding"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "7",
+    "vis_id": "l3b",
+    "data": [
+      [
+        {
+          "data_value": "Ammo count",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Ammo count",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Weapon reticle",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Equipment", "Ammo"]
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "1",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Terrain",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Player",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Site",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Site location",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Death occured",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Death location",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Path"], ["Arc", "Symbol"], ["Symbol"], ["Symbol"]],
+    "channels": [
+      ["Shape"],
+      ["Hue", "Position", "Angle"],
+      ["Image", "Position"],
+      ["Image", "Position"]
+    ],
+    "vis_name": "Minimap",
+    "vis_usage": ["Environment", "Game", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Wayfinding", "Map"]
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "1",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Kill count",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Points added",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Killed Achieved",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Killed player",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Death", "Score"]
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "2",
+    "vis_id": "le1",
+    "data": [
+      [
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Damage taken",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image"]],
+    "channels": [["Hue", "Length"]],
+    "vis_name": "Health bar - low health",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": ["Flash across the screen"],
+    "tags": ["Combat", "Damage", "Vitals", "Health"]
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "3",
+    "vis_id": "ge1",
+    "data": [
+      [
+        {
+          "data_value": "Audiovisual event type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Audiovisual event type",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Symbol"]],
+    "channels": [["Position", "Hue", "Shape"]],
+    "vis_name": "Recent grenade position",
+    "vis_usage": ["Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Grenade endpoint",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Global", true]],
+    "notes": [],
+    "tags": ["Wayfinding", "Alert", "Combat"]
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "4",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Objective",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Objective position",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Text"]],
+    "channels": [["Position", "Hue", "Text"]],
+    "vis_name": "Objective location",
+    "vis_usage": ["Environment", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Objective location",
+        "relative_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Wayfinding", "Progression"]
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "4",
+    "vis_id": "le1",
+    "data": [
+      [
+        {
+          "data_value": "Player kill type",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Image", "Text"]],
+    "channels": [["Image"], ["Text"]],
+    "vis_name": "Headshot",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Death", "Score", "Combat"]
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "5",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Objective type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Objective location",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Text"]],
+    "channels": [["Hue", "Shape", "Position", "Text"]],
+    "vis_name": "Objective location marker",
+    "vis_usage": ["Environment", "Game", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Objective location",
+        "relative_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": []
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "6",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Point of interest",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "POI location",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Arc", "Symbol"], ["Symbol"]],
+    "channels": [
+      ["Hue", "Position", "Angle"],
+      ["Image", "Position"]
+    ],
+    "vis_name": "Minimap",
+    "vis_usage": ["Environment", "Game", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Wayfinding", "Map"]
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "1",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "Team",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Team kills",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text", "Rectangle"]],
+    "channels": [["Hue", "Length", "Text"]],
+    "vis_name": "Team kills",
+    "vis_usage": ["Game", "Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Left", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Score", "Combat"]
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "1",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Ammo count",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Ammo type",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Text"], ["Rectangle", "Symbol"]],
+    "channels": [["Text"], [["Luminance", "Shape"]]],
+    "vis_name": "Ammo info",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": ["Equipment", "Ammo"]
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "2",
+    "vis_id": "le2",
+    "data": [
+      [
+        {
+          "data_value": "direction of damage",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Arc"]],
+    "channels": [["Hue", "Angle"]],
+    "vis_name": "Direction of damage taken",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Combat", "Damage", "Alert"]
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "4",
+    "vis_id": "le2a",
+    "data": [
+      [
+        {
+          "data_value": "Player buff",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Duration",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle"]],
+    "channels": [["Hue", "Luminance"]],
+    "vis_name": "Combat stim",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": []
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "1",
+    "vis_id": "l3",
+    "data": [
+      [
+        {
+          "data_value": "Resource count",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Available resource",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Image", "Image_Array", "Text"]],
+    "channels": [["Image", "Text"]],
+    "vis_name": "Secondary resources",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Resource"]
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "2",
+    "vis_id": "le3",
+    "data": [
+      [
+        {
+          "data_value": "Player status",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Text"]],
+    "channels": [["Shape", "Text"]],
+    "vis_name": "Player status",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [
+      "If player is noticed by an opponent / has a specific status effect inflicted on them"
+    ],
+    "tags": ["Ability"]
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "3",
+    "vis_id": "ge2",
+    "data": [
+      [
+        {
+          "data_value": "Player killed",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Killer",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Weapon involved",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Text", "Symbol"]],
+    "channels": [["Text", "Colour", "Shape"]],
+    "vis_name": "Kill Notification",
+    "vis_usage": ["Player", "Enemy", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", true]],
+    "notes": ["Player successfully killed enemy (global notification)"]
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "4",
+    "vis_id": "le2b",
+    "data": [
+      [
+        {
+          "data_value": "Player buff",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Symbol"]],
+    "channels": [["Hue", "Luminance", "Shape"]],
+    "vis_name": "Combat stim selected",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": []
+  },
+  {
+    "game_id": "8",
+    "screenshot_id": "2",
+    "vis_id": "le4",
+    "data": [
+      [
+        {
+          "data_value": "Damage taken",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image"]],
+    "channels": [["Hue"]],
+    "vis_name": "Player hit",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": ["The red around the screen, brief blood splatter effect."],
+    "tags": ["Damage", "Combat"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "1",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Team scores",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Remaining time",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Game type",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Path", "Text"], ["Text"], ["Symbol"]],
+    "channels": [["Position", "Hue", "Text"], ["Text"], ["Shape"]],
+    "vis_name": "Game score and state",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Trapezoidal AREA behind score TEXTs",
+      "Left for ally team, right for enemy",
+      "Star polygon represents souls"
+    ],
+    "tags": ["Score", "Event", "Timer"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "1",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Character",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Ammo",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image"], ["Symbol", "Text"]],
+    "channels": [["Image"], ["Shape", "Text"]],
+    "vis_name": "Player Character and Weapon",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Distinguish character",
+      "Identify through distinct shape language",
+      "See if infinite or has limited ammo"
+    ],
+    "tags": ["Character", "Ability", "Combat"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "2",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Character-specific cooldown",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path", "Text"]],
+    "channels": [["Luminance", "Length", "Text"]],
+    "vis_name": "Player reticle",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Character", "Combat", "Ability"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "3",
+    "vis_id": "le1",
+    "data": [
+      [
+        {
+          "data_value": "player health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image"]],
+    "channels": [["Hue"]],
+    "vis_name": "Low health signifier",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": ["Flash across the screen."],
+    "tags": ["Health"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "4",
+    "vis_id": "le2",
+    "data": [
+      [
+        {
+          "data_value": "health gained",
+          "data_type": "quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image"]],
+    "channels": [["Hue"]],
+    "vis_name": "Health received",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Healing"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "5",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Payload progress",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Rectangle_Array", "Symbol", "Symbol_Array"]],
+    "channels": [["Hue", "Length"]],
+    "vis_name": "Payload progress",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Progression"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "6",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "Control point position",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Controlling team",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Circle", "Symbol"], ["Symbol"]],
+    "channels": [["Hue"], ["Position", "Angle"]],
+    "vis_name": "Control point area",
+    "vis_usage": ["Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "control point",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Distinguish team progresses and who is in control of point.",
+      "Generally orient where in space control point is relative to layer.",
+      "Point to direction of control point."
+    ],
+    "tags": ["Objective", "Wayfinding"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "2",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Player",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Hue", "Text"]],
+    "vis_name": "Enemy Tags",
+    "vis_usage": ["Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Player",
+        "relative_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Character"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "2",
+    "vis_id": "le2",
+    "data": [
+      [
+        {
+          "data_value": "Ability duration",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Arc", "Text"]],
+    "channels": [["Luminance", "Angle", "Text"]],
+    "vis_name": "Ability duration",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Ability"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "3",
+    "vis_id": "le2",
+    "data": [
+      [
+        {
+          "data_value": "direction of damage source",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Path"]],
+    "channels": [["Hue", "Size", "Angle"]],
+    "vis_name": "Damage taken",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Damage"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "4",
+    "vis_id": "le2",
+    "data": [
+      [
+        {
+          "data_value": "Health pack cooldown",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Circle", "Arc", "Symbol"]],
+    "channels": [["Colour", "Angle"]],
+    "vis_name": "Health pack cooldown",
+    "vis_usage": ["Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "health pack",
+        "relative_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Timer", "Healing", "Wayfinding"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "5",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "Player",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Character health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Rule", "Rule_Array"]],
+    "channels": [["Position", "Length", "Colour"]],
+    "vis_name": "Enemy health",
+    "vis_usage": ["Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "enemy",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Global", true]],
+    "notes": [
+      "Data value refers to character health.",
+      "Red is leftover health, white indicates health that has just been removed after a recent hit, and no color indicates empty health."
+    ],
+    "tags": ["Health", "Enemy"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "1",
+    "vis_id": "ge2",
+    "data": [
+      [
+        {
+          "data_value": "Round type",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Text", "Symbol"]],
+    "channels": [["Text", "Shape"]],
+    "vis_name": "Game objective announcement",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", true]],
+    "notes": [],
+    "tags": ["Round"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "1",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Rule", "Rule_Array", "Text"]],
+    "channels": [["Position", "Length", "Text"]],
+    "vis_name": "Player health",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Vitals", "Health"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "2",
+    "vis_id": "le3",
+    "data": [
+      [
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Rule"]],
+    "channels": [["Hue", "Length"]],
+    "vis_name": "Damage Taken",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Health", "Damage"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "4",
+    "vis_id": "l3",
+    "data": [
+      [
+        {
+          "data_value": "Ally player character",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Ally player position",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Path", "Symbol"]],
+    "channels": [["Hue", "Shape", "Position"]],
+    "vis_name": "Ally player indication",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "ally",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Wayfinding"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "6",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Team",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Control point progress",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Team",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Rounds won",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [
+      ["Path", "Symbol", "Text"],
+      ["Symbol", "Symbol_Array"]
+    ],
+    "channels": [
+      ["Hue", "Length", "Text"],
+      ["Luminance", "Length"]
+    ],
+    "vis_name": "Control point progress",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Distinguish team progresses and who is currently in control of point.",
+      "Precisely get progress.",
+      "Identify how many rounds won.",
+      "Distinguish completed vs. open round."
+    ],
+    "tags": ["Progression", "Score"]
+  },
+  {
+    "game_id": "9",
+    "screenshot_id": "2",
+    "vis_id": "l4",
+    "data": [
+      [
+        {
+          "data_value": "Ability",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Ability cooldown",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Ability",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Ability cooldown",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [
+      ["Path", "Text"],
+      ["Path", "Text"]
+    ],
+    "channels": [
+      ["Luminance", "Text"],
+      ["Luminance", "Text", "Length"]
+    ],
+    "vis_name": "Ability cooldowns",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Ability", "Timer"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "1",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Health",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Armor/shield",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Stamina",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [
+      ["Symbol", "Rectangle", "Text"],
+      ["Symbol", "Rectangle", "Text"],
+      ["Symbol", "Rectangle", "Text"]
+    ],
+    "channels": [
+      ["Hue", "Length", "Text"],
+      ["Hue", "Length", "Text"],
+      ["Luminance", "Length"]
+    ],
+    "vis_name": "Player vitals",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Health", "Stamina", "Shield"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "2",
+    "vis_id": "le1a",
+    "data": [
+      [
+        {
+          "data_value": "Killed player name",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Text", "Symbol"]],
+    "channels": [["Symbol", "Text"]],
+    "vis_name": "Player kill notification",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [
+      "Player successfully killed enemy",
+      "Identify player killed",
+      "Obtain rank of player"
+    ],
+    "tags": ["Combat"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "3",
+    "vis_id": "l1a",
+    "data": [
+      [
+        {
+          "data_value": "Build type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Build position",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Path"]],
+    "channels": [["Shape", "Colour"]],
+    "vis_name": "Build Area",
+    "vis_usage": ["Environment", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Chosen build location",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Building"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "4",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Weapon type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Weapon rarity",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Weapon position",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Path", "Text"]],
+    "channels": [["Hue", "Position", "Text"]],
+    "vis_name": "Available weapon",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Weapon",
+        "relative_position": ["Middle", "Right"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Weapon"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "5",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Consumption time",
+          "data_type": "Temporal"
+        }
+      ]
+    ],
+    "marks": [["Arc", "Text"]],
+    "channels": [["Angle", "Text"]],
+    "vis_name": "Consumable timer",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Resource", "Timer"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "1",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Weapon type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Ammo type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Ammo count",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Weapon rarity",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Image", "Image_Array", "Text"]],
+    "channels": [["Hue", "Image", "Position", "Text"]],
+    "vis_name": "Weapon Loadout",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Equipment", "Ammo"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "2",
+    "vis_id": "ge1b",
+    "data": [
+      [
+        {
+          "data_value": "Player name",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text", "Colour"]],
+    "vis_name": "Player kill notification",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [
+      "Player successfully killed enemy",
+      "Identify player killed",
+      "Obtain rank of player"
+    ],
+    "tags": ["Combat"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "3",
+    "vis_id": "l1b",
+    "data": [
+      [
+        {
+          "data_value": "Build health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Text"]],
+    "channels": [["Hue", "Length", "Text"]],
+    "vis_name": "Build health bar",
+    "vis_usage": ["Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Build",
+        "relative_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": ["Precisely get health"],
+    "tags": ["Health"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "1",
+    "vis_id": "l3",
+    "data": [
+      [
+        {
+          "data_value": "Material type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Count",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image", "Text"]],
+    "channels": [["Image", "Image_Array", "Text"]],
+    "vis_name": "Build resources",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Resource"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "2",
+    "vis_id": "le2",
+    "data": [
+      [
+        {
+          "data_value": "Experience",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Level",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Rectangle_Array", "Text"]],
+    "channels": [["Length", "Text"]],
+    "vis_name": "Experience bar",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": ["Identify progress within level", "Precisely get current level"],
+    "tags": ["Progression", "Experience"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "1",
+    "vis_id": "l4a",
+    "data": [
+      [
+        {
+          "data_value": "Terrain",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Region",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Player",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Image", "Text"], ["Symbol"]],
+    "channels": [
+      ["Position", "Text"],
+      ["Hue", "Position", "Angle"]
+    ],
+    "vis_name": "Minimap",
+    "vis_usage": ["Environment", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": ["General position data, where in map."],
+    "tags": ["Map"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "1",
+    "vis_id": "l4b",
+    "data": [
+      [
+        {
+          "data_value": "orientation",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Text", "Text_Array"]],
+    "channels": [["Position", "Text"]],
+    "vis_name": "Compass",
+    "vis_usage": ["Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Wayfinding"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "1",
+    "vis_id": "l5",
+    "data": [
+      [
+        {
+          "data_value": "round time",
+          "data_type": "Temporal"
+        }
+      ],
+      [{ "data_value": "player count", "data_type": "Quantitative" }],
+      [
+        {
+          "data_value": "kill count",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [
+      ["Symbol", "Text"],
+      ["Symbol", "Text"],
+      ["Symbol", "Text"]
+    ],
+    "channels": [
+      ["Shape", "Text"],
+      ["Shape", "Text"],
+      ["Shape", "Text"]
+    ],
+    "vis_name": "Round stats",
+    "vis_usage": ["Game", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Right"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Score", "Timer", "Progression", "Round"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "1",
+    "vis_id": "l6",
+    "data": [
+      [
+        {
+          "data_value": "Damage dealt",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [[["Colour", "Text"]]],
+    "vis_name": "Damage counter",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "damage source",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Damage"]
+  },
+  {
+    "game_id": "10",
+    "screenshot_id": "1",
+    "vis_id": "le7",
+    "data": [
+      [
+        {
+          "data_value": "Nearby shots",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Nearby chests",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Nearby footsteps",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [
+      ["Arc", "Symbol"],
+      ["Arc", "Symbol"],
+      ["Arc", "Symbol"]
+    ],
+    "channels": [["Colour", "Shape", "Angle"]],
+    "vis_name": "Audiovisual cues",
+    "vis_usage": ["Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Alert"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "1",
+    "vis_id": "g1a",
+    "data": [
+      [
+        {
+          "data_value": "Player character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player team",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image"], ["Rectangle"]],
+    "channels": [["Image", "Position"], ["Length"]],
+    "vis_name": "Ally Player Vitals",
+    "vis_usage": ["Player", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "When player dies, the image disappears.",
+      "Longer bar = more health.",
+      "More precise measurement of health."
+    ],
+    "tags": ["Vitals", "Character"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "1",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Player",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Player health",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left", "Bottom"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Vitals", "Health"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "2",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Total credit count",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Minimum credits next round",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Active shield",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Weapon",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Text"], ["Text"], ["Symbol", "Symbol_Array"]],
+    "channels": [["Text"], ["Text"], ["Shape"]],
+    "vis_name": "Player resources/equipment",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Precisely identify how many credits you have as a number.",
+      "Weapon and shield loadout as SYMBOL Array."
+    ],
+    "tags": ["Currency", "Ability"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "3",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Ability current field of view",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Ability range",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Terrain",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Player character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player team",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [
+      ["Circle", "Path"],
+      ["Symbol", "Image", "Arc"]
+    ],
+    "channels": [["Shape"], ["Shape", "Image", "Hue", "Position", "Angle"]],
+    "vis_name": "Ability range - map",
+    "vis_usage": ["Player", "Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [
+      "Ability range in the form of a circle area.",
+      "Circular area that surrounds the player in the mini-map."
+    ],
+    "tags": ["Ability"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "4",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "killer",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "player killed",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "damage received",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "damage dealt",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "shots landed",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "body part hit",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "weapon used",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [
+      ["Text", "Image"],
+      ["Text", "Text_Array", "Symbol", "Image"]
+    ],
+    "channels": [["Text"], ["Text", "Shape"]],
+    "vis_name": "Combat report",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "List of events: player killed, killer, damage received, damage dealt, shots landed, body part hit, weapon used.",
+      "Bolded text to highlight killed. Indicates the precise amount of damage inflicted and sustained.",
+      "A higher opacity indicates that a body part has been hit at least once. Lower opacity means the opposite.",
+      "Shapes are representative of the human body and are split by head, torso/arms, and legs."
+    ],
+    "tags": ["Combat", "Damage", "Vitals"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "5",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Terrain",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Site name",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Spawn Barriers",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Spawn Barrier team",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Player character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player team",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [
+      ["Image", "Text", "Text_Array"],
+      ["Rectangle"],
+      ["Symbol", "Image"]
+    ],
+    "channels": [
+      ["Position", "Text"],
+      ["Hue", "Shape", "Position"],
+      ["Hue", "Image", "Position", "Angle"]
+    ],
+    "vis_name": "Minimap overlay",
+    "vis_usage": ["Environment", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "This visualization is a Minimap overlay containing various spatial data.",
+      "Remind what team you're on.",
+      "Precisely identify name of the location that you are in.",
+      "Colour specifies which team (red is enemy and blue is for your player team).",
+      "Used to separate location text from map.",
+      "To specifically denote specific locations and sub-locations within them (A, B, C).",
+      "Rectangle denotes the length of the barrier relative to the opening it is blocking within the map."
+    ],
+    "tags": ["Map", "Environment", "Wayfinding"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "6",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Defusing progress",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Rule"]],
+    "channels": [["Length"]],
+    "vis_name": "Defusing progress",
+    "vis_usage": ["Game", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "A yellow bar fills from left to right, with the middle vertical bar as a checkpoint for resuming defusing."
+    ],
+    "tags": ["Timer"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "6",
+    "vis_id": "ge1",
+    "data": [
+      [
+        {
+          "data_value": "Event type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player involved",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Image", "Path", "Text"]],
+    "channels": [["Image", "Shape", "Colour", "Text"]],
+    "vis_name": "Current events",
+    "vis_usage": ["Player", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", true]],
+    "notes": [],
+    "tags": ["Combat"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "1",
+    "vis_id": "l1b",
+    "data": [
+      [
+        {
+          "data_value": "player name",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "position",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "team",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "abilities",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "weapon",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"], ["Symbol", "Symbol_Array"], ["Symbol"], ["Rectangle"]],
+    "channels": [["Text"], ["Shape", "Luminance"], ["Shape"], ["Length"]],
+    "vis_name": "Player vitals/resources",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Ally",
+        "relative_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Resources", "Vitals"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "1",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Ability type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Ability charges",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Ability charges",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Symbol"], ["Symbol", "Symbol_Array"]],
+    "channels": [
+      ["Luminance", "Shape"],
+      ["Length", "Luminance"]
+    ],
+    "vis_name": "Ability",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Distinguish active ability vs inactive",
+      "Number of rectangles denote total amount of possible charges in a given round",
+      "Turquoise denotes amount of charges available to use",
+      "Grey denotes total amount of charges that"
+    ],
+    "tags": ["Ability"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "2",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Weapon type",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Fire rate",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Damage",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Ammo capacity",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Wall penetration",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Text", "Symbol"], ["Text"]],
+    "channels": [["Text", "Shape"], ["Text"]],
+    "vis_name": "Gun Info",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [
+      "Information about the specific gun including: Fire rate, damage, ammo capacity and wall penetration."
+    ],
+    "tags": ["Weapon"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "3",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Ability range",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Terrain",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Player character",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player team",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [
+      ["Circle", "Path"],
+      ["Symbol", "Image"]
+    ],
+    "channels": [["Shape"], ["Shape", "Image", "Hue", "Position", "Angle"]],
+    "vis_name": "Ability range - map",
+    "vis_usage": ["Player", "Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [
+      "Ability range in the form of a circle area.",
+      "Circular area that surrounds the player in the mini-map."
+    ],
+    "tags": ["Ability"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "1",
+    "vis_id": "l3",
+    "data": [
+      [
+        {
+          "data_value": "Ammo count",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Weapon type",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Text", "Symbol"]],
+    "channels": [["Text"]],
+    "vis_name": "Ammo Remaining",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right", "Bottom"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [
+      "Precisely identify how much ammo you have",
+      "Distinguish ammunition type"
+    ],
+    "tags": ["Ammo"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "1",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "Time left",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Team",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Team score",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"], ["Text"]],
+    "channels": [["Text"], ["Text"]],
+    "vis_name": "Game timer and scores",
+    "vis_usage": ["Game", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": ["Identify score and player count precisely."],
+    "tags": ["Score", "Timer"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "1",
+    "vis_id": "le4",
+    "data": [
+      [
+        {
+          "data_value": "Total money count",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Money gained",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text", "Symbol"]],
+    "channels": [["Text", "Text_Array"]],
+    "vis_name": "Money count",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "Screen"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": ["Precisely identify how much money you have"],
+    "tags": ["Currency"]
+  },
+  {
+    "game_id": "11",
+    "screenshot_id": "1",
+    "vis_id": "l5",
+    "data": [
+      [
+        {
+          "data_value": "Currently selected weapon",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Weapon slot",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Text"]],
+    "channels": [["Luminance", "Position", "Shape", "Text"]],
+    "vis_name": "Weapon load-out",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Indicate the selected weapon temporarily",
+      "Identify where in scroll wheel/keyboard you need to select",
+      "Distinguish weapon type",
+      "Precisely identify weapon name"
+    ],
+    "tags": ["Equipment"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "1",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Terrain",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Covered area",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Team",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Player team",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image"], ["Path"], ["Symbol]"]],
+    "channels": [
+      ["Image"],
+      ["Hue", "Shape", "Position"],
+      ["Hue", "Shape", "Position", "Angle"]
+    ],
+    "vis_name": "Map",
+    "vis_usage": ["Environment", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Remind what team you're on",
+      "Precisely identify name of the location that you are in.",
+      "Colour specifies which team (red is enemy and blue is for your player team).",
+      "Rectangle denotes the length of the barrier relative to the opening it is blocking within the map."
+    ],
+    "tags": ["Map", "Wayfinding"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "2",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Points",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Points",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Score"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "2",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Timer",
+          "data_type": "Temporal"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text", "Hue"]],
+    "vis_name": "Timer",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Timer"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "5",
+    "vis_id": "le1",
+    "data": [
+      [
+        {
+          "data_value": "Player team",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player landing position",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Path"]],
+    "channels": [["Position", "Shape", "Hue"]],
+    "vis_name": "Landing Position Zone",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Landing position",
+        "relative_position": ["Bottom", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Wayfinding"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "6",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image"]],
+    "channels": [["Image"]],
+    "vis_name": "Low health signifier",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Wayfinding"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "2",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Sub weapon",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Symbol"]],
+    "channels": [["Shape", "Colour"]],
+    "vis_name": "Sub weapon",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Ability"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "2",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "Player type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player team",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image"]],
+    "channels": [["Image", "Position", "Hue"]],
+    "vis_name": "Player Equipment and Status",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Status indicates alive or dead.",
+      "Each team has their own colour.",
+      "Greyscale version indicates a player is dead.",
+      "X appears over dead player."
+    ],
+    "tags": ["Equipment", "Status Effect"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "3",
+    "vis_id": "ge1a",
+    "data": [
+      [
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Player status",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Symbol"]],
+    "channels": [["Shape", "Colour", "Position", "Angle"]],
+    "vis_name": "Ally environmental indicator",
+    "vis_usage": ["Player", "Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "screen_position": "ally position",
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Global", true]],
+    "notes": [
+      "What the status is (dead, alive, used skill)",
+      "The icon colour is based on team colour.",
+      "Arrow under the symbol, where its pointing to is more or less the location of the player."
+    ],
+    "tags": ["Character"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "3",
+    "vis_id": "ge1b",
+    "data": [
+      [
+        {
+          "data_value": "player position",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "player status",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Symbol"]],
+    "channels": [["Shape", "Colour", "Position", "Angle"]],
+    "vis_name": "Opponent status indicator",
+    "vis_usage": ["Player", "Enemy", "Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "screen_position": "opponent position",
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", true]],
+    "notes": [
+      "What the status is (dead, alive, used skill)",
+      "The icon colour is based on team colour",
+      "Arrow under the symbol, where its pointing to is more or less the location of the player"
+    ],
+    "tags": ["Character", "Death"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "4",
+    "vis_id": "le1",
+    "data": [
+      [
+        {
+          "data_value": "Ink count",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Rule"]],
+    "channels": [["Length", "Hue", "Luminance"]],
+    "vis_name": "Ink tank",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "A rectangular bar in the shape of a tank that fills up with a line in the middle.",
+      "Height increases as ink is replenished.",
+      "Based on team colour.",
+      "When full, colour is slightly greyed out.",
+      "Line indicates how much ink the sub weapon will use."
+    ],
+    "tags": ["Ability"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "5",
+    "vis_id": "ge1",
+    "data": [
+      [
+        {
+          "data_value": "Teammate",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Teammate landing position",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Symbol"]],
+    "channels": [["Shape", "Position"]],
+    "vis_name": "Teammate Landing Position",
+    "vis_usage": ["Environment", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Landing spot position",
+        "relative_position": ["Bottom", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Global", true]],
+    "notes": [],
+    "tags": ["Wayfinding"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "6",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Teammate position",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Symbol"]],
+    "channels": [["Shape", "Position", "Hue"]],
+    "vis_name": "Ally position",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "ally position",
+        "relative_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Wayfinding"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "7",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Killer",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Image", "Text"]],
+    "channels": [["Image", "Text"]],
+    "vis_name": "Death report",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Wayfinding"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "7",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Player",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Equipment",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Image", "Image_Array"]],
+    "channels": [["Image"]],
+    "vis_name": "Opponent Equipment",
+    "vis_usage": ["Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Cosmetics and gear abilities of the player that killed you",
+      "Identifies the headgear, shirt, and boots",
+      "Identifies the perks each of them show"
+    ],
+    "tags": ["Equipment"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "2",
+    "vis_id": "l3",
+    "data": [
+      [
+        {
+          "data_value": "Sub weapon",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Charge",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Arc", "Rectangle", "Rectangle_Array"]],
+    "channels": [["Angle", "Hue", "Luminance"]],
+    "vis_name": "Weapon Charge",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [
+      "MARK: ARC in the form of multiple RECTANGLEs.",
+      "Grows clockwise.",
+      "When full, colour turns a glowy white."
+    ],
+    "tags": ["Ability"]
+  },
+  {
+    "game_id": "13",
+    "screenshot_id": "2",
+    "vis_id": "g3",
+    "data": [
+      [
+        {
+          "data_value": "Username",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Team",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Player position",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Player username",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Player",
+        "screen_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Character"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "1",
+    "vis_id": "le1",
+    "data": [
+      [
+        {
+          "data_value": "Mission details",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Symbol", "Text"]],
+    "channels": [["Shape", "Text"]],
+    "vis_name": "Mission details",
+    "vis_usage": ["Game", "Environment", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Progression"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "2",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Enemy name",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Enemy level",
+          "data_type": "Ordinal"
+        }
+      ],
+      [
+        {
+          "data_value": "Enemy health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"], ["Rectangle", "Text"], ["Rectangle"]],
+    "channels": [["Text"], ["Hue", "Text"], ["Luminance", "Length"]],
+    "vis_name": "Enemy health bar",
+    "vis_usage": ["Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Enemy",
+        "relative_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": ["Red hue as enemy identity"],
+    "tags": ["Vitals", "Health", "Level"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "1",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Equipment battery",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path", "Symbol", "Symbol_Array"]],
+    "channels": [["Luminance", "Length"]],
+    "vis_name": "Equipment battery",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Player tool",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Equipment", "Ammo"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "4",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Skill name",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Skill progression details",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Skill progression",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [
+      ["Image", "Text"],
+      ["Rectangle", "Text"]
+    ],
+    "channels": [
+      ["Text", "Image"],
+      ["Length", "Text"]
+    ],
+    "vis_name": "Skill progression details",
+    "vis_usage": ["Player", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Left", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Progression", "Ability"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "5",
+    "vis_id": "l1a",
+    "data": [
+      [
+        {
+          "data_value": "Available weapon",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Available weapon position",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Circle", "Rule"]],
+    "channels": [["Shape", "Position"]],
+    "vis_name": "Available weapon details",
+    "vis_usage": ["Player", "Game", "Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "available weapon",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Equipment"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "6",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Point of interest",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Direction of point of interest",
+          "data_type": "Ordinal"
+        }
+      ],
+      [
+        {
+          "data_value": "Current planet",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Stamina",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Symbol"], ["Image", "Text"], ["Arc", "Text"]],
+    "channels": [["Image", "Angle"], ["Image", "Text"], ["Angle"]],
+    "vis_name": "Player compass",
+    "vis_usage": ["Player", "Environment", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "relative_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Progression", "Wayfinding"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "7",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Current planet",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Planet temperature",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Planet oxygen level",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Planet gravity",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [
+      ["Symbol", "Text"],
+      ["Text", "Text_Array"]
+    ],
+    "channels": [["Shape", "Text"], ["Text"]],
+    "vis_name": "Player compass - scan mode",
+    "vis_usage": ["Player", "Environment", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Progression", "Wayfinding"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "8",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Current planet",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Planet temperature",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Planet oxygen level",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Planet gravity",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [
+      ["Symbol", "Text"],
+      ["Text", "Text_Array"]
+    ],
+    "channels": [["Shape", "Text"], ["Text"]],
+    "vis_name": "Player compass - scan mode",
+    "vis_usage": ["Player", "Environment", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Progression", "Wayfinding"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "9",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Selected enemy",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Symbol"]],
+    "channels": [["Shape", "Position"]],
+    "vis_name": "Ship - Targeted enemy",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Enemy ship",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Combat"]
+  },
+  {
+    "game_id": "68",
+    "screenshot_id": "1",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Mission location",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Symbol"]],
+    "channels": [["Position"]],
+    "vis_name": "Mission location",
+    "vis_usage": ["Player", "Environment", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Mission location",
+        "relative_position": ["Top", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Progression", "Wayfinding"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "2",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Ammo",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Ammo count",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Alternating",
+        "screen_position": ["Middle", "Middle"],
+        "relative_to": "Player weapon",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Vitals", "Health", "Equipment", "Ammo"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "4",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Experience points gained",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Experience points gained",
+    "vis_usage": ["Player", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Progression"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "5",
+    "vis_id": "l1b",
+    "data": [
+      [
+        {
+          "data_value": "Available weapon",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Weapon type",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Damage type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Damage",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Stat type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Stat value",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [
+      ["Rectangle", "Text"],
+      ["Rectangle", "Symbol", "Text"],
+      ["Rectangle", "Text", "Text_Array"]
+    ],
+    "channels": [["Text"], ["Shape", "Text"], ["Hue", "Text"]],
+    "vis_name": "Available weapon details",
+    "vis_usage": ["Player", "Game", "Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "id_l1b",
+        "relative_position": ["Middle", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Green blue/teal text shows stat increase, red shows stat decrease"
+    ],
+    "tags": ["Equipment", "Inventory"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "7",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Planet survey progress",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Fauna surveyed",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Flora surveyed",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "Resources surveyed",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [
+      ["Rectangle", "Text"],
+      ["Text", "Text_Array"]
+    ],
+    "channels": [["Length", "Text"], ["Text"]],
+    "vis_name": "Scan mode - survey progress",
+    "vis_usage": ["Player", "Environment", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Progression", "Wayfinding"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "8",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Weapon type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Ammo",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Text", "Arc"]],
+    "channels": [["Text"]],
+    "vis_name": "Ship weapons",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Ability", "Equipment"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "7",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Enemy",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Enemy position",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Enemy health",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Enemy level",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Distance to enemy",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"], ["Rectangle"], ["Rectangle", "Text"], ["Text"]],
+    "channels": [["Text"], ["Length"], ["Hue", "Text"], ["Text"]],
+    "vis_name": "Enemy ship vitals",
+    "vis_usage": ["Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Enemy ship",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Combat", "Wayfinding", "Vitals", "Health", "Experience"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "1",
+    "vis_id": "le1",
+    "data": [
+      [
+        {
+          "data_value": "Mission details",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Symbol", "Text"]],
+    "channels": [["Shape", "Text"]],
+    "vis_name": "Mission details",
+    "vis_usage": ["Game", "Environment", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "enemy",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": ["Heart shaped path decreases in length with damage"],
+    "tags": ["Combat", "Vitals", "Health"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "7",
+    "vis_id": "l3",
+    "data": [
+      [
+        {
+          "data_value": "Desired location",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Symbol_Array"]],
+    "channels": [["Length", "Angle", "Curvature"]],
+    "vis_name": "Desired location",
+    "vis_usage": ["Player", "Environment", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Player",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Progression", "Wayfinding"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "8",
+    "vis_id": "l3",
+    "data": [
+      [
+        {
+          "data_value": "Boost level",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Arc", "Symbol", "Symbol_Array"]],
+    "channels": [["Length"]],
+    "vis_name": "Ship boost level",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Energy", "Movement"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "2",
+    "vis_id": "l3",
+    "data": [
+      [
+        {
+          "data_value": "Player health",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Weapon type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Ammo",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [
+      ["Rectangle", "Text"],
+      ["Symbol", "Text"]
+    ],
+    "channels": [
+      ["Luminance", "Length"],
+      ["Shape", "Text"]
+    ],
+    "vis_name": "Player vitals",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": ["Ammo first text: clip, second: total"],
+    "tags": ["Vitals", "Health", "Equipment", "Ammo"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "7",
+    "vis_id": "l4",
+    "data": [
+      [
+        {
+          "data_value": "Undocumented survey element",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
+    "marks": [["Path"]],
+    "channels": [["Hue", "Shape", "Position"]],
+    "vis_name": "Survey item",
+    "vis_usage": ["Player", "Environment", "Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "Survey item",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": ["Hue and shape as identity"],
+    "tags": ["Progression", "Wayfinding"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "8",
+    "vis_id": "l4",
+    "data": [
+      [
+        {
+          "data_value": "Ship health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Rectangle", "Text", "Symbol", "Path"]],
+    "channels": [["Length", "Text"]],
+    "vis_name": "Ship health",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Health", "Vitals"]
   },
   {
     "game_id": "68",
