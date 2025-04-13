@@ -6,14 +6,11 @@ import { useEffect, useMemo, useState } from "react";
 
 const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
 
-const sortedData = data.sort((a, b) => {
-  return Number(a.game_id) - Number(b.game_id);
-});
-
 export default function Page() {
   const [relative, setRelativity] = useState("Screen");
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
+
   const filteredMetadata = useMemo(() => {
     return meta
       .filter((item) => {
@@ -25,8 +22,19 @@ export default function Page() {
       });
   }, [selectedGenre]);
 
+  const filteredGameNames = useMemo(() => {
+    return meta
+      .filter((item) => {
+        if (selectedGenre == "") return true;
+        return item.genre == selectedGenre;
+      })
+      .map((item) => {
+        return item.name;
+      });
+  }, [selectedGenre]);
+
   const filteredData = useMemo(() => {
-    return sortedData.filter((item) => {
+    return data.filter((item) => {
       return filteredMetadata.includes(item.game_id);
     });
   }, [filteredMetadata]);
@@ -49,33 +57,7 @@ export default function Page() {
 
   return (
     <div className="flex fixed inset-0">
-      <nav className="p-8">
-        <div className="mb-8">
-          <h2 className="text-lg">Games</h2>
-          <select onChange={handleChange} value={selectedOption}>
-            <option value="" className="text-background/50">
-              Select a game
-            </option>
-            {meta.map((item) => (
-              <option key={item.id} value={item.id} className="text-background">
-                {item.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="mb-8">
-          <h2 className="text-lg">Genres</h2>
-          <select onChange={handleGenreChange} value={selectedGenre}>
-            <option value="" className="text-background/50">
-              All genres
-            </option>
-            {uniqueGenres.map((item) => (
-              <option key={item} value={item} className="text-background p-2">
-                {item}
-              </option>
-            ))}
-          </select>
-        </div>
+      <nav className="p-8 overflow-auto">
         <div className="mb-8">
           <h2 className="text-lg mb-2">Relativity</h2>
           <div className="flex gap-2">
@@ -96,6 +78,47 @@ export default function Page() {
               Relative
             </button>
           </div>
+        </div>
+        <div className="mb-8">
+          <h2 className="text-lg">Genres</h2>
+          <select onChange={handleGenreChange} value={selectedGenre}>
+            <option value="" className="text-background/50">
+              All genres
+            </option>
+            {uniqueGenres.map((item) => (
+              <option key={item} value={item} className="text-background p-2">
+                {item}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="mb-8">
+          <h2 className="text-lg">Games</h2>
+
+          <ul>
+            {filteredGameNames.map((item, i) => {
+              return (
+                <li key={`filtered-game-${i}`} className="text-sm mb-2">
+                  {item}
+                </li>
+              );
+            })}
+          </ul>
+          <select onChange={handleChange} value={selectedOption}>
+            <option value="" className="text-background/50">
+              Select a game
+            </option>
+            {filteredGameNames.map((item, i) => (
+              <option
+                key={item}
+                value={filteredMetadata[i]}
+                className="text-background"
+              >
+                {item}
+              </option>
+            ))}
+          </select>
         </div>
       </nav>
       <main className="grid grid-cols-3 grid-rows-3 gap-4 h-full max-h-screen p-8 w-full relative">
@@ -136,28 +159,34 @@ export default function Page() {
                 </span>
                 {
                   <ul className="flex flex-wrap gap-4 size-full overflow-auto">
-                    {filterXY.map((item, i) => (
-                      <li key={i} className="">
-                        <span>
-                          {item.game_id +
-                            "_" +
-                            item.screenshot_id +
-                            "_" +
-                            item.vis_id}
-                        </span>
-                        <img
-                          src={
-                            "/games/" +
-                            item.game_id +
-                            "_" +
-                            item.screenshot_id +
-                            "_" +
-                            item.vis_id +
-                            ".jpg"
-                          }
-                        />
-                      </li>
-                    ))}
+                    {filterXY
+                      .filter(
+                        (item) =>
+                          selectedOption == "" || item.game_id == selectedOption
+                      )
+                      .map((item, i) => (
+                        <li key={i} className="">
+                          <span>
+                            {item.game_id +
+                              "_" +
+                              item.screenshot_id +
+                              "_" +
+                              item.vis_id}
+                          </span>
+                          <img
+                            loading="lazy"
+                            src={
+                              "/games/" +
+                              item.game_id +
+                              "_" +
+                              item.screenshot_id +
+                              "_" +
+                              item.vis_id +
+                              ".jpg"
+                            }
+                          />
+                        </li>
+                      ))}
                   </ul>
                 }
               </section>
