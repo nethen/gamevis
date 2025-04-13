@@ -19106,43 +19106,7 @@
     "notes": [],
     "tags": ["Equipment"]
   },
-  {
-    "game_id": "1",
-    "screenshot_id": "1a",
-    "vis_id": "l4",
-    "data": [
-      [
-        {
-          "data_value": "health left",
-          "data_type": "Quantitative"
-        }
-      ],
-      [
-        {
-          "data_value": "next level progress",
-          "data_type": "Quantitative"
-        }
-      ]
-    ],
-    "marks": [["Rectangle"], ["Rectangle"]],
-    "channels": [
-      [["Length"], ["Hue"], ["Text"]],
-      [["Length"], ["Text"]]
-    ],
-    "vis_name": "health bar",
-    "vis_usage": ["Player"],
-    "vis_position": [
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Bottom", "Left"],
-        "coords": "Camera"
-      }
-    ],
-    "vis_visibility": [["Local", false]],
-    "notes": [
-      "Original annotation: The white bar is the main health bar with additional orange and purple ones from items, while the potion-shaped bar acts as a level counter for skill upgrades/increased health."
-    ]
-  },
+
   {
     "game_id": "5",
     "screenshot_id": "1",
