@@ -11,6 +11,14 @@ export default function Page() {
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setRelativity(localStorage.getItem("relativity") || "Screen");
+      setSelectedOption(localStorage.getItem("game") || "");
+      setSelectedGenre(localStorage.getItem("genre") || "");
+    }
+  }, []);
+
   const filteredMetadata = useMemo(() => {
     return meta
       .filter((item) => {
@@ -41,10 +49,20 @@ export default function Page() {
   // console.log(meta);
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(e.target.value);
+    try {
+      localStorage.setItem("game", e.target.value);
+    } catch (error) {
+      console.error("Error saving to localStorage", error);
+    }
     console.log("Selected:", e.target.value);
   };
   const handleGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedGenre(e.target.value);
+    try {
+      localStorage.setItem("genre", e.target.value);
+    } catch (error) {
+      console.error("Error saving to localStorage", error);
+    }
     console.log("Selected:", e.target.value);
   };
 
@@ -57,12 +75,19 @@ export default function Page() {
 
   return (
     <div className="flex fixed inset-0">
-      <nav className="p-8 overflow-auto">
+      <nav className="p-8 overflow-auto min-w-[20rem]">
         <div className="mb-8">
           <h2 className="text-lg mb-2">Relativity</h2>
           <div className="flex gap-2">
             <button
-              onClick={() => setRelativity("Screen")}
+              onClick={() => {
+                setRelativity("Screen");
+                try {
+                  localStorage.setItem("relativity", "Screen");
+                } catch (error) {
+                  console.error("Error saving to localStorage", error);
+                }
+              }}
               className={`px-4 py-2 rounded-md border border-neutral-500 ${
                 relative == "Screen" ? "bg-neutral-500" : "bg-transparent"
               }`}
@@ -70,7 +95,14 @@ export default function Page() {
               Screen
             </button>
             <button
-              onClick={() => setRelativity("Relative")}
+              onClick={() => {
+                setRelativity("Relative");
+                try {
+                  localStorage.setItem("relativity", "Relative");
+                } catch (error) {
+                  console.error("Error saving to localStorage", error);
+                }
+              }}
               className={`px-4 py-2 rounded-md border border-neutral-500 ${
                 relative == "Relative" ? "bg-neutral-500" : "bg-transparent"
               }`}
@@ -81,7 +113,7 @@ export default function Page() {
         </div>
         <div className="mb-8">
           <h2 className="text-lg">Genres</h2>
-          <select onChange={handleGenreChange} value={selectedGenre}>
+          <select onChange={handleGenreChange} value={selectedGenre || ""}>
             <option value="" className="text-background/50">
               All genres
             </option>
@@ -94,27 +126,23 @@ export default function Page() {
         </div>
 
         <div className="mb-8">
-          <h2 className="text-lg">Games</h2>
+          <h2 className="text-lg mb-2">Games</h2>
 
-          <ul>
+          <ul className="flex flex-col gap-4 mb-4">
             {filteredGameNames.map((item, i) => {
-              return (
-                <li key={`filtered-game-${i}`} className="text-sm mb-2">
-                  {item}
-                </li>
-              );
+              return <li key={`filtered-game-${i}`}>{item}</li>;
             })}
           </ul>
-          <select onChange={handleChange} value={selectedOption}>
-            <option value="" className="text-background/50">
+          <select
+            onChange={handleChange}
+            value={selectedOption || ""}
+            className="bg-neutral-900 p-2 pr-0 w-full"
+          >
+            <option value="" className="">
               Select a game
             </option>
             {filteredGameNames.map((item, i) => (
-              <option
-                key={item}
-                value={filteredMetadata[i]}
-                className="text-background"
-              >
+              <option key={item} value={filteredMetadata[i]} className=" ">
                 {item}
               </option>
             ))}
