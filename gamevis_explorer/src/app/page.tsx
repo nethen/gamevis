@@ -5,11 +5,13 @@ import data from "@/app/data.json";
 import { useState } from "react";
 
 const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
+
 const sortedData = data.sort((a, b) => {
   return Number(a.game_id) - Number(b.game_id);
 });
 
 export default function Page() {
+  const [relative, setRelativity] = useState("Screen");
   const [selectedOption, setSelectedOption] = useState("");
   // console.log(meta);
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -43,59 +45,92 @@ export default function Page() {
             )}
           </ul>
         </div>
+        <div className="mb-8">
+          <h2 className="text-lg mb-2">Relativity</h2>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setRelativity("Screen")}
+              className={`px-4 py-2 rounded-md border border-neutral-500 ${
+                relative == "Screen" ? "bg-neutral-500" : "bg-transparent"
+              }`}
+            >
+              Screen
+            </button>
+            <button
+              onClick={() => setRelativity("Relative")}
+              className={`px-4 py-2 rounded-md border border-neutral-500 ${
+                relative == "Relative" ? "bg-neutral-500" : "bg-transparent"
+              }`}
+            >
+              Relative
+            </button>
+          </div>
+        </div>
       </nav>
       <main className="grid grid-cols-3 grid-rows-3 gap-4 h-full max-h-screen p-8 w-full relative">
         {["Top", "Middle", "Bottom"].map((yDimension) => {
-          const filterY = sortedData.filter(
-            (item) =>
-              item.vis_position &&
-              "screen_position" in item.vis_position &&
-              Array.isArray(item.vis_position.screen_position) &&
-              item.vis_position.screen_position[0] == yDimension
+          const filterY = sortedData.filter((item) =>
+            item.vis_position && relative == "Screen"
+              ? "screen_position" in item.vis_position &&
+                Array.isArray(item.vis_position.screen_position) &&
+                item.vis_position.screen_position[0] == yDimension
+              : "relative_position" in item.vis_position &&
+                Array.isArray(item.vis_position.relative_position) &&
+                item.vis_position.relative_position[0] == yDimension
           );
 
           return ["Left", "Middle", "Right"].map((xDimension) => {
-            const filterXY = filterY.filter(
-              (item) =>
-                item.vis_position &&
-                "screen_position" in item.vis_position &&
-                Array.isArray(item.vis_position.screen_position) &&
-                item.vis_position.screen_position[1] == xDimension
+            const filterXY = filterY.filter((item) =>
+              item.vis_position && relative == "Screen"
+                ? "screen_position" in item.vis_position &&
+                  Array.isArray(item.vis_position.screen_position) &&
+                  item.vis_position.screen_position[1] == xDimension
+                : "relative_position" in item.vis_position &&
+                  Array.isArray(item.vis_position.relative_position) &&
+                  item.vis_position.relative_position[1] == xDimension
             );
             return (
               <section
-                className="overflow-auto bg-neutral-900 p-4"
+                className="bg-neutral-900 p-4 flex flex-col gap-2"
                 key={`section-${yDimension.toLowerCase()}-${xDimension.toLowerCase()}`}
               >
-                <ul className="gap-4">
-                  {filterXY
-                    .filter(
+                <span>
+                  {
+                    filterXY.filter(
                       (item) =>
                         selectedOption == "" || item.game_id == selectedOption
-                    )
-                    .map((item, i) => (
-                      <li key={i} className="">
-                        <span>
-                          {item.game_id +
-                            "_" +
-                            item.screenshot_id +
-                            "_" +
-                            item.vis_id}
-                        </span>
-                        <img
-                          src={
-                            "/games/" +
-                            item.game_id +
-                            "_" +
-                            item.screenshot_id +
-                            "_" +
-                            item.vis_id +
-                            ".jpg"
-                          }
-                        />
-                      </li>
-                    ))}
-                </ul>
+                    ).length
+                  }{" "}
+                  items
+                </span>
+                {
+                  <ul className="flex flex-wrap gap-4 size-full overflow-auto">
+                    {filterXY
+                      .filter((item) => item.game_id == selectedOption)
+                      .map((item, i) => (
+                        <li key={i} className="">
+                          <span>
+                            {item.game_id +
+                              "_" +
+                              item.screenshot_id +
+                              "_" +
+                              item.vis_id}
+                          </span>
+                          <img
+                            src={
+                              "/games/" +
+                              item.game_id +
+                              "_" +
+                              item.screenshot_id +
+                              "_" +
+                              item.vis_id +
+                              ".jpg"
+                            }
+                          />
+                        </li>
+                      ))}
+                  </ul>
+                }
               </section>
             );
           });
