@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import meta from "@/app/meta.json";
 import data from "@/app/data.json";
+import { useState } from "react";
 
 const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
 const sortedData = data.sort((a, b) => {
@@ -8,17 +10,28 @@ const sortedData = data.sort((a, b) => {
 });
 
 export default function Page() {
+  const [selectedOption, setSelectedOption] = useState("");
   // console.log(meta);
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedOption(e.target.value);
+    console.log("Selected:", e.target.value);
+  };
+
   return (
     <div className="flex">
-      <nav>
+      <nav className="p-8">
         <div className="mb-8">
           <h2 className="text-lg">Games</h2>
-          <ul>
+          <select onChange={handleChange} value={selectedOption}>
+            <option value="" className="text-background/50">
+              Select a game
+            </option>
             {meta.map((item) => (
-              <li key={item.id}>{item.name}</li>
+              <option key={item.id} value={item.id} className="text-background">
+                {item.name}
+              </option>
             ))}
-          </ul>
+          </select>
         </div>
         <div className="mb-8">
           <h2 className="text-lg">Genres</h2>
@@ -31,13 +44,17 @@ export default function Page() {
           </ul>
         </div>
       </nav>
-      <main className="flex flex-col items-center justify-center min-h-screen p-24 text-center bg-red-500 w-full">
+      <main className="flex flex-col min-h-screen p-8 bg-red-500 w-full">
         <ul>
-          {sortedData.map((item, i) => (
-            <li key={i}>
-              {item.game_id + "_" + item.screenshot_id + "_" + item.vis_id}
-            </li>
-          ))}
+          {sortedData
+            .filter(
+              (item) => selectedOption == "" || item.game_id == selectedOption
+            )
+            .map((item, i) => (
+              <li key={i}>
+                {item.game_id + "_" + item.screenshot_id + "_" + item.vis_id}
+              </li>
+            ))}
         </ul>
       </main>
     </div>
