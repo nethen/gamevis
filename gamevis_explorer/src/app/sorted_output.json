@@ -1559,6 +1559,90 @@
   {
     "game_id": "6",
     "screenshot_id": "1",
+    "vis_id": "g1b",
+    "data": [
+      [
+        {
+          "data_value": "Enemy/Ally player",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Enemy/Ally player position",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Money total",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Weapon loadout",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Text"], ["Text"], ["Symbol"]],
+    "channels": [["Hue", "Position", "Text"], ["Text"], ["Shape"]],
+    "vis_name": "Player Position",
+    "vis_usage": ["Player", "Game"],
+    "vis_position": {
+      "screen_relativity": "Relative",
+      "relative_to": "player",
+      "relative_position": ["Top", "Middle"],
+      "coords": "World"
+    },
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Identifies where enemy/ally player is. Reveals ally savings and weapon loadout.",
+      "Player position marked with colored arrow and username."
+    ],
+    "tags": ["Vitals", "Health", "Currency", "Equipment"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "1",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "time left",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "team",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "team score",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "remaining players",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"], ["Symbol", "Text"]],
+    "channels": [["Text"], ["Hue", "Text"]],
+    "vis_name": "Match timer and scores",
+    "vis_usage": ["Game"],
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Top", "Middle"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Global", false]],
+    "notes": [],
+    "tags": ["Timer", "Score", "Round"]
+  },
+  {
+    "game_id": "6",
+    "screenshot_id": "1",
     "vis_id": "l1",
     "data": [
       [
@@ -1796,7 +1880,7 @@
   {
     "game_id": "6",
     "screenshot_id": "3",
-    "vis_id": "l1",
+    "vis_id": "le1",
     "data": [
       [
         {
@@ -1957,7 +2041,7 @@
   {
     "game_id": "6",
     "screenshot_id": "4",
-    "vis_id": "g2a",
+    "vis_id": "ge2a",
     "data": [
       [
         {
@@ -2024,87 +2108,27 @@
   },
   {
     "game_id": "6",
-    "screenshot_id": "12",
-    "vis_id": "g1b",
-    "data": [
-      [
-        {
-          "data_value": "Enemy/Ally player",
-          "data_type": "Nominal"
-        },
-        {
-          "data_value": "Enemy/Ally player position",
-          "data_type": "Spatial"
-        }
-      ],
-      [
-        {
-          "data_value": "Money total",
-          "data_type": "Quantitative"
-        }
-      ],
-      [
-        {
-          "data_value": "Weapon loadout",
-          "data_type": "Nominal"
-        }
-      ]
+    "screenshot_id": "5",
+    "vis_id": "le1",
+    "data": [[{"data_value": "Bomb defusal time", "data_type": "Temporal"}]],
+    "marks": [["Arc", "Symbol", "Rectangle", "Text"]],
+    "channels": [["Angle", "Text"]],
+    "vis_name": "Bomb defusal timer",
+    "vis_usage": ["Game", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Middle"],
+        "coords": "Camera"
+      }
     ],
-    "marks": [["Symbol", "Text"], ["Text"], ["Symbol"]],
-    "channels": [["Hue", "Position", "Text"], ["Text"], ["Shape"]],
-    "vis_name": "Player Position",
-    "vis_usage": ["Player", "Game"],
-    "vis_position": {
-      "screen_relativity": "Relative",
-      "relative_to": "player",
-      "relative_position": ["Top", "Middle"],
-      "coords": "World"
-    },
-    "vis_visibility": [["Global", false]],
+    "vis_visibility": [["Local", true]],
     "notes": [
-      "Identifies where enemy/ally player is. Reveals ally savings and weapon loadout.",
-      "Player position marked with colored arrow and username."
+      "Modal with arced path along circle accompanied by text statuses.",
+      "Vertical filled angled length showing progress of defusal.",
+      "Precisely show defusal status and time remaining in countdown."
     ],
-    "tags": ["Vitals", "Health", "Currency", "Equipment"]
-  },
-  {
-    "game_id": "6",
-    "screenshot_id": "12",
-    "vis_id": "g2",
-    "data": [
-      [
-        {
-          "data_value": "time left",
-          "data_type": "Quantitative"
-        }
-      ],
-      [
-        {
-          "data_value": "team",
-          "data_type": "Nominal"
-        },
-        {
-          "data_value": "team score",
-          "data_type": "Quantitative"
-        },
-        {
-          "data_value": "remaining players",
-          "data_type": "Quantitative"
-        }
-      ]
-    ],
-    "marks": [["Text"], ["Symbol", "Text"]],
-    "channels": [["Text"], ["Hue", "Text"]],
-    "vis_name": "Match timer and scores",
-    "vis_usage": ["Game"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Top", "Middle"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Global", false]],
-    "notes": [],
-    "tags": ["Timer", "Score", "Round"]
+    "tags": ["Ability", "Timer"]
   },
   {
     "game_id": "7",
