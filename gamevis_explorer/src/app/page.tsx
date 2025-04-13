@@ -2,7 +2,7 @@
 import Image from "next/image";
 import meta from "@/app/meta.json";
 import data from "@/app/data.json";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
 
@@ -13,11 +13,39 @@ const sortedData = data.sort((a, b) => {
 export default function Page() {
   const [relative, setRelativity] = useState("Screen");
   const [selectedOption, setSelectedOption] = useState("");
+  const [selectedGenre, setSelectedGenre] = useState("");
+  const filteredMetadata = useMemo(() => {
+    return meta
+      .filter((item) => {
+        if (selectedGenre == "") return true;
+        return item.genre == selectedGenre;
+      })
+      .map((item) => {
+        return item.id.toString();
+      });
+  }, [selectedGenre]);
+
+  const filteredData = useMemo(() => {
+    return sortedData.filter((item) => {
+      return filteredMetadata.includes(item.game_id);
+    });
+  }, [filteredMetadata]);
   // console.log(meta);
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(e.target.value);
     console.log("Selected:", e.target.value);
   };
+  const handleGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedGenre(e.target.value);
+    console.log("Selected:", e.target.value);
+  };
+
+  useEffect(() => {
+    console.log(filteredMetadata);
+  }, [selectedGenre]);
+  useEffect(() => {
+    console.log(filteredData);
+  }, [filteredData]);
 
   return (
     <div className="flex fixed inset-0">
@@ -37,13 +65,16 @@ export default function Page() {
         </div>
         <div className="mb-8">
           <h2 className="text-lg">Genres</h2>
-          <ul>
-            {uniqueGenres ? (
-              uniqueGenres.map((item) => <li key={item}>{item}</li>)
-            ) : (
-              <p>Loading genres</p>
-            )}
-          </ul>
+          <select onChange={handleGenreChange} value={selectedGenre}>
+            <option value="" className="text-background/50">
+              All genres
+            </option>
+            {uniqueGenres.map((item) => (
+              <option key={item} value={item} className="text-background p-2">
+                {item}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="mb-8">
           <h2 className="text-lg mb-2">Relativity</h2>
@@ -69,7 +100,7 @@ export default function Page() {
       </nav>
       <main className="grid grid-cols-3 grid-rows-3 gap-4 h-full max-h-screen p-8 w-full relative">
         {["Top", "Middle", "Bottom"].map((yDimension) => {
-          const filterY = sortedData.filter((item) =>
+          const filterY = filteredData.filter((item) =>
             item.vis_position && relative == "Screen"
               ? "screen_position" in item.vis_position &&
                 Array.isArray(item.vis_position.screen_position) &&
@@ -105,30 +136,28 @@ export default function Page() {
                 </span>
                 {
                   <ul className="flex flex-wrap gap-4 size-full overflow-auto">
-                    {filterXY
-                      .filter((item) => item.game_id == selectedOption)
-                      .map((item, i) => (
-                        <li key={i} className="">
-                          <span>
-                            {item.game_id +
-                              "_" +
-                              item.screenshot_id +
-                              "_" +
-                              item.vis_id}
-                          </span>
-                          <img
-                            src={
-                              "/games/" +
-                              item.game_id +
-                              "_" +
-                              item.screenshot_id +
-                              "_" +
-                              item.vis_id +
-                              ".jpg"
-                            }
-                          />
-                        </li>
-                      ))}
+                    {filterXY.map((item, i) => (
+                      <li key={i} className="">
+                        <span>
+                          {item.game_id +
+                            "_" +
+                            item.screenshot_id +
+                            "_" +
+                            item.vis_id}
+                        </span>
+                        <img
+                          src={
+                            "/games/" +
+                            item.game_id +
+                            "_" +
+                            item.screenshot_id +
+                            "_" +
+                            item.vis_id +
+                            ".jpg"
+                          }
+                        />
+                      </li>
+                    ))}
                   </ul>
                 }
               </section>
