@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import meta from "@/app/meta.json";
-import data from "@/app/data.json";
+import data from "@/app/sorted_output.json";
 import { useState } from "react";
 
 const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
