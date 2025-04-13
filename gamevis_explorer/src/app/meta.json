@@ -1,0 +1,570 @@
+[
+  {
+    "id": 1,
+    "name": "Super Smash Bros. Ultimate",
+    "Developer": "Bandai Namco, Sora Ltd,",
+    "Publisher": "Nintendo",
+    "Origin": "Japan",
+    "year_of_release": 2018
+  },
+  {
+    "id": 2,
+    "name": "Mortal Kombat One",
+    "Developer": "NetherRealm, QLOC",
+    "Publisher": "Warner Bros. Games",
+    "Origin": "USA",
+    "year_of_release": 2024
+  },
+  {
+    "id": 3,
+    "name": "Tekken 8",
+    "Developer": "Bandai Namco",
+    "Publisher": "Bandai Namco",
+    "Origin": "Japan",
+    "year_of_release": 2024
+  },
+  {
+    "id": 4,
+    "name": "Street Fighter 6",
+    "Developer": "Capcom",
+    "Publisher": "Capcom",
+    "Origin": "Japan",
+    "year_of_release": 2023
+  },
+  {
+    "id": 5,
+    "name": "PUBG: Battlegrounds",
+    "Developer": "PUBG Corporation",
+    "Publisher": "KRAFTON",
+    "Origin": "South Korea",
+    "year_of_release": 2017
+  },
+  {
+    "id": 6,
+    "name": "Counter-Strike 2",
+    "Developer": "Valve",
+    "Publisher": "Valve",
+    "Origin": "USA",
+    "year_of_release": 2023
+  },
+  {
+    "id": 7,
+    "name": "Apex Legends",
+    "Developer": "Respawn",
+    "Publisher": "Electronic Arts",
+    "Origin": "USA",
+    "year_of_release": 2019
+  },
+  {
+    "id": 8,
+    "name": "Call of Duty",
+    "Developer": "Treyarch, Raven Software, Beenox, High Moon Studios, Activision, Sledgehammer Games, Infinity Ward, Demonware, Toys for Bob",
+    "Publisher": "Activision",
+    "Origin": "USA",
+    "year_of_release": 2022
+  },
+  {
+    "id": 9,
+    "name": "Marvel Rivals",
+    "Developer": "NetEase",
+    "Publisher": "NetEase",
+    "Origin": "China",
+    "year_of_release": 2024
+  },
+  {
+    "id": 10,
+    "name": "Fortnite",
+    "Developer": "Epic Games",
+    "Publisher": "Epic Games",
+    "Origin": "USA",
+    "year_of_release": 2017
+  },
+  {
+    "id": 11,
+    "name": "Valorant",
+    "Developer": "Riot Games",
+    "Publisher": "Riot Games",
+    "Origin": "USA",
+    "year_of_release": 2020
+  },
+  {
+    "id": 12,
+    "name": "Deadlock",
+    "Developer": "Valve",
+    "Publisher": "Valve",
+    "Origin": "USA",
+    "year_of_release": "TBA"
+  },
+  {
+    "id": 13,
+    "name": "Splatoon 3",
+    "Developer": "Nintendo",
+    "Publisher": "Nintendo",
+    "Origin": "Japan",
+    "year_of_release": 2022
+  },
+  {
+    "id": 14,
+    "name": "Dota 2",
+    "Developer": "Valve",
+    "Publisher": "Valve",
+    "Origin": "USA",
+    "year_of_release": 2013
+  },
+  {
+    "id": 15,
+    "name": "World of Warships",
+    "Developer": "Wargaming Group Limited",
+    "Publisher": "Wargaming Group Limited",
+    "Origin": "Cyprus",
+    "year_of_release": 2015
+  },
+  {
+    "id": 16,
+    "name": "Starcraft 2",
+    "Developer": "Blizzard",
+    "Publisher": "Blizzard",
+    "Origin": "South Korea",
+    "year_of_release": 2010
+  },
+  {
+    "id": 17,
+    "name": "Cyberpunk 2077",
+    "Developer": "CD Projekt Red",
+    "Publisher": "CD Projekt Red",
+    "Origin": "Poland",
+    "year_of_release": 2020
+  },
+  {
+    "id": 18,
+    "name": "ELDEN RING",
+    "Developer": "FromSoftware",
+    "Publisher": "FromSoftware, Bandai Namco",
+    "Origin": "Japan",
+    "year_of_release": 2022
+  },
+  {
+    "id": 19,
+    "name": "Genshin Impact",
+    "Developer": "Mihoyo",
+    "Publisher": "Mihoyo",
+    "Origin": "China",
+    "year_of_release": 2020
+  },
+  {
+    "id": 20,
+    "name": "HELLDIVERS 2",
+    "Developer": "Arrowhead Game Studios",
+    "Publisher": "Playstation Publishing",
+    "Origin": "Sweden",
+    "year_of_release": 2024
+  },
+  {
+    "id": 21,
+    "name": "Destiny 2",
+    "Developer": "Bungie",
+    "Publisher": "Bungie",
+    "Origin": "USA",
+    "year_of_release": 2017
+  },
+  {
+    "id": 22,
+    "name": "Hogwarts Legacy",
+    "Developer": "Avalanche Software",
+    "Publisher": "Warner Bros. Games",
+    "Origin": "USA",
+    "year_of_release": 2023
+  },
+  {
+    "id": 23,
+    "name": "Warframe",
+    "Developer": "Digital Extremes",
+    "Publisher": "Digital Extremes",
+    "Origin": "Canada",
+    "year_of_release": 2013
+  },
+  {
+    "id": 24,
+    "name": "Black Myth: Wukong",
+    "Developer": "Game Science",
+    "Publisher": "Game Science",
+    "Origin": "China",
+    "year_of_release": 2024
+  },
+  {
+    "id": 25,
+    "name": "Breath of the Wild",
+    "Developer": "Nintendo",
+    "Publisher": "Nintendo",
+    "Origin": "Japan",
+    "year_of_release": 2017
+  },
+  {
+    "id": 26,
+    "name": "Last of Us",
+    "Developer": "Naughty Dog",
+    "Publisher": "Sony",
+    "Origin": "USA",
+    "year_of_release": 2013
+  },
+  {
+    "id": 27,
+    "name": "Grand Theft Auto V",
+    "Developer": "Rockstar",
+    "Publisher": "Rockstar",
+    "Origin": "USA",
+    "year_of_release": 2013
+  },
+  {
+    "id": 28,
+    "name": "Red Dead Redemption 2",
+    "Developer": "Rockstar",
+    "Publisher": "Rockstar",
+    "Origin": "USA",
+    "year_of_release": 2018
+  },
+  {
+    "id": 29,
+    "name": "Palworld",
+    "Developer": "Pocketpair",
+    "Publisher": "Pocketpair",
+    "Origin": "Japan",
+    "year_of_release": 2024
+  },
+  {
+    "id": 30,
+    "name": "Hades",
+    "Developer": "Supergiant Games",
+    "Publisher": "Supergiant Games",
+    "Origin": "USA",
+    "year_of_release": 2020
+  },
+  {
+    "id": 31,
+    "name": "Terraria",
+    "Developer": "Re-Logic",
+    "Publisher": "Re-Logic",
+    "Origin": "USA",
+    "year_of_release": 2011
+  },
+  {
+    "id": 32,
+    "name": "Stardew Valley",
+    "Developer": "ConcernedApe",
+    "Publisher": "ConcernedApe",
+    "Origin": "USA",
+    "year_of_release": 2016
+  },
+  {
+    "id": 33,
+    "name": "Lost Ark",
+    "Developer": "Smilegates RPG",
+    "Publisher": "Amazon Games",
+    "Origin": "South Korea",
+    "year_of_release": 2022
+  },
+  {
+    "id": 34,
+    "name": "Yu-Gi-Oh Master Duel",
+    "Developer": "KONAMI",
+    "Publisher": "KONAMI",
+    "Origin": "Japan",
+    "year_of_release": 2022
+  },
+  {
+    "id": 35,
+    "name": "Forza Horizon 5",
+    "Developer": "Playground Games",
+    "Publisher": "Xbox Game Studios",
+    "Origin": "UK",
+    "year_of_release": 2021
+  },
+  {
+    "id": 36,
+    "name": "Valheim",
+    "Developer": "Iron Gate AB",
+    "Publisher": "Coffee Stain Publishing",
+    "Origin": "Sweden",
+    "year_of_release": 2021
+  },
+  {
+    "id": 37,
+    "name": "Minecraft",
+    "Developer": "Mojang",
+    "Publisher": "Mojang, Xbox Game Studios",
+    "Origin": "Sweden",
+    "year_of_release": 2009
+  },
+  {
+    "id": 38,
+    "name": "Animal Crossing: New Horizons",
+    "Developer": "Nintendo",
+    "Publisher": "Nintendo",
+    "Origin": "Japan",
+    "year_of_release": 2020
+  },
+  {
+    "id": 39,
+    "name": "Sid Meier's Civilization VI",
+    "Developer": "Firaxis Games",
+    "Publisher": "2K",
+    "Origin": "USA",
+    "year_of_release": 2016
+  },
+  {
+    "id": 40,
+    "name": "Cuphead",
+    "Developer": "Studio MDHR Entertainment",
+    "Publisher": "Studio MDHR Entertainment",
+    "Origin": "Canada",
+    "year_of_release": 2017
+  },
+  {
+    "id": 41,
+    "name": "Among Us",
+    "Developer": "Innersloth",
+    "Publisher": "Innersloth",
+    "Origin": "USA",
+    "year_of_release": 2018
+  },
+  {
+    "id": 42,
+    "name": "EA FC 2025",
+    "Developer": "Electronic Arts",
+    "Publisher": "Electronic Arts",
+    "Origin": "Canada, Romania",
+    "year_of_release": 2024
+  },
+  {
+    "id": 43,
+    "name": "New World: Aeternum",
+    "Developer": "Amazon Games",
+    "Publisher": "Amazon Games",
+    "Origin": "USA",
+    "year_of_release": 2024
+  },
+  {
+    "id": 44,
+    "name": "Fallout 4",
+    "Developer": "Bethesda",
+    "Publisher": "Bethesda",
+    "Origin": "USA",
+    "year_of_release": 2015
+  },
+  {
+    "id": 45,
+    "name": "The Binding of Isaac: Rebirth",
+    "Developer": "Nicalis",
+    "Publisher": "Nicalis",
+    "Origin": "USA",
+    "year_of_release": 2014
+  },
+  {
+    "id": 46,
+    "name": "Subnautica",
+    "Developer": "Unknown Worlds Entertainment",
+    "Publisher": "Unknown Worlds Entertainment",
+    "Origin": "USA",
+    "year_of_release": 2014
+  },
+  {
+    "id": 47,
+    "name": "Teamfight Tactics",
+    "Developer": "Riot Games",
+    "Publisher": "Riot Games",
+    "Origin": "USA",
+    "year_of_release": 2019
+  },
+  {
+    "id": 48,
+    "name": "Wii Sports",
+    "Developer": "Nintendo",
+    "Publisher": "Nintendo",
+    "Origin": "Japan",
+    "year_of_release": 2006
+  },
+  {
+    "id": 49,
+    "name": "Dead Cells",
+    "Developer": "Motion Twin",
+    "Publisher": "Motion Twin",
+    "Origin": "France",
+    "year_of_release": 2018
+  },
+  {
+    "id": 50,
+    "name": "Baldur’s Gate 3",
+    "Developer": "Larian Studios",
+    "Publisher": "Larian Studios",
+    "Origin": "Belgium",
+    "year_of_release": 2023
+  },
+  {
+    "id": 51,
+    "name": "Guitar Hero",
+    "Developer": "Neverson",
+    "Publisher": "Activision",
+    "Origin": "USA",
+    "year_of_release": 2005
+  },
+  {
+    "id": 52,
+    "name": "Mario Kart Deluxe 8",
+    "Developer": "Nintendo",
+    "Publisher": "Nintendo",
+    "Origin": "Japan",
+    "year_of_release": 2017
+  },
+  {
+    "id": 53,
+    "name": "NBA 2K25",
+    "Developer": "Visual Concept",
+    "Publisher": "2K",
+    "Origin": "USA",
+    "year_of_release": 2024
+  },
+  {
+    "id": 54,
+    "name": "Sons of the Forest",
+    "Developer": "Endnight Games",
+    "Publisher": "Newnight",
+    "Origin": "Canada",
+    "year_of_release": 2023
+  },
+  {
+    "id": 55,
+    "name": "ARK: Survival Evolved",
+    "Developer": "Studio Wildcard",
+    "Publisher": "Studio Wildcard",
+    "Origin": "USA",
+    "year_of_release": 2015
+  },
+  {
+    "id": 56,
+    "name": "Eurotruck Simulator 2",
+    "Developer": "SCS Software",
+    "Publisher": "SCS Software",
+    "Origin": "Czech",
+    "year_of_release": 2012
+  },
+  {
+    "id": 57,
+    "name": "Dota Underlords",
+    "Developer": "Valve",
+    "Publisher": "Valve",
+    "Origin": "USA",
+    "year_of_release": 2019
+  },
+  {
+    "id": 58,
+    "name": "Path of Exile 2",
+    "Developer": "Grinding Gear Games",
+    "Publisher": "Grinding Gear Games",
+    "Origin": "New Zealand",
+    "year_of_release": 2024
+  },
+  {
+    "id": 59,
+    "name": "Tetris 99",
+    "Developer": "Arika",
+    "Publisher": "Nintendo",
+    "Origin": "Japan",
+    "year_of_release": 2019
+  },
+  {
+    "id": 60,
+    "name": "Overcooked 2",
+    "Developer": "Team17, Ghost Town Games",
+    "Publisher": "Team 17",
+    "Origin": "UK",
+    "year_of_release": 2018
+  },
+  {
+    "id": 61,
+    "name": "No Man’s Sky",
+    "Developer": "Hello Games",
+    "Publisher": "Hello Games",
+    "Origin": "UK",
+    "year_of_release": 2016
+  },
+  {
+    "id": 62,
+    "name": "FNAF",
+    "Developer": "Scott Cawthon",
+    "Publisher": "Scott Cawthon",
+    "Origin": "USA",
+    "year_of_release": 2014
+  },
+  {
+    "id": 63,
+    "name": "Don’t Starve Together",
+    "Developer": "Kiei Entertainment",
+    "Publisher": "Kiei Entertainment",
+    "Origin": "Canada",
+    "year_of_release": 2016
+  },
+  {
+    "id": 64,
+    "name": "Hearthstone",
+    "Developer": "Blizzard",
+    "Publisher": "Blizzard",
+    "Origin": "South Korea",
+    "year_of_release": 2014
+  },
+  {
+    "id": 65,
+    "name": "Dark Souls III",
+    "Developer": "FromSoftware",
+    "Publisher": "FromSoftware, Bandai Namco",
+    "Origin": "Japan",
+    "year_of_release": 2016
+  },
+  {
+    "id": 66,
+    "name": "HITMAN 2",
+    "Developer": "IO Interactive",
+    "Publisher": "IO Interactive",
+    "Origin": "Denmark",
+    "year_of_release": 2018
+  },
+  {
+    "id": 67,
+    "name": "Starfield",
+    "Developer": "Bethesda",
+    "Publisher": "Bethesda",
+    "Origin": "USA",
+    "year_of_release": 2023
+  },
+  {
+    "id": 68,
+    "name": "Persona 5",
+    "Developer": "ATLUS",
+    "Publisher": "SEGA",
+    "Origin": "Japan",
+    "year_of_release": 2016
+  },
+  {
+    "id": 69,
+    "name": "Hollow Knight",
+    "Developer": "Team Cherry",
+    "Publisher": "Team Cherry",
+    "Origin": "Australia",
+    "year_of_release": 2017
+  },
+  {
+    "id": 70,
+    "name": "Final Fantasy VII Remake",
+    "Developer": "Square Enix",
+    "Publisher": "Square Enix",
+    "Origin": "Japan",
+    "year_of_release": 2020
+  },
+  {
+    "id": 71,
+    "name": "Mario Odyssey",
+    "Developer": "Nintendo",
+    "Publisher": "Nintendo",
+    "Origin": "Japan",
+    "year_of_release": 2017
+  }
+]
