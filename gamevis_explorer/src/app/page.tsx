@@ -52,7 +52,20 @@ export default function Page() {
             )
             .map((item, i) => (
               <li key={i}>
-                {item.game_id + "_" + item.screenshot_id + "_" + item.vis_id}
+                <span>
+                  {item.game_id + "_" + item.screenshot_id + "_" + item.vis_id}
+                </span>
+                <img
+                  src={
+                    "/games/" +
+                    item.game_id +
+                    "_" +
+                    item.screenshot_id +
+                    "_" +
+                    item.vis_id +
+                    ".jpg"
+                  }
+                />
               </li>
             ))}
         </ul>
