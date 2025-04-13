@@ -18,7 +18,7 @@ export default function Page() {
   };
 
   return (
-    <div className="flex">
+    <div className="flex fixed inset-0">
       <nav className="p-8">
         <div className="mb-8">
           <h2 className="text-lg">Games</h2>
@@ -44,31 +44,62 @@ export default function Page() {
           </ul>
         </div>
       </nav>
-      <main className="flex flex-col min-h-screen p-8 bg-red-500 w-full">
-        <ul>
-          {sortedData
-            .filter(
-              (item) => selectedOption == "" || item.game_id == selectedOption
-            )
-            .map((item, i) => (
-              <li key={i}>
-                <span>
-                  {item.game_id + "_" + item.screenshot_id + "_" + item.vis_id}
-                </span>
-                <img
-                  src={
-                    "/games/" +
-                    item.game_id +
-                    "_" +
-                    item.screenshot_id +
-                    "_" +
-                    item.vis_id +
-                    ".jpg"
-                  }
-                />
-              </li>
-            ))}
-        </ul>
+      <main className="grid grid-cols-3 grid-rows-3 gap-4 h-full max-h-screen p-8 w-full relative">
+        {["Top", "Middle", "Bottom"].map((yDimension) => {
+          const filterY = sortedData.filter(
+            (item) =>
+              item.vis_position &&
+              "screen_position" in item.vis_position &&
+              Array.isArray(item.vis_position.screen_position) &&
+              item.vis_position.screen_position[0] == yDimension
+          );
+
+          return ["Left", "Middle", "Right"].map((xDimension) => {
+            const filterXY = filterY.filter(
+              (item) =>
+                item.vis_position &&
+                "screen_position" in item.vis_position &&
+                Array.isArray(item.vis_position.screen_position) &&
+                item.vis_position.screen_position[1] == xDimension
+            );
+            return (
+              <section
+                className="overflow-auto bg-neutral-900 p-4"
+                key={`section-${yDimension.toLowerCase()}-${xDimension.toLowerCase()}`}
+              >
+                <ul className="gap-4">
+                  {filterXY
+                    .filter(
+                      (item) =>
+                        selectedOption == "" || item.game_id == selectedOption
+                    )
+                    .map((item, i) => (
+                      <li key={i} className="">
+                        <span>
+                          {item.game_id +
+                            "_" +
+                            item.screenshot_id +
+                            "_" +
+                            item.vis_id}
+                        </span>
+                        <img
+                          src={
+                            "/games/" +
+                            item.game_id +
+                            "_" +
+                            item.screenshot_id +
+                            "_" +
+                            item.vis_id +
+                            ".jpg"
+                          }
+                        />
+                      </li>
+                    ))}
+                </ul>
+              </section>
+            );
+          });
+        })}
       </main>
     </div>
   );
