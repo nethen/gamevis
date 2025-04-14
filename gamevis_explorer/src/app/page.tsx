@@ -11,6 +11,7 @@ export default function Page() {
   const [relative, setRelativity] = useState("Screen");
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
+  const [selectedSection, setSelectedSection] = useState(["", ""]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -274,7 +275,12 @@ export default function Page() {
                 key={`section-${yDimension.toLowerCase()}-${xDimension.toLowerCase()}`}
               >
                 <hgroup className="flex justify-between">
-                  <h3 className="uppercase font-bold tracking-widest text-xs">
+                  <h3
+                    className="uppercase font-bold tracking-widest text-xs cursor-pointer"
+                    onClick={() => {
+                      setSelectedSection([yDimension, xDimension]);
+                    }}
+                  >
                     {yDimension} {xDimension != yDimension ? xDimension : null}{" "}
                     &mdash;{" "}
                     {
@@ -349,6 +355,57 @@ export default function Page() {
           });
         })}
       </main>
+      {selectedSection[0] != "" && selectedSection[1] != "" ? (
+        <div
+          className="fixed inset-0 bg-background/95 p-16 overflow-auto"
+          onClick={() => {
+            setSelectedSection(["", ""]);
+          }}
+        >
+          <ul className="flex flex-wrap gap-4 ">
+            {filteredData
+              .filter((item) =>
+                item.vis_position && relative == "Screen"
+                  ? "screen_position" in item.vis_position &&
+                    Array.isArray(item.vis_position.screen_position) &&
+                    item.vis_position.screen_position[0] ==
+                      selectedSection[0] &&
+                    item.vis_position.screen_position[1] == selectedSection[1]
+                  : "relative_position" in item.vis_position &&
+                    Array.isArray(item.vis_position.relative_position) &&
+                    item.vis_position.relative_position[0] ==
+                      selectedSection[0] &&
+                    item.vis_position.relative_position[1] == selectedSection[1]
+              )
+              .map((item, i) => (
+                <li key={"modal-item-" + i} className="">
+                  <hgroup>
+                    <h5>{item.vis_name}</h5>
+                    <span className="uppercase font-bold tracking-widest text-xs">
+                      {item.game_id +
+                        "_" +
+                        item.screenshot_id +
+                        "_" +
+                        item.vis_id}
+                    </span>
+                  </hgroup>
+                  <img
+                    loading="lazy"
+                    src={
+                      "/games/" +
+                      item.game_id +
+                      "_" +
+                      item.screenshot_id +
+                      "_" +
+                      item.vis_id +
+                      ".jpg"
+                    }
+                  />
+                </li>
+              ))}
+          </ul>
+        </div>
+      ) : null}
     </div>
   );
 }
