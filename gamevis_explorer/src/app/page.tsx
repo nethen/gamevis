@@ -368,7 +368,7 @@ export default function Page() {
           }}
         >
           <button
-            className="fixed top-8 right-8 px-4 py-2 rounded-md bg-neutral-700"
+            className="fixed top-8 right-8 px-4 py-2 rounded-md bg-neutral-700 cursor-pointer"
             onClick={() => {}}
           >
             Close
