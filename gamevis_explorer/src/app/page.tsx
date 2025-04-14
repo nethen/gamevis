@@ -364,6 +364,7 @@ export default function Page() {
           className="fixed inset-0 bg-background/95 p-16 overflow-auto"
           onClick={() => {
             setSelectedSection(["", ""]);
+            setSelectedUsages([]);
           }}
         >
           <div onClick={(e) => e.stopPropagation()}>
@@ -414,8 +415,27 @@ export default function Page() {
                         selectedSection[1]
                 )
                 .map((item, i) => (
-                  <li key={"modal-item-" + i} className="">
-                    <hgroup>
+                  <li
+                    key={"modal-item-" + i}
+                    className={`${
+                      selectedUsages.length == 0 ||
+                      item.vis_usage.some((usage) =>
+                        selectedUsages.includes(usage)
+                      )
+                        ? "-order-1"
+                        : ""
+                    }`}
+                  >
+                    <hgroup
+                      className={`${
+                        selectedUsages.length == 0 ||
+                        item.vis_usage.some((usage) =>
+                          selectedUsages.includes(usage)
+                        )
+                          ? "opacity-100"
+                          : "opacity-10"
+                      }`}
+                    >
                       <h5>{item.vis_name}</h5>
                       <span className="uppercase font-bold tracking-widest text-xs">
                         {item.game_id +
@@ -434,7 +454,8 @@ export default function Page() {
                         )
                           ? "opacity-10"
                           : ""
-                      } `}
+                      } 
+                      mb-4`}
                       // className={`${item.vis_usage.includes(
                       //   "Player`"
                       // )} ? "bg-red-500" : ""`}
@@ -448,6 +469,25 @@ export default function Page() {
                         ".jpg"
                       }
                     />
+                    <ul className="flex gap-2">
+                      {item.vis_usage.map((usage, i) => (
+                        <li
+                          key={i}
+                          className={`px-2 bg-neutral-800 rounded-full ${
+                            selectedUsages.length == 0 ||
+                            selectedUsages.includes(usage)
+                              ? "opacity-100"
+                              : "opacity-10"
+                          }`}
+                        >
+                          <span className="text-sm">
+                            {usage == "Environment"
+                              ? "Ev"
+                              : usage.substring(0, 2)}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </li>
                 ))}
             </ul>
