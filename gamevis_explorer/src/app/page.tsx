@@ -367,6 +367,12 @@ export default function Page() {
             setSelectedUsages([]);
           }}
         >
+          <button
+            className="fixed top-8 right-8 px-4 py-2 rounded-md bg-neutral-700"
+            onClick={() => {}}
+          >
+            Close
+          </button>
           <div onClick={(e) => e.stopPropagation()}>
             <section>
               <form
