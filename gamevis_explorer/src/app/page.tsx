@@ -242,6 +242,7 @@ export default function Page() {
         )}
       </nav>
       <main className="grid grid-cols-3 grid-rows-3 gap-4 h-full max-h-screen p-8 w-full relative">
+        {/* <nav className="p-4"></nav> */}
         {["Top", "Middle", "Bottom"].map((yDimension) => {
           const filterY = filteredData.filter((item) =>
             item.vis_position && relative == "Screen"
@@ -270,50 +271,72 @@ export default function Page() {
               >
                 <hgroup className="flex justify-between">
                   <h3 className="uppercase font-bold tracking-widest text-xs">
-                    {yDimension} {xDimension != yDimension ? xDimension : null}
-                  </h3>
-                  <span>
+                    {yDimension} {xDimension != yDimension ? xDimension : null}{" "}
+                    &mdash;{" "}
                     {
                       filterXY.filter(
                         (item) =>
                           selectedOption == "" || item.game_id == selectedOption
                       ).length
-                    }{" "}
-                    visualizations
-                  </span>
+                    }
+                  </h3>
                 </hgroup>
-                {selectedOption != "" || selectedGenre != "" ? (
-                  <ul className="flex flex-wrap gap-4 size-full overflow-auto">
-                    {filterXY
-                      .filter(
-                        (item) =>
-                          selectedOption == "" || item.game_id == selectedOption
+                <div className="overflow-auto size-full flex flex-col divide-neutral-700 divide-y *:py-2">
+                  <div className="">
+                    <h4 className="font-bold">Tags</h4>
+                    <ul>
+                      {Object.entries(
+                        filterXY
+                          .flatMap((item) => item.tags || [])
+                          .reduce((acc, tag) => {
+                            acc[tag] = (acc[tag] || 0) + 1;
+                            return acc;
+                          }, {} as Record<string, number>)
                       )
-                      .map((item, i) => (
-                        <li key={i} className="">
-                          <span>
-                            {item.game_id +
-                              "_" +
-                              item.screenshot_id +
-                              "_" +
-                              item.vis_id}
-                          </span>
-                          <img
-                            loading="lazy"
-                            src={
-                              "/games/" +
-                              item.game_id +
-                              "_" +
-                              item.screenshot_id +
-                              "_" +
-                              item.vis_id +
-                              ".jpg"
-                            }
-                          />
-                        </li>
-                      ))}
-                  </ul>
-                ) : null}
+                        .sort((a, b) => b[1] - a[1]) // Sort by count in descending order
+                        .map(([tag, count], i) => (
+                          <li key={`taglist-${yDimension}-${xDimension}-${i}`}>
+                            <span className="text-sm text-neutral-500">
+                              {tag}: {count}
+                            </span>
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
+                  {selectedOption != "" || selectedGenre != "" ? (
+                    <ul className="flex flex-wrap gap-4 size-full">
+                      {filterXY
+                        .filter(
+                          (item) =>
+                            selectedOption == "" ||
+                            item.game_id == selectedOption
+                        )
+                        .map((item, i) => (
+                          <li key={i} className="">
+                            <span>
+                              {item.game_id +
+                                "_" +
+                                item.screenshot_id +
+                                "_" +
+                                item.vis_id}
+                            </span>
+                            <img
+                              loading="lazy"
+                              src={
+                                "/games/" +
+                                item.game_id +
+                                "_" +
+                                item.screenshot_id +
+                                "_" +
+                                item.vis_id +
+                                ".jpg"
+                              }
+                            />
+                          </li>
+                        ))}
+                    </ul>
+                  ) : null}
+                </div>
               </section>
             );
           });
