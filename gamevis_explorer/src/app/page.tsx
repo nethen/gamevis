@@ -83,13 +83,6 @@ export default function Page() {
     console.log("Selected:", e.target.value);
   };
 
-  useEffect(() => {
-    console.log(filteredMetadata);
-  }, [selectedGenre]);
-  useEffect(() => {
-    console.log(filteredData);
-  }, [filteredData]);
-
   return (
     <div className="flex fixed inset-0">
       <nav className="p-8 overflow-auto min-w-[20rem] border-r border-neutral-900">
@@ -105,8 +98,8 @@ export default function Page() {
                   console.error("Error saving to localStorage", error);
                 }
               }}
-              className={`w-full px-4 py-2 rounded-md border border-neutral-500 ${
-                coords == "Camera" ? "bg-neutral-500" : "bg-transparent"
+              className={`w-full px-4 py-2 rounded-md border border-neutral-700 cursor-pointer ${
+                coords == "Camera" ? "bg-neutral-700" : "bg-transparent"
               }`}
             >
               Camera
@@ -120,8 +113,8 @@ export default function Page() {
                   console.error("Error saving to localStorage", error);
                 }
               }}
-              className={`w-full px-4 py-2 rounded-md border border-neutral-500 ${
-                coords == "World" ? "bg-neutral-500" : "bg-transparent"
+              className={`w-full px-4 py-2 rounded-md border border-neutral-700 cursor-pointer ${
+                coords == "World" ? "bg-neutral-700" : "bg-transparent"
               }`}
             >
               World
@@ -140,8 +133,8 @@ export default function Page() {
                   console.error("Error saving to localStorage", error);
                 }
               }}
-              className={`w-full px-4 py-2 rounded-md border border-neutral-500 ${
-                relative == "Screen" ? "bg-neutral-500" : "bg-transparent"
+              className={`w-full px-4 py-2 rounded-md border border-neutral-700 cursor-pointer ${
+                relative == "Screen" ? "bg-neutral-700" : "bg-transparent"
               }`}
             >
               Screen
@@ -155,8 +148,8 @@ export default function Page() {
                   console.error("Error saving to localStorage", error);
                 }
               }}
-              className={`w-full px-4 py-2 rounded-md border border-neutral-500 ${
-                relative == "Relative" ? "bg-neutral-500" : "bg-transparent"
+              className={`w-full px-4 py-2 rounded-md border border-neutral-700 cursor-pointer ${
+                relative == "Relative" ? "bg-neutral-700" : "bg-transparent"
               }`}
             >
               Relative
@@ -370,16 +363,30 @@ export default function Page() {
             setSelectedUsages([]);
           }}
         >
-          <button
-            className="fixed top-8 right-8 px-4 py-2 rounded-md bg-neutral-700 cursor-pointer"
-            onClick={() => {}}
-          >
-            Close
-          </button>
-          <div onClick={(e) => e.stopPropagation()}>
-            <section>
+          <div onClick={(e) => e.stopPropagation()} className="relative">
+            <section className="sticky top-0 -mx-3 pl-6 p-2 bg-neutral-900 z-10 rounded-full mb-8 flex gap-8 items-center">
+              <p>
+                {
+                  filteredData.filter((item) =>
+                    item.vis_position && relative == "Screen"
+                      ? "screen_position" in item.vis_position &&
+                        Array.isArray(item.vis_position.screen_position) &&
+                        item.vis_position.screen_position[0] ==
+                          selectedSection[0] &&
+                        item.vis_position.screen_position[1] ==
+                          selectedSection[1]
+                      : "relative_position" in item.vis_position &&
+                        Array.isArray(item.vis_position.relative_position) &&
+                        item.vis_position.relative_position[0] ==
+                          selectedSection[0] &&
+                        item.vis_position.relative_position[1] ==
+                          selectedSection[1]
+                  ).length
+                }{" "}
+                annotations
+              </p>
               <form
-                className="flex gap-4 mb-8"
+                className="flex gap-4"
                 onChange={(e) => {
                   const formData = new FormData(e.currentTarget);
                   const selectedStates = Array.from(formData.entries()).map(
@@ -438,6 +445,15 @@ export default function Page() {
                   <label htmlFor="state4">Game</label>
                 </div> */}
               </form>
+              <button
+                className="ml-auto p-4 py-2 rounded-full bg-neutral-700 cursor-pointer"
+                onClick={() => {
+                  setSelectedSection(["", ""]);
+                  setSelectedUsages([]);
+                }}
+              >
+                Close
+              </button>
             </section>
             <ul className="flex flex-wrap gap-4 ">
               {filteredData
