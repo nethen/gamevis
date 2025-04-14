@@ -241,8 +241,12 @@ export default function Page() {
           </div>
         )}
       </nav>
-      <main className="grid grid-cols-3 grid-rows-3 gap-4 h-full max-h-screen p-8 w-full relative">
-        {/* <nav className="p-4"></nav> */}
+      <main className="grid grid-rows-[min-content_repeat(3,_minmax(0,_1fr))] grid-cols-3 gap-4 h-full max-h-screen p-8 w-full relative">
+        <nav className="p-2 col-span-full flex gap-4 justify-center">
+          Top level nav
+          {/* <button>Tags</button>
+          <button>Images</button> */}
+        </nav>
         {["Top", "Middle", "Bottom"].map((yDimension) => {
           const filterY = filteredData.filter((item) =>
             item.vis_position && relative == "Screen"
@@ -296,7 +300,7 @@ export default function Page() {
                         .sort((a, b) => b[1] - a[1]) // Sort by count in descending order
                         .map(([tag, count], i) => (
                           <li key={`taglist-${yDimension}-${xDimension}-${i}`}>
-                            <span className="text-sm text-neutral-500">
+                            <span className="text-sm">
                               {tag}: {count}
                             </span>
                           </li>
