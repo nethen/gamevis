@@ -386,11 +386,40 @@ export default function Page() {
                   console.log("Selected states:", selectedStates);
                 }}
               >
-                <div>
-                  <input type="checkbox" name="state1" value="Player" />
-                  <label htmlFor="state1">Player</label>
-                </div>
-                <div>
+                {["Player", "Enemy", "Game", "Environment"].map((item, i) => (
+                  <div>
+                    <input type="checkbox" name={`state-${i}`} value={item} />
+                    <label htmlFor={`state-${i}`}>
+                      {item} (
+                      {
+                        filteredData.filter((subitem) =>
+                          subitem.vis_position && relative == "Screen"
+                            ? "screen_position" in subitem.vis_position &&
+                              Array.isArray(
+                                subitem.vis_position.screen_position
+                              ) &&
+                              subitem.vis_position.screen_position[0] ==
+                                selectedSection[0] &&
+                              subitem.vis_position.screen_position[1] ==
+                                selectedSection[1] &&
+                              subitem.vis_usage.includes(item)
+                            : "relative_position" in subitem.vis_position &&
+                              Array.isArray(
+                                subitem.vis_position.relative_position
+                              ) &&
+                              subitem.vis_position.relative_position[0] ==
+                                selectedSection[0] &&
+                              subitem.vis_position.relative_position[1] ==
+                                selectedSection[1] &&
+                              subitem.vis_usage.includes(item)
+                        ).length
+                      }
+                      )
+                    </label>
+                    {}
+                  </div>
+                ))}
+                {/* <div>
                   <input type="checkbox" name="state2" value="Enemy" />
                   <label htmlFor="state2">Enemy</label>
                 </div>
@@ -401,7 +430,7 @@ export default function Page() {
                 <div>
                   <input type="checkbox" name="state4" value="Game" />
                   <label htmlFor="state4">Game</label>
-                </div>
+                </div> */}
               </form>
             </section>
             <ul className="flex flex-wrap gap-4 ">
