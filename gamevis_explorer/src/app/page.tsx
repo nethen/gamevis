@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+// import Image from "next/image";
 import meta from "@/app/meta.json";
 import data from "@/app/sorted_output.json";
 import { useEffect, useMemo, useState } from "react";
@@ -50,15 +50,15 @@ export default function Page() {
     });
   }, [filteredMetadata]);
   // console.log(meta);
-  const handleCoordsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setCoords(e.target.value);
-    try {
-      localStorage.setItem("coords", e.target.value);
-    } catch (error) {
-      console.error("Error saving to localStorage", error);
-    }
-    console.log("Selected:", e.target.value);
-  };
+  // const handleCoordsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   setCoords(e.target.value);
+  //   try {
+  //     localStorage.setItem("coords", e.target.value);
+  //   } catch (error) {
+  //     console.error("Error saving to localStorage", error);
+  //   }
+  //   console.log("Selected:", e.target.value);
+  // };
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(e.target.value);
