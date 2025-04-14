@@ -7,12 +7,14 @@ import { useEffect, useMemo, useState } from "react";
 const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
 
 export default function Page() {
+  const [coords, setCoords] = useState("Camera");
   const [relative, setRelativity] = useState("Screen");
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
 
   useEffect(() => {
     if (typeof window !== "undefined") {
+      setCoords(localStorage.getItem("coords") || "Camera");
       setRelativity(localStorage.getItem("relativity") || "Screen");
       setSelectedOption(localStorage.getItem("game") || "");
       setSelectedGenre(localStorage.getItem("genre") || "");
@@ -47,6 +49,16 @@ export default function Page() {
     });
   }, [filteredMetadata]);
   // console.log(meta);
+  const handleCoordsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setCoords(e.target.value);
+    try {
+      localStorage.setItem("coords", e.target.value);
+    } catch (error) {
+      console.error("Error saving to localStorage", error);
+    }
+    console.log("Selected:", e.target.value);
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(e.target.value);
     try {
@@ -75,7 +87,42 @@ export default function Page() {
 
   return (
     <div className="flex fixed inset-0">
-      <nav className="p-8 overflow-auto min-w-[20rem]">
+      <nav className="p-8 overflow-auto min-w-[20rem] border-r border-neutral-900">
+        <div className="mb-8">
+          <h2 className="text-lg mb-2">Coordinate system</h2>
+          <div className="flex gap-2">
+            <button
+              onClick={() => {
+                setCoords("Camera");
+                try {
+                  localStorage.setItem("coords", "Camera");
+                } catch (error) {
+                  console.error("Error saving to localStorage", error);
+                }
+              }}
+              className={`w-full px-4 py-2 rounded-md border border-neutral-500 ${
+                coords == "Camera" ? "bg-neutral-500" : "bg-transparent"
+              }`}
+            >
+              Camera
+            </button>
+            <button
+              onClick={() => {
+                setCoords("World");
+                try {
+                  localStorage.setItem("coords", "Camera");
+                } catch (error) {
+                  console.error("Error saving to localStorage", error);
+                }
+              }}
+              className={`w-full px-4 py-2 rounded-md border border-neutral-500 ${
+                coords == "World" ? "bg-neutral-500" : "bg-transparent"
+              }`}
+            >
+              World
+            </button>
+          </div>
+        </div>
         <div className="mb-8">
           <h2 className="text-lg mb-2">Relativity</h2>
           <div className="flex gap-2">
@@ -88,7 +135,7 @@ export default function Page() {
                   console.error("Error saving to localStorage", error);
                 }
               }}
-              className={`px-4 py-2 rounded-md border border-neutral-500 ${
+              className={`w-full px-4 py-2 rounded-md border border-neutral-500 ${
                 relative == "Screen" ? "bg-neutral-500" : "bg-transparent"
               }`}
             >
@@ -103,7 +150,7 @@ export default function Page() {
                   console.error("Error saving to localStorage", error);
                 }
               }}
-              className={`px-4 py-2 rounded-md border border-neutral-500 ${
+              className={`w-full px-4 py-2 rounded-md border border-neutral-500 ${
                 relative == "Relative" ? "bg-neutral-500" : "bg-transparent"
               }`}
             >
@@ -221,16 +268,21 @@ export default function Page() {
                 className="bg-neutral-900 p-4 flex flex-col gap-2"
                 key={`section-${yDimension.toLowerCase()}-${xDimension.toLowerCase()}`}
               >
-                <span>
-                  {
-                    filterXY.filter(
-                      (item) =>
-                        selectedOption == "" || item.game_id == selectedOption
-                    ).length
-                  }{" "}
-                  items
-                </span>
-                {
+                <hgroup className="flex justify-between">
+                  <h3 className="uppercase font-bold tracking-widest text-xs">
+                    {yDimension} {xDimension != yDimension ? xDimension : null}
+                  </h3>
+                  <span>
+                    {
+                      filterXY.filter(
+                        (item) =>
+                          selectedOption == "" || item.game_id == selectedOption
+                      ).length
+                    }{" "}
+                    visualizations
+                  </span>
+                </hgroup>
+                {selectedOption != "" || selectedGenre != "" ? (
                   <ul className="flex flex-wrap gap-4 size-full overflow-auto">
                     {filterXY
                       .filter(
@@ -261,7 +313,7 @@ export default function Page() {
                         </li>
                       ))}
                   </ul>
-                }
+                ) : null}
               </section>
             );
           });
