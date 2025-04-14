@@ -12,6 +12,7 @@ export default function Page() {
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
   const [selectedSection, setSelectedSection] = useState(["", ""]);
+  const [selectedUsages, setSelectedUsages] = useState<string[]>([]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -336,7 +337,7 @@ export default function Page() {
                                   item.vis_id}
                               </span>
                             </hgroup>
-                            <img
+                            {/* <img
                               loading="lazy"
                               src={
                                 "/games/" +
@@ -347,7 +348,7 @@ export default function Page() {
                                 item.vis_id +
                                 ".jpg"
                               }
-                            />
+                            /> */}
                           </li>
                         ))}
                     </ul>
@@ -365,48 +366,92 @@ export default function Page() {
             setSelectedSection(["", ""]);
           }}
         >
-          <ul className="flex flex-wrap gap-4 ">
-            {filteredData
-              .filter((item) =>
-                item.vis_position && relative == "Screen"
-                  ? "screen_position" in item.vis_position &&
-                    Array.isArray(item.vis_position.screen_position) &&
-                    item.vis_position.screen_position[0] ==
-                      selectedSection[0] &&
-                    item.vis_position.screen_position[1] == selectedSection[1]
-                  : "relative_position" in item.vis_position &&
-                    Array.isArray(item.vis_position.relative_position) &&
-                    item.vis_position.relative_position[0] ==
-                      selectedSection[0] &&
-                    item.vis_position.relative_position[1] == selectedSection[1]
-              )
-              .map((item, i) => (
-                <li key={"modal-item-" + i} className="">
-                  <hgroup>
-                    <h5>{item.vis_name}</h5>
-                    <span className="uppercase font-bold tracking-widest text-xs">
-                      {item.game_id +
+          <div onClick={(e) => e.stopPropagation()}>
+            <section>
+              <form
+                className="flex gap-4 mb-8"
+                onChange={(e) => {
+                  const formData = new FormData(e.currentTarget);
+                  const selectedStates = Array.from(formData.entries()).map(
+                    ([name, value]) => value.toString()
+                  );
+                  setSelectedUsages(selectedStates);
+                  console.log("Selected states:", selectedStates);
+                }}
+              >
+                <div>
+                  <input type="checkbox" name="state1" value="Player" />
+                  <label htmlFor="state1">Player</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="state2" value="Enemy" />
+                  <label htmlFor="state2">Enemy</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="state3" value="Environment" />
+                  <label htmlFor="state3">Environment</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="state4" value="Game" />
+                  <label htmlFor="state4">Game</label>
+                </div>
+              </form>
+            </section>
+            <ul className="flex flex-wrap gap-4 ">
+              {filteredData
+                .filter((item) =>
+                  item.vis_position && relative == "Screen"
+                    ? "screen_position" in item.vis_position &&
+                      Array.isArray(item.vis_position.screen_position) &&
+                      item.vis_position.screen_position[0] ==
+                        selectedSection[0] &&
+                      item.vis_position.screen_position[1] == selectedSection[1]
+                    : "relative_position" in item.vis_position &&
+                      Array.isArray(item.vis_position.relative_position) &&
+                      item.vis_position.relative_position[0] ==
+                        selectedSection[0] &&
+                      item.vis_position.relative_position[1] ==
+                        selectedSection[1]
+                )
+                .map((item, i) => (
+                  <li key={"modal-item-" + i} className="">
+                    <hgroup>
+                      <h5>{item.vis_name}</h5>
+                      <span className="uppercase font-bold tracking-widest text-xs">
+                        {item.game_id +
+                          "_" +
+                          item.screenshot_id +
+                          "_" +
+                          item.vis_id}
+                      </span>
+                    </hgroup>
+                    <img
+                      loading="lazy"
+                      className={`${
+                        selectedUsages.length > 0 &&
+                        !selectedUsages.some((usage) =>
+                          item.vis_usage.includes(usage)
+                        )
+                          ? "opacity-10"
+                          : ""
+                      } `}
+                      // className={`${item.vis_usage.includes(
+                      //   "Player`"
+                      // )} ? "bg-red-500" : ""`}
+                      src={
+                        "/games/" +
+                        item.game_id +
                         "_" +
                         item.screenshot_id +
                         "_" +
-                        item.vis_id}
-                    </span>
-                  </hgroup>
-                  <img
-                    loading="lazy"
-                    src={
-                      "/games/" +
-                      item.game_id +
-                      "_" +
-                      item.screenshot_id +
-                      "_" +
-                      item.vis_id +
-                      ".jpg"
-                    }
-                  />
-                </li>
-              ))}
-          </ul>
+                        item.vis_id +
+                        ".jpg"
+                      }
+                    />
+                  </li>
+                ))}
+            </ul>
+          </div>
         </div>
       ) : null}
     </div>
