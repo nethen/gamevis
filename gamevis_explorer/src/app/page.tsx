@@ -387,7 +387,10 @@ export default function Page() {
                 }}
               >
                 {["Player", "Enemy", "Game", "Environment"].map((item, i) => (
-                  <div>
+                  <div
+                    key={`usage-check-${item.toLowerCase()}`}
+                    className="flex gap-2 items-center"
+                  >
                     <input type="checkbox" name={`state-${i}`} value={item} />
                     <label htmlFor={`state-${i}`}>
                       {item} (
