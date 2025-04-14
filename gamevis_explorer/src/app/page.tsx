@@ -274,13 +274,8 @@ export default function Page() {
                 className="bg-neutral-900 p-4 flex flex-col gap-2"
                 key={`section-${yDimension.toLowerCase()}-${xDimension.toLowerCase()}`}
               >
-                <hgroup className="flex justify-between">
-                  <h3
-                    className="uppercase font-bold tracking-widest text-xs cursor-pointer"
-                    onClick={() => {
-                      setSelectedSection([yDimension, xDimension]);
-                    }}
-                  >
+                <hgroup className="flex justify-between items-center">
+                  <h3 className="">
                     {yDimension} {xDimension != yDimension ? xDimension : null}{" "}
                     &mdash;{" "}
                     {
@@ -290,6 +285,14 @@ export default function Page() {
                       ).length
                     }
                   </h3>
+                  <button
+                    className="px-3 py-1 rounded-sm bg-neutral-500 uppercase font-bold tracking-widest text-xs cursor-pointer"
+                    onClick={() => {
+                      setSelectedSection([yDimension, xDimension]);
+                    }}
+                  >
+                    View all
+                  </button>
                 </hgroup>
                 <div className="overflow-auto size-full flex flex-col divide-neutral-700 divide-y *:py-2">
                   <div className="">
