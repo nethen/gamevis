@@ -313,13 +313,16 @@ export default function Page() {
                         )
                         .map((item, i) => (
                           <li key={i} className="">
-                            <span>
-                              {item.game_id +
-                                "_" +
-                                item.screenshot_id +
-                                "_" +
-                                item.vis_id}
-                            </span>
+                            <hgroup>
+                              <h5>{item.vis_name}</h5>
+                              <span className="uppercase font-bold tracking-widest text-xs">
+                                {item.game_id +
+                                  "_" +
+                                  item.screenshot_id +
+                                  "_" +
+                                  item.vis_id}
+                              </span>
+                            </hgroup>
                             <img
                               loading="lazy"
                               src={
