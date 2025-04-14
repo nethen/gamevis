@@ -47,9 +47,12 @@ export default function Page() {
 
   const filteredData = useMemo(() => {
     return data.filter((item) => {
-      return filteredMetadata.includes(item.game_id);
+      return (
+        filteredMetadata.includes(item.game_id) &&
+        (item.game_id == selectedOption || selectedOption == "")
+      );
     });
-  }, [filteredMetadata]);
+  }, [filteredMetadata, selectedOption]);
   // console.log(meta);
   // const handleCoordsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
   //   setCoords(e.target.value);
