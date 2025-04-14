@@ -148,6 +148,51 @@ export default function Page() {
             ))}
           </select>
         </div>
+        {relative == "Relative" && (
+          <div className="mb-8">
+            <h2 className="text-lg mb-2">Anchors</h2>
+
+            <ul className="flex flex-col gap-4 mb-4">
+              {[
+                ...new Set(
+                  filteredData
+                    .filter(
+                      (item) =>
+                        selectedOption == "" || item.game_id == selectedOption
+                    )
+                    .filter(
+                      (item) =>
+                        item.vis_position &&
+                        "screen_relativity" in item.vis_position &&
+                        item.vis_position.screen_relativity == "Relative"
+                    )
+                    .map((item) => {
+                      return item.vis_position &&
+                        "relative_to" in item.vis_position
+                        ? item.vis_position.relative_to
+                        : undefined;
+                    })
+                ),
+              ].map((item, i) => {
+                return <li key={`anchor-${i}`}>{item}</li>;
+              })}
+            </ul>
+            {/* <select
+              onChange={handleChange}
+              value={selectedOption || ""}
+              className="bg-neutral-900 p-2 pr-0 w-full"
+            >
+              <option value="" className="">
+                Select a game
+              </option>
+              {filteredGameNames.map((item, i) => (
+                <option key={item} value={filteredMetadata[i]} className=" ">
+                  {item}
+                </option>
+              ))}
+            </select> */}
+          </div>
+        )}
       </nav>
       <main className="grid grid-cols-3 grid-rows-3 gap-4 h-full max-h-screen p-8 w-full relative">
         {["Top", "Middle", "Bottom"].map((yDimension) => {
