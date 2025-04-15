@@ -116,6 +116,23 @@ export default function Page() {
     console.log("Selected:", e.target.value);
   };
 
+  useEffect(() => {
+    console.log(
+      filterByXY(filteredData, selectedSection[0], selectedSection[1]).map(
+        (item) => item.tags
+      )
+    );
+    console.log([
+      ...new Set(
+        filterByXY(
+          filteredData,
+          selectedSection[0],
+          selectedSection[1]
+        ).flatMap((item) => (item.tags ? item.tags.map((tag) => tag) : "N/A"))
+      ),
+    ]);
+  }, [selectedSection]);
+
   return (
     <div className="flex fixed inset-0">
       <nav className="p-8 overflow-auto min-w-[20rem] border-r border-neutral-900">
@@ -449,14 +466,8 @@ export default function Page() {
         })}
       </main>
       {selectedSection[0] != "" && selectedSection[1] != "" ? (
-        <div
-          className="fixed inset-0 bg-background/95 p-16 overflow-auto"
-          onClick={() => {
-            setSelectedSection(["", ""]);
-            setSelectedUsages([]);
-          }}
-        >
-          <div onClick={(e) => e.stopPropagation()} className="relative">
+        <div className="fixed inset-0 bg-background/95 p-16 overflow-auto">
+          <div className="relative">
             <section className="sticky top-0 -mx-3 pl-6 p-2 bg-neutral-900 z-10 rounded-lg mb-8 flex gap-8 items-stretch">
               <hgroup>
                 <h2 className="text-lg">
@@ -529,97 +540,100 @@ export default function Page() {
                 Close
               </button>
             </section>
-            <ul className="flex flex-wrap gap-4 ">
-              {filterByXY(
-                filteredData,
-                selectedSection[0],
-                selectedSection[1]
-              ).map((item, i) => (
-                <li
-                  key={"modal-item-" + i}
-                  className={`${
-                    selectedUsages.length == 0 ||
-                    item.vis_usage.some((usage) =>
-                      selectedUsages.includes(usage)
-                    )
-                      ? "-order-1"
-                      : ""
-                  }`}
-                >
-                  <hgroup
-                    className={`${
-                      selectedUsages.length == 0 ||
-                      item.vis_usage.some((usage) =>
-                        selectedUsages.includes(usage)
-                      )
-                        ? "opacity-100"
-                        : "opacity-10"
-                    }`}
-                  >
-                    <span className="uppercase font-bold tracking-widest text-xs">
-                      {item.game_id +
-                        "_" +
-                        item.screenshot_id +
-                        "_" +
-                        item.vis_id}
-                    </span>
-                    <div className="flex gap-4 items-center">
-                      <h5 className="text-lg">{item.vis_name}</h5>
-                      <ul className="flex gap-2">
-                        {item.vis_usage.map((usage, i) => (
-                          <li
-                            key={i}
-                            className={`px-2 bg-neutral-800 rounded-full leading-none flex ${
-                              selectedUsages.length == 0 ||
+            {[
+              ...new Set(
+                filterByXY(
+                  filteredData,
+                  selectedSection[0],
+                  selectedSection[1]
+                ).flatMap((item) =>
+                  item.tags ? item.tags.map((tag) => tag) : "N/A"
+                )
+              ),
+            ].map((tag) => (
+              <div key={`tag-group-${tag}`} className="mb-12">
+                <h3 className="text-xl border-t border-neutral-500">{tag}</h3>
+                <ul className="flex flex-wrap gap-4 ">
+                  {filterByXY(
+                    filteredData,
+                    selectedSection[0],
+                    selectedSection[1]
+                  )
+                    .filter((item) => item.tags?.includes(tag))
+                    .map((item, i) => (
+                      <li
+                        key={"modal-item-" + i}
+                        className={`${
+                          selectedUsages.length == 0 ||
+                          item.vis_usage.some((usage) =>
+                            selectedUsages.includes(usage)
+                          )
+                            ? "-order-1 opacity-100"
+                            : "opacity-10"
+                        }`}
+                      >
+                        <hgroup
+                          className={`${
+                            selectedUsages.length == 0 ||
+                            item.vis_usage.some((usage) =>
                               selectedUsages.includes(usage)
-                                ? "opacity-100"
-                                : "opacity-10"
-                            }`}
-                          >
-                            <span className="text-sm">
-                              {usage == "Environment"
-                                ? "Ev"
-                                : usage.substring(0, 2)}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </hgroup>
-                  <img
-                    loading="lazy"
-                    className={`${
-                      selectedUsages.length > 0 &&
-                      !selectedUsages.some((usage) =>
-                        item.vis_usage.includes(usage as VisUsage)
-                      )
-                        ? "opacity-10"
-                        : ""
-                    } 
+                            )
+                              ? "opacity-100"
+                              : "opacity-10"
+                          }`}
+                        >
+                          <span className="uppercase font-bold tracking-widest text-xs">
+                            {item.game_id +
+                              "_" +
+                              item.screenshot_id +
+                              "_" +
+                              item.vis_id}
+                          </span>
+                          <div className="flex gap-4 items-center">
+                            <h5 className="text-lg">{item.vis_name}</h5>
+                            <ul className="flex gap-2">
+                              {item.vis_usage.map((usage, i) => (
+                                <li
+                                  key={i}
+                                  className={`px-2 bg-neutral-800 rounded-full leading-none flex`}
+                                >
+                                  <span className="text-sm">
+                                    {usage == "Environment"
+                                      ? "Ev"
+                                      : usage.substring(0, 2)}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </hgroup>
+                        <img
+                          loading="lazy"
+                          className={`
                       mb-4`}
-                    // className={`${item.vis_usage.includes(
-                    //   "Player`"
-                    // )} ? "bg-red-500" : ""`}
-                    src={
-                      "/games/" +
-                      item.game_id +
-                      "_" +
-                      item.screenshot_id +
-                      "_" +
-                      item.vis_id +
-                      ".jpg"
-                    }
-                    alt={item.notes.join(", ")}
-                  />
+                          // className={`${item.vis_usage.includes(
+                          //   "Player`"
+                          // )} ? "bg-red-500" : ""`}
+                          src={
+                            "/games/" +
+                            item.game_id +
+                            "_" +
+                            item.screenshot_id +
+                            "_" +
+                            item.vis_id +
+                            ".jpg"
+                          }
+                          alt={item.notes.join(", ")}
+                        />
 
-                  <ul className="flex flex-wrap gap-4">
-                    {item.data.map((dataGroup, i) => (
-                      <li key={i} className={`flex flex-col`}>
-                        <div className="text-sm flex flex-col flex-wrap">
-                          {dataGroup.map((data, j) => (
-                            <span
-                              key={j}
-                              className={`
+                        <ul className="flex flex-wrap gap-4">
+                          {item.data.map((dataGroup, i) => (
+                            <li key={i} className={`flex flex-col`}>
+                              <div className="text-sm flex flex-col flex-wrap">
+                                {dataGroup.map((data, j) => (
+                                  <span
+                                    key={j}
+                                    className={`
                                 ${
                                   data.data_type == "Nominal"
                                     ? "text-red-400"
@@ -633,35 +647,39 @@ export default function Page() {
                                     ? "text-purple-400"
                                     : "text-foreground"
                                 } font-bold`}
-                            >
-                              {data.data_value}
-                            </span>
+                                  >
+                                    {data.data_value}
+                                  </span>
+                                ))}
+                              </div>
+                              <span className="text-sm opacity-50">
+                                M:{" "}
+                                {Array.isArray(item.marks[i])
+                                  ? item.marks[i].map((item) => item).join(", ")
+                                  : "N/A"}
+                              </span>
+                              <span className="text-sm opacity-50">
+                                C:{" "}
+                                {Array.isArray(item.channels[i])
+                                  ? item.channels[i]
+                                      .map((item) => item)
+                                      .join(", ")
+                                  : "N/A"}
+                              </span>
+                              <span className="text-sm opacity-50">
+                                T:{" "}
+                                {item.tags
+                                  ? item.tags.map((item) => item).join(", ")
+                                  : "N/A"}
+                              </span>
+                            </li>
                           ))}
-                        </div>
-                        <span className="text-sm opacity-50">
-                          M:{" "}
-                          {Array.isArray(item.marks[i])
-                            ? item.marks[i].map((item) => item).join(", ")
-                            : "N/A"}
-                        </span>
-                        <span className="text-sm opacity-50">
-                          C:{" "}
-                          {Array.isArray(item.channels[i])
-                            ? item.channels[i].map((item) => item).join(", ")
-                            : "N/A"}
-                        </span>
-                        <span className="text-sm opacity-50">
-                          T:{" "}
-                          {item.tags
-                            ? item.tags.map((item) => item).join(", ")
-                            : "N/A"}
-                        </span>
+                        </ul>
                       </li>
                     ))}
-                  </ul>
-                </li>
-              ))}
-            </ul>
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       ) : null}
