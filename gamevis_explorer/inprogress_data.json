@@ -128,6 +128,57 @@
     "tags": ["Round", "Progression"]
   },
   {
+    "flagged": true,
+    "game_id": "1",
+    "screenshot_id": "1",
+    "vis_id": "l4",
+    "data": [
+      [
+        {
+          "data_value": "Health value",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Next level progress",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Shield type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Shield value",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [
+      ["Rectangle", "Text"],
+      ["Path", "Text"],
+      ["Rectangle", "Text"]
+    ],
+    "channels": [
+      ["Length", "Hue", "Text"],
+      ["Length", "Text"],
+      ["Length", "Text"]
+    ],
+    "vis_name": "Player health bar",
+    "vis_usage": ["Player"],
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Left"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Original annotation: The white bar is the main health bar with additional orange and purple ones from items, while the potion-shaped bar acts as a level counter for skill upgrades/increased health."
+    ]
+  },
+  {
     "game_id": "1",
     "screenshot_id": "2",
     "vis_id": "g1a",
@@ -197,7 +248,7 @@
     "flagged": true,
     "game_id": "1",
     "screenshot_id": "3",
-    "vis_id": "ge1a",
+    "vis_id": "g1a",
     "data": [
       [
         {
@@ -9079,7 +9130,7 @@
     "flagged": true,
     "game_id": "18",
     "screenshot_id": "2",
-    "vis_id": "g2",
+    "vis_id": "ge2",
     "data": [
       [
         {
@@ -9098,7 +9149,7 @@
       "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
-    "vis_visibility": [["Global", false]],
+    "vis_visibility": [["Global", true]],
     "notes": [
       "DATA VALUE: Damage dealt to enemy",
       "ENCODING: Amount of damage they get"
@@ -9735,43 +9786,6 @@
       "relative_to": "destination",
       "relative_position": ["Middle", "Middle"],
       "coords": "World"
-    },
-    "vis_visibility": [["Local", true]],
-    "notes": [
-      "A path will show up to lead the player to 1b. It flashes in and out of the screen."
-    ],
-    "tags": ["Wayfinding"]
-  },
-  {
-    "flagged": true,
-    "game_id": "19",
-    "screenshot_id": "3",
-    "vis_id": "le1c",
-    "data": [
-      [
-        {
-          "data_value": "Waypoint type",
-          "data_type": "Nominal"
-        },
-        {
-          "data_value": "Mission location",
-          "data_type": "Spatial"
-        },
-        {
-          "data_value": "Waypoint availability",
-          "data_type": "Ordinal"
-        }
-      ]
-    ],
-    "marks": [["Symbol"]],
-    "channels": [["Position", "Shape", "Luminance"]],
-    "vis_name": "Light up path",
-    "vis_usage": ["Environment"],
-    "vis_position": {
-      "screen_relativity": "Relative",
-      "relative_to": "destination",
-      "relative_position": ["Middle", "Middle"],
-      "coords": "Camera"
     },
     "vis_visibility": [["Local", true]],
     "notes": [
