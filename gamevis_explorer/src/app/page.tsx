@@ -5,17 +5,12 @@ import rawData from "@/app/fixed_annotations.json";
 const data: Annotation[] = rawData as unknown as Annotation[];
 import { useEffect, useMemo, useState } from "react";
 import { Annotation, VisUsage } from "./types/types";
+import { FilterNav, useFilterContext } from "./components/Nav/FilterNav";
 
 const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
 
 export default function Page() {
-  const [coords, setCoords] = useState("Camera");
-  const [relative, setRelativity] = useState("Screen");
-  const [selectedOption, setSelectedOption] = useState("");
-  const [selectedGenre, setSelectedGenre] = useState("");
-  const [selectedSection, setSelectedSection] = useState(["", ""]);
-  const [selectedUsages, setSelectedUsages] = useState<string[]>([]);
-  const [speed, setSpeed] = useState([4, 12]);
+  const { filters, setFilters } = useFilterContext();
 
   const filterByXY = (
     data: Annotation[],
@@ -23,7 +18,7 @@ export default function Page() {
     xDimension: string
   ) => {
     return data.filter((item) =>
-      item.vis_position && relative == "Screen"
+      item.vis_position && filters.relative == "Screen"
         ? "screen_position" in item.vis_position &&
           Array.isArray(item.vis_position.screen_position) &&
           item.vis_position.screen_position[0] == yDimension &&
@@ -37,58 +32,52 @@ export default function Page() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setCoords(localStorage.getItem("coords") || "Camera");
-      setRelativity(localStorage.getItem("relativity") || "Screen");
-      setSelectedOption(localStorage.getItem("game") || "");
-      setSelectedGenre(localStorage.getItem("genre") || "");
+      setFilters({
+        ...filters,
+        coords: localStorage.getItem("coords") || "Camera",
+        relative: localStorage.getItem("relativity") || "Screen",
+        genre: localStorage.getItem("genre") || "",
+        game: localStorage.getItem("game") || "",
+      });
     }
   }, []);
 
   const filteredMetadata = useMemo(() => {
     return meta
       .filter((item) => {
-        if (selectedGenre == "")
-          return item.score >= speed[0] && item.score <= speed[1];
+        if (filters.genre == "")
+          return (
+            item.score >= filters.speed[0] && item.score <= filters.speed[1]
+          );
         return (
-          item.genre == selectedGenre &&
-          item.score >= speed[0] &&
-          item.score <= speed[1]
+          item.genre == filters.genre &&
+          item.score >= filters.speed[0] &&
+          item.score <= filters.speed[1]
         );
       })
       .map((item) => {
-        return item.id.toString();
+        return {
+          id: item.id.toString(),
+          name: item.name.toString(),
+        };
       });
-  }, [selectedGenre, speed]);
-
-  const filteredGameNames = useMemo(() => {
-    return meta
-      .filter((item) => {
-        if (selectedGenre == "")
-          return item.score >= speed[0] && item.score <= speed[1];
-        return (
-          item.genre == selectedGenre &&
-          item.score >= speed[0] &&
-          item.score <= speed[1]
-        );
-      })
-      .map((item) => {
-        return item.name.toString();
-      });
-  }, [selectedGenre, speed]);
+  }, [filters]);
 
   const filteredData = useMemo<Annotation[]>(() => {
     return data.filter((item) => {
       return (
-        filteredMetadata.includes(item.game_id) &&
-        (item.game_id == selectedOption || selectedOption == "") &&
-        item.vis_position.coords == coords
+        Array.from(filteredMetadata, (meta) => meta.id).includes(
+          item.game_id
+        ) &&
+        (item.game_id == filters.game || filters.game == "") &&
+        item.vis_position.coords == filters.coords
       );
     });
-  }, [filteredMetadata, selectedOption, coords]);
+  }, [filteredMetadata, filters]);
 
   // console.log(meta);
   const handleCoordsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setCoords(e.target.value);
+    setFilters({ ...filters, coords: e.target.value });
     try {
       localStorage.setItem("coords", e.target.value);
     } catch (error) {
@@ -98,7 +87,7 @@ export default function Page() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(e.target.value);
+    setFilters({ ...filters, game: e.target.value });
     try {
       localStorage.setItem("game", e.target.value);
     } catch (error) {
@@ -107,7 +96,7 @@ export default function Page() {
     console.log("Selected:", e.target.value);
   };
   const handleGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedGenre(e.target.value);
+    setFilters({ ...filters, genre: e.target.value });
     try {
       localStorage.setItem("genre", e.target.value);
     } catch (error) {
@@ -118,7 +107,7 @@ export default function Page() {
 
   useEffect(() => {
     console.log(
-      filterByXY(filteredData, selectedSection[0], selectedSection[1]).map(
+      filterByXY(filteredData, filters.position[0], filters.position[1]).map(
         (item) => item.tags
       )
     );
@@ -126,161 +115,48 @@ export default function Page() {
       ...new Set(
         filterByXY(
           filteredData,
-          selectedSection[0],
-          selectedSection[1]
+          filters.position[0],
+          filters.position[1]
         ).flatMap((item) => (item.tags ? item.tags.map((tag) => tag) : "N/A"))
       ),
     ]);
-  }, [selectedSection]);
+  }, [filters.position]);
 
   return (
     <div className="flex fixed inset-0">
-      <nav className="p-8 overflow-auto min-w-[20rem] border-r border-neutral-900">
+      <nav className="overflow-auto min-w-[20rem] border-r border-neutral-900">
+        <h2 className="text-sm mb-2 sticky top-0 p-8 pb-2 bg-background z-50">
+          Games
+        </h2>
         <div className="mb-8">
-          <h2 className="text-lg mb-2">Coordinate system</h2>
-          <div className="flex gap-2">
-            <button
-              onClick={() => {
-                setCoords("Camera");
-                try {
-                  localStorage.setItem("coords", "Camera");
-                } catch (error) {
-                  console.error("Error saving to localStorage", error);
-                }
-              }}
-              className={`w-full px-4 py-2 rounded-md border border-neutral-700 cursor-pointer ${
-                coords == "Camera" ? "bg-neutral-700" : "bg-transparent"
-              }`}
-            >
-              Camera
-            </button>
-            <button
-              onClick={() => {
-                setCoords("World");
-                try {
-                  localStorage.setItem("coords", "World");
-                } catch (error) {
-                  console.error("Error saving to localStorage", error);
-                }
-              }}
-              className={`w-full px-4 py-2 rounded-md border border-neutral-700 cursor-pointer ${
-                coords == "World" ? "bg-neutral-700" : "bg-transparent"
-              }`}
-            >
-              World
-            </button>
-          </div>
-        </div>
-        <div className="mb-8">
-          <h2 className="text-lg mb-2">Relativity</h2>
-          <div className="flex gap-2">
-            <button
-              onClick={() => {
-                setRelativity("Screen");
-                try {
-                  localStorage.setItem("relativity", "Screen");
-                } catch (error) {
-                  console.error("Error saving to localStorage", error);
-                }
-              }}
-              className={`w-full px-4 py-2 rounded-md border border-neutral-700 cursor-pointer ${
-                relative == "Screen" ? "bg-neutral-700" : "bg-transparent"
-              }`}
-            >
-              Screen
-            </button>
-            <button
-              onClick={() => {
-                setRelativity("Relative");
-                try {
-                  localStorage.setItem("relativity", "Relative");
-                } catch (error) {
-                  console.error("Error saving to localStorage", error);
-                }
-              }}
-              className={`w-full px-4 py-2 rounded-md border border-neutral-700 cursor-pointer ${
-                relative == "Relative" ? "bg-neutral-700" : "bg-transparent"
-              }`}
-            >
-              Relative
-            </button>
-          </div>
-        </div>
-        <div className="mb-8">
-          <h2 className="text-lg">Genres</h2>
-          <select onChange={handleGenreChange} value={selectedGenre || ""}>
-            <option value="" className="text-background/50">
-              All genres
-            </option>
-            {uniqueGenres.map((item) => (
-              <option key={item} value={item} className="text-background p-2">
-                {item}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="mb-8">
-          <h2 className="text-lg">Speed</h2>
-          <form>
-            <div className="flex gap-4">
-              <label htmlFor="speed" className="opacity-50">
-                Min
-              </label>
-              <input
-                type="number"
-                name="speed-min"
-                id="speed"
-                defaultValue={4}
-                min={4}
-                max={12}
-                onChange={(e) => {
-                  setSpeed([parseInt(e.target.value), speed[1]]);
-                }}
-              />
-            </div>
-            <div className="flex gap-4">
-              <label htmlFor="speed" className="opacity-50">
-                Max
-              </label>
-              <input
-                type="number"
-                name="speed-max"
-                id="speed"
-                defaultValue={12}
-                min={4}
-                max={12}
-                onChange={(e) => {
-                  setSpeed([speed[0], parseInt(e.target.value)]);
-                }}
-              />
-            </div>
-          </form>
-        </div>
-
-        <div className="mb-8">
-          <h2 className="text-lg mb-2">Games</h2>
-
-          <ul className="flex flex-col gap-4 mb-4">
-            {filteredGameNames.map((item, i) => {
-              return <li key={`filtered-game-${i}`}>{item}</li>;
+          <ul className="flex flex-col gap-4 mb-4 px-8 pb-16">
+            {filteredMetadata.map((item, i) => {
+              return (
+                <li
+                  key={`filtered-game-${i}`}
+                  className={`cursor-pointer py-1 ${
+                    filters.game === item.id || filters.game === ""
+                      ? "opacity-100"
+                      : "opacity-50"
+                  } ${
+                    filters.game === item.id
+                      ? "bg-neutral-800 px-2 rounded-md"
+                      : ""
+                  }`}
+                  onClick={() =>
+                    setFilters({
+                      ...filters,
+                      game: filters.game === item.id ? "" : item.id,
+                    })
+                  }
+                >
+                  {item.name}
+                </li>
+              );
             })}
           </ul>
-          <select
-            onChange={handleChange}
-            value={selectedOption || ""}
-            className="bg-neutral-900 p-2 pr-0 w-full"
-          >
-            <option value="" className="">
-              Select a game
-            </option>
-            {filteredGameNames.map((item, i) => (
-              <option key={item} value={filteredMetadata[i]} className=" ">
-                {item}
-              </option>
-            ))}
-          </select>
         </div>
-        {relative == "Relative" && (
+        {filters.relative == "Relative" && (
           <div className="mb-8">
             <h2 className="text-lg mb-2">Anchors</h2>
 
@@ -290,7 +166,7 @@ export default function Page() {
                   filteredData
                     .filter(
                       (item) =>
-                        selectedOption == "" || item.game_id == selectedOption
+                        filters.game == "" || item.game_id == filters.game
                     )
                     .filter(
                       (item) =>
@@ -309,25 +185,11 @@ export default function Page() {
                 return <li key={`anchor-${i}`}>{item}</li>;
               })}
             </ul>
-            {/* <select
-              onChange={handleChange}
-              value={selectedOption || ""}
-              className="bg-neutral-900 p-2 pr-0 w-full"
-            >
-              <option value="" className="">
-                Select a game
-              </option>
-              {filteredGameNames.map((item, i) => (
-                <option key={item} value={filteredMetadata[i]} className=" ">
-                  {item}
-                </option>
-              ))}
-            </select> */}
           </div>
         )}
       </nav>
       <main className="grid grid-rows-[min-content_repeat(3,_minmax(0,_1fr))] grid-cols-3 gap-4 h-full max-h-screen p-8 w-full relative">
-        <nav className="p-2 col-span-full flex gap-4">
+        {/* <nav className="p-2 col-span-full flex gap-4">
           <section>
             <h2>Data types</h2>
             <form
@@ -371,9 +233,8 @@ export default function Page() {
               ))}
             </form>
           </section>
-          {/* <button>Tags</button>
-          <button>Images</button> */}
-        </nav>
+        </nav> */}
+        <FilterNav />
         {["Top", "Middle", "Bottom"].map((yDimension) => {
           return ["Left", "Middle", "Right"].map((xDimension) => {
             return (
@@ -388,14 +249,17 @@ export default function Page() {
                     {
                       filterByXY(filteredData, yDimension, xDimension).filter(
                         (item) =>
-                          selectedOption == "" || item.game_id == selectedOption
+                          filters.game == "" || item.game_id == filters.game
                       ).length
                     }
                   </h3>
                   <button
                     className="px-3 py-1 rounded-sm bg-neutral-500 uppercase font-bold tracking-widest text-xs cursor-pointer"
                     onClick={() => {
-                      setSelectedSection([yDimension, xDimension]);
+                      setFilters({
+                        ...filters,
+                        position: [yDimension, xDimension],
+                      });
                     }}
                   >
                     View all
@@ -423,13 +287,12 @@ export default function Page() {
                         ))}
                     </ul>
                   </div>
-                  {selectedOption != "" || selectedGenre != "" ? (
+                  {filters.game != "" || filters.genre != "" ? (
                     <ul className="flex flex-wrap gap-4 size-full">
                       {filterByXY(filteredData, yDimension, xDimension)
                         .filter(
                           (item) =>
-                            selectedOption == "" ||
-                            item.game_id == selectedOption
+                            filters.game == "" || item.game_id == filters.game
                         )
                         .map((item, i) => (
                           <li key={i} className="">
@@ -465,20 +328,20 @@ export default function Page() {
           });
         })}
       </main>
-      {selectedSection[0] != "" && selectedSection[1] != "" ? (
+      {filters.position[0] != "" && filters.position[1] != "" ? (
         <div className="fixed inset-0 bg-background/95 p-16 overflow-auto">
           <div className="relative">
             <section className="sticky top-0 -mx-3 pl-6 p-2 bg-neutral-900 z-10 rounded-lg mb-8 flex gap-8 items-stretch">
               <hgroup>
                 <h2 className="text-lg">
-                  {selectedSection[0]} {selectedSection[1]}
+                  {filters.position[0]} {filters.position[1]}
                 </h2>
                 <p>
                   {
                     filterByXY(
                       filteredData,
-                      selectedSection[0],
-                      selectedSection[1]
+                      filters.position[0],
+                      filters.position[1]
                     ).length
                   }{" "}
                   annotations
@@ -491,7 +354,7 @@ export default function Page() {
                   const selectedStates = Array.from(formData.entries()).map(
                     ([name, value]) => value.toString()
                   );
-                  setSelectedUsages(selectedStates);
+                  setFilters({ ...filters, usages: selectedStates });
                   console.log("Selected states:", selectedStates);
                 }}
               >
@@ -506,8 +369,8 @@ export default function Page() {
                       {
                         filterByXY(
                           filteredData,
-                          selectedSection[0],
-                          selectedSection[1]
+                          filters.position[0],
+                          filters.position[1]
                         ).filter((subitem) =>
                           subitem.vis_usage.includes(item as VisUsage)
                         ).length
@@ -533,8 +396,7 @@ export default function Page() {
               <button
                 className="ml-auto p-4 py-2 rounded-md bg-neutral-700 cursor-pointer"
                 onClick={() => {
-                  setSelectedSection(["", ""]);
-                  setSelectedUsages([]);
+                  setFilters({ ...filters, position: ["", ""], usages: [] });
                 }}
               >
                 Close
@@ -544,8 +406,8 @@ export default function Page() {
               ...new Set(
                 filterByXY(
                   filteredData,
-                  selectedSection[0],
-                  selectedSection[1]
+                  filters.position[0],
+                  filters.position[1]
                 ).flatMap((item) =>
                   item.tags ? item.tags.map((tag) => tag) : "N/A"
                 )
@@ -556,17 +418,17 @@ export default function Page() {
                 <ul className="flex flex-wrap gap-4 ">
                   {filterByXY(
                     filteredData,
-                    selectedSection[0],
-                    selectedSection[1]
+                    filters.position[0],
+                    filters.position[1]
                   )
                     .filter((item) => item.tags?.includes(tag))
                     .map((item, i) => (
                       <li
                         key={"modal-item-" + i}
                         className={`${
-                          selectedUsages.length == 0 ||
+                          filters.usages.length == 0 ||
                           item.vis_usage.some((usage) =>
-                            selectedUsages.includes(usage)
+                            filters.usages.includes(usage)
                           )
                             ? "-order-1 opacity-100"
                             : "opacity-10"
@@ -574,9 +436,9 @@ export default function Page() {
                       >
                         <hgroup
                           className={`${
-                            selectedUsages.length == 0 ||
+                            filters.usages.length == 0 ||
                             item.vis_usage.some((usage) =>
-                              selectedUsages.includes(usage)
+                              filters.usages.includes(usage)
                             )
                               ? "opacity-100"
                               : "opacity-10"
