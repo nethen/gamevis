@@ -15,6 +15,7 @@ export default function Page() {
   const [selectedGenre, setSelectedGenre] = useState("");
   const [selectedSection, setSelectedSection] = useState(["", ""]);
   const [selectedUsages, setSelectedUsages] = useState<string[]>([]);
+  const [speed, setSpeed] = useState([4, 12]);
 
   const filterByXY = (
     data: Annotation[],
@@ -46,24 +47,34 @@ export default function Page() {
   const filteredMetadata = useMemo(() => {
     return meta
       .filter((item) => {
-        if (selectedGenre == "") return true;
-        return item.genre == selectedGenre;
+        if (selectedGenre == "")
+          return item.score >= speed[0] && item.score <= speed[1];
+        return (
+          item.genre == selectedGenre &&
+          item.score >= speed[0] &&
+          item.score <= speed[1]
+        );
       })
       .map((item) => {
         return item.id.toString();
       });
-  }, [selectedGenre]);
+  }, [selectedGenre, speed]);
 
   const filteredGameNames = useMemo(() => {
     return meta
       .filter((item) => {
-        if (selectedGenre == "") return true;
-        return item.genre == selectedGenre;
+        if (selectedGenre == "")
+          return item.score >= speed[0] && item.score <= speed[1];
+        return (
+          item.genre == selectedGenre &&
+          item.score >= speed[0] &&
+          item.score <= speed[1]
+        );
       })
       .map((item) => {
         return item.name;
       });
-  }, [selectedGenre]);
+  }, [selectedGenre, speed]);
 
   const filteredData = useMemo<Annotation[]>(() => {
     return data.filter((item) => {
@@ -190,6 +201,43 @@ export default function Page() {
               </option>
             ))}
           </select>
+        </div>
+        <div className="mb-8">
+          <h2 className="text-lg">Speed</h2>
+          <form>
+            <div className="flex gap-4">
+              <label htmlFor="speed" className="opacity-50">
+                Min
+              </label>
+              <input
+                type="number"
+                name="speed-min"
+                id="speed"
+                defaultValue={4}
+                min={4}
+                max={12}
+                onChange={(e) => {
+                  setSpeed([parseInt(e.target.value), speed[1]]);
+                }}
+              />
+            </div>
+            <div className="flex gap-4">
+              <label htmlFor="speed" className="opacity-50">
+                Max
+              </label>
+              <input
+                type="number"
+                name="speed-max"
+                id="speed"
+                defaultValue={12}
+                min={4}
+                max={12}
+                onChange={(e) => {
+                  setSpeed([speed[0], parseInt(e.target.value)]);
+                }}
+              />
+            </div>
+          </form>
         </div>
 
         <div className="mb-8">
@@ -561,14 +609,35 @@ export default function Page() {
                       item.vis_id +
                       ".jpg"
                     }
+                    alt={item.notes.join(", ")}
                   />
 
                   <ul className="flex flex-wrap gap-4">
                     {item.data.map((dataGroup, i) => (
                       <li key={i} className={`px-2 flex flex-col`}>
-                        <span className="text-sm">
-                          {dataGroup.map((data) => data.data_value).join(", ")}
-                        </span>
+                        <div className="text-sm flex flex-col flex-wrap">
+                          {dataGroup.map((data, j) => (
+                            <span
+                              key={j}
+                              className={`
+                                ${
+                                  data.data_type == "Nominal"
+                                    ? "text-red-400"
+                                    : data.data_type == "Ordinal"
+                                    ? "text-amber-400"
+                                    : data.data_type == "Quantitative"
+                                    ? "text-blue-400"
+                                    : data.data_type == "Spatial"
+                                    ? "text-green-400"
+                                    : data.data_type == "Temporal"
+                                    ? "text-purple-400"
+                                    : "text-foreground"
+                                } font-bold`}
+                            >
+                              {data.data_value}
+                            </span>
+                          ))}
+                        </div>
                         <span className="text-sm opacity-50">
                           M: {item.marks[i].map((marks) => marks).join(", ")}
                         </span>
