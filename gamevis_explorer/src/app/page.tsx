@@ -1,8 +1,10 @@
 "use client";
 // import Image from "next/image";
 import meta from "@/app/meta.json";
-import data from "@/app/sorted_output.json";
+import rawData from "@/app/fixed_annotations.json";
+const data: Annotation[] = rawData as unknown as Annotation[];
 import { useEffect, useMemo, useState } from "react";
+import { Annotation, VisUsage } from "./types/types";
 
 const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
 
@@ -13,6 +15,24 @@ export default function Page() {
   const [selectedGenre, setSelectedGenre] = useState("");
   const [selectedSection, setSelectedSection] = useState(["", ""]);
   const [selectedUsages, setSelectedUsages] = useState<string[]>([]);
+
+  const filterByXY = (
+    data: Annotation[],
+    yDimension: string,
+    xDimension: string
+  ) => {
+    return data.filter((item) =>
+      item.vis_position && relative == "Screen"
+        ? "screen_position" in item.vis_position &&
+          Array.isArray(item.vis_position.screen_position) &&
+          item.vis_position.screen_position[0] == yDimension &&
+          item.vis_position.screen_position[1] == xDimension
+        : "relative_position" in item.vis_position &&
+          Array.isArray(item.vis_position.relative_position) &&
+          item.vis_position.relative_position[0] == yDimension &&
+          item.vis_position.relative_position[1] == xDimension
+    );
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -45,7 +65,7 @@ export default function Page() {
       });
   }, [selectedGenre]);
 
-  const filteredData = useMemo(() => {
+  const filteredData = useMemo<Annotation[]>(() => {
     return data.filter((item) => {
       return (
         filteredMetadata.includes(item.game_id) &&
@@ -53,6 +73,7 @@ export default function Page() {
       );
     });
   }, [filteredMetadata, selectedOption]);
+
   // console.log(meta);
   // const handleCoordsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
   //   setCoords(e.target.value);
@@ -215,7 +236,7 @@ export default function Page() {
                       return item.vis_position &&
                         "relative_to" in item.vis_position
                         ? item.vis_position.relative_to
-                        : undefined;
+                        : null;
                     })
                 ),
               ].map((item, i) => {
@@ -240,32 +261,55 @@ export default function Page() {
         )}
       </nav>
       <main className="grid grid-rows-[min-content_repeat(3,_minmax(0,_1fr))] grid-cols-3 gap-4 h-full max-h-screen p-8 w-full relative">
-        <nav className="p-2 col-span-full flex gap-4 justify-center">
-          Top level nav
+        <nav className="p-2 col-span-full flex gap-4">
+          <section>
+            <h2>Data types</h2>
+            <form
+              className="flex gap-4"
+              onChange={(e) => {
+                const formData = new FormData(e.currentTarget);
+                const selectedStates = Array.from(formData.entries()).map(
+                  ([name, value]) => value.toString()
+                );
+                setSelectedUsages(selectedStates);
+                console.log("Selected states:", selectedStates);
+              }}
+            >
+              {[
+                "Nominal",
+                "Ordinal",
+                "Quantitative",
+                "Spatial",
+                "Temporal",
+              ].map((item, i) => (
+                <div
+                  key={`type-check-${item.toLowerCase()}`}
+                  className="flex gap-2 items-center"
+                >
+                  <input
+                    type="checkbox"
+                    name={`type-check__box-${item.toLowerCase()}`}
+                    value={item}
+                  />
+                  <label htmlFor={`type-check__label-${item.toLowerCase()}`}>
+                    {item} (
+                    {
+                      filteredData.filter((subitem) =>
+                        subitem.vis_usage.includes(item as VisUsage)
+                      ).length
+                    }
+                    )
+                  </label>
+                  {}
+                </div>
+              ))}
+            </form>
+          </section>
           {/* <button>Tags</button>
           <button>Images</button> */}
         </nav>
         {["Top", "Middle", "Bottom"].map((yDimension) => {
-          const filterY = filteredData.filter((item) =>
-            item.vis_position && relative == "Screen"
-              ? "screen_position" in item.vis_position &&
-                Array.isArray(item.vis_position.screen_position) &&
-                item.vis_position.screen_position[0] == yDimension
-              : "relative_position" in item.vis_position &&
-                Array.isArray(item.vis_position.relative_position) &&
-                item.vis_position.relative_position[0] == yDimension
-          );
-
           return ["Left", "Middle", "Right"].map((xDimension) => {
-            const filterXY = filterY.filter((item) =>
-              item.vis_position && relative == "Screen"
-                ? "screen_position" in item.vis_position &&
-                  Array.isArray(item.vis_position.screen_position) &&
-                  item.vis_position.screen_position[1] == xDimension
-                : "relative_position" in item.vis_position &&
-                  Array.isArray(item.vis_position.relative_position) &&
-                  item.vis_position.relative_position[1] == xDimension
-            );
             return (
               <section
                 className="bg-neutral-900 p-4 flex flex-col gap-2"
@@ -276,7 +320,7 @@ export default function Page() {
                     {yDimension} {xDimension != yDimension ? xDimension : null}{" "}
                     &mdash;{" "}
                     {
-                      filterXY.filter(
+                      filterByXY(filteredData, yDimension, xDimension).filter(
                         (item) =>
                           selectedOption == "" || item.game_id == selectedOption
                       ).length
@@ -296,7 +340,7 @@ export default function Page() {
                     <h4 className="font-bold">Tags</h4>
                     <ul>
                       {Object.entries(
-                        filterXY
+                        filterByXY(filteredData, yDimension, xDimension)
                           .flatMap((item) => item.tags || [])
                           .reduce((acc, tag) => {
                             acc[tag] = (acc[tag] || 0) + 1;
@@ -315,7 +359,7 @@ export default function Page() {
                   </div>
                   {selectedOption != "" || selectedGenre != "" ? (
                     <ul className="flex flex-wrap gap-4 size-full">
-                      {filterXY
+                      {filterByXY(filteredData, yDimension, xDimension)
                         .filter(
                           (item) =>
                             selectedOption == "" ||
@@ -367,20 +411,10 @@ export default function Page() {
             <section className="sticky top-0 -mx-3 pl-6 p-2 bg-neutral-900 z-10 rounded-full mb-8 flex gap-8 items-center">
               <p>
                 {
-                  filteredData.filter((item) =>
-                    item.vis_position && relative == "Screen"
-                      ? "screen_position" in item.vis_position &&
-                        Array.isArray(item.vis_position.screen_position) &&
-                        item.vis_position.screen_position[0] ==
-                          selectedSection[0] &&
-                        item.vis_position.screen_position[1] ==
-                          selectedSection[1]
-                      : "relative_position" in item.vis_position &&
-                        Array.isArray(item.vis_position.relative_position) &&
-                        item.vis_position.relative_position[0] ==
-                          selectedSection[0] &&
-                        item.vis_position.relative_position[1] ==
-                          selectedSection[1]
+                  filterByXY(
+                    filteredData,
+                    selectedSection[0],
+                    selectedSection[1]
                   ).length
                 }{" "}
                 annotations
@@ -405,26 +439,12 @@ export default function Page() {
                     <label htmlFor={`state-${i}`}>
                       {item} (
                       {
-                        filteredData.filter((subitem) =>
-                          subitem.vis_position && relative == "Screen"
-                            ? "screen_position" in subitem.vis_position &&
-                              Array.isArray(
-                                subitem.vis_position.screen_position
-                              ) &&
-                              subitem.vis_position.screen_position[0] ==
-                                selectedSection[0] &&
-                              subitem.vis_position.screen_position[1] ==
-                                selectedSection[1] &&
-                              subitem.vis_usage.includes(item)
-                            : "relative_position" in subitem.vis_position &&
-                              Array.isArray(
-                                subitem.vis_position.relative_position
-                              ) &&
-                              subitem.vis_position.relative_position[0] ==
-                                selectedSection[0] &&
-                              subitem.vis_position.relative_position[1] ==
-                                selectedSection[1] &&
-                              subitem.vis_usage.includes(item)
+                        filterByXY(
+                          filteredData,
+                          selectedSection[0],
+                          selectedSection[1]
+                        ).filter((subitem) =>
+                          subitem.vis_usage.includes(item as VisUsage)
                         ).length
                       }
                       )
@@ -456,97 +476,86 @@ export default function Page() {
               </button>
             </section>
             <ul className="flex flex-wrap gap-4 ">
-              {filteredData
-                .filter((item) =>
-                  item.vis_position && relative == "Screen"
-                    ? "screen_position" in item.vis_position &&
-                      Array.isArray(item.vis_position.screen_position) &&
-                      item.vis_position.screen_position[0] ==
-                        selectedSection[0] &&
-                      item.vis_position.screen_position[1] == selectedSection[1]
-                    : "relative_position" in item.vis_position &&
-                      Array.isArray(item.vis_position.relative_position) &&
-                      item.vis_position.relative_position[0] ==
-                        selectedSection[0] &&
-                      item.vis_position.relative_position[1] ==
-                        selectedSection[1]
-                )
-                .map((item, i) => (
-                  <li
-                    key={"modal-item-" + i}
+              {filterByXY(
+                filteredData,
+                selectedSection[0],
+                selectedSection[1]
+              ).map((item, i) => (
+                <li
+                  key={"modal-item-" + i}
+                  className={`${
+                    selectedUsages.length == 0 ||
+                    item.vis_usage.some((usage) =>
+                      selectedUsages.includes(usage)
+                    )
+                      ? "-order-1"
+                      : ""
+                  }`}
+                >
+                  <hgroup
                     className={`${
                       selectedUsages.length == 0 ||
                       item.vis_usage.some((usage) =>
                         selectedUsages.includes(usage)
                       )
-                        ? "-order-1"
-                        : ""
+                        ? "opacity-100"
+                        : "opacity-10"
                     }`}
                   >
-                    <hgroup
-                      className={`${
-                        selectedUsages.length == 0 ||
-                        item.vis_usage.some((usage) =>
-                          selectedUsages.includes(usage)
-                        )
-                          ? "opacity-100"
-                          : "opacity-10"
-                      }`}
-                    >
-                      <h5>{item.vis_name}</h5>
-                      <span className="uppercase font-bold tracking-widest text-xs">
-                        {item.game_id +
-                          "_" +
-                          item.screenshot_id +
-                          "_" +
-                          item.vis_id}
-                      </span>
-                    </hgroup>
-                    <img
-                      loading="lazy"
-                      className={`${
-                        selectedUsages.length > 0 &&
-                        !selectedUsages.some((usage) =>
-                          item.vis_usage.includes(usage)
-                        )
-                          ? "opacity-10"
-                          : ""
-                      } 
-                      mb-4`}
-                      // className={`${item.vis_usage.includes(
-                      //   "Player`"
-                      // )} ? "bg-red-500" : ""`}
-                      src={
-                        "/games/" +
-                        item.game_id +
+                    <h5>{item.vis_name}</h5>
+                    <span className="uppercase font-bold tracking-widest text-xs">
+                      {item.game_id +
                         "_" +
                         item.screenshot_id +
                         "_" +
-                        item.vis_id +
-                        ".jpg"
-                      }
-                    />
-                    <ul className="flex gap-2">
-                      {item.vis_usage.map((usage, i) => (
-                        <li
-                          key={i}
-                          className={`px-2 bg-neutral-800 rounded-full ${
-                            selectedUsages.length == 0 ||
-                            selectedUsages.includes(usage)
-                              ? "opacity-100"
-                              : "opacity-10"
-                          }`}
-                        >
-                          <span className="text-sm">
-                            {usage == "Environment"
-                              ? "Ev"
-                              : usage.substring(0, 2)}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ))}
+                        item.vis_id}
+                    </span>
+                  </hgroup>
+                  <img
+                    loading="lazy"
+                    className={`${
+                      selectedUsages.length > 0 &&
+                      !selectedUsages.some((usage) =>
+                        item.vis_usage.includes(usage as VisUsage)
+                      )
+                        ? "opacity-10"
+                        : ""
+                    } 
+                      mb-4`}
+                    // className={`${item.vis_usage.includes(
+                    //   "Player`"
+                    // )} ? "bg-red-500" : ""`}
+                    src={
+                      "/games/" +
+                      item.game_id +
+                      "_" +
+                      item.screenshot_id +
+                      "_" +
+                      item.vis_id +
+                      ".jpg"
+                    }
+                  />
+                  <ul className="flex gap-2">
+                    {item.vis_usage.map((usage, i) => (
+                      <li
+                        key={i}
+                        className={`px-2 bg-neutral-800 rounded-full ${
+                          selectedUsages.length == 0 ||
+                          selectedUsages.includes(usage)
+                            ? "opacity-100"
+                            : "opacity-10"
+                        }`}
+                      >
+                        <span className="text-sm">
+                          {usage == "Environment"
+                            ? "Ev"
+                            : usage.substring(0, 2)}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
