@@ -69,21 +69,22 @@ export default function Page() {
     return data.filter((item) => {
       return (
         filteredMetadata.includes(item.game_id) &&
-        (item.game_id == selectedOption || selectedOption == "")
+        (item.game_id == selectedOption || selectedOption == "") &&
+        item.vis_position.coords == coords
       );
     });
-  }, [filteredMetadata, selectedOption]);
+  }, [filteredMetadata, selectedOption, coords]);
 
   // console.log(meta);
-  // const handleCoordsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  //   setCoords(e.target.value);
-  //   try {
-  //     localStorage.setItem("coords", e.target.value);
-  //   } catch (error) {
-  //     console.error("Error saving to localStorage", error);
-  //   }
-  //   console.log("Selected:", e.target.value);
-  // };
+  const handleCoordsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setCoords(e.target.value);
+    try {
+      localStorage.setItem("coords", e.target.value);
+    } catch (error) {
+      console.error("Error saving to localStorage", error);
+    }
+    console.log("Selected:", e.target.value);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(e.target.value);
@@ -129,7 +130,7 @@ export default function Page() {
               onClick={() => {
                 setCoords("World");
                 try {
-                  localStorage.setItem("coords", "Camera");
+                  localStorage.setItem("coords", "World");
                 } catch (error) {
                   console.error("Error saving to localStorage", error);
                 }
