@@ -30613,7 +30613,6 @@
     "tags": ["Map", "Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "63",
     "screenshot_id": "5",
     "vis_id": "le1",
@@ -30639,7 +30638,7 @@
       "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
-    "vis_visibility": [["Local", false]],
+    "vis_visibility": [["Local", true]],
     "notes": [],
     "tags": ["Building"]
   },
@@ -30708,7 +30707,6 @@
     "tags": ["Resource"]
   },
   {
-    "flagged": true,
     "game_id": "63",
     "screenshot_id": "7",
     "vis_id": "le1",
@@ -30734,10 +30732,9 @@
     "tags": ["Health"]
   },
   {
-    "flagged": true,
     "game_id": "63",
     "screenshot_id": "8",
-    "vis_id": "l1",
+    "vis_id": "g1",
     "data": [
       [
         {
@@ -30761,7 +30758,7 @@
       "screen_position": ["Top", "Right"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Local", false]],
+    "vis_visibility": [["global", false]],
     "notes": [
       "For coop mode, can select so the minimap also shows up.",
       "There's an icon for where the player is & their teammate based on their character (eg. red hair & yellow hair).",
@@ -30882,7 +30879,6 @@
     "tags": ["Health"]
   },
   {
-    "flagged": true,
     "game_id": "64",
     "screenshot_id": "2",
     "vis_id": "l1",
