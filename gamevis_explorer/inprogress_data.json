@@ -128,7 +128,6 @@
     "tags": ["Round", "Progression"]
   },
   {
-    "flagged": true,
     "game_id": "1",
     "screenshot_id": "1",
     "vis_id": "l4",
@@ -245,7 +244,6 @@
     "tags": ["Vitals", "Health"]
   },
   {
-    "flagged": true,
     "game_id": "1",
     "screenshot_id": "3",
     "vis_id": "g1a",
@@ -388,7 +386,6 @@
     "tags": ["Character", "Ability", "Energy"]
   },
   {
-    "flagged": true,
     "game_id": "2",
     "screenshot_id": "1",
     "vis_id": "g5",
@@ -418,10 +415,9 @@
     "tags": ["Damage", "Health", "Score"]
   },
   {
-    "flagged": true,
     "game_id": "2",
     "screenshot_id": "2",
-    "vis_id": "g2",
+    "vis_id": "ge2",
     "data": [
       [
         {
@@ -738,10 +734,9 @@
     "tags": ["Vitals", "Ability", "Energy", "Character", "Stamina"]
   },
   {
-    "flagged": true,
     "game_id": "4",
     "screenshot_id": "2",
-    "vis_id": "g1",
+    "vis_id": "ge1",
     "data": [
       [
         {
@@ -1374,7 +1369,6 @@
     "tags": ["Wayfinding", "Alert"]
   },
   {
-    "flagged": true,
     "game_id": "5",
     "screenshot_id": "10",
     "vis_id": "ge1",
@@ -1428,38 +1422,8 @@
     "tags": ["Wayfinding", "Map"]
   },
   {
-    "flagged": true,
     "game_id": "5",
-    "screenshot_id": "11",
-    "vis_id": "ge1",
-    "data": [
-      [
-        {
-          "data_value": "Kill info",
-          "data_type": "Nominal"
-        }
-      ]
-    ],
-    "marks": [["Text", "Symbol"]],
-    "channels": [["Text", "Shape"]],
-    "vis_name": "Kill info",
-    "vis_usage": ["Game", "Player", "Enemy"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Top", "Right"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Global", true]],
-    "notes": [
-      "Lets everyone in game see what happened recently.",
-      "What weapon was used."
-    ],
-    "tags": ["Alert", "Round", "Combat"]
-  },
-  {
-    "flagged": true,
-    "game_id": "5",
-    "screenshot_id": "11",
+    "screenshot_id": "10",
     "vis_id": "l2",
     "data": [
       [
@@ -1487,9 +1451,8 @@
     "tags": ["Equipment"]
   },
   {
-    "flagged": true,
     "game_id": "5",
-    "screenshot_id": "12",
+    "screenshot_id": "11",
     "vis_id": "l1",
     "data": [
       [
