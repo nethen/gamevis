@@ -1,4 +1,4 @@
-import { Annotation } from "../types/types";
+import { Annotation } from "../../types/types";
 
 export const EnlargedView = ({
   data,

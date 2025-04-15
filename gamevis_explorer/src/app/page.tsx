@@ -5,17 +5,12 @@ import rawData from "@/app/fixed_annotations.json";
 const data: Annotation[] = rawData as unknown as Annotation[];
 import { useEffect, useMemo, useState } from "react";
 import { Annotation, VisUsage } from "./types/types";
+import { FilterNav, useFilterContext } from "./components/Nav/FilterNav";
 
 const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
 
 export default function Page() {
-  const [coords, setCoords] = useState("Camera");
-  const [relative, setRelativity] = useState("Screen");
-  const [selectedOption, setSelectedOption] = useState("");
-  const [selectedGenre, setSelectedGenre] = useState("");
-  const [selectedSection, setSelectedSection] = useState(["", ""]);
-  const [selectedUsages, setSelectedUsages] = useState<string[]>([]);
-  const [speed, setSpeed] = useState([4, 12]);
+  const { filters, setFilters } = useFilterContext();
 
   const filterByXY = (
     data: Annotation[],
@@ -23,102 +18,83 @@ export default function Page() {
     xDimension: string
   ) => {
     return data.filter((item) =>
-      item.vis_position && relative == "Screen"
-        ? "screen_position" in item.vis_position &&
-          Array.isArray(item.vis_position.screen_position) &&
-          item.vis_position.screen_position[0] == yDimension &&
-          item.vis_position.screen_position[1] == xDimension
-        : "relative_position" in item.vis_position &&
-          Array.isArray(item.vis_position.relative_position) &&
-          item.vis_position.relative_position[0] == yDimension &&
+      "relative_position" in item.vis_position
+        ? item.vis_position.relative_position?.[0] == yDimension &&
           item.vis_position.relative_position[1] == xDimension
+        : item.vis_position.screen_position?.[0] == yDimension &&
+          item.vis_position.screen_position[1] == xDimension
     );
   };
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setCoords(localStorage.getItem("coords") || "Camera");
-      setRelativity(localStorage.getItem("relativity") || "Screen");
-      setSelectedOption(localStorage.getItem("game") || "");
-      setSelectedGenre(localStorage.getItem("genre") || "");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     setFilters({
+  //       ...filters,
+  //       coords: localStorage.getItem("coords") || ["Camera"],
+  //       relative: localStorage.getItem("relativity") || ["Screen"],
+  //       genre: localStorage.getItem("genre") || [""],
+  //       game: localStorage.getItem("game") || "",
+  //     });
+  //   }
+  // }, []);
 
   const filteredMetadata = useMemo(() => {
     return meta
       .filter((item) => {
-        if (selectedGenre == "")
-          return item.score >= speed[0] && item.score <= speed[1];
+        if (filters.genre.length == 0)
+          return (
+            item.score >= filters.speed[0] && item.score <= filters.speed[1]
+          );
         return (
-          item.genre == selectedGenre &&
-          item.score >= speed[0] &&
-          item.score <= speed[1]
+          filters.genre.includes(item.genre) &&
+          item.score >= filters.speed[0] &&
+          item.score <= filters.speed[1]
         );
       })
       .map((item) => {
-        return item.id.toString();
+        return {
+          id: item.id.toString(),
+          name: item.name.toString(),
+        };
       });
-  }, [selectedGenre, speed]);
-
-  const filteredGameNames = useMemo(() => {
-    return meta
-      .filter((item) => {
-        if (selectedGenre == "")
-          return item.score >= speed[0] && item.score <= speed[1];
-        return (
-          item.genre == selectedGenre &&
-          item.score >= speed[0] &&
-          item.score <= speed[1]
-        );
-      })
-      .map((item) => {
-        return item.name.toString();
-      });
-  }, [selectedGenre, speed]);
+  }, [filters]);
 
   const filteredData = useMemo<Annotation[]>(() => {
-    return data.filter((item) => {
-      return (
-        filteredMetadata.includes(item.game_id) &&
-        (item.game_id == selectedOption || selectedOption == "") &&
-        item.vis_position.coords == coords
-      );
+    Object.entries(filters).forEach((key) => {
+      console.log(key);
+      // console.log(typeof filters[key] == "");
     });
-  }, [filteredMetadata, selectedOption, coords]);
+    // return data.filter((item) => {
+    //   return Object.keys(filters).forEach((key) => {
+    //     console.log(typeof filters[key]);
+    //   });
+    // });
+    return data
+      .filter((item) =>
+        filters.coords.length > 0
+          ? filters.coords.includes(item.vis_position.coords)
+          : true
+      )
+      .filter((item) =>
+        filters.relativity.length > 0
+          ? filters.relativity.includes(item.vis_position.screen_relativity)
+          : true
+      )
+      .filter((item) =>
+        filters.genre.length > 0
+          ? filteredMetadata.some((subitem) => subitem.id == item.game_id)
+          : true
+      )
+      .filter((item) =>
+        filters.game != "" ? item.game_id == filters.game : true
+      );
+  }, [filteredMetadata, filters]);
 
   // console.log(meta);
-  const handleCoordsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setCoords(e.target.value);
-    try {
-      localStorage.setItem("coords", e.target.value);
-    } catch (error) {
-      console.error("Error saving to localStorage", error);
-    }
-    console.log("Selected:", e.target.value);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(e.target.value);
-    try {
-      localStorage.setItem("game", e.target.value);
-    } catch (error) {
-      console.error("Error saving to localStorage", error);
-    }
-    console.log("Selected:", e.target.value);
-  };
-  const handleGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedGenre(e.target.value);
-    try {
-      localStorage.setItem("genre", e.target.value);
-    } catch (error) {
-      console.error("Error saving to localStorage", error);
-    }
-    console.log("Selected:", e.target.value);
-  };
 
   useEffect(() => {
     console.log(
-      filterByXY(filteredData, selectedSection[0], selectedSection[1]).map(
+      filterByXY(filteredData, filters.position[0], filters.position[1]).map(
         (item) => item.tags
       )
     );
@@ -126,161 +102,53 @@ export default function Page() {
       ...new Set(
         filterByXY(
           filteredData,
-          selectedSection[0],
-          selectedSection[1]
+          filters.position[0],
+          filters.position[1]
         ).flatMap((item) => (item.tags ? item.tags.map((tag) => tag) : "N/A"))
       ),
     ]);
-  }, [selectedSection]);
+  }, [filters.position]);
+
+  useEffect(() => {
+    console.log("Filtered data:", filteredData);
+    console.log("Filtered metadata:", filteredMetadata);
+  }, [filteredData, filteredMetadata]);
 
   return (
     <div className="flex fixed inset-0">
-      <nav className="p-8 overflow-auto min-w-[20rem] border-r border-neutral-900">
+      <nav className="overflow-auto min-w-[20rem] border-r border-neutral-800">
+        <h2 className="text-sm mb-2 sticky top-0 p-8 pb-2 bg-background z-50">
+          Games
+        </h2>
         <div className="mb-8">
-          <h2 className="text-lg mb-2">Coordinate system</h2>
-          <div className="flex gap-2">
-            <button
-              onClick={() => {
-                setCoords("Camera");
-                try {
-                  localStorage.setItem("coords", "Camera");
-                } catch (error) {
-                  console.error("Error saving to localStorage", error);
-                }
-              }}
-              className={`w-full px-4 py-2 rounded-md border border-neutral-700 cursor-pointer ${
-                coords == "Camera" ? "bg-neutral-700" : "bg-transparent"
-              }`}
-            >
-              Camera
-            </button>
-            <button
-              onClick={() => {
-                setCoords("World");
-                try {
-                  localStorage.setItem("coords", "World");
-                } catch (error) {
-                  console.error("Error saving to localStorage", error);
-                }
-              }}
-              className={`w-full px-4 py-2 rounded-md border border-neutral-700 cursor-pointer ${
-                coords == "World" ? "bg-neutral-700" : "bg-transparent"
-              }`}
-            >
-              World
-            </button>
-          </div>
-        </div>
-        <div className="mb-8">
-          <h2 className="text-lg mb-2">Relativity</h2>
-          <div className="flex gap-2">
-            <button
-              onClick={() => {
-                setRelativity("Screen");
-                try {
-                  localStorage.setItem("relativity", "Screen");
-                } catch (error) {
-                  console.error("Error saving to localStorage", error);
-                }
-              }}
-              className={`w-full px-4 py-2 rounded-md border border-neutral-700 cursor-pointer ${
-                relative == "Screen" ? "bg-neutral-700" : "bg-transparent"
-              }`}
-            >
-              Screen
-            </button>
-            <button
-              onClick={() => {
-                setRelativity("Relative");
-                try {
-                  localStorage.setItem("relativity", "Relative");
-                } catch (error) {
-                  console.error("Error saving to localStorage", error);
-                }
-              }}
-              className={`w-full px-4 py-2 rounded-md border border-neutral-700 cursor-pointer ${
-                relative == "Relative" ? "bg-neutral-700" : "bg-transparent"
-              }`}
-            >
-              Relative
-            </button>
-          </div>
-        </div>
-        <div className="mb-8">
-          <h2 className="text-lg">Genres</h2>
-          <select onChange={handleGenreChange} value={selectedGenre || ""}>
-            <option value="" className="text-background/50">
-              All genres
-            </option>
-            {uniqueGenres.map((item) => (
-              <option key={item} value={item} className="text-background p-2">
-                {item}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="mb-8">
-          <h2 className="text-lg">Speed</h2>
-          <form>
-            <div className="flex gap-4">
-              <label htmlFor="speed" className="opacity-50">
-                Min
-              </label>
-              <input
-                type="number"
-                name="speed-min"
-                id="speed"
-                defaultValue={4}
-                min={4}
-                max={12}
-                onChange={(e) => {
-                  setSpeed([parseInt(e.target.value), speed[1]]);
-                }}
-              />
-            </div>
-            <div className="flex gap-4">
-              <label htmlFor="speed" className="opacity-50">
-                Max
-              </label>
-              <input
-                type="number"
-                name="speed-max"
-                id="speed"
-                defaultValue={12}
-                min={4}
-                max={12}
-                onChange={(e) => {
-                  setSpeed([speed[0], parseInt(e.target.value)]);
-                }}
-              />
-            </div>
-          </form>
-        </div>
-
-        <div className="mb-8">
-          <h2 className="text-lg mb-2">Games</h2>
-
-          <ul className="flex flex-col gap-4 mb-4">
-            {filteredGameNames.map((item, i) => {
-              return <li key={`filtered-game-${i}`}>{item}</li>;
+          <ul className="flex flex-col gap-4 mb-4 px-8 pb-16">
+            {filteredMetadata.map((item, i) => {
+              return (
+                <li
+                  key={`filtered-game-${i}`}
+                  className={`cursor-pointer py-1 ${
+                    filters.game === item.id || filters.game === ""
+                      ? "opacity-100"
+                      : "opacity-50"
+                  } ${
+                    filters.game === item.id
+                      ? "bg-neutral-800 px-2 rounded-md"
+                      : ""
+                  }`}
+                  onClick={() =>
+                    setFilters({
+                      ...filters,
+                      game: filters.game === item.id ? "" : item.id,
+                    })
+                  }
+                >
+                  {item.name}
+                </li>
+              );
             })}
           </ul>
-          <select
-            onChange={handleChange}
-            value={selectedOption || ""}
-            className="bg-neutral-900 p-2 pr-0 w-full"
-          >
-            <option value="" className="">
-              Select a game
-            </option>
-            {filteredGameNames.map((item, i) => (
-              <option key={item} value={filteredMetadata[i]} className=" ">
-                {item}
-              </option>
-            ))}
-          </select>
         </div>
-        {relative == "Relative" && (
+        {filters.relativity.includes("Relative") && (
           <div className="mb-8">
             <h2 className="text-lg mb-2">Anchors</h2>
 
@@ -290,7 +158,7 @@ export default function Page() {
                   filteredData
                     .filter(
                       (item) =>
-                        selectedOption == "" || item.game_id == selectedOption
+                        filters.game == "" || item.game_id == filters.game
                     )
                     .filter(
                       (item) =>
@@ -309,25 +177,11 @@ export default function Page() {
                 return <li key={`anchor-${i}`}>{item}</li>;
               })}
             </ul>
-            {/* <select
-              onChange={handleChange}
-              value={selectedOption || ""}
-              className="bg-neutral-900 p-2 pr-0 w-full"
-            >
-              <option value="" className="">
-                Select a game
-              </option>
-              {filteredGameNames.map((item, i) => (
-                <option key={item} value={filteredMetadata[i]} className=" ">
-                  {item}
-                </option>
-              ))}
-            </select> */}
           </div>
         )}
       </nav>
-      <main className="grid grid-rows-[min-content_repeat(3,_minmax(0,_1fr))] grid-cols-3 gap-4 h-full max-h-screen p-8 w-full relative">
-        <nav className="p-2 col-span-full flex gap-4">
+      <main className="max-h-screen w-full relative flex flex-col">
+        {/* <nav className="p-2 col-span-full flex gap-4">
           <section>
             <h2>Data types</h2>
             <form
@@ -371,114 +225,114 @@ export default function Page() {
               ))}
             </form>
           </section>
-          {/* <button>Tags</button>
-          <button>Images</button> */}
-        </nav>
-        {["Top", "Middle", "Bottom"].map((yDimension) => {
-          return ["Left", "Middle", "Right"].map((xDimension) => {
-            return (
-              <section
-                className="bg-neutral-900 p-4 flex flex-col gap-2"
-                key={`section-${yDimension.toLowerCase()}-${xDimension.toLowerCase()}`}
-              >
-                <hgroup className="flex justify-between items-center">
-                  <h3 className="">
-                    {yDimension} {xDimension != yDimension ? xDimension : null}{" "}
-                    &mdash;{" "}
-                    {
-                      filterByXY(filteredData, yDimension, xDimension).filter(
-                        (item) =>
-                          selectedOption == "" || item.game_id == selectedOption
-                      ).length
-                    }
-                  </h3>
-                  <button
-                    className="px-3 py-1 rounded-sm bg-neutral-500 uppercase font-bold tracking-widest text-xs cursor-pointer"
-                    onClick={() => {
-                      setSelectedSection([yDimension, xDimension]);
-                    }}
-                  >
-                    View all
-                  </button>
-                </hgroup>
-                <div className="overflow-auto size-full flex flex-col divide-neutral-700 divide-y *:py-2">
-                  <div className="">
-                    <h4 className="font-bold">Tags</h4>
-                    <ul>
-                      {Object.entries(
-                        filterByXY(filteredData, yDimension, xDimension)
-                          .flatMap((item) => item.tags || [])
-                          .reduce((acc, tag) => {
-                            acc[tag] = (acc[tag] || 0) + 1;
-                            return acc;
-                          }, {} as Record<string, number>)
-                      )
-                        .sort((a, b) => b[1] - a[1]) // Sort by count in descending order
-                        .map(([tag, count], i) => (
-                          <li key={`taglist-${yDimension}-${xDimension}-${i}`}>
-                            <span className="text-sm">
-                              {tag}: {count}
-                            </span>
-                          </li>
-                        ))}
-                    </ul>
-                  </div>
-                  {selectedOption != "" || selectedGenre != "" ? (
-                    <ul className="flex flex-wrap gap-4 size-full">
-                      {filterByXY(filteredData, yDimension, xDimension)
-                        .filter(
-                          (item) =>
-                            selectedOption == "" ||
-                            item.game_id == selectedOption
+        </nav> */}
+        <FilterNav />
+        <div className="p-4 grid grid-rows-3 grid-cols-3 gap-2 h-full min-h-[40rem]">
+          {["Top", "Middle", "Bottom"].map((yDimension) => {
+            return ["Left", "Middle", "Right"].map((xDimension) => {
+              return (
+                <section
+                  className="bg-neutral-800 rounded-lg p-4 flex flex-col gap-2"
+                  key={`section-${yDimension.toLowerCase()}-${xDimension.toLowerCase()}`}
+                >
+                  <hgroup className="flex justify-between items-center">
+                    <h3 className="text-lg font-semibold">
+                      {yDimension}{" "}
+                      {xDimension != yDimension ? xDimension : null}
+                      {/* {filterByXY(filteredData, yDimension, xDimension).length} */}
+                    </h3>
+                    <button
+                      className="px-3 py-1 rounded-sm bg-neutral-500 uppercase font-bold tracking-widest text-xs cursor-pointer"
+                      onClick={() => {
+                        setFilters({
+                          ...filters,
+                          position: [yDimension, xDimension],
+                        });
+                      }}
+                    >
+                      View all
+                    </button>
+                  </hgroup>
+                  <div className="overflow-auto size-full flex flex-col divide-neutral-700 divide-y *:py-2">
+                    <div className="">
+                      <h4 className="font-bold">Tags</h4>
+                      <ul>
+                        {Object.entries(
+                          filterByXY(filteredData, yDimension, xDimension)
+                            .flatMap((item) => item.tags || [])
+                            .reduce((acc, tag) => {
+                              acc[tag] = (acc[tag] || 0) + 1;
+                              return acc;
+                            }, {} as Record<string, number>)
                         )
-                        .map((item, i) => (
-                          <li key={i} className="">
-                            <hgroup>
-                              <h5>{item.vis_name}</h5>
-                              <span className="uppercase font-bold tracking-widest text-xs">
-                                {item.game_id +
+                          .sort((a, b) => b[1] - a[1]) // Sort by count in descending order
+                          .map(([tag, count], i) => (
+                            <li
+                              key={`taglist-${yDimension}-${xDimension}-${i}`}
+                            >
+                              <span className="text-sm">
+                                {tag}: {count}
+                              </span>
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
+                    {filters.game != "" || filters.genre.length > 0 ? (
+                      <ul className="flex flex-wrap gap-4 size-full">
+                        {filterByXY(filteredData, yDimension, xDimension)
+                          .filter(
+                            (item) =>
+                              filters.game == "" || item.game_id == filters.game
+                          )
+                          .map((item, i) => (
+                            <li key={i} className="">
+                              <hgroup>
+                                <h5>{item.vis_name}</h5>
+                                <span className="uppercase font-bold tracking-widest text-xs">
+                                  {item.game_id +
+                                    "_" +
+                                    item.screenshot_id +
+                                    "_" +
+                                    item.vis_id}
+                                </span>
+                              </hgroup>
+                              {/* <img
+                                loading="lazy"
+                                src={
+                                  "/games/" +
+                                  item.game_id +
                                   "_" +
                                   item.screenshot_id +
                                   "_" +
-                                  item.vis_id}
-                              </span>
-                            </hgroup>
-                            {/* <img
-                              loading="lazy"
-                              src={
-                                "/games/" +
-                                item.game_id +
-                                "_" +
-                                item.screenshot_id +
-                                "_" +
-                                item.vis_id +
-                                ".jpg"
-                              }
-                            /> */}
-                          </li>
-                        ))}
-                    </ul>
-                  ) : null}
-                </div>
-              </section>
-            );
-          });
-        })}
+                                  item.vis_id +
+                                  ".jpg"
+                                }
+                              /> */}
+                            </li>
+                          ))}
+                      </ul>
+                    ) : null}
+                  </div>
+                </section>
+              );
+            });
+          })}
+        </div>
       </main>
-      {selectedSection[0] != "" && selectedSection[1] != "" ? (
+      {filters.position[0] != "" && filters.position[1] != "" ? (
         <div className="fixed inset-0 bg-background/95 p-16 overflow-auto">
           <div className="relative">
             <section className="sticky top-0 -mx-3 pl-6 p-2 bg-neutral-900 z-10 rounded-lg mb-8 flex gap-8 items-stretch">
               <hgroup>
                 <h2 className="text-lg">
-                  {selectedSection[0]} {selectedSection[1]}
+                  {filters.position[0]} {filters.position[1]}
                 </h2>
                 <p>
                   {
                     filterByXY(
                       filteredData,
-                      selectedSection[0],
-                      selectedSection[1]
+                      filters.position[0],
+                      filters.position[1]
                     ).length
                   }{" "}
                   annotations
@@ -491,7 +345,7 @@ export default function Page() {
                   const selectedStates = Array.from(formData.entries()).map(
                     ([name, value]) => value.toString()
                   );
-                  setSelectedUsages(selectedStates);
+                  setFilters({ ...filters, usages: selectedStates });
                   console.log("Selected states:", selectedStates);
                 }}
               >
@@ -506,8 +360,8 @@ export default function Page() {
                       {
                         filterByXY(
                           filteredData,
-                          selectedSection[0],
-                          selectedSection[1]
+                          filters.position[0],
+                          filters.position[1]
                         ).filter((subitem) =>
                           subitem.vis_usage.includes(item as VisUsage)
                         ).length
@@ -533,8 +387,7 @@ export default function Page() {
               <button
                 className="ml-auto p-4 py-2 rounded-md bg-neutral-700 cursor-pointer"
                 onClick={() => {
-                  setSelectedSection(["", ""]);
-                  setSelectedUsages([]);
+                  setFilters({ ...filters, position: ["", ""], usages: [] });
                 }}
               >
                 Close
@@ -544,8 +397,8 @@ export default function Page() {
               ...new Set(
                 filterByXY(
                   filteredData,
-                  selectedSection[0],
-                  selectedSection[1]
+                  filters.position[0],
+                  filters.position[1]
                 ).flatMap((item) =>
                   item.tags ? item.tags.map((tag) => tag) : "N/A"
                 )
@@ -556,17 +409,17 @@ export default function Page() {
                 <ul className="flex flex-wrap gap-4 ">
                   {filterByXY(
                     filteredData,
-                    selectedSection[0],
-                    selectedSection[1]
+                    filters.position[0],
+                    filters.position[1]
                   )
                     .filter((item) => item.tags?.includes(tag))
                     .map((item, i) => (
                       <li
                         key={"modal-item-" + i}
                         className={`${
-                          selectedUsages.length == 0 ||
+                          filters.usages.length == 0 ||
                           item.vis_usage.some((usage) =>
-                            selectedUsages.includes(usage)
+                            filters.usages.includes(usage)
                           )
                             ? "-order-1 opacity-100"
                             : "opacity-10"
@@ -574,9 +427,9 @@ export default function Page() {
                       >
                         <hgroup
                           className={`${
-                            selectedUsages.length == 0 ||
+                            filters.usages.length == 0 ||
                             item.vis_usage.some((usage) =>
-                              selectedUsages.includes(usage)
+                              filters.usages.includes(usage)
                             )
                               ? "opacity-100"
                               : "opacity-10"
