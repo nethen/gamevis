@@ -32367,54 +32367,6 @@
   },
   {
     "game_id": "67",
-    "screenshot_id": "7",
-    "vis_id": "l2",
-    "data": [
-      [
-        {
-          "data_value": "Enemy",
-          "data_type": "Nominal"
-        },
-        {
-          "data_value": "Enemy position",
-          "data_type": "Spatial"
-        }
-      ],
-      [
-        {
-          "data_value": "Enemy health",
-          "data_type": "Quantitative"
-        }
-      ],
-      [
-        {
-          "data_value": "Enemy level",
-          "data_type": "Quantitative"
-        }
-      ],
-      [
-        {
-          "data_value": "Distance to enemy",
-          "data_type": "Quantitative"
-        }
-      ]
-    ],
-    "marks": [["Text"], ["Rectangle"], ["Rectangle", "Text"], ["Text"]],
-    "channels": [["Text"], ["Length"], ["Hue", "Text"], ["Text"]],
-    "vis_name": "Enemy ship vitals",
-    "vis_usage": ["Enemy"],
-    "vis_position": {
-      "screen_relativity": "Relative",
-      "relative_to": "Enemy ship",
-      "relative_position": ["Middle", "Middle"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Local", false]],
-    "notes": [],
-    "tags": ["Combat", "Wayfinding", "Vitals", "Health", "Experience"]
-  },
-  {
-    "game_id": "67",
     "screenshot_id": "8",
     "vis_id": "l1",
     "data": [
@@ -32538,7 +32490,7 @@
     "flagged": true,
     "game_id": "67",
     "screenshot_id": "9",
-    "vis_id": "l1",
+    "vis_id": "l1a",
     "data": [
       [
         {
@@ -32560,6 +32512,54 @@
     "vis_visibility": [["Local", false]],
     "notes": [],
     "tags": ["Combat"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "9",
+    "vis_id": "l1b",
+    "data": [
+      [
+        {
+          "data_value": "Enemy",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Enemy position",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Enemy health",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Enemy level",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Distance to enemy",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"], ["Rectangle"], ["Rectangle", "Text"], ["Text"]],
+    "channels": [["Text"], ["Length"], ["Hue", "Text"], ["Text"]],
+    "vis_name": "Enemy ship vitals",
+    "vis_usage": ["Enemy"],
+    "vis_position": {
+      "screen_relativity": "Relative",
+      "relative_to": "Enemy ship",
+      "relative_position": ["Middle", "Middle"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Combat", "Wayfinding", "Vitals", "Health", "Experience"]
   },
   {
     "game_id": "68",
