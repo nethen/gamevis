@@ -17727,10 +17727,9 @@
     "tags": ["Damage"]
   },
   {
-    "flagged": true,
     "game_id": "37",
     "screenshot_id": "1",
-    "vis_id": "ge1",
+    "vis_id": "g1",
     "data": [
       [
         {
@@ -17748,7 +17747,7 @@
       "screen_position": ["Top", "Middle"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Global", true]],
+    "vis_visibility": [["Global", false]],
     "notes": [
       "Health of the boss that shows up when engaged in a fight.",
       "Pink bar that decreases right to left."
@@ -17933,7 +17932,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "37",
     "screenshot_id": "3",
     "vis_id": "le2",
@@ -18645,10 +18643,9 @@
     "tags": ["Ability", "Inventory"]
   },
   {
-    "flagged": true,
     "game_id": "39",
     "screenshot_id": "1",
-    "vis_id": "le1",
+    "vis_id": "l1",
     "data": [
       [
         {
@@ -18687,7 +18684,7 @@
       "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
-    "vis_visibility": [["Local", true]],
+    "vis_visibility": [["Local", false]],
     "notes": [],
     "tags": ["Resource"]
   },
@@ -18729,7 +18726,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Top", "Left"],
+      "screen_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -19535,10 +19532,9 @@
     "tags": ["Progression", "Score"]
   },
   {
-    "flagged": true,
     "game_id": "40",
     "screenshot_id": "1",
-    "vis_id": "le1",
+    "vis_id": "ge1",
     "data": [
       [
         {
@@ -19561,15 +19557,14 @@
       "relative_position": ["Middle"],
       "coords": "World"
     },
-    "vis_visibility": [["Local", true]],
+    "vis_visibility": [["Global", true]],
     "notes": ["Data visibility is local ephemeral."],
     "tags": ["Combat"]
   },
   {
-    "flagged": true,
     "game_id": "40",
     "screenshot_id": "1",
-    "vis_id": "l3",
+    "vis_id": "g3",
     "data": [
       [
         {
@@ -19591,7 +19586,7 @@
       "screen_position": ["Bottom", "Left"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Local", false]],
+    "vis_visibility": [["Global", false]],
     "notes": [
       "Cards are white face down when filling up.",
       "The card moves from bottom to top as damage is dealt. Card flips face up when filled.",
@@ -19600,10 +19595,9 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "40",
     "screenshot_id": "1",
-    "vis_id": "l2",
+    "vis_id": "g2",
     "data": [
       [
         {
@@ -19621,7 +19615,7 @@
       "screen_position": ["Bottom", "Left"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Local", false]],
+    "vis_visibility": [["Global", false]],
     "notes": [
       "Current health points (HP) - Quantitative",
       "Yellow background for the rectangle if health > 2 changes to flashing red if hp is ==1"
@@ -20181,7 +20175,6 @@
     "tags": ["Timer", "Alert"]
   },
   {
-    "flagged": true,
     "game_id": "41",
     "screenshot_id": "7",
     "vis_id": "g2a",
@@ -20218,7 +20211,6 @@
     "tags": ["Task", "Progression"]
   },
   {
-    "flagged": true,
     "game_id": "41",
     "screenshot_id": "7",
     "vis_id": "g2b",
@@ -20916,7 +20908,6 @@
     "tags": ["Health", "Energy", "Experience"]
   },
   {
-    "flagged": true,
     "game_id": "43",
     "screenshot_id": "4",
     "vis_id": "le5",
@@ -21208,7 +21199,6 @@
     "tags": ["Map"]
   },
   {
-    "flagged": true,
     "game_id": "43",
     "screenshot_id": "9",
     "vis_id": "l1",
@@ -21237,7 +21227,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "43",
     "screenshot_id": "9",
     "vis_id": "le2",
@@ -21263,7 +21252,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "43",
     "screenshot_id": "10",
     "vis_id": "le1",
@@ -21293,9 +21281,8 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "44",
-    "screenshot_id": "1",
+    "screenshot_id": "7",
     "vis_id": "l2b",
     "data": [
       [
@@ -22372,7 +22359,6 @@
     "tags": ["Item"]
   },
   {
-    "flagged": true,
     "game_id": "46",
     "screenshot_id": "5",
     "vis_id": "le1b",
@@ -23334,7 +23320,6 @@
     "tags": ["Score"]
   },
   {
-    "flagged": true,
     "game_id": "48",
     "screenshot_id": "3",
     "vis_id": "ge1",
@@ -23532,10 +23517,9 @@
     "tags": ["Score"]
   },
   {
-    "flagged": true,
     "game_id": "48",
     "screenshot_id": "8",
-    "vis_id": "ge1",
+    "vis_id": "g1",
     "data": [
       [
         {
@@ -23693,7 +23677,6 @@
     "tags": ["Item"]
   },
   {
-    "flagged": true,
     "game_id": "48",
     "screenshot_id": "10",
     "vis_id": "g2",
@@ -23725,10 +23708,9 @@
     "tags": ["Ability", "Combat"]
   },
   {
-    "flagged": true,
     "game_id": "48",
     "screenshot_id": "10",
-    "vis_id": "ge3",
+    "vis_id": "g3",
     "data": [
       [
         {
@@ -23758,11 +23740,7 @@
       "screen_position": "left",
       "coords": "World"
     },
-    "vis_visibility": [
-      ["Global", false],
-      ["Local", false],
-      ["Ephemeral", true]
-    ],
+    "vis_visibility": [["Global", false]],
     "notes": [
       "Path of shot and visual representation of terrain",
       "Circles act as rules for different benchmarks of strength relative to the bar"
@@ -23904,10 +23882,9 @@
     "tags": ["Health"]
   },
   {
-    "flagged": true,
     "game_id": "49",
     "screenshot_id": "1",
-    "vis_id": "le1",
+    "vis_id": "l1",
     "data": [
       [
         {
@@ -23933,7 +23910,7 @@
       "screen_position": ["Bottom", "Left"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Local", true]],
+    "vis_visibility": [["Local", false]],
     "notes": [],
     "tags": ["Equipment"]
   },
@@ -23965,10 +23942,9 @@
     "tags": ["Health"]
   },
   {
-    "flagged": true,
     "game_id": "49",
     "screenshot_id": "1",
-    "vis_id": "g3",
+    "vis_id": "l3",
     "data": [
       [
         {
@@ -23990,7 +23966,7 @@
       "screen_position": ["Bottom", "Right"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Global", false]],
+    "vis_visibility": [["Local", false]],
     "notes": [
       "In game currency, coins lets you buy thing in shops during the run, souls lets you upgrade weapons etc"
     ],
@@ -24535,10 +24511,9 @@
     "tags": ["timer"]
   },
   {
-    "flagged": true,
     "game_id": "49",
     "screenshot_id": "9",
-    "vis_id": "l2",
+    "vis_id": "l1",
     "data": [
       [
         {
@@ -24675,7 +24650,6 @@
     "tags": ["Ability", "Equipment"]
   },
   {
-    "flagged": true,
     "game_id": "50",
     "screenshot_id": "1",
     "vis_id": "ge1",
