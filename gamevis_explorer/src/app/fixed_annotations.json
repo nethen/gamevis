@@ -25567,7 +25567,7 @@
     "tags": ["Combat"]
   },
   {
-    "game_id": "51",
+    "game_id": "52",
     "screenshot_id": "1",
     "vis_id": "ge1",
     "data": [
@@ -25592,7 +25592,7 @@
     "tags": ["Progression"]
   },
   {
-    "game_id": "51",
+    "game_id": "52",
     "screenshot_id": "1",
     "vis_id": "l1",
     "data": [
@@ -25600,9 +25600,7 @@
         {
           "data_value": "coins count",
           "data_type": "Quantitative"
-        }
-      ],
-      [
+        },
         {
           "data_value": "lap information",
           "data_type": "Quantitative"

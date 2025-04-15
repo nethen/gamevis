@@ -72,7 +72,7 @@ export default function Page() {
         );
       })
       .map((item) => {
-        return item.name;
+        return item.name.toString();
       });
   }, [selectedGenre, speed]);
 
@@ -614,7 +614,7 @@ export default function Page() {
 
                   <ul className="flex flex-wrap gap-4">
                     {item.data.map((dataGroup, i) => (
-                      <li key={i} className={`px-2 flex flex-col`}>
+                      <li key={i} className={`flex flex-col`}>
                         <div className="text-sm flex flex-col flex-wrap">
                           {dataGroup.map((data, j) => (
                             <span
@@ -639,13 +639,22 @@ export default function Page() {
                           ))}
                         </div>
                         <span className="text-sm opacity-50">
-                          M: {item.marks[i].map((marks) => marks).join(", ")}
+                          M:{" "}
+                          {Array.isArray(item.marks[i])
+                            ? item.marks[i].map((item) => item).join(", ")
+                            : "N/A"}
                         </span>
                         <span className="text-sm opacity-50">
                           C:{" "}
-                          {item.channels[i]
-                            .map((channel) => channel)
-                            .join(", ")}
+                          {Array.isArray(item.channels[i])
+                            ? item.channels[i].map((item) => item).join(", ")
+                            : "N/A"}
+                        </span>
+                        <span className="text-sm opacity-50">
+                          T:{" "}
+                          {item.tags
+                            ? item.tags.map((item) => item).join(", ")
+                            : "N/A"}
                         </span>
                       </li>
                     ))}
