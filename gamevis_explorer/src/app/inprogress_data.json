@@ -31528,7 +31528,6 @@
     "tags": ["Lore", "Health"]
   },
   {
-    "flagged": true,
     "game_id": "66",
     "screenshot_id": "1",
     "vis_id": "le1",
@@ -31554,7 +31553,7 @@
       "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
-    "vis_visibility": [["Local", false]],
+    "vis_visibility": [["Local", true]],
     "notes": [],
     "tags": ["Item"]
   },
@@ -31878,7 +31877,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "67",
     "screenshot_id": "1",
     "vis_id": "le1",
