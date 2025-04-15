@@ -11938,9 +11938,7 @@
         {
           "data_value": "coins count",
           "data_type": "Quantitative"
-        }
-      ],
-      [
+        },
         {
           "data_value": "lap information",
           "data_type": "Quantitative"

@@ -1,8 +1,10 @@
 "use client";
 // import Image from "next/image";
 import meta from "@/app/meta.json";
-import data from "@/app/sorted_output.json";
+import rawData from "@/app/fixed_annotations.json";
+const data: Annotation[] = rawData as unknown as Annotation[];
 import { useEffect, useMemo, useState } from "react";
+import { Annotation, VisUsage } from "./types/types";
 
 const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
 
@@ -13,6 +15,25 @@ export default function Page() {
   const [selectedGenre, setSelectedGenre] = useState("");
   const [selectedSection, setSelectedSection] = useState(["", ""]);
   const [selectedUsages, setSelectedUsages] = useState<string[]>([]);
+  const [speed, setSpeed] = useState([4, 12]);
+
+  const filterByXY = (
+    data: Annotation[],
+    yDimension: string,
+    xDimension: string
+  ) => {
+    return data.filter((item) =>
+      item.vis_position && relative == "Screen"
+        ? "screen_position" in item.vis_position &&
+          Array.isArray(item.vis_position.screen_position) &&
+          item.vis_position.screen_position[0] == yDimension &&
+          item.vis_position.screen_position[1] == xDimension
+        : "relative_position" in item.vis_position &&
+          Array.isArray(item.vis_position.relative_position) &&
+          item.vis_position.relative_position[0] == yDimension &&
+          item.vis_position.relative_position[1] == xDimension
+    );
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -26,43 +47,55 @@ export default function Page() {
   const filteredMetadata = useMemo(() => {
     return meta
       .filter((item) => {
-        if (selectedGenre == "") return true;
-        return item.genre == selectedGenre;
+        if (selectedGenre == "")
+          return item.score >= speed[0] && item.score <= speed[1];
+        return (
+          item.genre == selectedGenre &&
+          item.score >= speed[0] &&
+          item.score <= speed[1]
+        );
       })
       .map((item) => {
         return item.id.toString();
       });
-  }, [selectedGenre]);
+  }, [selectedGenre, speed]);
 
   const filteredGameNames = useMemo(() => {
     return meta
       .filter((item) => {
-        if (selectedGenre == "") return true;
-        return item.genre == selectedGenre;
+        if (selectedGenre == "")
+          return item.score >= speed[0] && item.score <= speed[1];
+        return (
+          item.genre == selectedGenre &&
+          item.score >= speed[0] &&
+          item.score <= speed[1]
+        );
       })
       .map((item) => {
-        return item.name;
+        return item.name.toString();
       });
-  }, [selectedGenre]);
+  }, [selectedGenre, speed]);
 
-  const filteredData = useMemo(() => {
+  const filteredData = useMemo<Annotation[]>(() => {
     return data.filter((item) => {
       return (
         filteredMetadata.includes(item.game_id) &&
-        (item.game_id == selectedOption || selectedOption == "")
+        (item.game_id == selectedOption || selectedOption == "") &&
+        item.vis_position.coords == coords
       );
     });
-  }, [filteredMetadata, selectedOption]);
+  }, [filteredMetadata, selectedOption, coords]);
+
   // console.log(meta);
-  // const handleCoordsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  //   setCoords(e.target.value);
-  //   try {
-  //     localStorage.setItem("coords", e.target.value);
-  //   } catch (error) {
-  //     console.error("Error saving to localStorage", error);
-  //   }
-  //   console.log("Selected:", e.target.value);
-  // };
+  const handleCoordsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setCoords(e.target.value);
+    try {
+      localStorage.setItem("coords", e.target.value);
+    } catch (error) {
+      console.error("Error saving to localStorage", error);
+    }
+    console.log("Selected:", e.target.value);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(e.target.value);
@@ -82,6 +115,23 @@ export default function Page() {
     }
     console.log("Selected:", e.target.value);
   };
+
+  useEffect(() => {
+    console.log(
+      filterByXY(filteredData, selectedSection[0], selectedSection[1]).map(
+        (item) => item.tags
+      )
+    );
+    console.log([
+      ...new Set(
+        filterByXY(
+          filteredData,
+          selectedSection[0],
+          selectedSection[1]
+        ).flatMap((item) => (item.tags ? item.tags.map((tag) => tag) : "N/A"))
+      ),
+    ]);
+  }, [selectedSection]);
 
   return (
     <div className="flex fixed inset-0">
@@ -108,7 +158,7 @@ export default function Page() {
               onClick={() => {
                 setCoords("World");
                 try {
-                  localStorage.setItem("coords", "Camera");
+                  localStorage.setItem("coords", "World");
                 } catch (error) {
                   console.error("Error saving to localStorage", error);
                 }
@@ -169,6 +219,43 @@ export default function Page() {
             ))}
           </select>
         </div>
+        <div className="mb-8">
+          <h2 className="text-lg">Speed</h2>
+          <form>
+            <div className="flex gap-4">
+              <label htmlFor="speed" className="opacity-50">
+                Min
+              </label>
+              <input
+                type="number"
+                name="speed-min"
+                id="speed"
+                defaultValue={4}
+                min={4}
+                max={12}
+                onChange={(e) => {
+                  setSpeed([parseInt(e.target.value), speed[1]]);
+                }}
+              />
+            </div>
+            <div className="flex gap-4">
+              <label htmlFor="speed" className="opacity-50">
+                Max
+              </label>
+              <input
+                type="number"
+                name="speed-max"
+                id="speed"
+                defaultValue={12}
+                min={4}
+                max={12}
+                onChange={(e) => {
+                  setSpeed([speed[0], parseInt(e.target.value)]);
+                }}
+              />
+            </div>
+          </form>
+        </div>
 
         <div className="mb-8">
           <h2 className="text-lg mb-2">Games</h2>
@@ -215,7 +302,7 @@ export default function Page() {
                       return item.vis_position &&
                         "relative_to" in item.vis_position
                         ? item.vis_position.relative_to
-                        : undefined;
+                        : null;
                     })
                 ),
               ].map((item, i) => {
@@ -240,32 +327,55 @@ export default function Page() {
         )}
       </nav>
       <main className="grid grid-rows-[min-content_repeat(3,_minmax(0,_1fr))] grid-cols-3 gap-4 h-full max-h-screen p-8 w-full relative">
-        <nav className="p-2 col-span-full flex gap-4 justify-center">
-          Top level nav
+        <nav className="p-2 col-span-full flex gap-4">
+          <section>
+            <h2>Data types</h2>
+            <form
+              className="flex gap-4"
+              onChange={(e) => {
+                const formData = new FormData(e.currentTarget);
+                const selectedStates = Array.from(formData.entries()).map(
+                  ([name, value]) => value.toString()
+                );
+                setSelectedUsages(selectedStates);
+                console.log("Selected states:", selectedStates);
+              }}
+            >
+              {[
+                "Nominal",
+                "Ordinal",
+                "Quantitative",
+                "Spatial",
+                "Temporal",
+              ].map((item, i) => (
+                <div
+                  key={`type-check-${item.toLowerCase()}`}
+                  className="flex gap-2 items-center"
+                >
+                  <input
+                    type="checkbox"
+                    name={`type-check__box-${item.toLowerCase()}`}
+                    value={item}
+                  />
+                  <label htmlFor={`type-check__label-${item.toLowerCase()}`}>
+                    {item} (
+                    {
+                      filteredData.filter((subitem) =>
+                        subitem.vis_usage.includes(item as VisUsage)
+                      ).length
+                    }
+                    )
+                  </label>
+                  {}
+                </div>
+              ))}
+            </form>
+          </section>
           {/* <button>Tags</button>
           <button>Images</button> */}
         </nav>
         {["Top", "Middle", "Bottom"].map((yDimension) => {
-          const filterY = filteredData.filter((item) =>
-            item.vis_position && relative == "Screen"
-              ? "screen_position" in item.vis_position &&
-                Array.isArray(item.vis_position.screen_position) &&
-                item.vis_position.screen_position[0] == yDimension
-              : "relative_position" in item.vis_position &&
-                Array.isArray(item.vis_position.relative_position) &&
-                item.vis_position.relative_position[0] == yDimension
-          );
-
           return ["Left", "Middle", "Right"].map((xDimension) => {
-            const filterXY = filterY.filter((item) =>
-              item.vis_position && relative == "Screen"
-                ? "screen_position" in item.vis_position &&
-                  Array.isArray(item.vis_position.screen_position) &&
-                  item.vis_position.screen_position[1] == xDimension
-                : "relative_position" in item.vis_position &&
-                  Array.isArray(item.vis_position.relative_position) &&
-                  item.vis_position.relative_position[1] == xDimension
-            );
             return (
               <section
                 className="bg-neutral-900 p-4 flex flex-col gap-2"
@@ -276,7 +386,7 @@ export default function Page() {
                     {yDimension} {xDimension != yDimension ? xDimension : null}{" "}
                     &mdash;{" "}
                     {
-                      filterXY.filter(
+                      filterByXY(filteredData, yDimension, xDimension).filter(
                         (item) =>
                           selectedOption == "" || item.game_id == selectedOption
                       ).length
@@ -296,7 +406,7 @@ export default function Page() {
                     <h4 className="font-bold">Tags</h4>
                     <ul>
                       {Object.entries(
-                        filterXY
+                        filterByXY(filteredData, yDimension, xDimension)
                           .flatMap((item) => item.tags || [])
                           .reduce((acc, tag) => {
                             acc[tag] = (acc[tag] || 0) + 1;
@@ -315,7 +425,7 @@ export default function Page() {
                   </div>
                   {selectedOption != "" || selectedGenre != "" ? (
                     <ul className="flex flex-wrap gap-4 size-full">
-                      {filterXY
+                      {filterByXY(filteredData, yDimension, xDimension)
                         .filter(
                           (item) =>
                             selectedOption == "" ||
@@ -356,35 +466,24 @@ export default function Page() {
         })}
       </main>
       {selectedSection[0] != "" && selectedSection[1] != "" ? (
-        <div
-          className="fixed inset-0 bg-background/95 p-16 overflow-auto"
-          onClick={() => {
-            setSelectedSection(["", ""]);
-            setSelectedUsages([]);
-          }}
-        >
-          <div onClick={(e) => e.stopPropagation()} className="relative">
-            <section className="sticky top-0 -mx-3 pl-6 p-2 bg-neutral-900 z-10 rounded-full mb-8 flex gap-8 items-center">
-              <p>
-                {
-                  filteredData.filter((item) =>
-                    item.vis_position && relative == "Screen"
-                      ? "screen_position" in item.vis_position &&
-                        Array.isArray(item.vis_position.screen_position) &&
-                        item.vis_position.screen_position[0] ==
-                          selectedSection[0] &&
-                        item.vis_position.screen_position[1] ==
-                          selectedSection[1]
-                      : "relative_position" in item.vis_position &&
-                        Array.isArray(item.vis_position.relative_position) &&
-                        item.vis_position.relative_position[0] ==
-                          selectedSection[0] &&
-                        item.vis_position.relative_position[1] ==
-                          selectedSection[1]
-                  ).length
-                }{" "}
-                annotations
-              </p>
+        <div className="fixed inset-0 bg-background/95 p-16 overflow-auto">
+          <div className="relative">
+            <section className="sticky top-0 -mx-3 pl-6 p-2 bg-neutral-900 z-10 rounded-lg mb-8 flex gap-8 items-stretch">
+              <hgroup>
+                <h2 className="text-lg">
+                  {selectedSection[0]} {selectedSection[1]}
+                </h2>
+                <p>
+                  {
+                    filterByXY(
+                      filteredData,
+                      selectedSection[0],
+                      selectedSection[1]
+                    ).length
+                  }{" "}
+                  annotations
+                </p>
+              </hgroup>
               <form
                 className="flex gap-4"
                 onChange={(e) => {
@@ -405,26 +504,12 @@ export default function Page() {
                     <label htmlFor={`state-${i}`}>
                       {item} (
                       {
-                        filteredData.filter((subitem) =>
-                          subitem.vis_position && relative == "Screen"
-                            ? "screen_position" in subitem.vis_position &&
-                              Array.isArray(
-                                subitem.vis_position.screen_position
-                              ) &&
-                              subitem.vis_position.screen_position[0] ==
-                                selectedSection[0] &&
-                              subitem.vis_position.screen_position[1] ==
-                                selectedSection[1] &&
-                              subitem.vis_usage.includes(item)
-                            : "relative_position" in subitem.vis_position &&
-                              Array.isArray(
-                                subitem.vis_position.relative_position
-                              ) &&
-                              subitem.vis_position.relative_position[0] ==
-                                selectedSection[0] &&
-                              subitem.vis_position.relative_position[1] ==
-                                selectedSection[1] &&
-                              subitem.vis_usage.includes(item)
+                        filterByXY(
+                          filteredData,
+                          selectedSection[0],
+                          selectedSection[1]
+                        ).filter((subitem) =>
+                          subitem.vis_usage.includes(item as VisUsage)
                         ).length
                       }
                       )
@@ -446,7 +531,7 @@ export default function Page() {
                 </div> */}
               </form>
               <button
-                className="ml-auto p-4 py-2 rounded-full bg-neutral-700 cursor-pointer"
+                className="ml-auto p-4 py-2 rounded-md bg-neutral-700 cursor-pointer"
                 onClick={() => {
                   setSelectedSection(["", ""]);
                   setSelectedUsages([]);
@@ -455,99 +540,146 @@ export default function Page() {
                 Close
               </button>
             </section>
-            <ul className="flex flex-wrap gap-4 ">
-              {filteredData
-                .filter((item) =>
-                  item.vis_position && relative == "Screen"
-                    ? "screen_position" in item.vis_position &&
-                      Array.isArray(item.vis_position.screen_position) &&
-                      item.vis_position.screen_position[0] ==
-                        selectedSection[0] &&
-                      item.vis_position.screen_position[1] == selectedSection[1]
-                    : "relative_position" in item.vis_position &&
-                      Array.isArray(item.vis_position.relative_position) &&
-                      item.vis_position.relative_position[0] ==
-                        selectedSection[0] &&
-                      item.vis_position.relative_position[1] ==
-                        selectedSection[1]
+            {[
+              ...new Set(
+                filterByXY(
+                  filteredData,
+                  selectedSection[0],
+                  selectedSection[1]
+                ).flatMap((item) =>
+                  item.tags ? item.tags.map((tag) => tag) : "N/A"
                 )
-                .map((item, i) => (
-                  <li
-                    key={"modal-item-" + i}
-                    className={`${
-                      selectedUsages.length == 0 ||
-                      item.vis_usage.some((usage) =>
-                        selectedUsages.includes(usage)
-                      )
-                        ? "-order-1"
-                        : ""
-                    }`}
-                  >
-                    <hgroup
-                      className={`${
-                        selectedUsages.length == 0 ||
-                        item.vis_usage.some((usage) =>
-                          selectedUsages.includes(usage)
-                        )
-                          ? "opacity-100"
-                          : "opacity-10"
-                      }`}
-                    >
-                      <h5>{item.vis_name}</h5>
-                      <span className="uppercase font-bold tracking-widest text-xs">
-                        {item.game_id +
-                          "_" +
-                          item.screenshot_id +
-                          "_" +
-                          item.vis_id}
-                      </span>
-                    </hgroup>
-                    <img
-                      loading="lazy"
-                      className={`${
-                        selectedUsages.length > 0 &&
-                        !selectedUsages.some((usage) =>
-                          item.vis_usage.includes(usage)
-                        )
-                          ? "opacity-10"
-                          : ""
-                      } 
-                      mb-4`}
-                      // className={`${item.vis_usage.includes(
-                      //   "Player`"
-                      // )} ? "bg-red-500" : ""`}
-                      src={
-                        "/games/" +
-                        item.game_id +
-                        "_" +
-                        item.screenshot_id +
-                        "_" +
-                        item.vis_id +
-                        ".jpg"
-                      }
-                    />
-                    <ul className="flex gap-2">
-                      {item.vis_usage.map((usage, i) => (
-                        <li
-                          key={i}
-                          className={`px-2 bg-neutral-800 rounded-full ${
-                            selectedUsages.length == 0 ||
+              ),
+            ].map((tag) => (
+              <div key={`tag-group-${tag}`} className="mb-12">
+                <h3 className="text-xl border-t border-neutral-500">{tag}</h3>
+                <ul className="flex flex-wrap gap-4 ">
+                  {filterByXY(
+                    filteredData,
+                    selectedSection[0],
+                    selectedSection[1]
+                  )
+                    .filter((item) => item.tags?.includes(tag))
+                    .map((item, i) => (
+                      <li
+                        key={"modal-item-" + i}
+                        className={`${
+                          selectedUsages.length == 0 ||
+                          item.vis_usage.some((usage) =>
                             selectedUsages.includes(usage)
+                          )
+                            ? "-order-1 opacity-100"
+                            : "opacity-10"
+                        }`}
+                      >
+                        <hgroup
+                          className={`${
+                            selectedUsages.length == 0 ||
+                            item.vis_usage.some((usage) =>
+                              selectedUsages.includes(usage)
+                            )
                               ? "opacity-100"
                               : "opacity-10"
                           }`}
                         >
-                          <span className="text-sm">
-                            {usage == "Environment"
-                              ? "Ev"
-                              : usage.substring(0, 2)}
+                          <span className="uppercase font-bold tracking-widest text-xs">
+                            {item.game_id +
+                              "_" +
+                              item.screenshot_id +
+                              "_" +
+                              item.vis_id}
                           </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ))}
-            </ul>
+                          <div className="flex gap-4 items-center">
+                            <h5 className="text-lg">{item.vis_name}</h5>
+                            <ul className="flex gap-2">
+                              {item.vis_usage.map((usage, i) => (
+                                <li
+                                  key={i}
+                                  className={`px-2 bg-neutral-800 rounded-full leading-none flex`}
+                                >
+                                  <span className="text-sm">
+                                    {usage == "Environment"
+                                      ? "Ev"
+                                      : usage.substring(0, 2)}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </hgroup>
+                        <img
+                          loading="lazy"
+                          className={`
+                      mb-4`}
+                          // className={`${item.vis_usage.includes(
+                          //   "Player`"
+                          // )} ? "bg-red-500" : ""`}
+                          src={
+                            "/games/" +
+                            item.game_id +
+                            "_" +
+                            item.screenshot_id +
+                            "_" +
+                            item.vis_id +
+                            ".jpg"
+                          }
+                          alt={item.notes.join(", ")}
+                        />
+
+                        <ul className="flex flex-wrap gap-4">
+                          {item.data.map((dataGroup, i) => (
+                            <li key={i} className={`flex flex-col`}>
+                              <div className="text-sm flex flex-col flex-wrap">
+                                {dataGroup.map((data, j) => (
+                                  <span
+                                    key={j}
+                                    className={`
+                                ${
+                                  data.data_type == "Nominal"
+                                    ? "text-red-400"
+                                    : data.data_type == "Ordinal"
+                                    ? "text-amber-400"
+                                    : data.data_type == "Quantitative"
+                                    ? "text-blue-400"
+                                    : data.data_type == "Spatial"
+                                    ? "text-green-400"
+                                    : data.data_type == "Temporal"
+                                    ? "text-purple-400"
+                                    : "text-foreground"
+                                } font-bold`}
+                                  >
+                                    {data.data_value}
+                                  </span>
+                                ))}
+                              </div>
+                              <span className="text-sm opacity-50">
+                                M:{" "}
+                                {Array.isArray(item.marks[i])
+                                  ? item.marks[i].map((item) => item).join(", ")
+                                  : "N/A"}
+                              </span>
+                              <span className="text-sm opacity-50">
+                                C:{" "}
+                                {Array.isArray(item.channels[i])
+                                  ? item.channels[i]
+                                      .map((item) => item)
+                                      .join(", ")
+                                  : "N/A"}
+                              </span>
+                              <span className="text-sm opacity-50">
+                                T:{" "}
+                                {item.tags
+                                  ? item.tags.map((item) => item).join(", ")
+                                  : "N/A"}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       ) : null}

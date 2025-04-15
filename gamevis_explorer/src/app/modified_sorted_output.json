@@ -128,7 +128,6 @@
     "tags": ["Round", "Progression"]
   },
   {
-    "flagged": true,
     "game_id": "1",
     "screenshot_id": "1",
     "vis_id": "l4",
@@ -245,7 +244,6 @@
     "tags": ["Vitals", "Health"]
   },
   {
-    "flagged": true,
     "game_id": "1",
     "screenshot_id": "3",
     "vis_id": "g1a",
@@ -388,7 +386,6 @@
     "tags": ["Character", "Ability", "Energy"]
   },
   {
-    "flagged": true,
     "game_id": "2",
     "screenshot_id": "1",
     "vis_id": "g5",
@@ -418,7 +415,6 @@
     "tags": ["Damage", "Health", "Score"]
   },
   {
-    "flagged": true,
     "game_id": "2",
     "screenshot_id": "2",
     "vis_id": "g2",
@@ -738,7 +734,6 @@
     "tags": ["Vitals", "Ability", "Energy", "Character", "Stamina"]
   },
   {
-    "flagged": true,
     "game_id": "4",
     "screenshot_id": "2",
     "vis_id": "g1",
@@ -1374,7 +1369,6 @@
     "tags": ["Wayfinding", "Alert"]
   },
   {
-    "flagged": true,
     "game_id": "5",
     "screenshot_id": "10",
     "vis_id": "ge1",
@@ -1428,7 +1422,6 @@
     "tags": ["Wayfinding", "Map"]
   },
   {
-    "flagged": true,
     "game_id": "5",
     "screenshot_id": "11",
     "vis_id": "ge1",
@@ -1457,7 +1450,6 @@
     "tags": ["Alert", "Round", "Combat"]
   },
   {
-    "flagged": true,
     "game_id": "5",
     "screenshot_id": "11",
     "vis_id": "l2",
@@ -1487,7 +1479,6 @@
     "tags": ["Equipment"]
   },
   {
-    "flagged": true,
     "game_id": "5",
     "screenshot_id": "12",
     "vis_id": "l1",
@@ -2452,7 +2443,6 @@
     "tags": ["Currency"]
   },
   {
-    "flagged": true,
     "game_id": "7",
     "screenshot_id": "5",
     "vis_id": "l2",
@@ -2644,7 +2634,6 @@
     "tags": ["Equipment", "Ammo"]
   },
   {
-    "flagged": true,
     "game_id": "7",
     "screenshot_id": "7",
     "vis_id": "l3b",
@@ -2832,7 +2821,6 @@
     "tags": ["Combat", "Ability", "Timer"]
   },
   {
-    "flagged": true,
     "game_id": "7",
     "screenshot_id": "11",
     "vis_id": "g1a",
@@ -2858,7 +2846,6 @@
     "tags": ["Round", "Progression", "Timer", "Alert"]
   },
   {
-    "flagged": true,
     "game_id": "7",
     "screenshot_id": "11",
     "vis_id": "g1b",
@@ -2949,7 +2936,6 @@
     "tags": ["Combat", "Death", "Alert", "Score"]
   },
   {
-    "flagged": true,
     "game_id": "7",
     "screenshot_id": "12",
     "vis_id": "l2",
@@ -2975,7 +2961,6 @@
     "tags": ["Combat", "Ability"]
   },
   {
-    "flagged": true,
     "game_id": "7",
     "screenshot_id": "13",
     "vis_id": "g1a",
@@ -3189,7 +3174,6 @@
     "tags": ["Score", "Combat"]
   },
   {
-    "flagged": true,
     "game_id": "8",
     "screenshot_id": "1",
     "vis_id": "l1",
@@ -3279,7 +3263,6 @@
     "tags": ["Resource"]
   },
   {
-    "flagged": true,
     "game_id": "8",
     "screenshot_id": "2",
     "vis_id": "le1",
@@ -3964,7 +3947,6 @@
     "tags": ["Damage"]
   },
   {
-    "flagged": true,
     "game_id": "9",
     "screenshot_id": "4",
     "vis_id": "le2",
@@ -3990,7 +3972,6 @@
     "tags": ["Healing"]
   },
   {
-    "flagged": true,
     "game_id": "9",
     "screenshot_id": "4",
     "vis_id": "le2",
@@ -4155,7 +4136,6 @@
     "tags": ["Progression", "Score"]
   },
   {
-    "flagged": true,
     "game_id": "9",
     "screenshot_id": "6",
     "vis_id": "g2",
@@ -4415,7 +4395,6 @@
     "tags": ["Score", "Timer", "Progression", "Round"]
   },
   {
-    "flagged": true,
     "game_id": "10",
     "screenshot_id": "1",
     "vis_id": "l6",
@@ -4809,7 +4788,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Right", "Bottom"],
+      "screen_position": ["Bottom", "Right"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -4870,7 +4849,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Right", "Right"],
+      "screen_position": ["Bottom", "Right"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -4883,7 +4862,6 @@
     "tags": ["Equipment"]
   },
   {
-    "flagged": true,
     "game_id": "11",
     "screenshot_id": "1",
     "vis_id": "l1b",
@@ -5170,7 +5148,6 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "11",
     "screenshot_id": "4",
     "vis_id": "l1",
@@ -5424,7 +5401,6 @@
     "notes": ["The visualization represents active item type and its cooldown."]
   },
   {
-    "flagged": true,
     "game_id": "12",
     "screenshot_id": "1",
     "vis_id": "l8",
@@ -5629,7 +5605,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Left", "Left"],
+      "screen_position": ["Bottom", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -6693,7 +6669,6 @@
     "tags": ["Character"]
   },
   {
-    "flagged": true,
     "game_id": "13",
     "screenshot_id": "3",
     "vis_id": "ge1a",
@@ -6727,7 +6702,6 @@
     "tags": ["Character"]
   },
   {
-    "flagged": true,
     "game_id": "13",
     "screenshot_id": "3",
     "vis_id": "ge1b",
@@ -7375,7 +7349,6 @@
     "tags": ["Damage"]
   },
   {
-    "flagged": true,
     "game_id": "14",
     "screenshot_id": "3",
     "vis_id": "ge1",
@@ -7453,7 +7426,6 @@
     "tags": ["Progression", "Combat"]
   },
   {
-    "flagged": true,
     "game_id": "14",
     "screenshot_id": "5",
     "vis_id": "le1",
@@ -7700,7 +7672,6 @@
     "tags": ["Inventory", "Ability", "Cooldown"]
   },
   {
-    "flagged": true,
     "game_id": "15",
     "screenshot_id": "1",
     "vis_id": "ge1",
@@ -7761,7 +7732,6 @@
     "tags": ["Progression", "Achievement"]
   },
   {
-    "flagged": true,
     "game_id": "15",
     "screenshot_id": "1",
     "vis_id": "l6",
@@ -7792,7 +7762,6 @@
     "tags": ["Damage"]
   },
   {
-    "flagged": true,
     "game_id": "15",
     "screenshot_id": "1",
     "vis_id": "l7",
@@ -8266,7 +8235,6 @@
     "tags": ["Resource"]
   },
   {
-    "flagged": true,
     "game_id": "16",
     "screenshot_id": "3",
     "vis_id": "g1a",
@@ -8293,7 +8261,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "16",
     "screenshot_id": "3",
     "vis_id": "g1b",
@@ -8681,7 +8648,6 @@
     "tags": ["Health", "Status Effect"]
   },
   {
-    "flagged": true,
     "game_id": "17",
     "screenshot_id": "3",
     "vis_id": "l5",
@@ -9127,10 +9093,9 @@
     "tags": ["Health", "Combat"]
   },
   {
-    "flagged": true,
     "game_id": "18",
     "screenshot_id": "2",
-    "vis_id": "ge2",
+    "vis_id": "g2",
     "data": [
       [
         {
@@ -9149,7 +9114,7 @@
       "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
-    "vis_visibility": [["Global", true]],
+    "vis_visibility": [["Global", false]],
     "notes": [
       "DATA VALUE: Damage dealt to enemy",
       "ENCODING: Amount of damage they get"
@@ -9765,7 +9730,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "19",
     "screenshot_id": "3",
     "vis_id": "le1c",
@@ -9786,6 +9750,42 @@
       "relative_to": "destination",
       "relative_position": ["Middle", "Middle"],
       "coords": "World"
+    },
+    "vis_visibility": [["Local", true]],
+    "notes": [
+      "A path will show up to lead the player to 1b. It flashes in and out of the screen."
+    ],
+    "tags": ["Wayfinding"]
+  },
+  {
+    "game_id": "19",
+    "screenshot_id": "3",
+    "vis_id": "le1c",
+    "data": [
+      [
+        {
+          "data_value": "Waypoint type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Mission location",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Waypoint availability",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Symbol"]],
+    "channels": [["Position", "Shape", "Luminance"]],
+    "vis_name": "Light up path",
+    "vis_usage": ["Environment"],
+    "vis_position": {
+      "screen_relativity": "Relative",
+      "relative_to": "destination",
+      "relative_position": ["Middle", "Middle"],
+      "coords": "Camera"
     },
     "vis_visibility": [["Local", true]],
     "notes": [
@@ -10632,7 +10632,6 @@
     "tags": ["Progression", "Currency"]
   },
   {
-    "flagged": true,
     "game_id": "20",
     "screenshot_id": "4",
     "vis_id": "g2",
@@ -10782,7 +10781,6 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "20",
     "screenshot_id": "6",
     "vis_id": "l1",
@@ -10810,7 +10808,6 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "20",
     "screenshot_id": "6",
     "vis_id": "l2",
@@ -10846,7 +10843,6 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "20",
     "screenshot_id": "6",
     "vis_id": "l3",
@@ -10930,7 +10926,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "20",
     "screenshot_id": "7",
     "vis_id": "l2",
@@ -11011,7 +11006,6 @@
     "tags": ["Progression", "Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "21",
     "screenshot_id": "1",
     "vis_id": "le3",
@@ -11090,7 +11084,6 @@
     "tags": ["Health", "enemy"]
   },
   {
-    "flagged": true,
     "game_id": "21",
     "screenshot_id": "3",
     "vis_id": "l2",
@@ -11221,7 +11214,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "waypoint position",
-      "screen_position": [],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -11233,7 +11226,6 @@
     "tags": ["Map"]
   },
   {
-    "flagged": true,
     "game_id": "22",
     "screenshot_id": "1",
     "vis_id": "l1",
@@ -11268,7 +11260,6 @@
     "tags": ["Health", "Healing"]
   },
   {
-    "flagged": true,
     "game_id": "22",
     "screenshot_id": "1",
     "vis_id": "le2",
@@ -11409,7 +11400,6 @@
     "tags": ["Map", "Enemy", "Movement", "Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "22",
     "screenshot_id": "3",
     "vis_id": "l2a",
@@ -11859,7 +11849,6 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "23",
     "screenshot_id": "1",
     "vis_id": "le1",
@@ -12149,7 +12138,6 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "23",
     "screenshot_id": "3",
     "vis_id": "le1",
@@ -12187,7 +12175,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "23",
     "screenshot_id": "4",
     "vis_id": "ge1",
@@ -12713,7 +12700,6 @@
     "tags": ["Inventory"]
   },
   {
-    "flagged": true,
     "game_id": "25",
     "screenshot_id": "3",
     "vis_id": "l1b",
@@ -13466,7 +13452,6 @@
     "tags": ["Item"]
   },
   {
-    "flagged": true,
     "game_id": "26",
     "screenshot_id": "5",
     "vis_id": "le1e",
@@ -13899,7 +13884,6 @@
     "tags": ["Status Effect", "Alert"]
   },
   {
-    "flagged": true,
     "game_id": "28",
     "screenshot_id": "3",
     "vis_id": "l1",
@@ -14398,7 +14382,6 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "29",
     "screenshot_id": "6",
     "vis_id": "le1",
@@ -15489,7 +15472,6 @@
     "tags": ["Status Effect", "Vitals"]
   },
   {
-    "flagged": true,
     "game_id": "32",
     "screenshot_id": "1",
     "vis_id": "le2",
@@ -15515,7 +15497,6 @@
     "tags": ["Inventory"]
   },
   {
-    "flagged": true,
     "game_id": "32",
     "screenshot_id": "1",
     "vis_id": "l3",
@@ -15803,7 +15784,6 @@
     "tags": ["Damage"]
   },
   {
-    "flagged": true,
     "game_id": "32",
     "screenshot_id": "5",
     "vis_id": "l1",
@@ -16061,7 +16041,6 @@
     "tags": ["Achievement"]
   },
   {
-    "flagged": true,
     "game_id": "33",
     "screenshot_id": "1",
     "vis_id": "l5",
@@ -16192,7 +16171,6 @@
     "tags": ["Health"]
   },
   {
-    "flagged": true,
     "game_id": "33",
     "screenshot_id": "2",
     "vis_id": "ge2",
@@ -16219,7 +16197,6 @@
     "tags": ["Damage"]
   },
   {
-    "flagged": true,
     "game_id": "33",
     "screenshot_id": "2",
     "vis_id": "le1",
@@ -16521,7 +16498,6 @@
     "tags": ["Resource", "Currency"]
   },
   {
-    "flagged": true,
     "game_id": "34",
     "screenshot_id": "1",
     "vis_id": "g1",
@@ -16630,7 +16606,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "card",
-      "relative_position": ["Middle"],
+      "relative_position": ["MIddle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -16720,7 +16696,6 @@
     "tags": ["Combat"]
   },
   {
-    "flagged": true,
     "game_id": "34",
     "screenshot_id": "5",
     "vis_id": "g1",
@@ -17035,7 +17010,6 @@
     "tags": ["Progression", "Ability"]
   },
   {
-    "flagged": true,
     "game_id": "35",
     "screenshot_id": "2",
     "vis_id": "l2",
@@ -17065,7 +17039,6 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "35",
     "screenshot_id": "2",
     "vis_id": "l3",
@@ -17785,7 +17758,6 @@
     "tags": ["Damage"]
   },
   {
-    "flagged": true,
     "game_id": "37",
     "screenshot_id": "1",
     "vis_id": "ge1",
@@ -17991,7 +17963,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "37",
     "screenshot_id": "3",
     "vis_id": "le2",
@@ -18127,7 +18098,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Craftable item",
-      "relative_position": ["Middle"],
+      "relative_position": ["MIddle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -18703,7 +18674,6 @@
     "tags": ["Ability", "Inventory"]
   },
   {
-    "flagged": true,
     "game_id": "39",
     "screenshot_id": "1",
     "vis_id": "le1",
@@ -19593,7 +19563,6 @@
     "tags": ["Progression", "Score"]
   },
   {
-    "flagged": true,
     "game_id": "40",
     "screenshot_id": "1",
     "vis_id": "le1",
@@ -19616,7 +19585,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "character",
-      "relative_position": ["Middle"],
+      "relative_position": ["MIddle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -19624,7 +19593,6 @@
     "tags": ["Combat"]
   },
   {
-    "flagged": true,
     "game_id": "40",
     "screenshot_id": "1",
     "vis_id": "l3",
@@ -19658,7 +19626,6 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "40",
     "screenshot_id": "1",
     "vis_id": "l2",
@@ -19705,7 +19672,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "attack",
-      "relative_position": ["Middle"],
+      "relative_position": ["MIddle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", false]],
@@ -20130,7 +20097,7 @@
     "vis_usage": ["Game"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Middle"],
+      "screen_position": ["MIddle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -20239,7 +20206,6 @@
     "tags": ["Timer", "Alert"]
   },
   {
-    "flagged": true,
     "game_id": "41",
     "screenshot_id": "7",
     "vis_id": "g2a",
@@ -20276,7 +20242,6 @@
     "tags": ["Task", "Progression"]
   },
   {
-    "flagged": true,
     "game_id": "41",
     "screenshot_id": "7",
     "vis_id": "g2b",
@@ -20974,7 +20939,6 @@
     "tags": ["Health", "Energy", "Experience"]
   },
   {
-    "flagged": true,
     "game_id": "43",
     "screenshot_id": "4",
     "vis_id": "le5",
@@ -21266,7 +21230,6 @@
     "tags": ["Map"]
   },
   {
-    "flagged": true,
     "game_id": "43",
     "screenshot_id": "9",
     "vis_id": "l1",
@@ -21295,7 +21258,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "43",
     "screenshot_id": "9",
     "vis_id": "le2",
@@ -21321,7 +21283,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "43",
     "screenshot_id": "10",
     "vis_id": "le1",
@@ -21351,7 +21312,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "44",
     "screenshot_id": "1",
     "vis_id": "l2b",
@@ -22430,7 +22390,6 @@
     "tags": ["Item"]
   },
   {
-    "flagged": true,
     "game_id": "46",
     "screenshot_id": "5",
     "vis_id": "le1b",
@@ -23392,7 +23351,6 @@
     "tags": ["Score"]
   },
   {
-    "flagged": true,
     "game_id": "48",
     "screenshot_id": "3",
     "vis_id": "ge1",
@@ -23590,7 +23548,6 @@
     "tags": ["Score"]
   },
   {
-    "flagged": true,
     "game_id": "48",
     "screenshot_id": "8",
     "vis_id": "ge1",
@@ -23751,7 +23708,6 @@
     "tags": ["Item"]
   },
   {
-    "flagged": true,
     "game_id": "48",
     "screenshot_id": "10",
     "vis_id": "g2",
@@ -23783,7 +23739,6 @@
     "tags": ["Ability", "Combat"]
   },
   {
-    "flagged": true,
     "game_id": "48",
     "screenshot_id": "10",
     "vis_id": "ge3",
@@ -23962,7 +23917,6 @@
     "tags": ["Health"]
   },
   {
-    "flagged": true,
     "game_id": "49",
     "screenshot_id": "1",
     "vis_id": "le1",
@@ -24023,7 +23977,6 @@
     "tags": ["Health"]
   },
   {
-    "flagged": true,
     "game_id": "49",
     "screenshot_id": "1",
     "vis_id": "g3",
@@ -24593,7 +24546,6 @@
     "tags": ["timer"]
   },
   {
-    "flagged": true,
     "game_id": "49",
     "screenshot_id": "9",
     "vis_id": "l2",
@@ -24733,7 +24685,6 @@
     "tags": ["Ability", "Equipment"]
   },
   {
-    "flagged": true,
     "game_id": "50",
     "screenshot_id": "1",
     "vis_id": "ge1",
@@ -24972,7 +24923,6 @@
     "tags": ["Combat"]
   },
   {
-    "flagged": true,
     "game_id": "50",
     "screenshot_id": "4",
     "vis_id": "g2",
@@ -25651,7 +25601,6 @@
     "tags": ["Combat"]
   },
   {
-    "flagged": true,
     "game_id": "51",
     "screenshot_id": "1",
     "vis_id": "ge1",
@@ -25677,7 +25626,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "51",
     "screenshot_id": "1",
     "vis_id": "l1",
@@ -25802,7 +25750,6 @@
     "tags": ["Status Effect", "Progression"]
   },
   {
-    "flagged": true,
     "game_id": "51",
     "screenshot_id": "2",
     "vis_id": "g1a",
@@ -25832,7 +25779,6 @@
     "tags": ["Map", "Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "51",
     "screenshot_id": "2",
     "vis_id": "g1b",
@@ -25972,7 +25918,6 @@
     "tags": ["Status Effect", "Progression"]
   },
   {
-    "flagged": true,
     "game_id": "51",
     "screenshot_id": "3",
     "vis_id": "ge1",
@@ -26037,7 +25982,6 @@
     "tags": ["Progression", "Score"]
   },
   {
-    "flagged": true,
     "game_id": "51",
     "screenshot_id": "4",
     "vis_id": "g1",
@@ -26067,7 +26011,6 @@
     "tags": ["Score"]
   },
   {
-    "flagged": true,
     "game_id": "51",
     "screenshot_id": "4",
     "vis_id": "g2",
@@ -26119,7 +26062,6 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "51",
     "screenshot_id": "5",
     "vis_id": "g1",
@@ -26154,7 +26096,6 @@
     "tags": ["Score"]
   },
   {
-    "flagged": true,
     "game_id": "53",
     "screenshot_id": "1",
     "vis_id": "g1a",
@@ -26359,7 +26300,6 @@
     "tags": ["Energy", "Vitality", "Status Effect"]
   },
   {
-    "flagged": true,
     "game_id": "53",
     "screenshot_id": "4",
     "vis_id": "le1",
@@ -26390,7 +26330,6 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "53",
     "screenshot_id": "5",
     "vis_id": "le1",
@@ -26563,7 +26502,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "54",
     "screenshot_id": "3",
     "vis_id": "l1",
@@ -26589,7 +26527,6 @@
     "tags": ["Wayfinding", "Map"]
   },
   {
-    "flagged": true,
     "game_id": "54",
     "screenshot_id": "3",
     "vis_id": "l1",
@@ -26615,7 +26552,6 @@
     "tags": ["Map", "Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "54",
     "screenshot_id": "3",
     "vis_id": "le2",
@@ -26750,7 +26686,6 @@
     "tags": ["Item"]
   },
   {
-    "flagged": true,
     "game_id": "54",
     "screenshot_id": "7",
     "vis_id": "l2",
@@ -26952,7 +26887,6 @@
     "tags": ["Inventory"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "1",
     "vis_id": "le2a",
@@ -26979,7 +26913,6 @@
     "tags": ["Item"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "1",
     "vis_id": "le2b",
@@ -27096,7 +27029,6 @@
     "tags": ["Inventory"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "2",
     "vis_id": "le1a",
@@ -27123,7 +27055,6 @@
     "tags": ["Item"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "2",
     "vis_id": "le1b",
@@ -27251,7 +27182,6 @@
     "tags": ["Map", "Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "4",
     "vis_id": "le1",
@@ -27282,7 +27212,6 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "4",
     "vis_id": "le2",
@@ -27313,7 +27242,6 @@
     "tags": ["Item"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "5",
     "vis_id": "le2",
@@ -27344,7 +27272,6 @@
     "tags": ["Building"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "5",
     "vis_id": "le1",
@@ -27855,7 +27782,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "57",
     "screenshot_id": "2",
     "vis_id": "g1a",
@@ -27893,7 +27819,6 @@
     "tags": ["Combat"]
   },
   {
-    "flagged": true,
     "game_id": "57",
     "screenshot_id": "2",
     "vis_id": "ge1b",
@@ -27970,7 +27895,6 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "57",
     "screenshot_id": "3",
     "vis_id": "ge2",
@@ -28550,7 +28474,6 @@
     "tags": ["Ability", "Health"]
   },
   {
-    "flagged": true,
     "game_id": "58",
     "screenshot_id": "1",
     "vis_id": "l3",
@@ -28576,7 +28499,6 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "58",
     "screenshot_id": "1",
     "vis_id": "le4",
@@ -28794,7 +28716,6 @@
     "tags": ["Health", "Boss"]
   },
   {
-    "flagged": true,
     "game_id": "58",
     "screenshot_id": "5",
     "vis_id": "l1a",
@@ -28824,7 +28745,6 @@
     "tags": ["Combat"]
   },
   {
-    "flagged": true,
     "game_id": "58",
     "screenshot_id": "5",
     "vis_id": "l1b",
@@ -29052,7 +28972,6 @@
     "tags": ["Progression", "Combat", "Ability"]
   },
   {
-    "flagged": true,
     "game_id": "59",
     "screenshot_id": "2",
     "vis_id": "le1",
@@ -29510,7 +29429,6 @@
     "tags": ["Alert", "Progression"]
   },
   {
-    "flagged": true,
     "game_id": "60",
     "screenshot_id": "4",
     "vis_id": "ge1a",
@@ -29537,7 +29455,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "60",
     "screenshot_id": "4",
     "vis_id": "g1b",
@@ -30171,7 +30088,6 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "61",
     "screenshot_id": "6",
     "vis_id": "l2b",
@@ -30333,7 +30249,6 @@
     "tags": ["Timer"]
   },
   {
-    "flagged": true,
     "game_id": "62",
     "screenshot_id": "1",
     "vis_id": "g4",
@@ -30613,7 +30528,6 @@
     "tags": ["Map", "Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "63",
     "screenshot_id": "5",
     "vis_id": "le1",
@@ -30708,7 +30622,6 @@
     "tags": ["Resource"]
   },
   {
-    "flagged": true,
     "game_id": "63",
     "screenshot_id": "7",
     "vis_id": "le1",
@@ -30734,7 +30647,6 @@
     "tags": ["Health"]
   },
   {
-    "flagged": true,
     "game_id": "63",
     "screenshot_id": "8",
     "vis_id": "l1",
@@ -30882,7 +30794,6 @@
     "tags": ["Health"]
   },
   {
-    "flagged": true,
     "game_id": "64",
     "screenshot_id": "2",
     "vis_id": "le1",
@@ -31192,7 +31103,6 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "65",
     "screenshot_id": "3",
     "vis_id": "le1",
@@ -31311,7 +31221,6 @@
     "tags": ["Equipment"]
   },
   {
-    "flagged": true,
     "game_id": "65",
     "screenshot_id": "5",
     "vis_id": "l2",
@@ -31528,7 +31437,6 @@
     "tags": ["Lore", "Health"]
   },
   {
-    "flagged": true,
     "game_id": "66",
     "screenshot_id": "1",
     "vis_id": "le1",
@@ -31878,7 +31786,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "67",
     "screenshot_id": "1",
     "vis_id": "l1",
@@ -32535,7 +32442,6 @@
     "tags": ["Health", "Vitals"]
   },
   {
-    "flagged": true,
     "game_id": "67",
     "screenshot_id": "9",
     "vis_id": "l1",
@@ -32968,7 +32874,6 @@
     "tags": ["Combat", "Ability"]
   },
   {
-    "flagged": true,
     "game_id": "68",
     "screenshot_id": "5",
     "vis_id": "l1",
@@ -33006,7 +32911,6 @@
     "tags": ["Combat", "Vitals", "Health"]
   },
   {
-    "flagged": true,
     "game_id": "68",
     "screenshot_id": "6",
     "vis_id": "l1",
@@ -33062,7 +32966,6 @@
     "tags": ["Combat", "Ability"]
   },
   {
-    "flagged": true,
     "game_id": "68",
     "screenshot_id": "7",
     "vis_id": "lb",
@@ -33135,7 +33038,7 @@
   {
     "game_id": "69",
     "screenshot_id": "2",
-    "vis_id": "le1",
+    "vis_id": "l1",
     "data": [
       [
         {
@@ -33160,7 +33063,7 @@
   {
     "game_id": "69",
     "screenshot_id": "3",
-    "vis_id": "le1",
+    "vis_id": "l1",
     "data": [
       [
         {
@@ -33185,26 +33088,6 @@
   {
     "game_id": "69",
     "screenshot_id": "3",
-    "vis_id": "le2",
-    "data": [[{ "data_value": "Item", "data_type": "Nominal" }]],
-    "marks": [["Text", "Symbol"]],
-    "channels": [["Shape", "Text"]],
-    "vis_name": "Achievement unlocked",
-    "vis_usage": ["Player", "Game"],
-    "vis_position": [
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Middle", "Left"],
-        "coords": "Camera"
-      }
-    ],
-    "vis_visibility": [["Local", false]],
-    "notes": [],
-    "tags": ["Item", "Progression"]
-  },
-  {
-    "game_id": "69",
-    "screenshot_id": "4",
     "vis_id": "l1",
     "data": [
       [
@@ -33245,64 +33128,7 @@
   },
   {
     "game_id": "69",
-    "screenshot_id": "4",
-    "vis_id": "l2",
-    "data": [
-      [
-        {
-          "data_value": "Unlocked charm",
-          "data_type": "Nominal"
-        },
-        {
-          "data_value": "Unlocked charm slot",
-          "data_type": "Ordinal"
-        }
-      ]
-    ],
-    "marks": [["Text", "Image", "Image_Array"]],
-    "channels": [["Image", "Size", "Position"]],
-    "vis_name": "Inventory - Available charms",
-    "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Left", "Bottom"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Local", false]],
-    "notes": [
-      "Image as identity for charms, size as identity for unavailable charms"
-    ],
-    "tags": ["Lore", "Equipment", "Ability", "Inventory"]
-  },
-  {
-    "game_id": "69",
-    "screenshot_id": "4",
-    "vis_id": "l3a",
-    "data": [
-      [
-        {
-          "data_value": "Selected charm slot",
-          "data_type": "Ordinal"
-        }
-      ]
-    ],
-    "marks": [["Circle", "Symbol"]],
-    "channels": [["Hue", "Position"]],
-    "vis_name": "Inventory - Selected charm",
-    "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Relative",
-      "relative_to": "inventory",
-      "relative_position": ["Middle", "Middle"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Local", false]],
-    "notes": ["Shape as identity for selector, faint blue hue on select"],
-    "tags": ["Equipment", "Inventory"]
-  },
-  {
-    "game_id": "69",
-    "screenshot_id": "4",
+    "screenshot_id": "3",
     "vis_id": "l3b",
     "data": [
       [
@@ -33339,7 +33165,38 @@
   },
   {
     "game_id": "69",
-    "screenshot_id": "4",
+    "screenshot_id": "3",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Unlocked charm",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Unlocked charm slot",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Text", "Image", "Image_Array"]],
+    "channels": [["Image", "Size", "Position"]],
+    "vis_name": "Inventory - Available charms",
+    "vis_usage": ["Player"],
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Left", "Bottom"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Image as identity for charms, size as identity for unavailable charms"
+    ],
+    "tags": ["Lore", "Equipment", "Ability", "Inventory"]
+  },
+  {
+    "game_id": "69",
+    "screenshot_id": "3",
     "vis_id": "l4",
     "data": [
       [
@@ -33369,7 +33226,58 @@
   },
   {
     "game_id": "69",
-    "screenshot_id": "5",
+    "screenshot_id": "3",
+    "vis_id": "l3a",
+    "data": [
+      [
+        {
+          "data_value": "Selected charm slot",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Circle", "Symbol"]],
+    "channels": [["Hue", "Position"]],
+    "vis_name": "Inventory - Selected charm",
+    "vis_usage": ["Player"],
+    "vis_position": {
+      "screen_relativity": "Relative",
+      "relative_to": "inventory",
+      "relative_position": ["Middle", "Middle"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Local", false]],
+    "notes": ["Shape as identity for selector, faint blue hue on select"],
+    "tags": ["Equipment", "Inventory"]
+  },
+  {
+    "game_id": "69",
+    "screenshot_id": "3",
+    "vis_id": "l2",
+    "data": [
+      [
+        {
+          "data_value": "Item",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [["Text", "Symbol"]],
+    "channels": [["Shape", "Text"]],
+    "vis_name": "Achievement unlocked",
+    "vis_usage": ["Player", "Game"],
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Middle", "Left"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Item", "Progression"]
+  },
+  {
+    "game_id": "69",
+    "screenshot_id": "4",
     "vis_id": "l1",
     "data": [
       [
@@ -33399,7 +33307,7 @@
   },
   {
     "game_id": "69",
-    "screenshot_id": "5",
+    "screenshot_id": "4",
     "vis_id": "l2",
     "data": [
       [
@@ -33429,7 +33337,7 @@
   },
   {
     "game_id": "69",
-    "screenshot_id": "5",
+    "screenshot_id": "4",
     "vis_id": "l3",
     "data": [
       [
@@ -34264,7 +34172,7 @@
   {
     "game_id": "71",
     "screenshot_id": "3",
-    "vis_id": "le3",
+    "vis_id": "l3",
     "data": [
       [
         {
@@ -34294,33 +34202,8 @@
   },
   {
     "game_id": "71",
-    "screenshot_id": "3",
-    "vis_id": "l4",
-    "data": [
-      [
-        {
-          "data_value": "Player orientation",
-          "data_type": "Ordinal"
-        }
-      ]
-    ],
-    "marks": [["Arc", "Circle", "Symbol", "Text"]],
-    "channels": [["Angle"]],
-    "vis_name": "Compass",
-    "vis_usage": ["Player", "Environment"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Top", "Right", "Right"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Local", true]],
-    "notes": [],
-    "tags": ["Wayfinding"]
-  },
-  {
-    "game_id": "71",
     "screenshot_id": "4",
-    "vis_id": "le1",
+    "vis_id": "l1",
     "data": [
       [
         {
@@ -34342,5 +34225,30 @@
     "vis_visibility": [["Local", true]],
     "notes": ["Animates arrow symbols in a loop towards direction of release"],
     "tags": ["Ability", "Movement"]
+  },
+  {
+    "game_id": "71",
+    "screenshot_id": "4",
+    "vis_id": "l4",
+    "data": [
+      [
+        {
+          "data_value": "Player orientation",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Arc", "Circle", "Symbol", "Text"]],
+    "channels": [["Angle"]],
+    "vis_name": "Compass",
+    "vis_usage": ["Player", "Environment"],
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Top", "Right", "Right"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Wayfinding"]
   }
 ]
