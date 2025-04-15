@@ -2418,7 +2418,7 @@
     "flagged": true,
     "game_id": "7",
     "screenshot_id": "5",
-    "vis_id": "l2",
+    "vis_id": "le2",
     "data": [
       [
         {
@@ -2770,35 +2770,10 @@
     "tags": ["Combat", "Damage", "Vitals"]
   },
   {
-    "game_id": "7",
-    "screenshot_id": "11",
-    "vis_id": "l1",
-    "data": [
-      [
-        {
-          "data_value": "Ultimate ability duration",
-          "data_type": "Quantitative"
-        }
-      ]
-    ],
-    "marks": [["Path", "Text"]],
-    "channels": [["Text"]],
-    "vis_name": "Ultimate ability duration",
-    "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Top", "Middle"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Local", false]],
-    "notes": [],
-    "tags": ["Combat", "Ability", "Timer"]
-  },
-  {
     "flagged": true,
     "game_id": "7",
     "screenshot_id": "11",
-    "vis_id": "g1a",
+    "vis_id": "ge1a",
     "data": [
       [
         {
@@ -2824,7 +2799,7 @@
     "flagged": true,
     "game_id": "7",
     "screenshot_id": "11",
-    "vis_id": "g1b",
+    "vis_id": "ge1b",
     "data": [
       [
         {
@@ -2887,29 +2862,23 @@
     "data": [
       [
         {
-          "data_value": "Killed player",
-          "data_type": "Nominal"
-        }
-      ],
-      [
-        {
-          "data_value": "Damage dealt",
+          "data_value": "Ultimate ability duration",
           "data_type": "Quantitative"
         }
       ]
     ],
-    "marks": [["Path", "Text"], ["Text"]],
-    "channels": [["Text"], ["Text"]],
-    "vis_name": "Player kill alert",
-    "vis_usage": ["Player", "Enemy"],
+    "marks": [["Path", "Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Ultimate ability duration",
+    "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Middle"],
+      "screen_position": ["Top", "Middle"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Local", true]],
+    "vis_visibility": [["Local", false]],
     "notes": [],
-    "tags": ["Combat", "Death", "Alert", "Score"]
+    "tags": ["Combat", "Ability", "Timer"]
   },
   {
     "flagged": true,
@@ -2938,9 +2907,40 @@
     "tags": ["Combat", "Ability"]
   },
   {
-    "flagged": true,
     "game_id": "7",
     "screenshot_id": "13",
+    "vis_id": "le1",
+    "data": [
+      [
+        {
+          "data_value": "Killed player",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Damage dealt",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path", "Text"], ["Text"]],
+    "channels": [["Text"], ["Text"]],
+    "vis_name": "Player kill alert",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Middle"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Combat", "Death", "Alert", "Score"]
+  },
+  {
+    "flagged": true,
+    "game_id": "7",
+    "screenshot_id": "14",
     "vis_id": "g1a",
     "data": [
       [
@@ -2965,7 +2965,7 @@
   },
   {
     "game_id": "7",
-    "screenshot_id": "14",
+    "screenshot_id": "15",
     "vis_id": "l1",
     "data": [
       [
@@ -2994,7 +2994,7 @@
   },
   {
     "game_id": "7",
-    "screenshot_id": "14",
+    "screenshot_id": "15",
     "vis_id": "l2",
     "data": [
       [
@@ -3035,7 +3035,7 @@
   },
   {
     "game_id": "7",
-    "screenshot_id": "14",
+    "screenshot_id": "15",
     "vis_id": "l3",
     "data": [
       [
@@ -3155,7 +3155,7 @@
     "flagged": true,
     "game_id": "8",
     "screenshot_id": "1",
-    "vis_id": "l1",
+    "vis_id": "le1",
     "data": [
       [
         {
@@ -3245,7 +3245,7 @@
     "flagged": true,
     "game_id": "8",
     "screenshot_id": "2",
-    "vis_id": "le1",
+    "vis_id": "l1",
     "data": [
       [
         {
@@ -3930,7 +3930,7 @@
     "flagged": true,
     "game_id": "9",
     "screenshot_id": "4",
-    "vis_id": "le2",
+    "vis_id": "le1",
     "data": [
       [
         {
@@ -3956,7 +3956,7 @@
     "flagged": true,
     "game_id": "9",
     "screenshot_id": "4",
-    "vis_id": "le2",
+    "vis_id": "l2",
     "data": [
       [
         {
