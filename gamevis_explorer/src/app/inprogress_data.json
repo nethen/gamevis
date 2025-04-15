@@ -9127,10 +9127,9 @@
     "tags": ["Health", "Combat"]
   },
   {
-    "flagged": true,
     "game_id": "18",
     "screenshot_id": "2",
-    "vis_id": "ge2",
+    "vis_id": "g2",
     "data": [
       [
         {
@@ -9765,7 +9764,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "19",
     "screenshot_id": "3",
     "vis_id": "le1c",
@@ -10632,7 +10630,6 @@
     "tags": ["Progression", "Currency"]
   },
   {
-    "flagged": true,
     "game_id": "20",
     "screenshot_id": "4",
     "vis_id": "g2",
@@ -10653,7 +10650,7 @@
       "screen_position": ["Middle", "Right"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Global", false]],
+    "vis_visibility": [["Global", true]],
     "notes": [
       "If players picked up an item, a pop up of the item shows up.",
       "How much they get, what it is.",
@@ -10782,7 +10779,6 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "20",
     "screenshot_id": "6",
     "vis_id": "l1",
@@ -10810,7 +10806,6 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "20",
     "screenshot_id": "6",
     "vis_id": "l2",
@@ -10833,8 +10828,8 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "where the item is at",
-      "screen_position": "N/A",
-      "coords": "N/A"
+      "screen_position": ["Top", "Left"],
+      "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
     "notes": [
@@ -10846,7 +10841,6 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "20",
     "screenshot_id": "6",
     "vis_id": "l3",
@@ -10864,8 +10858,8 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Relative",
-      "relative_to": "2",
-      "screen_position": "Left",
+      "relative_to": "Stratagem",
+      "screen_position": ["Bottom", "Right"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -10930,7 +10924,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "20",
     "screenshot_id": "7",
     "vis_id": "l2",
@@ -10951,7 +10944,7 @@
       "screen_position": ["Bottom", "Middle"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Local", false]],
+    "vis_visibility": [["Local", true]],
     "notes": [],
     "tags": ["Combat"]
   },
@@ -11011,7 +11004,6 @@
     "tags": ["Progression", "Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "21",
     "screenshot_id": "1",
     "vis_id": "le3",
@@ -11090,9 +11082,8 @@
     "tags": ["Health", "enemy"]
   },
   {
-    "flagged": true,
     "game_id": "21",
-    "screenshot_id": "3",
+    "screenshot_id": "4",
     "vis_id": "l2",
     "data": [
       [
@@ -11112,7 +11103,7 @@
       "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
-    "vis_visibility": [["Global", false]],
+    "vis_visibility": [["Global", true]],
     "notes": [
       "Yellow damage is crit damage",
       "Damage is scattered from center of enemy"
@@ -11233,10 +11224,9 @@
     "tags": ["Map"]
   },
   {
-    "flagged": true,
     "game_id": "22",
     "screenshot_id": "1",
-    "vis_id": "l1",
+    "vis_id": "le1",
     "data": [
       [
         {
@@ -11268,10 +11258,9 @@
     "tags": ["Health", "Healing"]
   },
   {
-    "flagged": true,
     "game_id": "22",
     "screenshot_id": "1",
-    "vis_id": "le2",
+    "vis_id": "l2",
     "data": [
       [
         {
@@ -11382,7 +11371,7 @@
   {
     "game_id": "22",
     "screenshot_id": "3",
-    "vis_id": "l1",
+    "vis_id": "le1",
     "data": [
       [
         {
@@ -11409,7 +11398,6 @@
     "tags": ["Map", "Enemy", "Movement", "Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "22",
     "screenshot_id": "3",
     "vis_id": "l2a",
@@ -11859,7 +11847,6 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "23",
     "screenshot_id": "1",
     "vis_id": "le1",
@@ -12149,7 +12136,6 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "23",
     "screenshot_id": "3",
     "vis_id": "le1",
@@ -12187,7 +12173,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "23",
     "screenshot_id": "4",
     "vis_id": "ge1",
@@ -12713,7 +12698,6 @@
     "tags": ["Inventory"]
   },
   {
-    "flagged": true,
     "game_id": "25",
     "screenshot_id": "3",
     "vis_id": "l1b",
@@ -13457,8 +13441,8 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Relative",
-      "relative_to": "1a",
-      "screen_position": "Within",
+      "relative_to": "inventory weapon",
+      "screen_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -13466,10 +13450,9 @@
     "tags": ["Item"]
   },
   {
-    "flagged": true,
     "game_id": "26",
     "screenshot_id": "5",
-    "vis_id": "le1e",
+    "vis_id": "l1e",
     "data": [
       [
         {
@@ -13485,7 +13468,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "selected weapon",
-      "screen_position": "On the selected weapon",
+      "screen_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -13511,7 +13494,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "weapon",
-      "screen_position": "",
+      "screen_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -13897,36 +13880,6 @@
       "Could be investigated, once confirmed to be wanted a number will be there for how much the players' bounty is."
     ],
     "tags": ["Status Effect", "Alert"]
-  },
-  {
-    "flagged": true,
-    "game_id": "28",
-    "screenshot_id": "3",
-    "vis_id": "l1",
-    "data": [
-      [
-        {
-          "data_value": "Player skills",
-          "data_type": "Nominal"
-        },
-        {
-          "data_value": "Level",
-          "data_type": "Quantitative"
-        }
-      ]
-    ],
-    "marks": [["Rectangle", "Symbol", "Text"]],
-    "channels": [["Shape", "Length", "Size", "Text"]],
-    "vis_name": "Player Stats",
-    "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Middle", "Middle"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Local", false]],
-    "notes": [],
-    "tags": ["Ability"]
   },
   {
     "game_id": "28",
@@ -14398,7 +14351,6 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "29",
     "screenshot_id": "6",
     "vis_id": "le1",
@@ -15489,9 +15441,8 @@
     "tags": ["Status Effect", "Vitals"]
   },
   {
-    "flagged": true,
     "game_id": "32",
-    "screenshot_id": "1",
+    "screenshot_id": "4",
     "vis_id": "le2",
     "data": [
       [
@@ -15515,9 +15466,8 @@
     "tags": ["Inventory"]
   },
   {
-    "flagged": true,
     "game_id": "32",
-    "screenshot_id": "1",
+    "screenshot_id": "4",
     "vis_id": "l3",
     "data": [
       [
@@ -15803,7 +15753,6 @@
     "tags": ["Damage"]
   },
   {
-    "flagged": true,
     "game_id": "32",
     "screenshot_id": "5",
     "vis_id": "l1",
@@ -16061,7 +16010,6 @@
     "tags": ["Achievement"]
   },
   {
-    "flagged": true,
     "game_id": "33",
     "screenshot_id": "1",
     "vis_id": "l5",
@@ -16192,7 +16140,6 @@
     "tags": ["Health"]
   },
   {
-    "flagged": true,
     "game_id": "33",
     "screenshot_id": "2",
     "vis_id": "ge2",
@@ -16219,7 +16166,6 @@
     "tags": ["Damage"]
   },
   {
-    "flagged": true,
     "game_id": "33",
     "screenshot_id": "2",
     "vis_id": "le1",
@@ -16521,7 +16467,6 @@
     "tags": ["Resource", "Currency"]
   },
   {
-    "flagged": true,
     "game_id": "34",
     "screenshot_id": "1",
     "vis_id": "g1",
@@ -16720,10 +16665,9 @@
     "tags": ["Combat"]
   },
   {
-    "flagged": true,
     "game_id": "34",
     "screenshot_id": "5",
-    "vis_id": "g1",
+    "vis_id": "ge1",
     "data": [
       [
         {
@@ -16742,7 +16686,7 @@
       "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
-    "vis_visibility": [["Global", false]],
+    "vis_visibility": [["Global", true]],
     "notes": [
       "DATA VALUE: Damage dealt by the card towards the player (1800 - 1500 = the damage dealt to the opponent (2000)",
       "Differentiate damage from heal"
@@ -17035,9 +16979,8 @@
     "tags": ["Progression", "Ability"]
   },
   {
-    "flagged": true,
     "game_id": "35",
-    "screenshot_id": "2",
+    "screenshot_id": "5",
     "vis_id": "l2",
     "data": [
       [
@@ -17065,9 +17008,8 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "35",
-    "screenshot_id": "2",
+    "screenshot_id": "5",
     "vis_id": "l3",
     "data": [
       [
