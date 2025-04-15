@@ -30885,7 +30885,7 @@
     "flagged": true,
     "game_id": "64",
     "screenshot_id": "2",
-    "vis_id": "le1",
+    "vis_id": "l1",
     "data": [
       [
         {
@@ -31192,7 +31192,6 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "65",
     "screenshot_id": "3",
     "vis_id": "le1",
