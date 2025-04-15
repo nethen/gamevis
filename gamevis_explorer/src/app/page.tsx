@@ -409,17 +409,22 @@ export default function Page() {
           }}
         >
           <div onClick={(e) => e.stopPropagation()} className="relative">
-            <section className="sticky top-0 -mx-3 pl-6 p-2 bg-neutral-900 z-10 rounded-full mb-8 flex gap-8 items-center">
-              <p>
-                {
-                  filterByXY(
-                    filteredData,
-                    selectedSection[0],
-                    selectedSection[1]
-                  ).length
-                }{" "}
-                annotations
-              </p>
+            <section className="sticky top-0 -mx-3 pl-6 p-2 bg-neutral-900 z-10 rounded-lg mb-8 flex gap-8 items-stretch">
+              <hgroup>
+                <h2 className="text-lg">
+                  {selectedSection[0]} {selectedSection[1]}
+                </h2>
+                <p>
+                  {
+                    filterByXY(
+                      filteredData,
+                      selectedSection[0],
+                      selectedSection[1]
+                    ).length
+                  }{" "}
+                  annotations
+                </p>
+              </hgroup>
               <form
                 className="flex gap-4"
                 onChange={(e) => {
@@ -467,7 +472,7 @@ export default function Page() {
                 </div> */}
               </form>
               <button
-                className="ml-auto p-4 py-2 rounded-full bg-neutral-700 cursor-pointer"
+                className="ml-auto p-4 py-2 rounded-md bg-neutral-700 cursor-pointer"
                 onClick={() => {
                   setSelectedSection(["", ""]);
                   setSelectedUsages([]);
@@ -503,7 +508,6 @@ export default function Page() {
                         : "opacity-10"
                     }`}
                   >
-                    <h5>{item.vis_name}</h5>
                     <span className="uppercase font-bold tracking-widest text-xs">
                       {item.game_id +
                         "_" +
@@ -511,6 +515,28 @@ export default function Page() {
                         "_" +
                         item.vis_id}
                     </span>
+                    <div className="flex gap-4 items-center">
+                      <h5 className="text-lg">{item.vis_name}</h5>
+                      <ul className="flex gap-2">
+                        {item.vis_usage.map((usage, i) => (
+                          <li
+                            key={i}
+                            className={`px-2 bg-neutral-800 rounded-full leading-none flex ${
+                              selectedUsages.length == 0 ||
+                              selectedUsages.includes(usage)
+                                ? "opacity-100"
+                                : "opacity-10"
+                            }`}
+                          >
+                            <span className="text-sm">
+                              {usage == "Environment"
+                                ? "Ev"
+                                : usage.substring(0, 2)}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </hgroup>
                   <img
                     loading="lazy"
@@ -536,21 +562,21 @@ export default function Page() {
                       ".jpg"
                     }
                   />
-                  <ul className="flex gap-2">
-                    {item.vis_usage.map((usage, i) => (
-                      <li
-                        key={i}
-                        className={`px-2 bg-neutral-800 rounded-full ${
-                          selectedUsages.length == 0 ||
-                          selectedUsages.includes(usage)
-                            ? "opacity-100"
-                            : "opacity-10"
-                        }`}
-                      >
+
+                  <ul className="flex flex-wrap gap-4">
+                    {item.data.map((dataGroup, i) => (
+                      <li key={i} className={`px-2 flex flex-col`}>
                         <span className="text-sm">
-                          {usage == "Environment"
-                            ? "Ev"
-                            : usage.substring(0, 2)}
+                          {dataGroup.map((data) => data.data_value).join(", ")}
+                        </span>
+                        <span className="text-sm opacity-50">
+                          M: {item.marks[i].map((marks) => marks).join(", ")}
+                        </span>
+                        <span className="text-sm opacity-50">
+                          C:{" "}
+                          {item.channels[i]
+                            .map((channel) => channel)
+                            .join(", ")}
                         </span>
                       </li>
                     ))}
