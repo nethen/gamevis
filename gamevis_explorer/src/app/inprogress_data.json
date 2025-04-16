@@ -24888,7 +24888,6 @@
     "tags": ["Combat"]
   },
   {
-    "flagged": true,
     "game_id": "50",
     "screenshot_id": "4",
     "vis_id": "g2",
@@ -26070,10 +26069,9 @@
     "tags": ["Score"]
   },
   {
-    "flagged": true,
     "game_id": "53",
     "screenshot_id": "1",
-    "vis_id": "g1a",
+    "vis_id": "g1",
     "data": [
       [
         {
@@ -26275,7 +26273,6 @@
     "tags": ["Energy", "Vitality", "Status Effect"]
   },
   {
-    "flagged": true,
     "game_id": "53",
     "screenshot_id": "4",
     "vis_id": "le1",
@@ -26306,7 +26303,6 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "53",
     "screenshot_id": "5",
     "vis_id": "le1",
@@ -26479,10 +26475,9 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "54",
     "screenshot_id": "3",
-    "vis_id": "l1",
+    "vis_id": "l3",
     "data": [
       [
         {
@@ -26505,7 +26500,6 @@
     "tags": ["Wayfinding", "Map"]
   },
   {
-    "flagged": true,
     "game_id": "54",
     "screenshot_id": "3",
     "vis_id": "l1",
@@ -26531,7 +26525,6 @@
     "tags": ["Map", "Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "54",
     "screenshot_id": "3",
     "vis_id": "le2",
@@ -26666,7 +26659,6 @@
     "tags": ["Item"]
   },
   {
-    "flagged": true,
     "game_id": "54",
     "screenshot_id": "7",
     "vis_id": "l2",
@@ -26868,10 +26860,9 @@
     "tags": ["Inventory"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "1",
-    "vis_id": "le2a",
+    "vis_id": "l2a",
     "data": [
       [
         {
@@ -26890,15 +26881,14 @@
       "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Local", true]],
+    "vis_visibility": [["Local", false]],
     "notes": [],
     "tags": ["Item"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "1",
-    "vis_id": "le2b",
+    "vis_id": "l2b",
     "data": [
       [
         {
@@ -26917,7 +26907,7 @@
       "screen_position": "Top Right",
       "coords": "Camera"
     },
-    "vis_visibility": [["Local", true]],
+    "vis_visibility": [["Local", false]],
     "notes": [
       "Tells players what key to click to select it.",
       "There's also the illustration of the item (stone hatchet)."
@@ -27012,10 +27002,9 @@
     "tags": ["Inventory"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "2",
-    "vis_id": "le1a",
+    "vis_id": "l1a",
     "data": [
       [
         {
@@ -27034,12 +27023,11 @@
       "relative_position": ["Bottom", "Middle"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Local", true]],
+    "vis_visibility": [["Local", false]],
     "notes": ["The white gradient overlay on top of the Engram box."],
     "tags": ["Item"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "2",
     "vis_id": "le1b",
@@ -27071,7 +27059,7 @@
       "screen_position": "Top Right",
       "coords": "Camera"
     },
-    "vis_visibility": [["Local", true]],
+    "vis_visibility": [["Local", false]],
     "notes": [
       "Tells players what key to click to select it.",
       "Different icons to represent materials needed for crafting.",
@@ -27167,7 +27155,6 @@
     "tags": ["Map", "Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "4",
     "vis_id": "le1",
@@ -27198,7 +27185,6 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "4",
     "vis_id": "le2",
@@ -27229,10 +27215,9 @@
     "tags": ["Item"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "5",
-    "vis_id": "le2",
+    "vis_id": "l2",
     "data": [
       [
         {
@@ -27260,10 +27245,9 @@
     "tags": ["Building"]
   },
   {
-    "flagged": true,
     "game_id": "55",
     "screenshot_id": "5",
-    "vis_id": "le1",
+    "vis_id": "l1",
     "data": [
       [
         {
@@ -27771,10 +27755,9 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "57",
     "screenshot_id": "2",
-    "vis_id": "g1a",
+    "vis_id": "ge1a",
     "data": [
       [
         {
@@ -27801,7 +27784,7 @@
       "screen_position": ["Middle", "Middle"],
       "coords": "World"
     },
-    "vis_visibility": [["Global", false]],
+    "vis_visibility": [["Global", true]],
     "notes": [
       "Lets the players know who they're fighting against in this round. The opponent's card will always be on the left side. Tells you the name of the opponent. 2 icons under them is the alliance they have.",
       "The alliance they're using for their heroes, the more they have in this alliance, the stronger their heroes will be."
@@ -27809,10 +27792,9 @@
     "tags": ["Combat"]
   },
   {
-    "flagged": true,
     "game_id": "57",
     "screenshot_id": "2",
-    "vis_id": "ge1b",
+    "vis_id": "g1b",
     "data": [
       [
         {
@@ -27842,7 +27824,7 @@
       "screen_position": ["Bottom", "Left"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Global", true]],
+    "vis_visibility": [["Global", false]],
     "notes": [
       "Whichever player you see in 1a will appear here too. Tells you exactly how many heroes they have on the board, their gold, and overall health.",
       "Quickly differentiate each info with each other, prob more noticeable at a glance first compared to icons."
@@ -27886,10 +27868,9 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "57",
     "screenshot_id": "3",
-    "vis_id": "ge2",
+    "vis_id": "g2",
     "data": [
       [
         {
@@ -28466,10 +28447,9 @@
     "tags": ["Ability", "Health"]
   },
   {
-    "flagged": true,
     "game_id": "58",
     "screenshot_id": "1",
-    "vis_id": "l3",
+    "vis_id": "le3",
     "data": [
       [
         {
@@ -28492,10 +28472,9 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "58",
     "screenshot_id": "1",
-    "vis_id": "le4",
+    "vis_id": "l4",
     "data": [
       [
         {
@@ -28710,7 +28689,6 @@
     "tags": ["Health", "Boss"]
   },
   {
-    "flagged": true,
     "game_id": "58",
     "screenshot_id": "5",
     "vis_id": "l1a",
@@ -28740,7 +28718,6 @@
     "tags": ["Combat"]
   },
   {
-    "flagged": true,
     "game_id": "58",
     "screenshot_id": "5",
     "vis_id": "l1b",
@@ -28968,10 +28945,9 @@
     "tags": ["Progression", "Combat", "Ability"]
   },
   {
-    "flagged": true,
     "game_id": "59",
     "screenshot_id": "2",
-    "vis_id": "le1",
+    "vis_id": "l1",
     "data": [
       [
         {
@@ -28990,7 +28966,7 @@
       "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
-    "vis_visibility": [["Local", true]],
+    "vis_visibility": [["Local", false]],
     "notes": [
       "Shows enemies that are targeting you through a yellow outline around their board.",
       "Says 'watch out' when you are being targeted.",
@@ -29426,10 +29402,9 @@
     "tags": ["Alert", "Progression"]
   },
   {
-    "flagged": true,
     "game_id": "60",
     "screenshot_id": "4",
-    "vis_id": "ge1a",
+    "vis_id": "ge1",
     "data": [
       [
         {
@@ -29453,10 +29428,9 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "60",
     "screenshot_id": "4",
-    "vis_id": "g1b",
+    "vis_id": "g2",
     "data": [
       [
         {
