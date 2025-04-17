@@ -25804,38 +25804,6 @@
     "tags": ["Status Effect", "Progression"]
   },
   {
-    "flagged": true,
-    "game_id": "51",
-    "screenshot_id": "3",
-    "vis_id": "ge1",
-    "data": [
-      [
-        {
-          "data_value": "Drift type",
-          "data_type": "Ordinal"
-        }
-      ]
-    ],
-    "marks": [["Shape"]],
-    "channels": [["Hue"]],
-    "vis_name": "Drift Type",
-    "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Relative",
-      "relative_to": "your player wheels",
-      "relative_position": ["Bottom", "Middle"],
-      "coords": "World"
-    },
-    "vis_visibility": [["Global", true]],
-    "notes": [
-      "Depending on how long the player holds the drift, it changes the colour near the wheel.",
-      "Light blue sparks denote the 3rd best power drift.",
-      "Orange sparks denote the 2nd best power drift.",
-      "Pink sparks denote the 1st best power drift."
-    ],
-    "tags": ["Ability"]
-  },
-  {
     "game_id": "51",
     "screenshot_id": "4",
     "vis_id": "le1",
@@ -25867,62 +25835,6 @@
     "vis_visibility": [["Local", false]],
     "notes": ["Cyan overlay represents star-power.", "Stars over the track."],
     "tags": ["Progression", "Score"]
-  },
-  {
-    "flagged": true,
-    "game_id": "51",
-    "screenshot_id": "4",
-    "vis_id": "g1",
-    "data": [
-      [
-        {
-          "data_value": "player position",
-          "data_type": "Nominal"
-        }
-      ]
-    ],
-    "marks": [["Rectangle", "Text"]],
-    "channels": [["Position", "Hue", "Image", "Text"]],
-    "vis_name": "Player Info",
-    "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Middle", "Right"],
-      "coords": "World"
-    },
-    "vis_visibility": [["Global", false]],
-    "notes": [
-      "Your player's position on the board",
-      "The yellow represents your character",
-      "Total amount of points"
-    ],
-    "tags": ["Score"]
-  },
-  {
-    "flagged": true,
-    "game_id": "51",
-    "screenshot_id": "4",
-    "vis_id": "g2",
-    "data": [
-      [
-        {
-          "data_value": "Points",
-          "data_type": "Quantitative"
-        }
-      ]
-    ],
-    "marks": [["Text"]],
-    "channels": [["Text"]],
-    "vis_name": "Points",
-    "vis_usage": ["Game", "Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Middle", "Right"],
-      "coords": "World"
-    },
-    "vis_visibility": [["Global", false]],
-    "notes": ["Amount of points accumulated during the game"],
-    "tags": ["Score"]
   },
   {
     "game_id": "51",
