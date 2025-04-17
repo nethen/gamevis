@@ -18,39 +18,35 @@ export default function Page() {
     xDimension: string
   ) => {
     return data.filter((item) =>
-      item.vis_position && filters.relative == "Screen"
-        ? "screen_position" in item.vis_position &&
-          Array.isArray(item.vis_position.screen_position) &&
-          item.vis_position.screen_position[0] == yDimension &&
-          item.vis_position.screen_position[1] == xDimension
-        : "relative_position" in item.vis_position &&
-          Array.isArray(item.vis_position.relative_position) &&
-          item.vis_position.relative_position[0] == yDimension &&
+      "relative_position" in item.vis_position
+        ? item.vis_position.relative_position?.[0] == yDimension &&
           item.vis_position.relative_position[1] == xDimension
+        : item.vis_position.screen_position?.[0] == yDimension &&
+          item.vis_position.screen_position[1] == xDimension
     );
   };
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setFilters({
-        ...filters,
-        coords: localStorage.getItem("coords") || "Camera",
-        relative: localStorage.getItem("relativity") || "Screen",
-        genre: localStorage.getItem("genre") || "",
-        game: localStorage.getItem("game") || "",
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     setFilters({
+  //       ...filters,
+  //       coords: localStorage.getItem("coords") || ["Camera"],
+  //       relative: localStorage.getItem("relativity") || ["Screen"],
+  //       genre: localStorage.getItem("genre") || [""],
+  //       game: localStorage.getItem("game") || "",
+  //     });
+  //   }
+  // }, []);
 
   const filteredMetadata = useMemo(() => {
     return meta
       .filter((item) => {
-        if (filters.genre == "")
+        if (filters.genre.length == 0)
           return (
             item.score >= filters.speed[0] && item.score <= filters.speed[1]
           );
         return (
-          item.genre == filters.genre &&
+          filters.genre.includes(item.genre) &&
           item.score >= filters.speed[0] &&
           item.score <= filters.speed[1]
         );
@@ -64,46 +60,37 @@ export default function Page() {
   }, [filters]);
 
   const filteredData = useMemo<Annotation[]>(() => {
-    return data.filter((item) => {
-      return (
-        Array.from(filteredMetadata, (meta) => meta.id).includes(
-          item.game_id
-        ) &&
-        (item.game_id == filters.game || filters.game == "") &&
-        item.vis_position.coords == filters.coords
-      );
+    Object.entries(filters).forEach((key) => {
+      console.log(key);
+      // console.log(typeof filters[key] == "");
     });
+    // return data.filter((item) => {
+    //   return Object.keys(filters).forEach((key) => {
+    //     console.log(typeof filters[key]);
+    //   });
+    // });
+    return data
+      .filter((item) =>
+        filters.coords.length > 0
+          ? filters.coords.includes(item.vis_position.coords)
+          : true
+      )
+      .filter((item) =>
+        filters.relativity.length > 0
+          ? filters.relativity.includes(item.vis_position.screen_relativity)
+          : true
+      )
+      .filter((item) =>
+        filters.genre.length > 0
+          ? filteredMetadata.some((subitem) => subitem.id == item.game_id)
+          : true
+      )
+      .filter((item) =>
+        filters.game != "" ? item.game_id == filters.game : true
+      );
   }, [filteredMetadata, filters]);
 
   // console.log(meta);
-  const handleCoordsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilters({ ...filters, coords: e.target.value });
-    try {
-      localStorage.setItem("coords", e.target.value);
-    } catch (error) {
-      console.error("Error saving to localStorage", error);
-    }
-    console.log("Selected:", e.target.value);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilters({ ...filters, game: e.target.value });
-    try {
-      localStorage.setItem("game", e.target.value);
-    } catch (error) {
-      console.error("Error saving to localStorage", error);
-    }
-    console.log("Selected:", e.target.value);
-  };
-  const handleGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFilters({ ...filters, genre: e.target.value });
-    try {
-      localStorage.setItem("genre", e.target.value);
-    } catch (error) {
-      console.error("Error saving to localStorage", error);
-    }
-    console.log("Selected:", e.target.value);
-  };
 
   useEffect(() => {
     console.log(
@@ -122,9 +109,14 @@ export default function Page() {
     ]);
   }, [filters.position]);
 
+  useEffect(() => {
+    console.log("Filtered data:", filteredData);
+    console.log("Filtered metadata:", filteredMetadata);
+  }, [filteredData, filteredMetadata]);
+
   return (
     <div className="flex fixed inset-0">
-      <nav className="overflow-auto min-w-[20rem] border-r border-neutral-900">
+      <nav className="overflow-auto min-w-[20rem] border-r border-neutral-800">
         <h2 className="text-sm mb-2 sticky top-0 p-8 pb-2 bg-background z-50">
           Games
         </h2>
@@ -156,7 +148,7 @@ export default function Page() {
             })}
           </ul>
         </div>
-        {filters.relative == "Relative" && (
+        {filters.relativity.includes("Relative") && (
           <div className="mb-8">
             <h2 className="text-lg mb-2">Anchors</h2>
 
@@ -188,7 +180,7 @@ export default function Page() {
           </div>
         )}
       </nav>
-      <main className="grid grid-rows-[min-content_repeat(3,_minmax(0,_1fr))] grid-cols-3 gap-4 h-full max-h-screen p-8 w-full relative">
+      <main className="max-h-screen w-full relative flex flex-col">
         {/* <nav className="p-2 col-span-full flex gap-4">
           <section>
             <h2>Data types</h2>
@@ -235,98 +227,97 @@ export default function Page() {
           </section>
         </nav> */}
         <FilterNav />
-        {["Top", "Middle", "Bottom"].map((yDimension) => {
-          return ["Left", "Middle", "Right"].map((xDimension) => {
-            return (
-              <section
-                className="bg-neutral-900 p-4 flex flex-col gap-2"
-                key={`section-${yDimension.toLowerCase()}-${xDimension.toLowerCase()}`}
-              >
-                <hgroup className="flex justify-between items-center">
-                  <h3 className="">
-                    {yDimension} {xDimension != yDimension ? xDimension : null}{" "}
-                    &mdash;{" "}
-                    {
-                      filterByXY(filteredData, yDimension, xDimension).filter(
-                        (item) =>
-                          filters.game == "" || item.game_id == filters.game
-                      ).length
-                    }
-                  </h3>
-                  <button
-                    className="px-3 py-1 rounded-sm bg-neutral-500 uppercase font-bold tracking-widest text-xs cursor-pointer"
-                    onClick={() => {
-                      setFilters({
-                        ...filters,
-                        position: [yDimension, xDimension],
-                      });
-                    }}
-                  >
-                    View all
-                  </button>
-                </hgroup>
-                <div className="overflow-auto size-full flex flex-col divide-neutral-700 divide-y *:py-2">
-                  <div className="">
-                    <h4 className="font-bold">Tags</h4>
-                    <ul>
-                      {Object.entries(
-                        filterByXY(filteredData, yDimension, xDimension)
-                          .flatMap((item) => item.tags || [])
-                          .reduce((acc, tag) => {
-                            acc[tag] = (acc[tag] || 0) + 1;
-                            return acc;
-                          }, {} as Record<string, number>)
-                      )
-                        .sort((a, b) => b[1] - a[1]) // Sort by count in descending order
-                        .map(([tag, count], i) => (
-                          <li key={`taglist-${yDimension}-${xDimension}-${i}`}>
-                            <span className="text-sm">
-                              {tag}: {count}
-                            </span>
-                          </li>
-                        ))}
-                    </ul>
-                  </div>
-                  {filters.game != "" || filters.genre != "" ? (
-                    <ul className="flex flex-wrap gap-4 size-full">
-                      {filterByXY(filteredData, yDimension, xDimension)
-                        .filter(
-                          (item) =>
-                            filters.game == "" || item.game_id == filters.game
+        <div className="p-4 grid grid-rows-3 grid-cols-3 gap-2 h-full min-h-[40rem]">
+          {["Top", "Middle", "Bottom"].map((yDimension) => {
+            return ["Left", "Middle", "Right"].map((xDimension) => {
+              return (
+                <section
+                  className="bg-neutral-800 rounded-lg p-4 flex flex-col gap-2"
+                  key={`section-${yDimension.toLowerCase()}-${xDimension.toLowerCase()}`}
+                >
+                  <hgroup className="flex justify-between items-center">
+                    <h3 className="text-lg font-semibold">
+                      {yDimension}{" "}
+                      {xDimension != yDimension ? xDimension : null}
+                      {/* {filterByXY(filteredData, yDimension, xDimension).length} */}
+                    </h3>
+                    <button
+                      className="px-3 py-1 rounded-sm bg-neutral-500 uppercase font-bold tracking-widest text-xs cursor-pointer"
+                      onClick={() => {
+                        setFilters({
+                          ...filters,
+                          position: [yDimension, xDimension],
+                        });
+                      }}
+                    >
+                      View all
+                    </button>
+                  </hgroup>
+                  <div className="overflow-auto size-full flex flex-col divide-neutral-700 divide-y *:py-2">
+                    <div className="">
+                      <h4 className="font-bold">Tags</h4>
+                      <ul>
+                        {Object.entries(
+                          filterByXY(filteredData, yDimension, xDimension)
+                            .flatMap((item) => item.tags || [])
+                            .reduce((acc, tag) => {
+                              acc[tag] = (acc[tag] || 0) + 1;
+                              return acc;
+                            }, {} as Record<string, number>)
                         )
-                        .map((item, i) => (
-                          <li key={i} className="">
-                            <hgroup>
-                              <h5>{item.vis_name}</h5>
-                              <span className="uppercase font-bold tracking-widest text-xs">
-                                {item.game_id +
+                          .sort((a, b) => b[1] - a[1]) // Sort by count in descending order
+                          .map(([tag, count], i) => (
+                            <li
+                              key={`taglist-${yDimension}-${xDimension}-${i}`}
+                            >
+                              <span className="text-sm">
+                                {tag}: {count}
+                              </span>
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
+                    {filters.game != "" || filters.genre.length > 0 ? (
+                      <ul className="flex flex-wrap gap-4 size-full">
+                        {filterByXY(filteredData, yDimension, xDimension)
+                          .filter(
+                            (item) =>
+                              filters.game == "" || item.game_id == filters.game
+                          )
+                          .map((item, i) => (
+                            <li key={i} className="">
+                              <hgroup>
+                                <h5>{item.vis_name}</h5>
+                                <span className="uppercase font-bold tracking-widest text-xs">
+                                  {item.game_id +
+                                    "_" +
+                                    item.screenshot_id +
+                                    "_" +
+                                    item.vis_id}
+                                </span>
+                              </hgroup>
+                              {/* <img
+                                loading="lazy"
+                                src={
+                                  "/games/" +
+                                  item.game_id +
                                   "_" +
                                   item.screenshot_id +
                                   "_" +
-                                  item.vis_id}
-                              </span>
-                            </hgroup>
-                            {/* <img
-                              loading="lazy"
-                              src={
-                                "/games/" +
-                                item.game_id +
-                                "_" +
-                                item.screenshot_id +
-                                "_" +
-                                item.vis_id +
-                                ".jpg"
-                              }
-                            /> */}
-                          </li>
-                        ))}
-                    </ul>
-                  ) : null}
-                </div>
-              </section>
-            );
-          });
-        })}
+                                  item.vis_id +
+                                  ".jpg"
+                                }
+                              /> */}
+                            </li>
+                          ))}
+                      </ul>
+                    ) : null}
+                  </div>
+                </section>
+              );
+            });
+          })}
+        </div>
       </main>
       {filters.position[0] != "" && filters.position[1] != "" ? (
         <div className="fixed inset-0 bg-background/95 p-16 overflow-auto">

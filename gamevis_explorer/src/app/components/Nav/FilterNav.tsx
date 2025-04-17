@@ -6,8 +6,9 @@ const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
 
 export const FilterNav = () => {
   const [isOpen, setIsOpen] = useState("");
+  const { filters, setFilters } = useFilterContext();
   return (
-    <nav className="py-2 col-span-full flex gap-4 relative bg-red-500 h-10">
+    <nav className="px-4 pt-6 pb-4 col-span-full flex gap-4 relative border-b-neutral-800 border-b">
       {[
         {
           name: "Coords",
@@ -18,7 +19,7 @@ export const FilterNav = () => {
           options: ["Screen", "Relative"],
         },
         {
-          name: "Genres",
+          name: "Genre",
           options: uniqueGenres,
         },
       ].map((title) => (
@@ -32,16 +33,45 @@ export const FilterNav = () => {
             {title.options.map((item) => (
               <li
                 key={item}
-
+                className="flex gap-1 select-none"
                 // className="bg-slate-200 w-20 h-8 flex items-center justify-center"
               >
                 <input
                   type="checkbox"
                   id={`nav_filter__check-${title.name}-${item}`}
                   name={`nav_filter__check-${title.name}-${item}`}
-                  className="bg-neutral-700 pl-2 rounded-sm"
+                  className="bg-neutral-800 pl-2 rounded-sm cursor-pointer"
+                  checked={
+                    filters[
+                      title.name.toLowerCase() as keyof FilterState
+                    ]?.includes(item) || false
+                  }
+                  onChange={(e) => {
+                    console.log(filters);
+                    if (e.target.checked) {
+                      setFilters({
+                        ...filters,
+                        [title.name.toLowerCase()]: [
+                          ...(filters[
+                            title.name.toLowerCase() as keyof FilterState
+                          ] || []),
+                          item,
+                        ],
+                      });
+                    } else {
+                      setFilters({
+                        ...filters,
+                        [title.name.toLowerCase()]: filters[
+                          title.name.toLowerCase() as keyof FilterState
+                        ]?.filter((subitem: string) => subitem !== item),
+                      });
+                    }
+                  }}
                 />
-                <label htmlFor={`nav_filter__check-${title.name}-${item}`}>
+                <label
+                  htmlFor={`nav_filter__check-${title.name}-${item}`}
+                  className="cursor-pointer"
+                >
                   {item}
                 </label>
               </li>
@@ -60,6 +90,12 @@ export const FilterNav = () => {
             max={12}
             defaultValue={4}
             className="bg-neutral-700 pl-2 rounded-sm"
+            onChange={(e) => {
+              setFilters({
+                ...filters,
+                speed: [parseInt(e.target.value), filters.speed[1]],
+              });
+            }}
           />
         </div>
         <div className="flex gap-2">
@@ -72,6 +108,12 @@ export const FilterNav = () => {
             max={12}
             defaultValue={12}
             className="bg-neutral-700 pl-2 rounded-sm"
+            onChange={(e) => {
+              setFilters({
+                ...filters,
+                speed: [filters.speed[0], parseInt(e.target.value)],
+              });
+            }}
           />
         </div>
       </div>
@@ -109,7 +151,7 @@ const FilterGroup = ({
         </svg>
       </div>
       {isOpen && (
-        <div className="w-fit absolute top-10 p-2 bg-neutral-900">
+        <div className="w-fit absolute top-16 px-3 py-4 bg-neutral-700 rounded-md">
           {children}
         </div>
       )}
@@ -118,10 +160,10 @@ const FilterGroup = ({
 };
 
 type FilterState = {
-  coords: string;
-  relative: string;
+  coords: string[];
+  relativity: string[];
   game: string;
-  genre: string;
+  genre: string[];
 
   position: string[];
   usages: string[];
@@ -139,10 +181,10 @@ export const FilterContextProvider = ({
   children: React.ReactNode;
 }) => {
   const [filters, setFilters] = useState<FilterState>({
-    coords: "Camera",
-    relative: "Screen",
+    coords: [],
+    relativity: [],
     game: "",
-    genre: "",
+    genre: [],
     position: ["", ""],
     usages: [] as string[],
     speed: [4, 12],
