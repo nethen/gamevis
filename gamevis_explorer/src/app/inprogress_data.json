@@ -29999,7 +29999,6 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "61",
     "screenshot_id": "6",
     "vis_id": "l2b",
@@ -30161,10 +30160,9 @@
     "tags": ["Timer"]
   },
   {
-    "flagged": true,
     "game_id": "62",
     "screenshot_id": "1",
-    "vis_id": "g4",
+    "vis_id": "l4",
     "data": [
       [
         {
@@ -30441,7 +30439,6 @@
     "tags": ["Map", "Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "63",
     "screenshot_id": "5",
     "vis_id": "le1",
@@ -30467,7 +30464,7 @@
       "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
-    "vis_visibility": [["Local", false]],
+    "vis_visibility": [["Local", true]],
     "notes": [],
     "tags": ["Building"]
   },
@@ -30536,7 +30533,6 @@
     "tags": ["Resource"]
   },
   {
-    "flagged": true,
     "game_id": "63",
     "screenshot_id": "7",
     "vis_id": "le1",
@@ -30562,7 +30558,6 @@
     "tags": ["Health"]
   },
   {
-    "flagged": true,
     "game_id": "63",
     "screenshot_id": "8",
     "vis_id": "l1",
@@ -30589,7 +30584,7 @@
       "screen_position": ["Top", "Right"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Local", false]],
+    "vis_visibility": [["local", false]],
     "notes": [
       "For coop mode, can select so the minimap also shows up.",
       "There's an icon for where the player is & their teammate based on their character (eg. red hair & yellow hair).",
@@ -30710,10 +30705,9 @@
     "tags": ["Health"]
   },
   {
-    "flagged": true,
     "game_id": "64",
     "screenshot_id": "2",
-    "vis_id": "le1",
+    "vis_id": "l1",
     "data": [
       [
         {
@@ -31020,7 +31014,6 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "65",
     "screenshot_id": "3",
     "vis_id": "le1",
@@ -31139,10 +31132,9 @@
     "tags": ["Equipment"]
   },
   {
-    "flagged": true,
     "game_id": "65",
     "screenshot_id": "5",
-    "vis_id": "l2",
+    "vis_id": "le2",
     "data": [
       [
         {
@@ -31356,7 +31348,6 @@
     "tags": ["Lore", "Health"]
   },
   {
-    "flagged": true,
     "game_id": "66",
     "screenshot_id": "1",
     "vis_id": "le1",
@@ -31382,7 +31373,7 @@
       "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
-    "vis_visibility": [["Local", false]],
+    "vis_visibility": [["Local", true]],
     "notes": [],
     "tags": ["Item"]
   },
@@ -31706,10 +31697,9 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "67",
     "screenshot_id": "1",
-    "vis_id": "l1",
+    "vis_id": "le1",
     "data": [
       [
         {
@@ -32195,54 +32185,6 @@
   },
   {
     "game_id": "67",
-    "screenshot_id": "7",
-    "vis_id": "l2",
-    "data": [
-      [
-        {
-          "data_value": "Enemy",
-          "data_type": "Nominal"
-        },
-        {
-          "data_value": "Enemy position",
-          "data_type": "Spatial"
-        }
-      ],
-      [
-        {
-          "data_value": "Enemy health",
-          "data_type": "Quantitative"
-        }
-      ],
-      [
-        {
-          "data_value": "Enemy level",
-          "data_type": "Quantitative"
-        }
-      ],
-      [
-        {
-          "data_value": "Distance to enemy",
-          "data_type": "Quantitative"
-        }
-      ]
-    ],
-    "marks": [["Text"], ["Rectangle"], ["Rectangle", "Text"], ["Text"]],
-    "channels": [["Text"], ["Length"], ["Hue", "Text"], ["Text"]],
-    "vis_name": "Enemy ship vitals",
-    "vis_usage": ["Enemy"],
-    "vis_position": {
-      "screen_relativity": "Relative",
-      "relative_to": "Enemy ship",
-      "relative_position": ["Middle", "Middle"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Local", false]],
-    "notes": [],
-    "tags": ["Combat", "Wayfinding", "Vitals", "Health", "Experience"]
-  },
-  {
-    "game_id": "67",
     "screenshot_id": "8",
     "vis_id": "l1",
     "data": [
@@ -32363,10 +32305,9 @@
     "tags": ["Health", "Vitals"]
   },
   {
-    "flagged": true,
     "game_id": "67",
     "screenshot_id": "9",
-    "vis_id": "l1",
+    "vis_id": "l1a",
     "data": [
       [
         {
@@ -32388,6 +32329,54 @@
     "vis_visibility": [["Local", false]],
     "notes": [],
     "tags": ["Combat"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "9",
+    "vis_id": "l1b",
+    "data": [
+      [
+        {
+          "data_value": "Enemy",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Enemy position",
+          "data_type": "Spatial"
+        }
+      ],
+      [
+        {
+          "data_value": "Enemy health",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Enemy level",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Distance to enemy",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"], ["Rectangle"], ["Rectangle", "Text"], ["Text"]],
+    "channels": [["Text"], ["Length"], ["Hue", "Text"], ["Text"]],
+    "vis_name": "Enemy ship vitals",
+    "vis_usage": ["Enemy"],
+    "vis_position": {
+      "screen_relativity": "Relative",
+      "relative_to": "Enemy ship",
+      "relative_position": ["Middle", "Middle"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Combat", "Wayfinding", "Vitals", "Health", "Experience"]
   },
   {
     "game_id": "68",
@@ -32796,10 +32785,9 @@
     "tags": ["Combat", "Ability"]
   },
   {
-    "flagged": true,
     "game_id": "68",
     "screenshot_id": "5",
-    "vis_id": "l1",
+    "vis_id": "le1",
     "data": [
       [
         {
@@ -32834,10 +32822,9 @@
     "tags": ["Combat", "Vitals", "Health"]
   },
   {
-    "flagged": true,
     "game_id": "68",
     "screenshot_id": "6",
-    "vis_id": "l1",
+    "vis_id": "le1",
     "data": [
       [
         {
@@ -32890,10 +32877,9 @@
     "tags": ["Combat", "Ability"]
   },
   {
-    "flagged": true,
     "game_id": "68",
     "screenshot_id": "7",
-    "vis_id": "lb",
+    "vis_id": "le1b",
     "data": [
       [
         {
