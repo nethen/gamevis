@@ -19606,6 +19606,34 @@
   {
     "game_id": "40",
     "screenshot_id": "1",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "HP",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"]],
+    "channels": [["Text", "Hue"]],
+    "vis_name": "HP Indicator",
+    "vis_usage": ["Player"],
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Left"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Current health points (HP) - Quantitative",
+      "Yellow background for the rectangle if health > 2 changes to flashing red if hp is ==1"
+    ],
+    "tags": ["Health"]
+  },
+  {
+    "game_id": "40",
+    "screenshot_id": "1",
     "vis_id": "g3",
     "data": [
       [
@@ -19636,34 +19664,7 @@
     ],
     "tags": ["Ability"]
   },
-  {
-    "game_id": "40",
-    "screenshot_id": "1",
-    "vis_id": "g2",
-    "data": [
-      [
-        {
-          "data_value": "HP",
-          "data_type": "Quantitative"
-        }
-      ]
-    ],
-    "marks": [["Text"]],
-    "channels": [["Text", "Hue"]],
-    "vis_name": "HP Indicator",
-    "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Left"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Global", false]],
-    "notes": [
-      "Current health points (HP) - Quantitative",
-      "Yellow background for the rectangle if health > 2 changes to flashing red if hp is ==1"
-    ],
-    "tags": ["Health"]
-  },
+ 
   {
     "game_id": "40",
     "screenshot_id": "2",
