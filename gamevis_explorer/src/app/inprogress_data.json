@@ -7343,7 +7343,9 @@
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
-    "notes": ["Hexed is a status effect that turns the unit into a harmless creature, prohibiting abilities and attacks"],
+    "notes": [
+      "Hexed is a status effect that turns the unit into a harmless creature, prohibiting abilities and attacks"
+    ],
     "tags": ["Status Effect"]
   },
   {
@@ -25504,64 +25506,35 @@
     "tags": ["Combat"]
   },
   {
-    "flagged": true,
     "game_id": "51",
     "screenshot_id": "1",
-    "vis_id": "ge1",
+    "vis_id": "le1",
     "data": [
       [
         {
-          "data_value": "Countdown",
-          "data_type": "Temporal"
+          "data_value": "Long Notes (need to be held until the next note in the sequence)",
+          "data_type": "Nominal"
         }
       ]
     ],
-    "marks": [["Text"]],
-    "channels": [["Text"]],
-    "vis_name": "Countdown",
-    "vis_usage": ["Game"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Middle", "Middle"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Global", true]],
-    "notes": ["Countdown from 3 till the race starts"],
-    "tags": ["Progression"]
-  },
-  {
-    "flagged": true,
-    "game_id": "51",
-    "screenshot_id": "1",
-    "vis_id": "l1",
-    "data": [
-      [
-        {
-          "data_value": "coins count",
-          "data_type": "Quantitative"
-        }
-      ],
-      [
-        {
-          "data_value": "lap information",
-          "data_type": "Quantitative"
-        }
-      ]
-    ],
-    "marks": [["Symbol"]],
-    "channels": [["Text", "Image"]],
-    "vis_name": "Coins and Lap Info",
+    "marks": [["Line"]],
+    "channels": [["Hue", "Line"]],
+    "vis_name": "Note Tracking",
     "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Left"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Local", false]],
-    "notes": [
-      "A count of how much coins the player has (out of 10, the more coins you have, you gain a slight speed boost) and what lap of the race you're on."
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "consecutive notes",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
     ],
-    "tags": ["Currency", "Progression"]
+    "vis_visibility": [["Local", true]],
+    "notes": [
+      "Based on the specific fret colour (i.e. yellow in this case).",
+      "A coloured line that connected the first note with the subsequent note."
+    ],
+    "tags": ["Combat"]
   },
   {
     "game_id": "51",
@@ -25569,25 +25542,21 @@
     "vis_id": "l1",
     "data": [
       [
-        {
-          "data_value": "Performance status",
-          "data_type": "Ordinal"
-        },
-        {
-          "data_value": "Exact value",
-          "data_type": "Quantitative"
-        }
+        { "data_value": "Performance status", "data_type": "Ordinal" },
+        { "data_value": "Exact value", "data_type": "Quantitative" }
       ]
     ],
     "marks": [["Rectangle", "Symbol", "Rule"]],
     "channels": [["Colour", "Position", "Hue"]],
     "vis_name": "Rock Meter",
     "vis_usage": ["Game", "Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Left"],
-      "coords": "World"
-    },
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "World"
+      }
+    ],
     "vis_visibility": [["Local", false]],
     "notes": [
       "The Rock Meter indicates performance status with colours; green is good, yellow is okay, and red is bad."
@@ -25599,22 +25568,19 @@
     "screenshot_id": "2",
     "vis_id": "l2",
     "data": [
-      [
-        {
-          "data_value": "Multiplier amount",
-          "data_type": "Quantitative"
-        }
-      ]
+      [{ "data_value": "Multiplier amount", "data_type": "Quantitative" }]
     ],
     "marks": [["Rectangle", "Rule", "Text"]],
     "channels": [["Text", "Hue", "Length"]],
     "vis_name": "Multiplier",
     "vis_usage": ["Game", "Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Middle", "Right"],
-      "coords": "World"
-    },
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Right"],
+        "coords": "World"
+      }
+    ],
     "vis_visibility": [["Local", false]],
     "notes": [
       "Each multiply value (i.e. 2x, 3x, 4x) has its own colour value: 2X is orange, 3x is green, 4x is purple, 8x is bright green. Fills up the rectangle as you hit correct notes. Maxes out at 4x."
@@ -25627,92 +25593,105 @@
     "vis_id": "l3",
     "data": [
       [
-        {
-          "data_value": "points accumulated",
-          "data_type": "Quantitative"
-        },
-        {
-          "data_value": "star level",
-          "data_type": "Quantitative"
-        },
-        {
-          "data_value": "note streak",
-          "data_type": "Quantitative"
-        }
+        { "data_value": "points accumulated", "data_type": "Quantitative" },
+        { "data_value": "star level", "data_type": "Quantitative" },
+        { "data_value": "note streak", "data_type": "Quantitative" }
       ]
     ],
-    "marks": [["Text", "Rectangle", "Shape"]],
-    "channels": [["Text"], ["Length"], ["Text", "Shape"]],
+    "marks": [["Text"], ["Rectangle"], ["Shape"]],
+    "channels": [["Text"], ["Length", "Colour"], ["Text", "Shape"]],
     "vis_name": "Points, note streak, and star level",
     "vis_usage": ["Game", "Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Right"],
-      "coords": "Camera"
-    },
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "Camera"
+      }
+    ],
     "vis_visibility": [["Local", false]],
     "notes": [],
     "tags": ["Status Effect", "Progression"]
   },
   {
-    "flagged": true,
     "game_id": "51",
-    "screenshot_id": "2",
-    "vis_id": "g1a",
+    "screenshot_id": "3",
+    "vis_id": "le1",
     "data": [
       [
         {
-          "data_value": "path",
-          "data_type": "Spatial"
+          "data_value": "Contributes to star power meter",
+          "data_type": "Nominal"
         }
       ]
     ],
-    "marks": [["Trail", "Image"]],
-    "channels": [["Trail", "Image"]],
-    "vis_name": "Minimap",
-    "vis_usage": ["Environment", "Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Middle", "Right"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Global", true]],
-    "notes": [
-      "Lets the player see the path for the race & where everyone is located.",
-      "Icons for which character is where.",
-      "There's a black outline around the character the player is playing."
+    "marks": [["Symbol"]],
+    "channels": [["Colour", "Shape"]],
+    "vis_name": "Star-shaped notes",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "note position",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
     ],
-    "tags": ["Map", "Wayfinding"]
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "This visualization contributes to star power meter if the entire sequence is hit."
+    ],
+    "tags": ["Progression", "Combat"]
   },
   {
-    "flagged": true,
     "game_id": "51",
-    "screenshot_id": "2",
-    "vis_id": "g1b",
+    "screenshot_id": "3",
+    "vis_id": "l2",
+    "data": [[{ "data_value": "Star power", "data_type": "Quantitative" }]],
+    "marks": [["Rectangle", "Rule"]],
+    "channels": [["Length"]],
+    "vis_name": "Star power meter",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "The bar needs to pass the line in the middle to activate the star power.",
+      "Colour category lights up when past the line.",
+      "Increases as you complete star note streaks."
+    ],
+    "tags": ["Status Effect", "Progression"]
+  },
+  {
+    "game_id": "51",
+    "screenshot_id": "4",
+    "vis_id": "le1",
     "data": [
       [
-        {
-          "data_value": "player position in map",
-          "data_type": "Spatial"
-        }
+        { "data_value": "points", "data_type": "Nominal" },
+        { "data_value": "star level", "data_type": "Nominal" },
+        { "data_value": "note streak", "data_type": "Nominal" }
       ]
     ],
-    "marks": [["Image", "Circle"]],
-    "channels": [["Image", "Shape"]],
-    "vis_name": "player position in map",
-    "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Relative",
-      "relative_to": "position within the track",
-      "screen_position": ["Middle", "Middle"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Global", false]],
-    "notes": [
-      "Lets the player see the track layout for the race & where everyone is located.",
-      "Circular outline around the character the player is playing."
+    "marks": [["Area", "Symbol"]],
+    "channels": [["Hue", "Shape"]],
+    "vis_name": "Star-power activation",
+    "vis_usage": ["Game", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Screen"
+      }
     ],
-    "tags": ["Movement"]
+    "vis_visibility": [["Local", false]],
+    "notes": ["Cyan overlay represents star-power.", "Stars over the track."],
+    "tags": ["Progression", "Score"]
   },
   {
     "game_id": "51",
