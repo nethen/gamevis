@@ -128,7 +128,6 @@
     "tags": ["Round", "Progression"]
   },
   {
-    "flagged": true,
     "game_id": "1",
     "screenshot_id": "1",
     "vis_id": "l4",
@@ -245,7 +244,6 @@
     "tags": ["Vitals", "Health"]
   },
   {
-    "flagged": true,
     "game_id": "1",
     "screenshot_id": "3",
     "vis_id": "g1a",
@@ -388,7 +386,6 @@
     "tags": ["Character", "Ability", "Energy"]
   },
   {
-    "flagged": true,
     "game_id": "2",
     "screenshot_id": "1",
     "vis_id": "g5",
@@ -418,10 +415,9 @@
     "tags": ["Damage", "Health", "Score"]
   },
   {
-    "flagged": true,
     "game_id": "2",
     "screenshot_id": "2",
-    "vis_id": "g2",
+    "vis_id": "ge2",
     "data": [
       [
         {
@@ -738,10 +734,9 @@
     "tags": ["Vitals", "Ability", "Energy", "Character", "Stamina"]
   },
   {
-    "flagged": true,
     "game_id": "4",
     "screenshot_id": "2",
-    "vis_id": "g1",
+    "vis_id": "ge1",
     "data": [
       [
         {
@@ -1374,7 +1369,6 @@
     "tags": ["Wayfinding", "Alert"]
   },
   {
-    "flagged": true,
     "game_id": "5",
     "screenshot_id": "10",
     "vis_id": "ge1",
@@ -1428,38 +1422,8 @@
     "tags": ["Wayfinding", "Map"]
   },
   {
-    "flagged": true,
     "game_id": "5",
-    "screenshot_id": "11",
-    "vis_id": "ge1",
-    "data": [
-      [
-        {
-          "data_value": "Kill info",
-          "data_type": "Nominal"
-        }
-      ]
-    ],
-    "marks": [["Text", "Symbol"]],
-    "channels": [["Text", "Shape"]],
-    "vis_name": "Kill info",
-    "vis_usage": ["Game", "Player", "Enemy"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Top", "Right"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Global", true]],
-    "notes": [
-      "Lets everyone in game see what happened recently.",
-      "What weapon was used."
-    ],
-    "tags": ["Alert", "Round", "Combat"]
-  },
-  {
-    "flagged": true,
-    "game_id": "5",
-    "screenshot_id": "11",
+    "screenshot_id": "10",
     "vis_id": "l2",
     "data": [
       [
@@ -1487,9 +1451,8 @@
     "tags": ["Equipment"]
   },
   {
-    "flagged": true,
     "game_id": "5",
-    "screenshot_id": "12",
+    "screenshot_id": "11",
     "vis_id": "l1",
     "data": [
       [
@@ -2452,10 +2415,9 @@
     "tags": ["Currency"]
   },
   {
-    "flagged": true,
     "game_id": "7",
     "screenshot_id": "5",
-    "vis_id": "l2",
+    "vis_id": "le2",
     "data": [
       [
         {
@@ -2644,7 +2606,6 @@
     "tags": ["Equipment", "Ammo"]
   },
   {
-    "flagged": true,
     "game_id": "7",
     "screenshot_id": "7",
     "vis_id": "l3b",
@@ -2809,33 +2770,7 @@
   {
     "game_id": "7",
     "screenshot_id": "11",
-    "vis_id": "l1",
-    "data": [
-      [
-        {
-          "data_value": "Ultimate ability duration",
-          "data_type": "Quantitative"
-        }
-      ]
-    ],
-    "marks": [["Path", "Text"]],
-    "channels": [["Text"]],
-    "vis_name": "Ultimate ability duration",
-    "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Top", "Middle"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Local", false]],
-    "notes": [],
-    "tags": ["Combat", "Ability", "Timer"]
-  },
-  {
-    "flagged": true,
-    "game_id": "7",
-    "screenshot_id": "11",
-    "vis_id": "g1a",
+    "vis_id": "ge1a",
     "data": [
       [
         {
@@ -2858,10 +2793,9 @@
     "tags": ["Round", "Progression", "Timer", "Alert"]
   },
   {
-    "flagged": true,
     "game_id": "7",
     "screenshot_id": "11",
-    "vis_id": "g1b",
+    "vis_id": "ge1b",
     "data": [
       [
         {
@@ -2924,32 +2858,25 @@
     "data": [
       [
         {
-          "data_value": "Killed player",
-          "data_type": "Nominal"
-        }
-      ],
-      [
-        {
-          "data_value": "Damage dealt",
+          "data_value": "Ultimate ability duration",
           "data_type": "Quantitative"
         }
       ]
     ],
-    "marks": [["Path", "Text"], ["Text"]],
-    "channels": [["Text"], ["Text"]],
-    "vis_name": "Player kill alert",
-    "vis_usage": ["Player", "Enemy"],
+    "marks": [["Path", "Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Ultimate ability duration",
+    "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Middle"],
+      "screen_position": ["Top", "Middle"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Local", true]],
+    "vis_visibility": [["Local", false]],
     "notes": [],
-    "tags": ["Combat", "Death", "Alert", "Score"]
+    "tags": ["Combat", "Ability", "Timer"]
   },
   {
-    "flagged": true,
     "game_id": "7",
     "screenshot_id": "12",
     "vis_id": "l2",
@@ -2975,9 +2902,39 @@
     "tags": ["Combat", "Ability"]
   },
   {
-    "flagged": true,
     "game_id": "7",
     "screenshot_id": "13",
+    "vis_id": "le1",
+    "data": [
+      [
+        {
+          "data_value": "Killed player",
+          "data_type": "Nominal"
+        }
+      ],
+      [
+        {
+          "data_value": "Damage dealt",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path", "Text"], ["Text"]],
+    "channels": [["Text"], ["Text"]],
+    "vis_name": "Player kill alert",
+    "vis_usage": ["Player", "Enemy"],
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Middle"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Local", true]],
+    "notes": [],
+    "tags": ["Combat", "Death", "Alert", "Score"]
+  },
+  {
+    "game_id": "7",
+    "screenshot_id": "14",
     "vis_id": "g1a",
     "data": [
       [
@@ -3002,7 +2959,7 @@
   },
   {
     "game_id": "7",
-    "screenshot_id": "14",
+    "screenshot_id": "15",
     "vis_id": "l1",
     "data": [
       [
@@ -3031,7 +2988,7 @@
   },
   {
     "game_id": "7",
-    "screenshot_id": "14",
+    "screenshot_id": "15",
     "vis_id": "l2",
     "data": [
       [
@@ -3072,7 +3029,7 @@
   },
   {
     "game_id": "7",
-    "screenshot_id": "14",
+    "screenshot_id": "15",
     "vis_id": "l3",
     "data": [
       [
@@ -3189,10 +3146,9 @@
     "tags": ["Score", "Combat"]
   },
   {
-    "flagged": true,
     "game_id": "8",
     "screenshot_id": "1",
-    "vis_id": "l1",
+    "vis_id": "le1",
     "data": [
       [
         {
@@ -3279,10 +3235,9 @@
     "tags": ["Resource"]
   },
   {
-    "flagged": true,
     "game_id": "8",
     "screenshot_id": "2",
-    "vis_id": "le1",
+    "vis_id": "l1",
     "data": [
       [
         {
@@ -3964,10 +3919,9 @@
     "tags": ["Damage"]
   },
   {
-    "flagged": true,
     "game_id": "9",
     "screenshot_id": "4",
-    "vis_id": "le2",
+    "vis_id": "le1",
     "data": [
       [
         {
@@ -3990,10 +3944,9 @@
     "tags": ["Healing"]
   },
   {
-    "flagged": true,
     "game_id": "9",
     "screenshot_id": "4",
-    "vis_id": "le2",
+    "vis_id": "l2",
     "data": [
       [
         {
@@ -4155,7 +4108,6 @@
     "tags": ["Progression", "Score"]
   },
   {
-    "flagged": true,
     "game_id": "9",
     "screenshot_id": "6",
     "vis_id": "g2",
@@ -4415,10 +4367,9 @@
     "tags": ["Score", "Timer", "Progression", "Round"]
   },
   {
-    "flagged": true,
     "game_id": "10",
     "screenshot_id": "1",
-    "vis_id": "l6",
+    "vis_id": "le6",
     "data": [
       [
         {
@@ -4883,10 +4834,9 @@
     "tags": ["Equipment"]
   },
   {
-    "flagged": true,
     "game_id": "11",
     "screenshot_id": "1",
-    "vis_id": "l1b",
+    "vis_id": "g1b",
     "data": [
       [
         {
@@ -5170,10 +5120,9 @@
     "tags": ["Ability"]
   },
   {
-    "flagged": true,
     "game_id": "11",
     "screenshot_id": "4",
-    "vis_id": "l1",
+    "vis_id": "le1",
     "data": [
       [
         {
@@ -5424,10 +5373,9 @@
     "notes": ["The visualization represents active item type and its cooldown."]
   },
   {
-    "flagged": true,
     "game_id": "12",
     "screenshot_id": "1",
-    "vis_id": "l8",
+    "vis_id": "l7",
     "data": [
       [
         {
@@ -6693,7 +6641,6 @@
     "tags": ["Character"]
   },
   {
-    "flagged": true,
     "game_id": "13",
     "screenshot_id": "3",
     "vis_id": "ge1a",
@@ -6727,7 +6674,6 @@
     "tags": ["Character"]
   },
   {
-    "flagged": true,
     "game_id": "13",
     "screenshot_id": "3",
     "vis_id": "ge1b",
@@ -7375,7 +7321,6 @@
     "tags": ["Damage"]
   },
   {
-    "flagged": true,
     "game_id": "14",
     "screenshot_id": "3",
     "vis_id": "ge1",
@@ -7398,7 +7343,7 @@
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
-    "notes": [],
+    "notes": ["Hexed is a status effect that turns the unit into a harmless creature, prohibiting abilities and attacks"],
     "tags": ["Status Effect"]
   },
   {
@@ -7453,7 +7398,6 @@
     "tags": ["Progression", "Combat"]
   },
   {
-    "flagged": true,
     "game_id": "14",
     "screenshot_id": "5",
     "vis_id": "le1",
@@ -7700,10 +7644,9 @@
     "tags": ["Inventory", "Ability", "Cooldown"]
   },
   {
-    "flagged": true,
     "game_id": "15",
     "screenshot_id": "1",
-    "vis_id": "ge1",
+    "vis_id": "g1",
     "data": [
       [
         {
@@ -7761,10 +7704,9 @@
     "tags": ["Progression", "Achievement"]
   },
   {
-    "flagged": true,
     "game_id": "15",
     "screenshot_id": "1",
-    "vis_id": "l6",
+    "vis_id": "le6",
     "data": [
       [
         {
@@ -7792,10 +7734,9 @@
     "tags": ["Damage"]
   },
   {
-    "flagged": true,
     "game_id": "15",
     "screenshot_id": "1",
-    "vis_id": "l7",
+    "vis_id": "le7",
     "data": [
       [
         {
@@ -8266,7 +8207,6 @@
     "tags": ["Resource"]
   },
   {
-    "flagged": true,
     "game_id": "16",
     "screenshot_id": "3",
     "vis_id": "g1a",
@@ -8293,7 +8233,6 @@
     "tags": ["Progression"]
   },
   {
-    "flagged": true,
     "game_id": "16",
     "screenshot_id": "3",
     "vis_id": "g1b",
@@ -8533,6 +8472,63 @@
   {
     "game_id": "17",
     "screenshot_id": "2",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Health",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Stamina",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Mana",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Status Effect",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
+    "marks": [
+      ["Rectangle", "Text"],
+      ["Rectangle", "Rectangle_Array"],
+      ["Line"],
+      ["Symbol", "Text"]
+    ],
+    "channels": [
+      ["Length", "Colour"],
+      ["Length", "Colour"],
+      ["Text"],
+      ["Shape", "Text"]
+    ],
+    "vis_name": "player stats",
+    "vis_usage": ["Player"],
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Top", "Left"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Various stats for the player (health, stamina, mana).",
+      "Brighter represents XP gained.",
+      "Brighter represents health remaining."
+    ],
+    "tags": ["Health", "Status Effect"]
+  },
+  {
+    "game_id": "17",
+    "screenshot_id": "2",
     "vis_id": "l2",
     "data": [
       [
@@ -8626,64 +8622,6 @@
   {
     "game_id": "17",
     "screenshot_id": "2",
-    "vis_id": "l1",
-    "data": [
-      [
-        {
-          "data_value": "Health",
-          "data_type": "Quantitative"
-        }
-      ],
-      [
-        {
-          "data_value": "Stamina",
-          "data_type": "Quantitative"
-        }
-      ],
-      [
-        {
-          "data_value": "Mana",
-          "data_type": "Quantitative"
-        }
-      ],
-      [
-        {
-          "data_value": "Status Effect",
-          "data_type": "Nominal"
-        }
-      ]
-    ],
-    "marks": [
-      ["Rectangle", "Text"],
-      ["Rectangle", "Rectangle_Array"],
-      ["Line"],
-      ["Symbol", "Text"]
-    ],
-    "channels": [
-      ["Length", "Colour"],
-      ["Length", "Colour"],
-      ["Text"],
-      ["Shape", "Text"]
-    ],
-    "vis_name": "player stats",
-    "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Top", "Left"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Local", false]],
-    "notes": [
-      "Various stats for the player (health, stamina, mana).",
-      "Brighter represents XP gained.",
-      "Brighter represents health remaining."
-    ],
-    "tags": ["Health", "Status Effect"]
-  },
-  {
-    "flagged": true,
-    "game_id": "17",
-    "screenshot_id": "3",
     "vis_id": "l5",
     "data": [
       [
