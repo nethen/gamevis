@@ -2613,6 +2613,28 @@
   },
   {
     "game_id": "7",
+    "screenshot_id": "7",
+    "vis_id": "ge1",
+    "data": [
+      [{ "data_value": "Round time remaining", "data_type": "Temporal" }]
+    ],
+    "marks": [["Bar", "Text"]],
+    "channels": [["Length", "Text"]],
+    "vis_name": "Round timer",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Global", true]],
+    "notes": [],
+    "tags": ["Round", "Progression", "Timer", "Alert"]
+  },
+  {
+    "game_id": "7",
     "screenshot_id": "8",
     "vis_id": "le1b",
     "data": [
@@ -8291,7 +8313,7 @@
   {
     "game_id": "16",
     "screenshot_id": "3",
-    "vis_id": "g1a",
+    "vis_id": "g1",
     "data": [
       [
         {
@@ -8317,7 +8339,7 @@
   {
     "game_id": "16",
     "screenshot_id": "3",
-    "vis_id": "g1b",
+    "vis_id": "g2",
     "data": [
       [
         {
