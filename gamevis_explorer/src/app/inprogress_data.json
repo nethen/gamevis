@@ -246,7 +246,7 @@
   {
     "game_id": "1",
     "screenshot_id": "3",
-    "vis_id": "g1a",
+    "vis_id": "ge1a",
     "data": [
       [
         {
@@ -269,7 +269,7 @@
       "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
-    "vis_visibility": [["Global", false]],
+    "vis_visibility": [["Global", true]],
     "notes": [
       "Reduces in size as shield decreases",
       "colored based on player order"
@@ -5306,6 +5306,136 @@
       "A yellow bar fills from left to right, with the middle vertical bar as a checkpoint for resuming defusing."
     ],
     "tags": ["Timer"]
+  },
+  {
+    "game_id": "12",
+    "screenshot_id": "1",
+    "vis_id": "l1",
+    "data": [
+      [
+        { "data_value": "Item name", "data_type": "Nominal" },
+        { "data_value": "Item type", "data_type": "Nominal" }
+      ],
+      [
+        { "data_value": "Stat", "data_type": "Nominal" },
+        { "data_value": "Stat value", "data_type": "Quantitative" }
+      ]
+    ],
+    "marks": [
+      ["Rectangle", "Text"],
+      ["Text", "Text_Array"]
+    ],
+    "channels": [["Hue", "Text"], ["Text"]],
+    "vis_name": "Item details",
+    "vis_usage": ["Game", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Players can hover over an item to get a what it does",
+      "Modal with text and symbpol",
+      "There's some symbols representing (1) how much the item costs, (2) item cooldown, (3) special effect like stuns, etc"
+    ]
+  },
+
+  {
+    "game_id": "12",
+    "screenshot_id": "1",
+    "vis_id": "l2",
+    "data": [
+      [
+        { "data_value": "buff", "data_type": "Nominal" },
+        { "data_value": "buff value", "data_type": "Quantitative" },
+        { "data_value": "player affected", "data_type": "Nominal" }
+      ]
+    ],
+    "marks": [["Image", "Text"]],
+    "channels": [["Shape", "Image", "Text"]],
+    "vis_name": "Team buffs",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Old vis name: Teammates buffs",
+      "DATA VALUE originally: Buffs or debuffs that the team has, could be about speed, could be about defense",
+      "Channels: Illustration shows which character has the buff, a shape symbol represents the buff type, and text details the buff",
+      "Position is relative as it is placed above items"
+    ]
+  },
+  {
+    "game_id": "12",
+    "screenshot_id": "1",
+    "vis_id": "l3",
+    "data": [
+      [
+        { "data_value": "Items", "data_type": "Nominal" },
+        { "data_value": "Item type", "data_type": "Nominal" },
+        { "data_value": "Item strength", "data_type": "Ordinal" }
+      ]
+    ],
+    "marks": [["Symbol", "Rectangle"]],
+    "channels": [["Hue", "Shape", "Text"]],
+    "vis_name": "Items",
+    "vis_usage": ["Game", "Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Original data: List of items that players can purchase in stores (either when they die or by entering a store in the map purchased using souls)",
+      "Groups skills into weapon, vitality, and spirit. Roman numerals denote rarity; higher numbers are rarer and more expensive."
+    ]
+  },
+  {
+    "game_id": "12",
+    "screenshot_id": "1",
+    "vis_id": "l4",
+    "data": [
+      [{ "data_value": "Health value", "data_type": "Quantitative" }],
+      [{ "data_value": "Next level progress", "data_type": "Quantitative" }],
+      [
+        { "data_value": "Shield type", "data_type": "Nominal" },
+        { "data_value": "Shield value", "data_type": "Quantitative" }
+      ]
+    ],
+    "marks": [
+      ["Rectangle", "Text"],
+      ["Path", "Text"],
+      ["Rectangle", "Text"]
+    ],
+    "channels": [
+      ["Length", "Hue", "Text"],
+      ["Length", "Text"],
+      ["Length", "Text"]
+    ],
+    "vis_name": "Player health bar",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Left"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Original annotation: The white bar is the main health bar with additional orange and purple ones from items, while the potion-shaped bar acts as a level counter for skill upgrades/increased health."
+    ]
   },
   {
     "game_id": "12",
