@@ -7,6 +7,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Annotation, VisUsage } from "./types/types";
 import { FilterNav, useFilterContext } from "./components/Nav/FilterNav";
 import { DEV_CLIENT_PAGES_MANIFEST } from "next/dist/shared/lib/constants";
+import { TagGraph } from "./components/Vis/TagGraph";
 
 const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
 
@@ -90,7 +91,6 @@ export default function Page() {
         filters.game != "" ? item.game_id == filters.game : true
       );
   }, [filteredMetadata, filters]);
-
   // console.log(meta);
 
   useEffect(() => {
@@ -228,12 +228,12 @@ export default function Page() {
           </section>
         </nav> */}
         <FilterNav />
-        <div className="p-4 grid grid-rows-3 grid-cols-3 gap-2 h-full min-h-[40rem]">
+        <div className="p-4 grid grid-rows-3 grid-cols-3 gap-8 h-full min-h-[40rem]">
           {["Top", "Middle", "Bottom"].map((yDimension) => {
             return ["Left", "Middle", "Right"].map((xDimension) => {
               return (
                 <section
-                  className={`bg-neutral-800 rounded-2xl p-4 flex flex-col gap-2 ${
+                  className={`flex flex-col gap-2 ${
                     filterByXY(filteredData, yDimension, xDimension).length > 0
                       ? ""
                       : "opacity-10"
@@ -289,29 +289,17 @@ export default function Page() {
                         )}
                       </hgroup>
                       <div className="overflow-auto size-full flex flex-col divide-neutral-700 divide-y">
-                        <div className="">
-                          <h4 className="font-bold">Tags</h4>
-                          <ul>
-                            {Object.entries(
-                              filterByXY(filteredData, yDimension, xDimension)
-                                .flatMap((item) => item.tags || [])
-                                .reduce((acc, tag) => {
-                                  acc[tag] = (acc[tag] || 0) + 1;
-                                  return acc;
-                                }, {} as Record<string, number>)
-                            )
-                              .sort((a, b) => b[1] - a[1]) // Sort by count in descending order
-                              .map(([tag, count], i) => (
-                                <li
-                                  key={`taglist-${yDimension}-${xDimension}-${i}`}
-                                >
-                                  <span className="text-sm">
-                                    {tag}: {count}
-                                  </span>
-                                </li>
-                              ))}
-                          </ul>
-                        </div>
+                        <TagGraph
+                          data={filterByXY(
+                            filteredData,
+                            yDimension,
+                            xDimension
+                          )}
+                          dimensions={{
+                            x: xDimension,
+                            y: yDimension,
+                          }}
+                        />
                         {filters.game != "" || filters.genre.length > 0 ? (
                           <ul className="flex flex-wrap gap-4 size-full">
                             {filterByXY(filteredData, yDimension, xDimension)
