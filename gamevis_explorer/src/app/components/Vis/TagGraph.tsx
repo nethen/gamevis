@@ -20,7 +20,7 @@ export const TagGraph = ({
           >
             <span className="text-sm">{record[0]}</span>
             <div className="flex gap-2">
-              <span className="w-6 text-right">{record[1]}</span>
+              <span className="w-8 text-right">{record[1]}</span>
               <div
                 className="bg-neutral-500 rounded-sm px-1"
                 style={{

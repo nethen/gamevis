@@ -77,3 +77,15 @@ type Position = {
 };
 
 type VisibilityEphemerality = ["Global" | "Local", boolean];
+
+export enum Y_DIMENSIONS {
+  Top,
+  Middle,
+  Bottom,
+}
+
+export enum X_DIMENSIONS {
+  Left,
+  Middle,
+  Right,
+}

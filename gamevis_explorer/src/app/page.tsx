@@ -8,6 +8,7 @@ import { Annotation, VisUsage } from "./types/types";
 import { FilterNav, useFilterContext } from "./components/Nav/FilterNav";
 import { DEV_CLIENT_PAGES_MANIFEST } from "next/dist/shared/lib/constants";
 import { TagGraph } from "./components/Vis/TagGraph";
+import { X_DIMENSIONS, Y_DIMENSIONS } from "./types/types";
 
 const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
 
@@ -62,34 +63,42 @@ export default function Page() {
   }, [filters]);
 
   const filteredData = useMemo<Annotation[][]>(() => {
-    const result = ["Top", "Middle", "Bottom"].flatMap((yDimension, i) =>
-      ["Left", "Middle", "Right"].map((xDimension, j) =>
-        data
-          .filter((item) =>
-            filters.coords.length > 0
-              ? filters.coords.includes(item.vis_position.coords)
-              : true
-          )
-          .filter((item) =>
-            filters.relativity.length > 0
-              ? filters.relativity.includes(item.vis_position.screen_relativity)
-              : true
-          )
-          .filter((item) =>
-            filteredMetadata.some((subitem) => subitem.id == item.game_id)
-          )
-          .filter((item) =>
-            filters.game != "" ? item.game_id == filters.game : true
-          )
-          .filter((item) =>
-            "relative_position" in item.vis_position
-              ? item.vis_position.relative_position?.[0] == yDimension &&
-                item.vis_position.relative_position[1] == xDimension
-              : item.vis_position.screen_position?.[0] == yDimension &&
-                item.vis_position.screen_position[1] == xDimension
-          )
-      )
-    );
+    const result = Object.keys(Y_DIMENSIONS)
+      .filter((v) => isNaN(Number(v)))
+      .flatMap((yDimension, i) =>
+        Object.keys(X_DIMENSIONS)
+          .filter((v) => isNaN(Number(v)))
+          .map((xDimension, j) => {
+            console.log(yDimension);
+            console.log(xDimension);
+            return data
+              .filter((item) =>
+                filters.coords.length > 0
+                  ? filters.coords.includes(item.vis_position.coords)
+                  : true
+              )
+              .filter((item) =>
+                filters.relativity.length > 0
+                  ? filters.relativity.includes(
+                      item.vis_position.screen_relativity
+                    )
+                  : true
+              )
+              .filter((item) =>
+                filteredMetadata.some((subitem) => subitem.id == item.game_id)
+              )
+              .filter((item) =>
+                filters.game != "" ? item.game_id == filters.game : true
+              )
+              .filter((item) =>
+                "relative_position" in item.vis_position
+                  ? item.vis_position.relative_position?.[0] == yDimension &&
+                    item.vis_position.relative_position[1] == xDimension
+                  : item.vis_position.screen_position?.[0] == yDimension &&
+                    item.vis_position.screen_position[1] == xDimension
+              );
+          })
+      );
     return result;
   }, [filteredMetadata, filters]);
 
@@ -149,12 +158,24 @@ export default function Page() {
     console.log(tagStats);
   }, [tagStats]);
 
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
   return (
     <div className="flex fixed inset-0">
-      <nav className="overflow-auto min-w-[20rem] border-r border-neutral-800">
-        <h2 className="text-sm mb-2 sticky top-0 p-8 pb-2 bg-background z-20 font-semibold tracking-wider text-foreground/50">
-          Games
-        </h2>
+      <nav
+        className={`overflow-auto border-r border-neutral-800 ${
+          sidebarOpen ? "w-[24rem] px-4" : "w-12"
+        } transition-all duration-300 ease-in-out`}
+      >
+        <hgroup className="flex justify-between items-center h-20 pt-8 pb-2 sticky top-0 text-sm bg-background z-20 font-semibold tracking-wider text-foreground/50">
+          {sidebarOpen && <h2>Games</h2>}
+          <button
+            onClick={() => {
+              setSidebarOpen(!sidebarOpen);
+            }}
+            className="size-8 bg-neutral-800 rounded-full"
+          ></button>
+        </hgroup>
         <div className="mb-8">
           <ul className="flex flex-col gap-4 mb-4 px-8 pb-16">
             {filteredMetadata.map((item, i) => {
@@ -231,7 +252,7 @@ export default function Page() {
                   {filteredData[x + 3 * y].length > 0 && (
                     <>
                       <hgroup className="flex justify-between mb-2">
-                        <h3 className="text-2xl font-medium">
+                        <h3 className="text-lg font-medium">
                           {yDimension}{" "}
                           {xDimension != yDimension ? xDimension : null}
                         </h3>
@@ -314,219 +335,230 @@ export default function Page() {
         </div>
       </main>
       {filters.position[0] != "" && filters.position[1] != "" ? (
-        // <div className="fixed inset-0 bg-background/95 p-16 overflow-auto z-100">
-        //   <div className="relative">
-        //     <section className="sticky top-0 -mx-3 pl-6 p-2 bg-neutral-900 z-10 rounded-lg mb-8 flex gap-8 items-stretch">
-        //       <hgroup>
-        //         <h2 className="text-lg">
-        //           {filters.position[0]} {filters.position[1]}
-        //         </h2>
-        //         <p>
-        //           {
-        //             filterByXY(
-        //               filteredData[0],
-        //               filters.position[0],
-        //               filters.position[1]
-        //             ).length
-        //           }{" "}
-        //           annotations
-        //         </p>
-        //       </hgroup>
-        //       <form
-        //         className="flex gap-4"
-        //         onChange={(e) => {
-        //           const formData = new FormData(e.currentTarget);
-        //           const selectedStates = Array.from(formData.entries()).map(
-        //             ([name, value]) => value.toString()
-        //           );
-        //           setFilters({ ...filters, usages: selectedStates });
-        //           console.log("Selected states:", selectedStates);
-        //         }}
-        //       >
-        //         {["Player", "Enemy", "Game", "Environment"].map((item, i) => (
-        //           <div
-        //             key={`usage-check-${item.toLowerCase()}`}
-        //             className="flex gap-2 items-center"
-        //           >
-        //             <input type="checkbox" name={`state-${i}`} value={item} />
-        //             <label htmlFor={`state-${i}`}>
-        //               {item} (
-        //               {
-        //                 filterByXY(
-        //                   filteredData[0],
-        //                   filters.position[0],
-        //                   filters.position[1]
-        //                 ).filter((subitem) =>
-        //                   subitem.vis_usage.includes(item as VisUsage)
-        //                 ).length
-        //               }
-        //               )
-        //             </label>
-        //             {}
-        //           </div>
-        //         ))}
-        //         {/* <div>
-        //           <input type="checkbox" name="state2" value="Enemy" />
-        //           <label htmlFor="state2">Enemy</label>
-        //         </div>
-        //         <div>
-        //           <input type="checkbox" name="state3" value="Environment" />
-        //           <label htmlFor="state3">Environment</label>
-        //         </div>
-        //         <div>
-        //           <input type="checkbox" name="state4" value="Game" />
-        //           <label htmlFor="state4">Game</label>
-        //         </div> */}
-        //       </form>
-        //       <button
-        //         className="ml-auto p-4 py-2 rounded-md bg-neutral-700 cursor-pointer"
-        //         onClick={() => {
-        //           setFilters({ ...filters, position: ["", ""], usages: [] });
-        //         }}
-        //       >
-        //         Close
-        //       </button>
-        //     </section>
-        //     {[
-        //       ...new Set(
-        //         filterByXY(
-        //           filteredData[x + 3 * y],
-        //           filters.position[0],
-        //           filters.position[1]
-        //         ).flatMap((item) =>
-        //           item.tags ? item.tags.map((tag) => tag) : "N/A"
-        //         )
-        //       ),
-        //     ].map((tag) => (
-        //       <div key={`tag-group-${tag}`} className="mb-12">
-        //         <h3 className="text-xl border-t border-neutral-500">{tag}</h3>
-        //         <ul className="flex flex-wrap gap-4 ">
-        //           {filteredData[x + 3 * y]
+        <div className="fixed inset-0 bg-background/95 p-16 overflow-auto z-100">
+          <div className="relative">
+            <section className="sticky top-0 -mx-3 pl-6 p-2 bg-neutral-900 z-10 rounded-lg mb-8 flex gap-8 items-stretch">
+              <hgroup>
+                <h2 className="text-lg">
+                  {filters.position[0]} {filters.position[1]}
+                </h2>
+                <p>
+                  {
+                    filterByXY(
+                      filteredData[0],
+                      filters.position[0],
+                      filters.position[1]
+                    ).length
+                  }{" "}
+                  annotations
+                </p>
+              </hgroup>
+              <form
+                className="flex gap-4"
+                onChange={(e) => {
+                  const formData = new FormData(e.currentTarget);
+                  const selectedStates = Array.from(formData.entries()).map(
+                    ([name, value]) => value.toString()
+                  );
+                  setFilters({ ...filters, usages: selectedStates });
+                  console.log("Selected states:", selectedStates);
+                }}
+              >
+                {["Player", "Enemy", "Game", "Environment"].map((item, i) => (
+                  <div
+                    key={`usage-check-${item.toLowerCase()}`}
+                    className="flex gap-2 items-center"
+                  >
+                    <input type="checkbox" name={`state-${i}`} value={item} />
+                    <label htmlFor={`state-${i}`}>
+                      {item} (
+                      {
+                        filterByXY(
+                          filteredData[0],
+                          filters.position[0],
+                          filters.position[1]
+                        ).filter((subitem) =>
+                          subitem.vis_usage.includes(item as VisUsage)
+                        ).length
+                      }
+                      )
+                    </label>
+                    {}
+                  </div>
+                ))}
+                {/* <div>
+                  <input type="checkbox" name="state2" value="Enemy" />
+                  <label htmlFor="state2">Enemy</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="state3" value="Environment" />
+                  <label htmlFor="state3">Environment</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="state4" value="Game" />
+                  <label htmlFor="state4">Game</label>
+                </div> */}
+              </form>
+              <button
+                className="ml-auto p-4 py-2 rounded-md bg-neutral-700 cursor-pointer"
+                onClick={() => {
+                  setFilters({ ...filters, position: ["", ""], usages: [] });
+                }}
+              >
+                Close
+              </button>
+            </section>
+            {[
+              ...new Set(
+                filteredData[
+                  Object.keys(X_DIMENSIONS)
+                    .filter((v) => isNaN(Number(v)))
+                    .findIndex((v) => v == filters.position[1]) +
+                    3 *
+                      Object.keys(Y_DIMENSIONS)
+                        .filter((v) => isNaN(Number(v)))
+                        .findIndex((v) => v == filters.position[0])
+                ].flatMap((item) =>
+                  item.tags ? item.tags.map((tag) => tag) : "N/A"
+                )
+              ),
+            ].map((tag) => (
+              <div key={`tag-group-${tag}`} className="mb-12">
+                <h3 className="text-xl border-t border-neutral-500">{tag}</h3>
+                <ul className="flex flex-wrap gap-4 ">
+                  {filteredData[
+                    Object.keys(X_DIMENSIONS)
+                      .filter((v) => isNaN(Number(v)))
+                      .findIndex((v) => v == filters.position[1]) +
+                      3 *
+                        Object.keys(Y_DIMENSIONS)
+                          .filter((v) => isNaN(Number(v)))
+                          .findIndex((v) => v == filters.position[0])
+                  ]
 
-        //             .filter((item) => item.tags?.includes(tag))
-        //             .map((item, i) => (
-        //               <li
-        //                 key={"modal-item-" + i}
-        //                 className={`${
-        //                   filters.usages.length == 0 ||
-        //                   item.vis_usage.some((usage) =>
-        //                     filters.usages.includes(usage)
-        //                   )
-        //                     ? "-order-1 opacity-100"
-        //                     : "opacity-10"
-        //                 }`}
-        //               >
-        //                 <hgroup
-        //                   className={`${
-        //                     filters.usages.length == 0 ||
-        //                     item.vis_usage.some((usage) =>
-        //                       filters.usages.includes(usage)
-        //                     )
-        //                       ? "opacity-100"
-        //                       : "opacity-10"
-        //                   }`}
-        //                 >
-        //                   <span className="uppercase font-bold tracking-widest text-xs">
-        //                     {item.game_id +
-        //                       "_" +
-        //                       item.screenshot_id +
-        //                       "_" +
-        //                       item.vis_id}
-        //                   </span>
-        //                   <div className="flex gap-4 items-center">
-        //                     <h5 className="text-lg">{item.vis_name}</h5>
-        //                     <ul className="flex gap-2">
-        //                       {item.vis_usage.map((usage, i) => (
-        //                         <li
-        //                           key={i}
-        //                           className={`px-2 bg-neutral-800 rounded-full leading-none flex`}
-        //                         >
-        //                           <span className="text-sm">
-        //                             {usage == "Environment"
-        //                               ? "Ev"
-        //                               : usage.substring(0, 2)}
-        //                           </span>
-        //                         </li>
-        //                       ))}
-        //                     </ul>
-        //                   </div>
-        //                 </hgroup>
-        //                 <img
-        //                   loading="lazy"
-        //                   className={`
-        //               mb-4`}
-        //                   // className={`${item.vis_usage.includes(
-        //                   //   "Player`"
-        //                   // )} ? "bg-red-500" : ""`}
-        //                   src={
-        //                     "/games/" +
-        //                     item.game_id +
-        //                     "_" +
-        //                     item.screenshot_id +
-        //                     "_" +
-        //                     item.vis_id +
-        //                     ".jpg"
-        //                   }
-        //                   alt={item.notes.join(", ")}
-        //                 />
+                    .filter((item) => item.tags?.includes(tag))
+                    .map((item, i) => (
+                      <li
+                        key={"modal-item-" + i}
+                        className={`${
+                          filters.usages.length == 0 ||
+                          item.vis_usage.some((usage) =>
+                            filters.usages.includes(usage)
+                          )
+                            ? "-order-1 opacity-100"
+                            : "opacity-10"
+                        }`}
+                      >
+                        <hgroup
+                          className={`${
+                            filters.usages.length == 0 ||
+                            item.vis_usage.some((usage) =>
+                              filters.usages.includes(usage)
+                            )
+                              ? "opacity-100"
+                              : "opacity-10"
+                          }`}
+                        >
+                          <span className="uppercase font-bold tracking-widest text-xs">
+                            {item.game_id +
+                              "_" +
+                              item.screenshot_id +
+                              "_" +
+                              item.vis_id}
+                          </span>
+                          <div className="flex gap-4 items-center">
+                            <h5 className="text-lg">{item.vis_name}</h5>
+                            <ul className="flex gap-2">
+                              {item.vis_usage.map((usage, i) => (
+                                <li
+                                  key={i}
+                                  className={`px-2 bg-neutral-800 rounded-full leading-none flex`}
+                                >
+                                  <span className="text-sm">
+                                    {usage == "Environment"
+                                      ? "Ev"
+                                      : usage.substring(0, 2)}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </hgroup>
+                        <img
+                          loading="lazy"
+                          className={`
+                      mb-4`}
+                          // className={`${item.vis_usage.includes(
+                          //   "Player`"
+                          // )} ? "bg-red-500" : ""`}
+                          src={
+                            "/games/" +
+                            item.game_id +
+                            "_" +
+                            item.screenshot_id +
+                            "_" +
+                            item.vis_id +
+                            ".jpg"
+                          }
+                          alt={item.notes.join(", ")}
+                        />
 
-        //                 <ul className="flex flex-wrap gap-4">
-        //                   {item.data.map((dataGroup, i) => (
-        //                     <li key={i} className={`flex flex-col`}>
-        //                       <div className="text-sm flex flex-col flex-wrap">
-        //                         {dataGroup.map((data, j) => (
-        //                           <span
-        //                             key={j}
-        //                             className={`
-        //                         ${
-        //                           data.data_type == "Nominal"
-        //                             ? "text-red-400"
-        //                             : data.data_type == "Ordinal"
-        //                             ? "text-amber-400"
-        //                             : data.data_type == "Quantitative"
-        //                             ? "text-blue-400"
-        //                             : data.data_type == "Spatial"
-        //                             ? "text-green-400"
-        //                             : data.data_type == "Temporal"
-        //                             ? "text-purple-400"
-        //                             : "text-foreground"
-        //                         } font-bold`}
-        //                           >
-        //                             {data.data_value}
-        //                           </span>
-        //                         ))}
-        //                       </div>
-        //                       <span className="text-sm opacity-50">
-        //                         M:{" "}
-        //                         {Array.isArray(item.marks[i])
-        //                           ? item.marks[i].map((item) => item).join(", ")
-        //                           : "N/A"}
-        //                       </span>
-        //                       <span className="text-sm opacity-50">
-        //                         C:{" "}
-        //                         {Array.isArray(item.channels[i])
-        //                           ? item.channels[i]
-        //                               .map((item) => item)
-        //                               .join(", ")
-        //                           : "N/A"}
-        //                       </span>
-        //                       <span className="text-sm opacity-50">
-        //                         T:{" "}
-        //                         {item.tags
-        //                           ? item.tags.map((item) => item).join(", ")
-        //                           : "N/A"}
-        //                       </span>
-        //                     </li>
-        //                   ))}
-        //                 </ul>
-        //               </li>
-        //             ))}
-        //         </ul>
-        //       </div>
-        //     ))}
-        //   </div>
-        // </div>
-        <div />
+                        <ul className="flex flex-wrap gap-4">
+                          {item.data.map((dataGroup, i) => (
+                            <li key={i} className={`flex flex-col`}>
+                              <div className="text-sm flex flex-col flex-wrap">
+                                {dataGroup.map((data, j) => (
+                                  <span
+                                    key={j}
+                                    className={`
+                                ${
+                                  data.data_type == "Nominal"
+                                    ? "text-red-400"
+                                    : data.data_type == "Ordinal"
+                                    ? "text-amber-400"
+                                    : data.data_type == "Quantitative"
+                                    ? "text-blue-400"
+                                    : data.data_type == "Spatial"
+                                    ? "text-green-400"
+                                    : data.data_type == "Temporal"
+                                    ? "text-purple-400"
+                                    : "text-foreground"
+                                } font-bold`}
+                                  >
+                                    {data.data_value}
+                                  </span>
+                                ))}
+                              </div>
+                              <span className="text-sm opacity-50">
+                                M:{" "}
+                                {Array.isArray(item.marks[i])
+                                  ? item.marks[i].map((item) => item).join(", ")
+                                  : "N/A"}
+                              </span>
+                              <span className="text-sm opacity-50">
+                                C:{" "}
+                                {Array.isArray(item.channels[i])
+                                  ? item.channels[i]
+                                      .map((item) => item)
+                                      .join(", ")
+                                  : "N/A"}
+                              </span>
+                              <span className="text-sm opacity-50">
+                                T:{" "}
+                                {item.tags
+                                  ? item.tags.map((item) => item).join(", ")
+                                  : "N/A"}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
       ) : null}
     </div>
   );
