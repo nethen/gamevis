@@ -12,7 +12,7 @@ export const TagGraph = ({
   return (
     <div className="">
       {/* <h4 className="font-bold">Tags</h4> */}
-      <ul className="flex flex-col gap-2 mb-4 pr-4">
+      <ul className="flex flex-col gap-2 mb-4">
         {data.map((record, i) => (
           <li
             key={`taglist-${dimensions.y}-${dimensions.x}-${i}`}
@@ -21,12 +21,14 @@ export const TagGraph = ({
             <span className="text-sm">{record[0]}</span>
             <div className="flex gap-2">
               <span className="w-8 text-right">{record[1]}</span>
-              <div
-                className="bg-neutral-500 rounded-sm px-1"
-                style={{
-                  width: ((record[1] / baseline) * 100).toString() + "%",
-                }}
-              ></div>
+              <div className="w-full flex">
+                <div
+                  className="bg-neutral-500 rounded-sm"
+                  style={{
+                    width: ((record[1] / baseline) * 100).toString() + "%",
+                  }}
+                />
+              </div>
             </div>
           </li>
         ))}
