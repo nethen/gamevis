@@ -1127,7 +1127,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Dangerous area",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -1364,7 +1364,8 @@
     "vis_usage": ["Environment"],
     "vis_position": {
       "screen_relativity": "Relative",
-      "screen_position": "danger area within world map",
+      "relative_to": "danger area within world map",
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -2597,7 +2598,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Weapon reticle",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -6758,7 +6759,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Player",
-      "screen_position": ["Top", "Middle"],
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", false]],
@@ -6787,7 +6788,8 @@
     "vis_usage": ["Player", "Environment"],
     "vis_position": {
       "screen_relativity": "Relative",
-      "screen_position": "ally position",
+      "relative_to": "ally",
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -6820,7 +6822,8 @@
     "vis_usage": ["Player", "Enemy", "Environment"],
     "vis_position": {
       "screen_relativity": "Relative",
-      "screen_position": "opponent position",
+      "relative_to":"opponent",
+      "relative_position": "opponent position",
       "coords": "Camera"
     },
     "vis_visibility": [["Global", true]],
@@ -7492,7 +7495,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "usable items/abilities",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -8211,7 +8214,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "building",
-      "screen_position": "Above",
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -9749,7 +9752,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "character card",
-      "screen_position": ["Middle", "Left"],
+      "relative_position": ["Middle", "Left"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -9945,14 +9948,13 @@
     "channels": [["Position", "Shape", "Luminance"]],
     "vis_name": "Light up path",
     "vis_usage": ["Environment"],
-    "vis_position": [
+    "vis_position": 
       {
         "screen_relativity": "Relative",
         "relative_to": "destination",
         "relative_position": ["Middle", "Middle"],
         "coords": "Camera"
-      }
-    ],
+      },
     "vis_visibility": [["Local", false]],
     "notes": [
       "A path will show up to lead the player to 1b. It flashes in and out of the screen."
@@ -10135,7 +10137,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "enemy",
-      "screen_position": ["Top", "Middle"],
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", false]],
@@ -10627,7 +10629,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player selection",
-      "screen_position": "player selection",
+      "relative_position": "player selection",
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -10684,7 +10686,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "mission location",
-      "screen_position": "circle thing on top of the place/item",
+      "relative_position": "circle thing on top of the place/item",
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -10779,7 +10781,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player",
-      "screen_position": "Bottom Left",
+      "relative_position": "Bottom Left",
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -10922,7 +10924,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "where the item is at",
-      "screen_position": ["Top", "Left"],
+      "relative_position": ["Top", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -10953,7 +10955,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Stratagem",
-      "screen_position": ["Bottom", "Right"],
+      "relative_position": ["Bottom", "Right"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -11329,7 +11331,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "waypoint position",
-      "screen_position": [],
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -11533,7 +11535,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "selected enemy",
-      "Relative_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -11787,7 +11789,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "mission",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -11871,7 +11873,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "points",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -11952,7 +11954,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "waypoint position",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -12135,7 +12137,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "enemy",
-      "realtive_position": ["Middle", "Top"],
+      "relative_position": ["Middle", "Top"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -12242,7 +12244,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Mission location",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", false]],
@@ -12308,7 +12310,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Player",
-      "realtive_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -12539,7 +12541,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "ability",
-      "realtive_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -12629,7 +12631,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "enemy",
-      "realtive_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -12684,7 +12686,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player",
-      "screen_position": ["Top", "Left"],
+      "relative_position": ["Top", "Left"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -12717,7 +12719,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "item",
-      "screen_position": ["Middle", "Top"],
+      "relative_position": ["Middle", "Top"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -12884,7 +12886,8 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Relative",
-      "realtive_position": ["Top", "Left"],
+      "relative_to":"Weapons menu",
+      "relative_position": ["Top", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", true]],
@@ -12910,7 +12913,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Enemy",
-      "screen_position": ["Top", "Middle"],
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -12938,7 +12941,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "enemy",
-      "screen_position": ["Top", "Middle"],
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -12996,7 +12999,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player position",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -13025,7 +13028,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Player input",
-      "screen_position": "Where is shrine",
+      "relative_position": "Where is shrine",
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -13192,14 +13195,13 @@
     "channels": [["Hue", "Luminance", "Position", "Size"]],
     "vis_name": "Magnet item indicator",
     "vis_usage": ["Player"],
-    "vis_position": [
+    "vis_position": 
       {
         "screen_relativity": "Relative",
         "relative_to": "item",
         "relative_position": ["Middle", "Middle"],
         "coords": "World"
-      }
-    ],
+      },
     "vis_visibility": [["Local", false]],
     "notes": [
       "When using a magnesis rune, the item being selected will be highlighted yellow"
@@ -13349,7 +13351,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "item",
-      "screen_position": "Where is object",
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -13379,7 +13381,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "mission location",
-      "screen_position": "",
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -13409,7 +13411,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "interactable object",
-      "screen_position": "",
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -13435,7 +13437,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "interactable object",
-      "screen_position": "N/A",
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -13555,7 +13557,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "inventory weapon",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -13581,7 +13583,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "selected weapon",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -13607,7 +13609,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "weapon",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -13661,7 +13663,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Player",
-      "screen_position": "",
+      "relative_position": ["Middle","Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", true]],
@@ -14117,7 +14119,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Inventory wheel",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", true]],
@@ -14143,7 +14145,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "1a",
-      "screen_position": "Middle",
+      "relative_position":[ "Middle","Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", true]],
@@ -14218,7 +14220,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "work table",
-      "screen_position": "Above",
+      "relative_position": ["Top","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -14272,7 +14274,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "table",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -14300,7 +14302,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Hit location",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -14326,7 +14328,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "enemy",
-      "screen_position": ["Top", "Middle"],
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", false]],
@@ -14790,7 +14792,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Enemy position",
-      "screen_position": "Above enemy",
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -14819,7 +14821,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Enemy position",
-      "screen_position": "Above enemy",
+      "relative_position": ["Top","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -14847,7 +14849,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player",
-      "screen_position": "Above player",
+      "relative_position": ["Top","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -14901,7 +14903,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "environment",
-      "screen_position": "Randomly generated",
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -14927,7 +14929,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "enemy",
-      "screen_position": "Around the enemy",
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -14960,7 +14962,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Enemy position",
-      "screen_position": "Above enemy",
+      "relative_position": ["Top","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -15023,7 +15025,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "selected boon",
-      "screen_position": "Right",
+      "relative_position": ["Right", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -15049,7 +15051,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "enemy attacking",
-      "screen_position": "Overlay",
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -15712,7 +15714,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player input",
-      "relative_position": ["Top"],
+      "relative_position": ["Top","Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -15766,7 +15768,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "hit location",
-      "relative_position": ["Top"],
+      "relative_position": ["Top","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -15881,7 +15883,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player",
-      "relative_position": ["Top"],
+      "relative_position": ["Top","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -16022,7 +16024,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player input",
-      "screen_position": "above",
+      "relative_position": ["Top","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -16714,7 +16716,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "card",
-      "relative_position": ["Middle"],
+      "relative_position": ["Middle","Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -18179,7 +18181,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Craftable item",
-      "relative_position": ["Middle"],
+      "relative_position": ["Middle","Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -19693,7 +19695,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "character",
-      "relative_position": ["Middle"],
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -19781,7 +19783,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "attack",
-      "relative_position": ["Middle"],
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", false]],
@@ -20056,7 +20058,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "voting screen",
-      "relative_position": ["Bottom"],
+      "relative_position": ["Bottom","Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -20794,7 +20796,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Field diagram",
-      "relative_position": ["Bottom"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -22294,7 +22296,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player input",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -22344,14 +22346,12 @@
     "channels": [["Shape", "Text"]],
     "vis_name": "Crafting Recipe",
     "vis_usage": ["Game"],
-    "vis_position": [
-      {
+    "vis_position": {
         "screen_relativity": "Relative",
         "relative_to": "crafting menu",
         "relative_position": ["Middle", "Middle"],
         "coords": "Camera"
-      }
-    ],
+      },
     "vis_visibility": [["Local", false]],
     "notes": [
       "A specific crafting recipe and/or its category (eg. if its a food item, tools) or the actual recipe (Air ladder)"
@@ -22377,7 +22377,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "hovered item",
-      "screen_position": ["Bottom", "Right"],
+      "relative_position": ["Bottom", "Right"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -22831,7 +22831,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "character",
-      "screen_position": "Around",
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -23109,7 +23109,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "hero",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -23135,7 +23135,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player",
-      "screen_position": "Bottom",
+      "relative_position": ["Bottom","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", false]],
@@ -23164,7 +23164,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player board",
-      "screen_position": ["Bottom", "Right"],
+      "relative_position": ["Bottom", "Right"],
       "coords": "World"
     },
     "vis_visibility": ["Global", false],
@@ -23230,7 +23230,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "item being placed",
-      "screen_position": ["Bottom", "Right"],
+      "relative_position": ["Bottom", "Right"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -23393,7 +23393,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player serving the ball",
-      "screen_position": ["Top", "Middle"],
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -23422,7 +23422,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player",
-      "screen_position": ["Bottom", "Middle"],
+      "relative_position": ["Bottom", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", true]],
@@ -23477,7 +23477,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player",
-      "screen_position": ["Bottom", "Middle"],
+      "relative_position": ["Bottom", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", true]],
@@ -23834,7 +23834,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player",
-      "screen_position": "left",
+      "relative_position": "left",
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -25720,14 +25720,12 @@
     "channels": [["Hue", "Line"]],
     "vis_name": "Note Tracking",
     "vis_usage": ["Player"],
-    "vis_position": [
-      {
+    "vis_position": {
         "screen_relativity": "Relative",
         "relative_to": "consecutive notes",
         "screen_position": ["Middle", "Middle"],
         "coords": "World"
-      }
-    ],
+      },
     "vis_visibility": [["Local", true]],
     "notes": [
       "Based on the specific fret colour (i.e. yellow in this case).",
@@ -25828,14 +25826,12 @@
     "channels": [["Colour", "Shape"]],
     "vis_name": "Star-shaped notes",
     "vis_usage": ["Game"],
-    "vis_position": [
-      {
+    "vis_position": {
         "screen_relativity": "Relative",
         "relative_to": "note position",
         "relative_position": ["Middle", "Middle"],
         "coords": "World"
-      }
-    ],
+      },
     "vis_visibility": [["Local", false]],
     "notes": [
       "This visualization contributes to star power meter if the entire sequence is hit."
@@ -26143,14 +26139,13 @@
     "channels": [["Image", "Shape"]],
     "vis_name": "player position in map",
     "vis_usage": ["Player"],
-    "vis_position": [
+    "vis_position":
       {
         "screen_relativity": "Relative",
         "relative_to": "position within the track",
         "screen_position": ["Middle", "Middle"],
         "coords": "Camera"
-      }
-    ],
+      },
     "vis_visibility": [["Global", false]],
     "notes": [
       "Lets the player see the track layout for the race & where everyone is located.",
@@ -26212,14 +26207,12 @@
     "channels": [["Hue"]],
     "vis_name": "Drift Type",
     "vis_usage": ["Player"],
-    "vis_position": [
-      {
-        "screen_relativity": "Relative",
+    "vis_position": {
+      "screen_relativity": "Relative",
         "relative_to": "your player wheels",
         "relative_position": ["Bottom", "Middle"],
         "coords": "World"
-      }
-    ],
+      },
     "vis_visibility": [["Global", true]],
     "notes": [
       "Depending on how long the player holds the drift, it changes the colour near the wheel.",
@@ -26402,14 +26395,12 @@
     "channels": [["Position", "Shape"]],
     "vis_name": "Player Indicator",
     "vis_usage": ["Player"],
-    "vis_position": [
-      {
+    "vis_position":{
         "screen_relativity": "Relative",
         "relative_to": "opponent",
         "relative_position": ["Middle", "Bottom"],
         "coords": "World"
-      }
-    ],
+      },
     "vis_visibility": [["Global", false]],
     "notes": [
       "Black circle under the player but this is customizable",
@@ -27021,7 +27012,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "structure",
-      "screen_position": "relative",
+      "relative_position": "relative",
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -27136,7 +27127,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "selected item",
-      "screen_position": "Top Right",
+      "relative_position": "Top Right",
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -27169,7 +27160,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "equipped box",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -27288,7 +27279,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "selected item",
-      "screen_position": "Top Right",
+      "relative_position": "Top Right",
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -29907,7 +29898,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "mission location",
-      "screen_position": "N/A",
+      "relative_position": "N/A",
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -31471,7 +31462,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "enemy",
-      "screen_position": "Above",
+      "relative_position": "Above",
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -31812,7 +31803,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "NPC position",
-      "screen_position": "NPC position",
+      "relative_position": "NPC position",
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -32718,7 +32709,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Hiding spot",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -33469,7 +33460,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "inventory",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -33499,7 +33490,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "World region",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -33529,7 +33520,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Point of interest within world",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -33559,7 +33550,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Point of interest within world",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
