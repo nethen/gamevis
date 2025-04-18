@@ -11,8 +11,8 @@ export const TagGraph = ({
 }) => {
   return (
     <div className="">
-      <h4 className="font-bold">Tags</h4>
-      <ul className="flex flex-col gap-2 mb-4">
+      {/* <h4 className="font-bold">Tags</h4> */}
+      <ul className="flex flex-col gap-2 mb-4 pr-4">
         {data.map((record, i) => (
           <li
             key={`taglist-${dimensions.y}-${dimensions.x}-${i}`}

@@ -96,6 +96,19 @@ export default function Page() {
   }, [filteredMetadata, filters]);
 
   const tagStats = useMemo(() => {
+    console.log(filteredData);
+    console.log(
+      filteredData.map((array) =>
+        Object.entries(
+          array
+            .flatMap((item) => item.tags || [])
+            .reduce((acc, tag) => {
+              acc[tag] = (acc[tag] || 0) + 1;
+              return acc;
+            }, {} as Record<string, number>)
+        ).sort((a, b) => b[1] - a[1])
+      )
+    );
     return {
       value: filteredData.map((array) =>
         Object.entries(
@@ -120,6 +133,8 @@ export default function Page() {
             ).sort((a, b) => b[1] - a[1])
           )
           .map((array) => {
+            console.log(array[0]);
+            if (array[0] == undefined) return 0;
             return array[0][1];
           })
       ),
@@ -248,13 +263,14 @@ export default function Page() {
                           </div>
                         )}
                       </hgroup>
-                      <div className="overflow-auto size-full flex flex-col divide-neutral-700 divide-y">
+
+                      <div className="overflow-auto size-full flex flex-col p-4 bg-neutral-900 divide-neutral-700 divide-y">
                         <TagGraph
                           data={tagStats.value[x + 3 * y]}
                           dimensions={{ x: xDimension, y: yDimension }}
                           baseline={tagStats.max}
                         />
-                        {filters.game != "" || filters.genre.length > 0 ? (
+                        {/* {filters.game != "" || filters.genre.length > 0 ? (
                           <ul className="flex flex-wrap gap-4 size-full">
                             {filteredData[x + 3 * y]
                               .filter(
@@ -274,22 +290,22 @@ export default function Page() {
                                         item.vis_id}
                                     </span>
                                   </hgroup>
-                                  {/* <img
-                                  loading="lazy"
-                                  src={
-                                    "/games/" +
-                                    item.game_id +
-                                    "_" +
-                                    item.screenshot_id +
-                                    "_" +
-                                    item.vis_id +
-                                    ".jpg"
-                                  }
-                                /> */}
+                                  <img
+                                    loading="lazy"
+                                    src={
+                                      "/games/" +
+                                      item.game_id +
+                                      "_" +
+                                      item.screenshot_id +
+                                      "_" +
+                                      item.vis_id +
+                                      ".jpg"
+                                    }
+                                  /> 
                                 </li>
                               ))}
                           </ul>
-                        ) : null}
+                        ) : null} */}
                       </div>
                     </>
                   )}
