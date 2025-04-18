@@ -6,6 +6,7 @@ const data: Annotation[] = rawData as unknown as Annotation[];
 import { useEffect, useMemo, useState } from "react";
 import { Annotation, VisUsage } from "./types/types";
 import { FilterNav, useFilterContext } from "./components/Nav/FilterNav";
+import { DEV_CLIENT_PAGES_MANIFEST } from "next/dist/shared/lib/constants";
 
 const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
 
@@ -117,7 +118,7 @@ export default function Page() {
   return (
     <div className="flex fixed inset-0">
       <nav className="overflow-auto min-w-[20rem] border-r border-neutral-800">
-        <h2 className="text-sm mb-2 sticky top-0 p-8 pb-2 bg-background z-50">
+        <h2 className="text-sm mb-2 sticky top-0 p-8 pb-2 bg-background z-20 font-semibold tracking-wider text-foreground/50">
           Games
         </h2>
         <div className="mb-8">
@@ -232,87 +233,124 @@ export default function Page() {
             return ["Left", "Middle", "Right"].map((xDimension) => {
               return (
                 <section
-                  className="bg-neutral-800 rounded-lg p-4 flex flex-col gap-2"
+                  className={`bg-neutral-800 rounded-2xl p-4 flex flex-col gap-2 ${
+                    filterByXY(filteredData, yDimension, xDimension).length > 0
+                      ? ""
+                      : "opacity-10"
+                  }`}
                   key={`section-${yDimension.toLowerCase()}-${xDimension.toLowerCase()}`}
                 >
-                  <hgroup className="flex justify-between items-center">
-                    <h3 className="text-lg font-semibold">
-                      {yDimension}{" "}
-                      {xDimension != yDimension ? xDimension : null}
-                      {/* {filterByXY(filteredData, yDimension, xDimension).length} */}
-                    </h3>
-                    <button
-                      className="px-3 py-1 rounded-sm bg-neutral-500 uppercase font-bold tracking-widest text-xs cursor-pointer"
-                      onClick={() => {
-                        setFilters({
-                          ...filters,
-                          position: [yDimension, xDimension],
-                        });
-                      }}
-                    >
-                      View all
-                    </button>
-                  </hgroup>
-                  <div className="overflow-auto size-full flex flex-col divide-neutral-700 divide-y *:py-2">
-                    <div className="">
-                      <h4 className="font-bold">Tags</h4>
-                      <ul>
-                        {Object.entries(
-                          filterByXY(filteredData, yDimension, xDimension)
-                            .flatMap((item) => item.tags || [])
-                            .reduce((acc, tag) => {
-                              acc[tag] = (acc[tag] || 0) + 1;
-                              return acc;
-                            }, {} as Record<string, number>)
-                        )
-                          .sort((a, b) => b[1] - a[1]) // Sort by count in descending order
-                          .map(([tag, count], i) => (
-                            <li
-                              key={`taglist-${yDimension}-${xDimension}-${i}`}
-                            >
-                              <span className="text-sm">
-                                {tag}: {count}
-                              </span>
-                            </li>
-                          ))}
-                      </ul>
-                    </div>
-                    {filters.game != "" || filters.genre.length > 0 ? (
-                      <ul className="flex flex-wrap gap-4 size-full">
+                  {filterByXY(filteredData, yDimension, xDimension).length >
+                    0 && (
+                    <>
+                      <hgroup className="flex justify-between mb-2">
+                        <h3 className="text-2xl font-medium">
+                          {yDimension}{" "}
+                          {xDimension != yDimension ? xDimension : null}
+                        </h3>
                         {filterByXY(filteredData, yDimension, xDimension)
-                          .filter(
-                            (item) =>
-                              filters.game == "" || item.game_id == filters.game
-                          )
-                          .map((item, i) => (
-                            <li key={i} className="">
-                              <hgroup>
-                                <h5>{item.vis_name}</h5>
-                                <span className="uppercase font-bold tracking-widest text-xs">
-                                  {item.game_id +
+                          .length > 0 && (
+                          <div className="flex gap-4">
+                            <div className="text-sm font-semibold text-right">
+                              <span className="text-foreground/50">
+                                Listing
+                              </span>{" "}
+                              <br />
+                              <span>
+                                {
+                                  filterByXY(
+                                    filteredData,
+                                    yDimension,
+                                    xDimension
+                                  ).length
+                                }{" "}
+                                snapshot
+                                {filterByXY(
+                                  filteredData,
+                                  yDimension,
+                                  xDimension
+                                ).length == 1
+                                  ? ""
+                                  : "s"}
+                              </span>
+                            </div>
+                            <button
+                              className="px-3 leading-0 rounded-full bg-neutral-500 font-bold text-sm cursor-pointer"
+                              onClick={() => {
+                                setFilters({
+                                  ...filters,
+                                  position: [yDimension, xDimension],
+                                });
+                              }}
+                            >
+                              View all
+                            </button>
+                          </div>
+                        )}
+                      </hgroup>
+                      <div className="overflow-auto size-full flex flex-col divide-neutral-700 divide-y">
+                        <div className="">
+                          <h4 className="font-bold">Tags</h4>
+                          <ul>
+                            {Object.entries(
+                              filterByXY(filteredData, yDimension, xDimension)
+                                .flatMap((item) => item.tags || [])
+                                .reduce((acc, tag) => {
+                                  acc[tag] = (acc[tag] || 0) + 1;
+                                  return acc;
+                                }, {} as Record<string, number>)
+                            )
+                              .sort((a, b) => b[1] - a[1]) // Sort by count in descending order
+                              .map(([tag, count], i) => (
+                                <li
+                                  key={`taglist-${yDimension}-${xDimension}-${i}`}
+                                >
+                                  <span className="text-sm">
+                                    {tag}: {count}
+                                  </span>
+                                </li>
+                              ))}
+                          </ul>
+                        </div>
+                        {filters.game != "" || filters.genre.length > 0 ? (
+                          <ul className="flex flex-wrap gap-4 size-full">
+                            {filterByXY(filteredData, yDimension, xDimension)
+                              .filter(
+                                (item) =>
+                                  filters.game == "" ||
+                                  item.game_id == filters.game
+                              )
+                              .map((item, i) => (
+                                <li key={i} className="">
+                                  <hgroup>
+                                    <h5>{item.vis_name}</h5>
+                                    <span className="uppercase font-bold tracking-widest text-xs">
+                                      {item.game_id +
+                                        "_" +
+                                        item.screenshot_id +
+                                        "_" +
+                                        item.vis_id}
+                                    </span>
+                                  </hgroup>
+                                  {/* <img
+                                  loading="lazy"
+                                  src={
+                                    "/games/" +
+                                    item.game_id +
                                     "_" +
                                     item.screenshot_id +
                                     "_" +
-                                    item.vis_id}
-                                </span>
-                              </hgroup>
-                              {/* <img
-                                loading="lazy"
-                                src={
-                                  "/games/" +
-                                  item.game_id +
-                                  "_" +
-                                  item.screenshot_id +
-                                  "_" +
-                                  item.vis_id +
-                                  ".jpg"
-                                }
-                              /> */}
-                            </li>
-                          ))}
-                      </ul>
-                    ) : null}
-                  </div>
+                                    item.vis_id +
+                                    ".jpg"
+                                  }
+                                /> */}
+                                </li>
+                              ))}
+                          </ul>
+                        ) : null}
+                      </div>
+                    </>
+                  )}
                 </section>
               );
             });
@@ -320,7 +358,7 @@ export default function Page() {
         </div>
       </main>
       {filters.position[0] != "" && filters.position[1] != "" ? (
-        <div className="fixed inset-0 bg-background/95 p-16 overflow-auto">
+        <div className="fixed inset-0 bg-background/95 p-16 overflow-auto z-100">
           <div className="relative">
             <section className="sticky top-0 -mx-3 pl-6 p-2 bg-neutral-900 z-10 rounded-lg mb-8 flex gap-8 items-stretch">
               <hgroup>
