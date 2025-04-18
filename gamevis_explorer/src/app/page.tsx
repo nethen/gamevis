@@ -76,9 +76,7 @@ export default function Page() {
               : true
           )
           .filter((item) =>
-            filters.genre.length > 0
-              ? filteredMetadata.some((subitem) => subitem.id == item.game_id)
-              : true
+            filteredMetadata.some((subitem) => subitem.id == item.game_id)
           )
           .filter((item) =>
             filters.game != "" ? item.game_id == filters.game : true
