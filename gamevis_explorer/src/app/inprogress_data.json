@@ -1426,6 +1426,29 @@
     "tags": ["Vitals", "Health"]
   },
   {
+    "game_id": "5",
+    "screenshot_id": "11",
+    "vis_id": "ge1",
+    "data": [[{ "data_value": "Kill info", "data_type": "Nominal" }]],
+    "marks": [["Text", "Symbol"]],
+    "channels": [["Text", "Shape"]],
+    "vis_name": "Kill info",
+    "vis_usage": ["Game", "Player", "Enemy"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Top", "Right"],
+        "coords": "Screen"
+      }
+    ],
+    "vis_visibility": [["Global", true]],
+    "notes": [
+      "Lets everyone in game see what happened recently.",
+      "What weapon was used."
+    ],
+    "tags": ["Alert", "Round", "Combat"]
+  },
+  {
     "game_id": "6",
     "screenshot_id": "1",
     "vis_id": "g1a",
@@ -2907,7 +2930,7 @@
   {
     "game_id": "7",
     "screenshot_id": "14",
-    "vis_id": "ge1a",
+    "vis_id": "ge1",
     "data": [
       [
         {
@@ -9910,6 +9933,35 @@
   {
     "game_id": "19",
     "screenshot_id": "4",
+    "vis_id": "l3",
+    "data": [
+      [
+        { "data_value": "Waypoint type", "data_type": "Nominal" },
+        { "data_value": "Mission location", "data_type": "Spatial" },
+        { "data_value": "Waypoint availability", "data_type": "Ordinal" }
+      ]
+    ],
+    "marks": [["Symbol"]],
+    "channels": [["Position", "Shape", "Luminance"]],
+    "vis_name": "Light up path",
+    "vis_usage": ["Environment"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "destination",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "A path will show up to lead the player to 1b. It flashes in and out of the screen."
+    ],
+    "tags": ["Wayfinding"]
+  },
+  {
+    "game_id": "19",
+    "screenshot_id": "4",
     "vis_id": "l4",
     "data": [
       [
@@ -11096,6 +11148,29 @@
     "vis_visibility": [["Local", false]],
     "notes": [],
     "tags": ["Abilities", "Weapons"]
+  },
+  {
+    "game_id": "21",
+    "screenshot_id": "2",
+    "vis_id": "l2",
+    "data": [[{ "data_value": "Weapon equipped", "data_type": "Nominal" }]],
+    "marks": [["Symbol"]],
+    "channels": [["Shape"], ["Text"]],
+    "vis_name": "Weapon equipped",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Bottom", "Right"],
+        "coords": "Screen"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Shows player what weapon they're holding",
+      "How much ammo is left"
+    ],
+    "tags": ["Equipment", "Ammo"]
   },
   {
     "game_id": "21",
@@ -12422,7 +12497,7 @@
   },
   {
     "game_id": "24",
-    "screenshot_id": "5",
+    "screenshot_id": "6",
     "vis_id": "le1",
     "data": [
       [
@@ -12621,7 +12696,7 @@
   },
   {
     "game_id": "25",
-    "screenshot_id": "1",
+    "screenshot_id": "2",
     "vis_id": "l1",
     "data": [
       [
@@ -13109,36 +13184,32 @@
     "vis_id": "l1",
     "data": [
       [
-        {
-          "data_value": "Rune property type",
-          "data_type": "Nominal"
-        },
-        {
-          "data_value": "Rune position",
-          "data_type": "Spatial"
-        }
+        { "data_value": "Item Selected", "data_type": "Nominal" },
+        { "data_value": "Rune position", "data_type": "Spatial" }
       ]
     ],
     "marks": [["Area", "Symbol"]],
-    "channels": [["Hue", "Luminance", "Shape", "Position", "Depth", "Size"]],
+    "channels": [["Hue", "Luminance", "Position", "Size"]],
     "vis_name": "Magnet item indicator",
     "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Relative",
-      "relative_to": "item",
-      "relative_position": ["Middle", "Middle"],
-      "coords": "World"
-    },
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "item",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "World"
+      }
+    ],
     "vis_visibility": [["Local", false]],
     "notes": [
-      "If players try to use the magnetic rune, it'll highlight things in the area that can be interacted with.Pink glow around object to show magnetize."
+      "When using a magnesis rune, the item being selected will be highlighted yellow"
     ],
     "tags": ["Ability"]
   },
   {
     "game_id": "25",
     "screenshot_id": "10",
-    "vis_id": "l1",
+    "vis_id": "l2",
     "data": [
       [
         {
@@ -15482,60 +15553,7 @@
     "notes": [],
     "tags": ["Status Effect", "Vitals"]
   },
-  {
-    "game_id": "32",
-    "screenshot_id": "4",
-    "vis_id": "le2",
-    "data": [
-      [
-        {
-          "data_value": "Slots filled",
-          "data_type": "Quantitative"
-        }
-      ]
-    ],
-    "marks": [["Image", "Text"]],
-    "channels": [["Shape", "Text"]],
-    "vis_name": "Full inventory",
-    "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Left"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Local", true]],
-    "notes": ["Pops up when inventory is full."],
-    "tags": ["Inventory"]
-  },
-  {
-    "game_id": "32",
-    "screenshot_id": "4",
-    "vis_id": "l3",
-    "data": [
-      [
-        {
-          "data_value": "Item held",
-          "data_type": "Ordinal"
-        }
-      ]
-    ],
-    "marks": [["Shape"]],
-    "channels": [["Position"], ["Shape", "Luminance"]],
-    "vis_name": "Item held",
-    "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Relative",
-      "relative_to": "Cursor",
-      "relative_position": ["Middle", "Middle"],
-      "coords": "World"
-    },
-    "vis_visibility": [["Local", false]],
-    "notes": [
-      "Whatever the player is holding right now will have the red square around it.",
-      "The red border around the item."
-    ],
-    "tags": ["Inventory"]
-  },
+
   {
     "game_id": "32",
     "screenshot_id": "1",
@@ -15706,6 +15724,31 @@
   },
   {
     "game_id": "32",
+    "screenshot_id": "3",
+    "vis_id": "l1",
+    "data": [
+      [
+        { "data_value": "Player skills", "data_type": "Nominal" },
+        { "data_value": "Level", "data_type": "Quantitative" }
+      ]
+    ],
+    "marks": [["Rectangle", "Symbol", "Text"]],
+    "channels": [["Shape", "Length", "Size", "Text"]],
+    "vis_name": "Player Stats",
+    "vis_usage": ["Player"],
+    "vis_position": [
+      {
+        "screen_relativity": "Screen",
+        "screen_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Ability"]
+  },
+  {
+    "game_id": "32",
     "screenshot_id": "4",
     "vis_id": "ge1",
     "data": [
@@ -15764,6 +15807,60 @@
       "Includes how much they picked up if more than 1."
     ],
     "tags": ["Item"]
+  },
+  {
+    "game_id": "32",
+    "screenshot_id": "4",
+    "vis_id": "le2",
+    "data": [
+      [
+        {
+          "data_value": "Slots filled",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Image", "Text"]],
+    "channels": [["Shape", "Text"]],
+    "vis_name": "Full inventory",
+    "vis_usage": ["Player"],
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Left"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Local", true]],
+    "notes": ["Pops up when inventory is full."],
+    "tags": ["Inventory"]
+  },
+  {
+    "game_id": "32",
+    "screenshot_id": "4",
+    "vis_id": "l3",
+    "data": [
+      [
+        {
+          "data_value": "Item held",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Shape"]],
+    "channels": [["Position"], ["Shape", "Luminance"]],
+    "vis_name": "Item held",
+    "vis_usage": ["Player"],
+    "vis_position": {
+      "screen_relativity": "Relative",
+      "relative_to": "Cursor",
+      "relative_position": ["Middle", "Middle"],
+      "coords": "World"
+    },
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Whatever the player is holding right now will have the red square around it.",
+      "The red border around the item."
+    ],
+    "tags": ["Inventory"]
   },
   {
     "game_id": "32",
@@ -17085,33 +17182,6 @@
     "data": [
       [
         {
-          "data_value": "Money",
-          "data_type": "Quantitative"
-        }
-      ]
-    ],
-    "marks": [["Symbol", "Text"]],
-    "channels": [["Text"]],
-    "vis_name": "Player money",
-    "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Left"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Local", false]],
-    "notes": [
-      "Bells are in-game currency players use to upgrade houses, buy furniture, build buildings, etc"
-    ],
-    "tags": ["Currency"]
-  },
-  {
-    "game_id": "35",
-    "screenshot_id": "3",
-    "vis_id": "l1",
-    "data": [
-      [
-        {
           "data_value": "Lap",
           "data_type": "Quantitative"
         },
@@ -18342,6 +18412,33 @@
       "When navigating the inventory slot, the item being 'selected' right now will have the background color behind their icon and the name of the item written above it."
     ],
     "tags": ["Item"]
+  },
+  {
+    "game_id": "38",
+    "screenshot_id": "3",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Money",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Text"]],
+    "channels": [["Text"]],
+    "vis_name": "Player money",
+    "vis_usage": ["Player"],
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Left"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Local", false]],
+    "notes": [
+      "Bells are in-game currency players use to upgrade houses, buy furniture, build buildings, etc"
+    ],
+    "tags": ["Currency"]
   },
   {
     "game_id": "38",
@@ -19664,7 +19761,7 @@
     ],
     "tags": ["Ability"]
   },
- 
+
   {
     "game_id": "40",
     "screenshot_id": "2",
@@ -22236,31 +22333,30 @@
   {
     "game_id": "46",
     "screenshot_id": "3",
-    "vis_id": "l1",
+    "vis_id": "l2",
     "data": [
       [
-        {
-          "data_value": "Crafting recipes",
-          "data_type": "Nominal"
-        }
+        { "data_value": "Crafting categories", "data_type": "Nominal" },
+        { "data_value": "Recipe count", "data_type": "Quantitative" }
       ]
     ],
-    "marks": [["Symbol"]],
-    "channels": [["Shape", "Colour"]],
-    "vis_name": "Crafting Menu",
-    "vis_usage": ["Game", "Player"],
-    "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": ["Middle", "Middle"],
-      "coords": "Camera"
-    },
+    "marks": [["Symbol", "Text"]],
+    "channels": [["Shape", "Text"]],
+    "vis_name": "Crafting Recipe",
+    "vis_usage": ["Game"],
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "crafting menu",
+        "relative_position": ["Middle", "Middle"],
+        "coords": "Camera"
+      }
+    ],
     "vis_visibility": [["Local", false]],
     "notes": [
-      "The players can do crafting recipes.",
-      "The crafting menu allows players to see individual recipes through submenus.",
-      "The icons represent different crafting categories."
+      "A specific crafting recipe and/or its category (eg. if its a food item, tools) or the actual recipe (Air ladder)"
     ],
-    "tags": ["Item"]
+    "tags": ["Inventory"]
   },
   {
     "game_id": "46",
@@ -22459,42 +22555,6 @@
     "vis_visibility": [["Global", false]],
     "notes": [
       "Health bar is always in blue by default (can change in settings though)"
-    ],
-    "tags": ["Health", "Stats", "Progression"]
-  },
-  {
-    "game_id": "47",
-    "screenshot_id": "1",
-    "vis_id": "g1",
-    "data": [
-      [
-        {
-          "data_value": "Opponent Name",
-          "data_type": "Nominal"
-        },
-        {
-          "data_value": "Opponent Level",
-          "data_type": "Ordinal"
-        },
-        {
-          "data_value": "Opponent Health",
-          "data_type": "Quantitative"
-        }
-      ]
-    ],
-    "marks": [["Text"], ["Text"], ["Rectangle"]],
-    "channels": [["Text"], ["Text"], ["Length"]],
-    "vis_name": "Opponent Info",
-    "vis_usage": ["Enemy"],
-    "vis_position": {
-      "screen_relativity": "Relative",
-      "relative_to": "players' mascot",
-      "relative_position": ["Top", "Middle"],
-      "coords": "World"
-    },
-    "vis_visibility": [["Global", false]],
-    "notes": [
-      "Health bar is always in green by default (can change in settings though)"
     ],
     "tags": ["Health", "Stats", "Progression"]
   },
@@ -22806,6 +22866,42 @@
       "Illustration of the items and text for quantity of certain items like wrenches."
     ],
     "tags": ["Item"]
+  },
+  {
+    "game_id": "47",
+    "screenshot_id": "3",
+    "vis_id": "g2",
+    "data": [
+      [
+        {
+          "data_value": "Opponent Name",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Opponent Level",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Opponent Health",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Text"], ["Text"], ["Rectangle"]],
+    "channels": [["Text"], ["Text"], ["Length"]],
+    "vis_name": "Opponent Info",
+    "vis_usage": ["Enemy"],
+    "vis_position": {
+      "screen_relativity": "Relative",
+      "relative_to": "players' mascot",
+      "relative_position": ["Top", "Middle"],
+      "coords": "World"
+    },
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Health bar is always in green by default (can change in settings though)"
+    ],
+    "tags": ["Health", "Stats", "Progression"]
   },
   {
     "game_id": "47",
@@ -26295,32 +26391,28 @@
   {
     "game_id": "53",
     "screenshot_id": "1",
-    "vis_id": "g2",
+    "vis_id": "g3",
     "data": [
       [
-        {
-          "data_value": "Player character",
-          "data_type": "Nominal"
-        },
-        {
-          "data_value": "Player position",
-          "data_type": "Spatial"
-        }
+        { "data_value": "Opponent", "data_type": "Nominal" },
+        { "data_value": "Opponent position", "data_type": "Spatial" }
       ]
     ],
-    "marks": [["Circle", "Area"], ["Symbol"]],
-    "channels": [["Position"], ["Colour", "Luminance"], ["Shape"]],
+    "marks": [["Circle", "Area"]],
+    "channels": [["Position", "Shape"]],
     "vis_name": "Player Indicator",
     "vis_usage": ["Player"],
-    "vis_position": {
-      "screen_relativity": "Relative",
-      "relative_to": "selected player",
-      "relative_position": ["Middle", "Bottom"],
-      "coords": "World"
-    },
+    "vis_position": [
+      {
+        "screen_relativity": "Relative",
+        "relative_to": "opponent",
+        "relative_position": ["Middle", "Bottom"],
+        "coords": "World"
+      }
+    ],
     "vis_visibility": [["Global", false]],
     "notes": [
-      "Red circle under the player but this is customizable",
+      "Black circle under the player but this is customizable",
       "Star symbol used to indicate a high-rated player at this position."
     ],
     "tags": ["Character"]
@@ -28764,7 +28856,7 @@
   {
     "game_id": "58",
     "screenshot_id": "3",
-    "vis_id": "l1",
+    "vis_id": "l3",
     "data": [
       [
         {
@@ -29117,7 +29209,7 @@
   {
     "game_id": "59",
     "screenshot_id": "2",
-    "vis_id": "l1",
+    "vis_id": "l2",
     "data": [
       [
         {
@@ -30945,6 +31037,35 @@
   {
     "game_id": "64",
     "screenshot_id": "3",
+    "vis_id": "g1",
+    "data": [
+      [
+        {
+          "data_value": "Damage dealt",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Symbol", "Text"]],
+    "channels": [["Position", "Text"]],
+    "vis_name": "Damage Dealt",
+    "vis_usage": ["Enemy", "Player"],
+    "vis_position": {
+      "screen_relativity": "Relative",
+      "relative_to": "enemy/card",
+      "relative_position": ["Middle", "Middle"],
+      "coords": "Camera"
+    },
+    "vis_visibility": [["Global", false]],
+    "notes": [
+      "Displays a QUANTITATIVE value representing the amount of damage inflicted.",
+      "White text overlay displays the amount of damage, using a bold font."
+    ],
+    "tags": ["Damage"]
+  },
+  {
+    "game_id": "64",
+    "screenshot_id": "3",
     "vis_id": "g2",
     "data": [
       [
@@ -30975,7 +31096,7 @@
   {
     "game_id": "64",
     "screenshot_id": "3",
-    "vis_id": "g1",
+    "vis_id": "g3",
     "data": [
       [
         {
@@ -31006,35 +31127,7 @@
     ],
     "tags": ["Ability"]
   },
-  {
-    "game_id": "64",
-    "screenshot_id": "3",
-    "vis_id": "g1",
-    "data": [
-      [
-        {
-          "data_value": "Damage dealt",
-          "data_type": "Quantitative"
-        }
-      ]
-    ],
-    "marks": [["Symbol", "Text"]],
-    "channels": [["Position", "Text"]],
-    "vis_name": "Damage Dealt",
-    "vis_usage": ["Enemy", "Player"],
-    "vis_position": {
-      "screen_relativity": "Relative",
-      "relative_to": "enemy/card",
-      "relative_position": ["Middle", "Middle"],
-      "coords": "Camera"
-    },
-    "vis_visibility": [["Global", false]],
-    "notes": [
-      "Displays a QUANTITATIVE value representing the amount of damage inflicted.",
-      "White text overlay displays the amount of damage, using a bold font."
-    ],
-    "tags": ["Damage"]
-  },
+
   {
     "game_id": "64",
     "screenshot_id": "4",
@@ -31901,28 +31994,28 @@
   {
     "game_id": "67",
     "screenshot_id": "1",
-    "vis_id": "le1",
+    "vis_id": "l2",
     "data": [
       [
         {
-          "data_value": "Equipment battery",
-          "data_type": "Quantitative"
+          "data_value": "Mission location",
+          "data_type": "Spatial"
         }
       ]
     ],
-    "marks": [["Path", "Symbol", "Symbol_Array"]],
-    "channels": [["Luminance", "Length"]],
-    "vis_name": "Equipment battery",
-    "vis_usage": ["Player"],
+    "marks": [["Symbol"]],
+    "channels": [["Position"]],
+    "vis_name": "Mission location",
+    "vis_usage": ["Player", "Environment", "Game"],
     "vis_position": {
       "screen_relativity": "Relative",
-      "relative_to": "Player tool",
-      "relative_position": ["Middle", "Middle"],
+      "relative_to": "Mission location",
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
     "notes": [],
-    "tags": ["Equipment", "Ammo"]
+    "tags": ["Progression", "Wayfinding"]
   },
   {
     "game_id": "67",
@@ -32055,6 +32148,32 @@
     "vis_visibility": [["Local", false]],
     "notes": [],
     "tags": ["Vitals", "Health", "Equipment", "Ammo"]
+  },
+  {
+    "game_id": "67",
+    "screenshot_id": "3",
+    "vis_id": "l1",
+    "data": [
+      [
+        {
+          "data_value": "Equipment battery",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
+    "marks": [["Path", "Symbol", "Symbol_Array"]],
+    "channels": [["Luminance", "Length"]],
+    "vis_name": "Equipment battery",
+    "vis_usage": ["Player"],
+    "vis_position": {
+      "screen_relativity": "Relative",
+      "relative_to": "Player tool",
+      "relative_position": ["Middle", "Middle"],
+      "coords": "World"
+    },
+    "vis_visibility": [["Local", false]],
+    "notes": [],
+    "tags": ["Equipment", "Ammo"]
   },
   {
     "game_id": "67",
@@ -32579,32 +32698,6 @@
     "vis_visibility": [["Local", false]],
     "notes": [],
     "tags": ["Combat", "Wayfinding", "Vitals", "Health", "Experience"]
-  },
-  {
-    "game_id": "68",
-    "screenshot_id": "1",
-    "vis_id": "l2",
-    "data": [
-      [
-        {
-          "data_value": "Mission location",
-          "data_type": "Spatial"
-        }
-      ]
-    ],
-    "marks": [["Symbol"]],
-    "channels": [["Position"]],
-    "vis_name": "Mission location",
-    "vis_usage": ["Player", "Environment", "Game"],
-    "vis_position": {
-      "screen_relativity": "Relative",
-      "relative_to": "Mission location",
-      "relative_position": ["Top", "Middle"],
-      "coords": "World"
-    },
-    "vis_visibility": [["Local", false]],
-    "notes": [],
-    "tags": ["Progression", "Wayfinding"]
   },
   {
     "game_id": "68",
