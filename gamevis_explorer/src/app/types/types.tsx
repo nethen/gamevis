@@ -11,6 +11,7 @@ export type Annotation = {
   vis_visibility: VisibilityEphemerality[];
   notes: string[];
   tags?: string[];
+  flagged?: boolean;
 };
 
 export type Data = {
