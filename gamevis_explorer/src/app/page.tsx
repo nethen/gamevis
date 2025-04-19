@@ -1,13 +1,12 @@
 "use client";
 // import Image from "next/image";
-import meta from "@/app/meta.json";
-// import rawData from "@/app/fixed_annotations.json";
-import rawData from "@/app/inprogress_data.json";
+import { Annotation, Metadata } from "./types/types";
+import rawMeta from "@/app/data/meta.json";
+import rawData from "@/app/data/inprogress_data.json";
 const data: Annotation[] = rawData as unknown as Annotation[];
+const meta: Metadata[] = rawMeta as unknown as Metadata[];
 import { useEffect, useMemo, useState } from "react";
-import { Annotation, VisUsage } from "./types/types";
 import { FilterNav, useFilterContext } from "./components/Nav/FilterNav";
-import { DEV_CLIENT_PAGES_MANIFEST } from "next/dist/shared/lib/constants";
 import { TagGraph } from "./components/Vis/TagGraph";
 import { X_DIMENSIONS, Y_DIMENSIONS } from "./types/types";
 import { EnlargedView } from "./components/EnlargedView/EnlargedView";
@@ -240,7 +239,7 @@ export default function Page() {
         )}
       </nav>
       <main className="max-h-screen w-full relative flex flex-col">
-        <FilterNav />
+        <FilterNav meta={meta} />
         <div className="p-4 grid grid-rows-3 grid-cols-3 gap-8 h-full min-h-[40rem]">
           {["Top", "Middle", "Bottom"].map((yDimension, y) => {
             return ["Left", "Middle", "Right"].map((xDimension, x) => {

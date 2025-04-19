@@ -1,0 +1,72 @@
+id,name,Developer,Publisher,Origin,year_of_release,genre,has_multiplayer,max_multiplayer,has_coop,has_ranked,perspective,rtd,gt,cltp,if,score
+1,Super Smash Bros. Ultimate,"Bandai Namco, Sora Ltd, ",Nintendo,Japan,2018,Fighter,TRUE,8,TRUE,TRUE,2D,3,3,2,3,11
+2,Mortal Kombat One,"NetherRealm, QLOC",Warner Bros. Games,USA,2024,Fighter,TRUE,2,,TRUE,2D,3,2,3,3,11
+3,Tekken 8,Bandai Namco,Bandai Namco,Japan,2024,Fighter,TRUE,2,,TRUE,2D,3,2,3,3,11
+4,Street Fighter 6,Capcom,Capcom,Japan,2023,Fighter,TRUE,2,,TRUE,2D,3,2,3,3,11
+5,PUBG: Battlegrounds,PUBG Corporation,KRAFTON,South Korea,2017,Team Shooter,TRUE,100,TRUE,TRUE,3D,2,2,3,2,9
+6,Counter-Strike 2,Valve,Valve,USA,2023,Team Shooter,TRUE,10,TRUE,TRUE,3D,3,2,3,2,10
+7,Apex Legends,Respawn,Electronic Arts,USA,2019,Team Shooter,TRUE,60,TRUE,TRUE,3D,3,3,3,2,11
+8,Call of Duty,"Treyarch, Raven Software, Beenox, High Moon Studios, Activision, Sledgehammer Games, Infinity Ward, Demonware, Toys for Bob",Activision,USA,2022,Team Shooter,TRUE,100,TRUE,TRUE,3D,3,3,2,2,10
+9,Marvel Rivals,NetEase,NetEase,China,2024,Team Shooter,TRUE,12,TRUE,TRUE,3D,2,3,3,3,11
+10,Fortnite,Epic Games,Epic Games,USA,2017,Team Shooter,TRUE,100,TRUE,TRUE,3D,2,2,3,2,9
+11,Valorant,Riot Games,Riot Games,USA,2020,Team Shooter,TRUE,10,TRUE,TRUE,3D,3,2,3,2,10
+12,Deadlock,Valve,Valve,USA,TBA,Team Shooter,TRUE,12,TRUE,TRUE,3D,3,2,3,2,10
+13,Splatoon 3,Nintendo,Nintendo,Japan,2022,Team Shooter,TRUE,8,TRUE,TRUE,3D,3,3,2,2,10
+14,Dota 2,Valve,Valve,USA,2013,Real-time Strategy,TRUE,10,TRUE,TRUE,3D,2,2,3,3,10
+15,World of Warships,Wargaming Group Limited,Wargaming Group Limited,Cyprus,2015,Real-time Strategy,TRUE,24,TRUE,TRUE,3D,1,1,2,1,5
+16,Starcraft 2,Blizzard,Blizzard,South Korea,2010,Real-time Strategy,TRUE,12,TRUE,TRUE,3D,3,2,3,2,10
+17,Cyberpunk 2077,CD Projekt Red,CD Projekt Red,Poland,2020,Open-world RPG,FALSE,0,,,3D,2,2,2,1,7
+18,ELDEN RING,FromSoftware,"FromSoftware, Bandai Namco",Japan,2022,Open-world RPG,FALSE,0,FALSE,,3D,3,2,2,2,9
+19,Genshin Impact,Mihoyo,Mihoyo,China,2020,Open-world RPG,TRUE,4,TRUE,,3D,2,2,2,1,7
+20,HELLDIVERS 2,Arrowhead Game Studios,Playstation Publishing,Sweden,2024,PVE Action RPG,TRUE,4,TRUE,,3D,2,2,3,3,10
+21,Destiny 2,Bungie,Bungie,USA,2017,Campaign RPG,TRUE,6,TRUE,TRUE,3D,3,2,2,2,9
+22,Hogwarts Legacy,Avalanche Software,Warner Bros. Games,USA,2023,Open-world RPG,FALSE,0,,,3D,2,2,2,2,8
+23,Warframe,Digital Extremes,Digital Extremes,Canada,2013,PVE Action RPG,TRUE,999,TRUE,TRUE,3D,3,3,2,2,10
+24,Black Myth: Wukong,Game Science,Game Science,China,2024,Campaign RPG,FALSE,0,,,3D,3,2,2,2,9
+25,Breath of the Wild,Nintendo,Nintendo,Japan,2017,Open-world RPG,FALSE,0,,,3D,3,2,2,1,8
+26,Last of Us,Naughty Dog,Sony,USA,2013,Campaign RPG,FALSE,0,,,3D,2,1,2,1,6
+27,Grand Theft Auto V,Rockstar,Rockstar,USA,2013,Campaign RPG,TRUE,30,TRUE,,3D,2,2,2,2,8
+28,Red Dead Redemption 2,Rockstar,Rockstar,USA,2018,Campaign RPG,TRUE,32,TRUE,,3D,2,1,2,1,6
+29,Palworld,Pocketpair,Pocketpair,Japan,2024,MMORPG,TRUE,32,TRUE,,3D,2,2,2,2,8
+30,Hades,Supergiant Games,Supergiant Games,USA,2020,Roguelike,FALSE,0,,,2D,3,2,3,2,10
+31,Terraria,Re-Logic,Re-Logic,USA,2011,Simulation,TRUE,8,TRUE,,2D,2,1,2,1,6
+32,Stardew Valley,ConcernedApe,ConcernedApe,USA,2016,Simulation,TRUE,4,,,2D,1,1,2,1,5
+33,Lost Ark,Smilegates RPG,Amazon Games,South Korea,2022,MMORPG,TRUE,999,TRUE,,3D,2,2,3,2,9
+34,Yu-Gi-Oh Master Duel,KONAMI,KONAMI,Japan,2022,Strategy,TRUE,2,,TRUE,2D,1,1,2,1,5
+35,Forza Horizon 5,Playground Games,Xbox Game Studios,UK,2021,Sports,TRUE,12,TRUE,,3D,3,3,1,1,8
+36,Valheim,Iron Gate AB,Coffee Stain Publishing,Sweden,2021,Simulation,FALSE,10,TRUE,,3D,2,1,2,1,6
+37,Minecraft,Mojang,"Mojang, Xbox Game Studios",Sweden,2009,Simulation,TRUE,999,,,3D,2,1,2,1,6
+38,Animal Crossing: New Horizons,Nintendo,Nintendo,Japan,2020,Simulation,TRUE,8,TRUE,,3D,1,1,1,1,4
+39,Sid Meier's Civilization VI,Firaxis Games,2K,USA,2016,Strategy,TRUE,12,,,2D,1,1,3,1,6
+40,Cuphead,Studio MDHR Entertainment,Studio MDHR Entertainment,Canada,2017,Arcade,FALSE,2,TRUE,,2D,3,3,3,2,11
+41,Among Us,Innersloth,Innersloth,USA,2018,Party,TRUE,15,TRUE,,2D,1,1,2,1,5
+42,EA FC 2025,Electronic Arts,Electronic Arts,"Canada, Romania",2024,Sports,FALSE,4,TRUE,,3D,2,2,2,3,9
+43,New World: Aeternum,Amazon Games,Amazon Games,USA,2024,MMORPG,TRUE,999,TRUE,,3D,2,2,3,2,9
+44,Fallout 4,Bethesda,Bethesda,USA,2015,Open-world RPG,FALSE,0,,,3D,2,1,2,2,7
+45,The Binding of Isaac: Rebirth,Nicalis,Nicalis,USA,2014,Roguelike,FALSE,0,,,2D,3,2,3,2,10
+46,Subnautica,Unknown Worlds Entertainment,Unknown Worlds Entertainment,USA,2014,Simulation,FALSE,0,,,3D,1,1,2,1,5
+47,Teamfight Tactics,Riot Games,Riot Games,USA,2019,Strategy,TRUE,8,TRUE,TRUE,2D,2,2,2,2,8
+48,Wii Sports,Nintendo,Nintendo,Japan,2006,Sports,TRUE,4,,,3D,2,2,1,2,7
+49,Dead Cells,Motion Twin,Motion Twin,France,2018,Roguelike,FALSE,0,,,2D,3,2,3,2,10
+50,Baldur’s Gate 3,Larian Studios,Larian Studios,Belgium,2023,Campaign RPG,TRUE,4,TRUE,,3D,1,1,3,1,6
+51,Guitar Hero,Neverson,Activision,USA,2005,Arcade,FALSE,4,TRUE,,2D,3,3,3,3,12
+52,Mario Kart Deluxe 8,Nintendo,Nintendo,Japan,2017,Party,TRUE,8,TRUE,,3D,3,3,2,3,11
+53,NBA 2K25,Visual Concept,2K,USA,2024,Sports,TRUE,4,TRUE,,3D,3,2,2,3,10
+54,Sons of the Forest,Endnight Games,Newnight,Canada,2023,Simulation,TRUE,8,TRUE,,3D,2,1,2,2,7
+55,ARK: Survival Evolved,Studio Wildcard,Studio Wildcard,USA,2015,Simulation,TRUE,4,TRUE,,3D,2,1,2,2,7
+56,Eurotruck Simulator 2,SCS Software,SCS Software,Czech,2012,Simulation,TRUE,8,,,3D,1,1,2,1,5
+57,Dota Underlords,Valve,Valve,USA,2019,Strategy,TRUE,8,,TRUE,2D,2,2,2,2,8
+58,Path of Exile 2,Grinding Gear Games,Grinding Gear Games,New Zealand,2024,MMORPG,TRUE,6,TRUE,,3D,3,2,2,2,9
+59,Tetris 99,Arika,Nintendo,Japan,2019,Puzzle,TRUE,99,,TRUE,2D,3,3,3,3,12
+60,Overcooked 2,"Team17, Ghost Town Games",Team 17,UK,2018,Party,TRUE,4,TRUE,,3D,2,3,3,3,11
+61,No Man’s Sky,Hello Games,Hello Games,UK,2016,Simulation,TRUE,4,TRUE,,3D,2,2,2,1,7
+62,FNAF,Scott Cawthon,Scott Cawthon,USA,2014,Strategy,FALSE,0,,,3D,2,1,1,1,5
+63,Don’t Starve Together,Kiei Entertainment,Kiei Entertainment,Canada,2016,Simulation,TRUE,6,,,2D,1,1,3,1,6
+64,Hearthstone,Blizzard,Blizzard,South Korea,2014,Strategy,FALSE,2,,TRUE,2D,1,1,2,1,5
+65,Dark Souls III,FromSoftware,"FromSoftware, Bandai Namco",Japan,2016,Campaign RPG,FALSE,6,TRUE,,3D,3,2,2,2,9
+66,HITMAN 2,IO Interactive,IO Interactive,Denmark,2018,Campaign RPG,TRUE,2,,,3D,2,1,2,1,6
+67,Starfield,Bethesda,Bethesda,USA,2023,Open-world RPG,FALSE,0,,,3D,2,1,2,2,7
+68,Persona 5,ATLUS,SEGA,Japan,2016,Campaign RPG,FALSE,0,,,3D,1,1,2,1,5
+69,Hollow Knight,Team Cherry,Team Cherry,Australia,2017,Platformer,FALSE,0,,,2D,2,2,2,2,8
+70,Final Fantasy VII Remake,Square Enix,Square Enix,Japan,2020,Open-world RPG,FALSE,0,,,3D,2,2,3,2,9
+71,Mario Odyssey,Nintendo,Nintendo,Japan,2017,Platformer,TRUE,2,TRUE,,3D,2,2,2,2,8

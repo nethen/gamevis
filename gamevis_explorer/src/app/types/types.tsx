@@ -1,3 +1,23 @@
+export type Metadata = {
+  id: number;
+  name: string;
+  Developer: string;
+  Publisher: string;
+  Origin: string;
+  year_of_release: number;
+  genre: string;
+  has_multiplayer: boolean;
+  max_multiplayer: number;
+  has_coop: boolean;
+  has_ranked: boolean;
+  perspective: string;
+  rtd: number;
+  gt: number;
+  cltp: number;
+  if: number;
+  score: number;
+};
+
 export type Annotation = {
   game_id: string;
   screenshot_id: string;

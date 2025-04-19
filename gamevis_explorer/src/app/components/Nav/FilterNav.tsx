@@ -1,10 +1,10 @@
 "use client";
+import { Metadata } from "@/app/types/types";
 import { createContext, useContext, useState } from "react";
-import meta from "@/app/meta.json";
 
-const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
+export const FilterNav = ({ meta }: { meta: Metadata[] }) => {
+  const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
 
-export const FilterNav = () => {
   const [isOpen, setIsOpen] = useState("");
   const { filters, setFilters } = useFilterContext();
   return (

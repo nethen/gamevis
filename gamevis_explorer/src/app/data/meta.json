@@ -90,9 +90,9 @@
     "perspective": "3D",
     "rtd": 2,
     "gt": 2,
-    "cltp": 2,
+    "cltp": 3,
     "if": 2,
-    "score": 8
+    "score": 9
   },
   {
     "id": 6,
@@ -108,10 +108,10 @@
     "has_ranked": "TRUE",
     "perspective": "3D",
     "rtd": 3,
-    "gt": 3,
+    "gt": 2,
     "cltp": 3,
-    "if": 3,
-    "score": 12
+    "if": 2,
+    "score": 10
   },
   {
     "id": 7,
@@ -128,8 +128,8 @@
     "perspective": "3D",
     "rtd": 3,
     "gt": 3,
-    "cltp": 2,
-    "if": 3,
+    "cltp": 3,
+    "if": 2,
     "score": 11
   },
   {
@@ -147,9 +147,9 @@
     "perspective": "3D",
     "rtd": 3,
     "gt": 3,
-    "cltp": 3,
-    "if": 3,
-    "score": 12
+    "cltp": 2,
+    "if": 2,
+    "score": 10
   },
   {
     "id": 9,
@@ -165,10 +165,10 @@
     "has_ranked": "TRUE",
     "perspective": "3D",
     "rtd": 2,
-    "gt": 2,
-    "cltp": 2,
-    "if": 2,
-    "score": 8
+    "gt": 3,
+    "cltp": 3,
+    "if": 3,
+    "score": 11
   },
   {
     "id": 10,
@@ -185,9 +185,9 @@
     "perspective": "3D",
     "rtd": 2,
     "gt": 2,
-    "cltp": 2,
+    "cltp": 3,
     "if": 2,
-    "score": 8
+    "score": 9
   },
   {
     "id": 11,
@@ -203,10 +203,10 @@
     "has_ranked": "TRUE",
     "perspective": "3D",
     "rtd": 3,
-    "gt": 3,
+    "gt": 2,
     "cltp": 3,
     "if": 2,
-    "score": 11
+    "score": 10
   },
   {
     "id": 12,
@@ -221,11 +221,11 @@
     "has_coop": "TRUE",
     "has_ranked": "TRUE",
     "perspective": "3D",
-    "rtd": 2,
+    "rtd": 3,
     "gt": 2,
-    "cltp": 2,
+    "cltp": 3,
     "if": 2,
-    "score": 8
+    "score": 10
   },
   {
     "id": 13,
@@ -243,8 +243,8 @@
     "rtd": 3,
     "gt": 3,
     "cltp": 2,
-    "if": 3,
-    "score": 11
+    "if": 2,
+    "score": 10
   },
   {
     "id": 14,
@@ -262,8 +262,8 @@
     "rtd": 2,
     "gt": 2,
     "cltp": 3,
-    "if": 2,
-    "score": 9
+    "if": 3,
+    "score": 10
   },
   {
     "id": 15,
@@ -280,9 +280,9 @@
     "perspective": "3D",
     "rtd": 1,
     "gt": 1,
-    "cltp": 1,
+    "cltp": 2,
     "if": 1,
-    "score": 4
+    "score": 5
   },
   {
     "id": 16,
@@ -298,10 +298,10 @@
     "has_ranked": "TRUE",
     "perspective": "3D",
     "rtd": 3,
-    "gt": 3,
+    "gt": 2,
     "cltp": 3,
-    "if": 3,
-    "score": 12
+    "if": 2,
+    "score": 10
   },
   {
     "id": 17,
@@ -337,9 +337,9 @@
     "perspective": "3D",
     "rtd": 3,
     "gt": 2,
-    "cltp": 3,
+    "cltp": 2,
     "if": 2,
-    "score": 10
+    "score": 9
   },
   {
     "id": 19,
@@ -354,11 +354,11 @@
     "has_coop": "TRUE",
     "has_ranked": "",
     "perspective": "3D",
-    "rtd": 1,
+    "rtd": 2,
     "gt": 2,
-    "cltp": 1,
+    "cltp": 2,
     "if": 1,
-    "score": 5
+    "score": 7
   },
   {
     "id": 20,
@@ -373,11 +373,11 @@
     "has_coop": "TRUE",
     "has_ranked": "",
     "perspective": "3D",
-    "rtd": 3,
+    "rtd": 2,
     "gt": 2,
     "cltp": 3,
     "if": 3,
-    "score": 11
+    "score": 10
   },
   {
     "id": 21,
@@ -393,10 +393,10 @@
     "has_ranked": "TRUE",
     "perspective": "3D",
     "rtd": 3,
-    "gt": 3,
-    "cltp": 3,
-    "if": 3,
-    "score": 12
+    "gt": 2,
+    "cltp": 2,
+    "if": 2,
+    "score": 9
   },
   {
     "id": 22,
@@ -411,11 +411,11 @@
     "has_coop": "",
     "has_ranked": "",
     "perspective": "3D",
-    "rtd": 1,
-    "gt": 1,
-    "cltp": 1,
-    "if": 1,
-    "score": 4
+    "rtd": 2,
+    "gt": 2,
+    "cltp": 2,
+    "if": 2,
+    "score": 8
   },
   {
     "id": 23,
@@ -433,8 +433,8 @@
     "rtd": 3,
     "gt": 3,
     "cltp": 2,
-    "if": 3,
-    "score": 11
+    "if": 2,
+    "score": 10
   },
   {
     "id": 24,
@@ -449,11 +449,11 @@
     "has_coop": "",
     "has_ranked": "",
     "perspective": "3D",
-    "rtd": 2,
+    "rtd": 3,
     "gt": 2,
     "cltp": 2,
     "if": 2,
-    "score": 8
+    "score": 9
   },
   {
     "id": 25,
@@ -468,11 +468,11 @@
     "has_coop": "",
     "has_ranked": "",
     "perspective": "3D",
-    "rtd": 1,
-    "gt": 1,
-    "cltp": 1,
+    "rtd": 3,
+    "gt": 2,
+    "cltp": 2,
     "if": 1,
-    "score": 4
+    "score": 8
   },
   {
     "id": 26,
@@ -487,11 +487,11 @@
     "has_coop": "",
     "has_ranked": "",
     "perspective": "3D",
-    "rtd": 1,
+    "rtd": 2,
     "gt": 1,
-    "cltp": 1,
+    "cltp": 2,
     "if": 1,
-    "score": 4
+    "score": 6
   },
   {
     "id": 27,
@@ -525,11 +525,11 @@
     "has_coop": "TRUE",
     "has_ranked": "",
     "perspective": "3D",
-    "rtd": 1,
+    "rtd": 2,
     "gt": 1,
-    "cltp": 1,
+    "cltp": 2,
     "if": 1,
-    "score": 4
+    "score": 6
   },
   {
     "id": 29,
@@ -557,7 +557,7 @@
     "Publisher": "Supergiant Games",
     "Origin": "USA",
     "year_of_release": 2020,
-    "genre": "Simulation",
+    "genre": "Roguelike",
     "has_multiplayer": "FALSE",
     "max_multiplayer": 0,
     "has_coop": "",
@@ -582,11 +582,11 @@
     "has_coop": "TRUE",
     "has_ranked": "",
     "perspective": "2D",
-    "rtd": 1,
+    "rtd": 2,
     "gt": 1,
-    "cltp": 1,
+    "cltp": 2,
     "if": 1,
-    "score": 4
+    "score": 6
   },
   {
     "id": 32,
@@ -603,9 +603,9 @@
     "perspective": "2D",
     "rtd": 1,
     "gt": 1,
-    "cltp": 1,
+    "cltp": 2,
     "if": 1,
-    "score": 4
+    "score": 5
   },
   {
     "id": 33,
@@ -622,9 +622,9 @@
     "perspective": "3D",
     "rtd": 2,
     "gt": 2,
-    "cltp": 2,
+    "cltp": 3,
     "if": 2,
-    "score": 8
+    "score": 9
   },
   {
     "id": 34,
@@ -641,9 +641,9 @@
     "perspective": "2D",
     "rtd": 1,
     "gt": 1,
-    "cltp": 1,
+    "cltp": 2,
     "if": 1,
-    "score": 4
+    "score": 5
   },
   {
     "id": 35,
@@ -658,11 +658,11 @@
     "has_coop": "TRUE",
     "has_ranked": "",
     "perspective": "3D",
-    "rtd": 2,
-    "gt": 2,
+    "rtd": 3,
+    "gt": 3,
     "cltp": 1,
-    "if": 2,
-    "score": 7
+    "if": 1,
+    "score": 8
   },
   {
     "id": 36,
@@ -677,11 +677,11 @@
     "has_coop": "TRUE",
     "has_ranked": "",
     "perspective": "3D",
-    "rtd": 1,
+    "rtd": 2,
     "gt": 1,
-    "cltp": 1,
+    "cltp": 2,
     "if": 1,
-    "score": 4
+    "score": 6
   },
   {
     "id": 37,
@@ -696,11 +696,11 @@
     "has_coop": "",
     "has_ranked": "",
     "perspective": "3D",
-    "rtd": 1,
+    "rtd": 2,
     "gt": 1,
-    "cltp": 1,
+    "cltp": 2,
     "if": 1,
-    "score": 4
+    "score": 6
   },
   {
     "id": 38,
@@ -736,9 +736,9 @@
     "perspective": "2D",
     "rtd": 1,
     "gt": 1,
-    "cltp": 1,
+    "cltp": 3,
     "if": 1,
-    "score": 4
+    "score": 6
   },
   {
     "id": 40,
@@ -756,8 +756,8 @@
     "rtd": 3,
     "gt": 3,
     "cltp": 3,
-    "if": 3,
-    "score": 12
+    "if": 2,
+    "score": 11
   },
   {
     "id": 41,
@@ -773,8 +773,8 @@
     "has_ranked": "",
     "perspective": "2D",
     "rtd": 1,
-    "gt": 2,
-    "cltp": 1,
+    "gt": 1,
+    "cltp": 2,
     "if": 1,
     "score": 5
   },
@@ -794,8 +794,8 @@
     "rtd": 2,
     "gt": 2,
     "cltp": 2,
-    "if": 2,
-    "score": 8
+    "if": 3,
+    "score": 9
   },
   {
     "id": 43,
@@ -812,9 +812,9 @@
     "perspective": "3D",
     "rtd": 2,
     "gt": 2,
-    "cltp": 2,
+    "cltp": 3,
     "if": 2,
-    "score": 8
+    "score": 9
   },
   {
     "id": 44,
@@ -831,9 +831,9 @@
     "perspective": "3D",
     "rtd": 2,
     "gt": 1,
-    "cltp": 1,
-    "if": 1,
-    "score": 5
+    "cltp": 2,
+    "if": 2,
+    "score": 7
   },
   {
     "id": 45,
@@ -869,9 +869,9 @@
     "perspective": "3D",
     "rtd": 1,
     "gt": 1,
-    "cltp": 1,
+    "cltp": 2,
     "if": 1,
-    "score": 4
+    "score": 5
   },
   {
     "id": 47,
@@ -887,10 +887,10 @@
     "has_ranked": "TRUE",
     "perspective": "2D",
     "rtd": 2,
-    "gt": 1,
+    "gt": 2,
     "cltp": 2,
-    "if": 1,
-    "score": 6
+    "if": 2,
+    "score": 8
   },
   {
     "id": 48,
@@ -925,10 +925,10 @@
     "has_ranked": "",
     "perspective": "2D",
     "rtd": 3,
-    "gt": 3,
+    "gt": 2,
     "cltp": 3,
-    "if": 3,
-    "score": 12
+    "if": 2,
+    "score": 10
   },
   {
     "id": 50,
@@ -945,9 +945,9 @@
     "perspective": "3D",
     "rtd": 1,
     "gt": 1,
-    "cltp": 1,
+    "cltp": 3,
     "if": 1,
-    "score": 4
+    "score": 6
   },
   {
     "id": 51,
@@ -963,10 +963,10 @@
     "has_ranked": "",
     "perspective": "2D",
     "rtd": 3,
-    "gt": 2,
+    "gt": 3,
     "cltp": 3,
     "if": 3,
-    "score": 11
+    "score": 12
   },
   {
     "id": 52,
@@ -983,9 +983,9 @@
     "perspective": "3D",
     "rtd": 3,
     "gt": 3,
-    "cltp": 3,
+    "cltp": 2,
     "if": 3,
-    "score": 12
+    "score": 11
   },
   {
     "id": 53,
@@ -1019,11 +1019,11 @@
     "has_coop": "TRUE",
     "has_ranked": "",
     "perspective": "3D",
-    "rtd": 3,
-    "gt": 2,
+    "rtd": 2,
+    "gt": 1,
     "cltp": 2,
     "if": 2,
-    "score": 9
+    "score": 7
   },
   {
     "id": 55,
@@ -1039,10 +1039,10 @@
     "has_ranked": "",
     "perspective": "3D",
     "rtd": 2,
-    "gt": 2,
+    "gt": 1,
     "cltp": 2,
     "if": 2,
-    "score": 8
+    "score": 7
   },
   {
     "id": 56,
@@ -1059,9 +1059,9 @@
     "perspective": "3D",
     "rtd": 1,
     "gt": 1,
-    "cltp": 1,
+    "cltp": 2,
     "if": 1,
-    "score": 4
+    "score": 5
   },
   {
     "id": 57,
@@ -1097,9 +1097,9 @@
     "perspective": "3D",
     "rtd": 3,
     "gt": 2,
-    "cltp": 3,
+    "cltp": 2,
     "if": 2,
-    "score": 10
+    "score": 9
   },
   {
     "id": 59,
@@ -1133,11 +1133,11 @@
     "has_coop": "TRUE",
     "has_ranked": "",
     "perspective": "3D",
-    "rtd": 3,
+    "rtd": 2,
     "gt": 3,
     "cltp": 3,
     "if": 3,
-    "score": 12
+    "score": 11
   },
   {
     "id": 61,
@@ -1171,11 +1171,11 @@
     "has_coop": "",
     "has_ranked": "",
     "perspective": "3D",
-    "rtd": 1,
+    "rtd": 2,
     "gt": 1,
     "cltp": 1,
     "if": 1,
-    "score": 4
+    "score": 5
   },
   {
     "id": 63,
@@ -1192,9 +1192,9 @@
     "perspective": "2D",
     "rtd": 1,
     "gt": 1,
-    "cltp": 1,
+    "cltp": 3,
     "if": 1,
-    "score": 4
+    "score": 6
   },
   {
     "id": 64,
@@ -1209,11 +1209,11 @@
     "has_coop": "",
     "has_ranked": "TRUE",
     "perspective": "2D",
-    "rtd": 2,
+    "rtd": 1,
     "gt": 1,
     "cltp": 2,
-    "if": 2,
-    "score": 7
+    "if": 1,
+    "score": 5
   },
   {
     "id": 65,
@@ -1249,9 +1249,9 @@
     "perspective": "3D",
     "rtd": 2,
     "gt": 1,
-    "cltp": 1,
+    "cltp": 2,
     "if": 1,
-    "score": 5
+    "score": 6
   },
   {
     "id": 67,
@@ -1268,9 +1268,9 @@
     "perspective": "3D",
     "rtd": 2,
     "gt": 1,
-    "cltp": 1,
-    "if": 1,
-    "score": 5
+    "cltp": 2,
+    "if": 2,
+    "score": 7
   },
   {
     "id": 68,
@@ -1285,11 +1285,11 @@
     "has_coop": "",
     "has_ranked": "",
     "perspective": "3D",
-    "rtd": 2,
-    "gt": 2,
+    "rtd": 1,
+    "gt": 1,
     "cltp": 2,
-    "if": 2,
-    "score": 8
+    "if": 1,
+    "score": 5
   },
   {
     "id": 69,
@@ -1304,11 +1304,11 @@
     "has_coop": "",
     "has_ranked": "",
     "perspective": "2D",
-    "rtd": 3,
+    "rtd": 2,
     "gt": 2,
-    "cltp": 3,
+    "cltp": 2,
     "if": 2,
-    "score": 10
+    "score": 8
   },
   {
     "id": 70,
@@ -1325,9 +1325,9 @@
     "perspective": "3D",
     "rtd": 2,
     "gt": 2,
-    "cltp": 2,
+    "cltp": 3,
     "if": 2,
-    "score": 8
+    "score": 9
   },
   {
     "id": 71,
