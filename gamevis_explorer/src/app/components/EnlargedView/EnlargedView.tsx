@@ -104,6 +104,50 @@ export const EnlargedView = ({ data }: { data: Annotation[] }) => {
             </ul>
           </section>
           <section className="overflow-auto w-full">
+            {selectedTag == null && (
+              <div className="flex gap-8 mb-4">
+                <div>
+                  <h4 className="mb-2">Marks</h4>
+                  {Object.entries(
+                    data
+                      // .filter((item) => item.tags?.includes(tagGroup[0]))
+                      .map((item) => item.marks)
+                      .flat(Infinity)
+                      .reduce((acc: Record<string, number>, mark) => {
+                        const markStr = mark as string; // Ensure mark is treated as a string
+                        acc[markStr] = (acc[markStr] || 0) + 1;
+                        return acc;
+                      }, {} as Record<string, number>)
+                  )
+                    .sort((a, b) => b[1] - a[1])
+                    .map(([mark, count]) => (
+                      <div key={mark}>
+                        {mark}: {count}
+                      </div>
+                    ))}
+                </div>
+                <div>
+                  <h4 className="mb-2">Channels</h4>
+                  {Object.entries(
+                    data
+                      // .filter((item) => item.tags?.includes(tagGroup[0]))
+                      .map((item) => item.channels)
+                      .flat(Infinity)
+                      .reduce((acc: Record<string, number>, channel) => {
+                        const channelStr = channel as string; // Ensure mark is treated as a string
+                        acc[channelStr] = (acc[channelStr] || 0) + 1;
+                        return acc;
+                      }, {} as Record<string, number>)
+                  )
+                    .sort((a, b) => b[1] - a[1])
+                    .map(([channel, count]) => (
+                      <div key={channel}>
+                        {channel}: {count}
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
             {tags
               .filter((item) => selectedTag == null || item[0] == selectedTag)
               .map((tagGroup) => (
