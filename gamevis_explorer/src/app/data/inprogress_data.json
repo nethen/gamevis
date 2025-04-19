@@ -357,7 +357,7 @@
     "vis_usage": ["Player", "Enemy"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Top", "Left", "Left"],
+      "screen_position": ["Top", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -386,7 +386,7 @@
     "vis_usage": ["Player", "Enemy"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Top", "Left", "Top"],
+      "screen_position": ["Top", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -705,7 +705,7 @@
     "vis_usage": ["Player", "Enemy"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Top", "Left", "Left"],
+      "screen_position": ["Top", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -1430,18 +1430,23 @@
     "game_id": "5",
     "screenshot_id": "11",
     "vis_id": "ge1",
-    "data": [[{ "data_value": "Kill info", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Kill info",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Text", "Symbol"]],
     "channels": [["Text", "Shape"]],
     "vis_name": "Kill info",
     "vis_usage": ["Game", "Player", "Enemy"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Top", "Right"],
-        "coords": "Screen"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Top", "Right"],
+      "coords": "Screen"
+    },
     "vis_visibility": [["Global", true]],
     "notes": [
       "Lets everyone in game see what happened recently.",
@@ -1640,7 +1645,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Left", "Bottom"],
+      "screen_position": ["Bottom", "Left"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -1733,7 +1738,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Right", "Bottom"],
+      "screen_position": ["Bottom", "Right"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -1866,7 +1871,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Left", "Bottom"],
+      "screen_position": ["Bottom", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -2068,13 +2073,11 @@
     "channels": [["Angle", "Text"]],
     "vis_name": "Bomb defusal timer",
     "vis_usage": ["Game", "Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Bottom", "Middle"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Middle"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Local", true]],
     "notes": [
       "Modal with arced path along circle accompanied by text statuses.",
@@ -2175,7 +2178,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Left", "Left"],
+      "screen_position": ["Bottom", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -2406,7 +2409,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Top", "Right", "Top"],
+      "screen_position": ["Top", "Right"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -2640,19 +2643,22 @@
     "screenshot_id": "7",
     "vis_id": "ge1",
     "data": [
-      [{ "data_value": "Round time remaining", "data_type": "Temporal" }]
+      [
+        {
+          "data_value": "Round time remaining",
+          "data_type": "Temporal"
+        }
+      ]
     ],
     "marks": [["Bar", "Text"]],
     "channels": [["Length", "Text"]],
     "vis_name": "Round timer",
     "vis_usage": ["Game"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Top", "Left"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Top", "Left"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Global", true]],
     "notes": [],
     "tags": ["Round", "Progression", "Timer", "Alert"]
@@ -2781,7 +2787,7 @@
     "vis_usage": ["Game"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Top", "Left", "Left"],
+      "screen_position": ["Top", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", true]],
@@ -3134,7 +3140,7 @@
     "vis_usage": ["Game", "Player", "Enemy"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Top", "Left", "Left"],
+      "screen_position": ["Top", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -3392,7 +3398,7 @@
     "vis_usage": ["Player", "Enemy", "Game"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Left", "Left"],
+      "screen_position": ["Bottom", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", true]],
@@ -4756,7 +4762,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Right", "Bottom"],
+      "screen_position": ["Bottom", "Right"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -4817,7 +4823,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Right", "Right"],
+      "screen_position": ["Bottom", "Right"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -5309,12 +5315,24 @@
     "vis_id": "l1",
     "data": [
       [
-        { "data_value": "Item name", "data_type": "Nominal" },
-        { "data_value": "Item type", "data_type": "Nominal" }
+        {
+          "data_value": "Item name",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Item type",
+          "data_type": "Nominal"
+        }
       ],
       [
-        { "data_value": "Stat", "data_type": "Nominal" },
-        { "data_value": "Stat value", "data_type": "Quantitative" }
+        {
+          "data_value": "Stat",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Stat value",
+          "data_type": "Quantitative"
+        }
       ]
     ],
     "marks": [
@@ -5324,13 +5342,11 @@
     "channels": [["Hue", "Text"], ["Text"]],
     "vis_name": "Item details",
     "vis_usage": ["Game", "Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Top", "Left"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Top", "Left"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [
       "Players can hover over an item to get a what it does",
@@ -5338,29 +5354,35 @@
       "There's some symbols representing (1) how much the item costs, (2) item cooldown, (3) special effect like stuns, etc"
     ]
   },
-
   {
     "game_id": "12",
     "screenshot_id": "1",
     "vis_id": "l2",
     "data": [
       [
-        { "data_value": "buff", "data_type": "Nominal" },
-        { "data_value": "buff value", "data_type": "Quantitative" },
-        { "data_value": "player affected", "data_type": "Nominal" }
+        {
+          "data_value": "buff",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "buff value",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "player affected",
+          "data_type": "Nominal"
+        }
       ]
     ],
     "marks": [["Image", "Text"]],
     "channels": [["Shape", "Image", "Text"]],
     "vis_name": "Team buffs",
     "vis_usage": ["Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Bottom", "Left"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Left"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [
       "Old vis name: Teammates buffs",
@@ -5375,22 +5397,29 @@
     "vis_id": "l3",
     "data": [
       [
-        { "data_value": "Items", "data_type": "Nominal" },
-        { "data_value": "Item type", "data_type": "Nominal" },
-        { "data_value": "Item strength", "data_type": "Ordinal" }
+        {
+          "data_value": "Items",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Item type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Item strength",
+          "data_type": "Ordinal"
+        }
       ]
     ],
     "marks": [["Symbol", "Rectangle"]],
     "channels": [["Hue", "Shape", "Text"]],
     "vis_name": "Items",
     "vis_usage": ["Game", "Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Bottom", "Left"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Left"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [
       "Original data: List of items that players can purchase in stores (either when they die or by entering a store in the map purchased using souls)",
@@ -5402,11 +5431,27 @@
     "screenshot_id": "1",
     "vis_id": "l4",
     "data": [
-      [{ "data_value": "Health value", "data_type": "Quantitative" }],
-      [{ "data_value": "Next level progress", "data_type": "Quantitative" }],
       [
-        { "data_value": "Shield type", "data_type": "Nominal" },
-        { "data_value": "Shield value", "data_type": "Quantitative" }
+        {
+          "data_value": "Health value",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Next level progress",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "Shield type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Shield value",
+          "data_type": "Quantitative"
+        }
       ]
     ],
     "marks": [
@@ -5421,13 +5466,11 @@
     ],
     "vis_name": "Player health bar",
     "vis_usage": ["Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Bottom", "Left"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Left"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [
       "Original annotation: The white bar is the main health bar with additional orange and purple ones from items, while the potion-shaped bar acts as a level counter for skill upgrades/increased health."
@@ -5703,7 +5746,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Left", "Left"],
+      "screen_position": ["Bottom", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -6822,8 +6865,8 @@
     "vis_usage": ["Player", "Enemy", "Environment"],
     "vis_position": {
       "screen_relativity": "Relative",
-      "relative_to":"opponent",
-      "relative_position": "opponent position",
+      "relative_to": "opponent",
+      "relative_position": ["Middle","Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", true]],
@@ -7266,7 +7309,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Left", "Bottom"],
+      "screen_position": ["Bottom", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -7336,7 +7379,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Right", "Bottom"],
+      "screen_position": ["Bottom", "Right"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -8214,7 +8257,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "building",
-      "relative_position": ["Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -9860,7 +9903,6 @@
     "tags": ["Wayfinding"]
   },
   {
-    "flagged": true,
     "game_id": "19",
     "screenshot_id": "3",
     "vis_id": "le1c",
@@ -9976,22 +10018,30 @@
     "vis_id": "l3",
     "data": [
       [
-        { "data_value": "Waypoint type", "data_type": "Nominal" },
-        { "data_value": "Mission location", "data_type": "Spatial" },
-        { "data_value": "Waypoint availability", "data_type": "Ordinal" }
+        {
+          "data_value": "Waypoint type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Mission location",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Waypoint availability",
+          "data_type": "Ordinal"
+        }
       ]
     ],
     "marks": [["Symbol"]],
     "channels": [["Position", "Shape", "Luminance"]],
     "vis_name": "Light up path",
     "vis_usage": ["Environment"],
-    "vis_position": 
-      {
-        "screen_relativity": "Relative",
-        "relative_to": "destination",
-        "relative_position": ["Middle", "Middle"],
-        "coords": "Camera"
-      },
+    "vis_position": {
+      "screen_relativity": "Relative",
+      "relative_to": "destination",
+      "relative_position": ["Middle", "Middle"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [
       "A path will show up to lead the player to 1b. It flashes in and out of the screen."
@@ -10666,7 +10716,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player selection",
-      "relative_position": "player selection",
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -10723,7 +10773,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "mission location",
-      "relative_position": "circle thing on top of the place/item",
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -10818,7 +10868,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player",
-      "relative_position": "Bottom Left",
+      "relative_position": ["Bottom", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -11192,18 +11242,23 @@
     "game_id": "21",
     "screenshot_id": "2",
     "vis_id": "l2",
-    "data": [[{ "data_value": "Weapon equipped", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Weapon equipped",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Symbol"]],
     "channels": [["Shape"], ["Text"]],
     "vis_name": "Weapon equipped",
     "vis_usage": ["Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Bottom", "Right"],
-        "coords": "Screen"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Right"],
+      "coords": "Screen"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [
       "Shows player what weapon they're holding",
@@ -11368,7 +11423,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "waypoint position",
-      "relative_position": ["Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -12923,7 +12978,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Relative",
-      "relative_to":"Weapons menu",
+      "relative_to": "Weapons menu",
       "relative_position": ["Top", "Left"],
       "coords": "Camera"
     },
@@ -13065,7 +13120,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Player input",
-      "relative_position": "Where is shrine",
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -13224,21 +13279,26 @@
     "vis_id": "l1",
     "data": [
       [
-        { "data_value": "Item Selected", "data_type": "Nominal" },
-        { "data_value": "Rune position", "data_type": "Spatial" }
+        {
+          "data_value": "Item Selected",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Rune position",
+          "data_type": "Spatial"
+        }
       ]
     ],
     "marks": [["Area", "Symbol"]],
     "channels": [["Hue", "Luminance", "Position", "Size"]],
     "vis_name": "Magnet item indicator",
     "vis_usage": ["Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Relative",
-        "relative_to": "item",
-        "relative_position": ["Middle", "Middle"],
-        "coords": "World"
-      },
+    "vis_position": {
+      "screen_relativity": "Relative",
+      "relative_to": "item",
+      "relative_position": ["Middle", "Middle"],
+      "coords": "World"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [
       "When using a magnesis rune, the item being selected will be highlighted yellow"
@@ -13388,7 +13448,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "item",
-      "relative_position": ["Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -13418,7 +13478,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "mission location",
-      "relative_position": ["Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -13448,7 +13508,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "interactable object",
-      "relative_position": ["Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -13700,7 +13760,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Player",
-      "relative_position": ["Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", true]],
@@ -14182,7 +14242,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "1a",
-      "relative_position":[ "Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", true]],
@@ -14257,7 +14317,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "work table",
-      "relative_position": ["Top","Middle"],
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -14858,7 +14918,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Enemy position",
-      "relative_position": ["Top","Middle"],
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -14886,7 +14946,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player",
-      "relative_position": ["Top","Middle"],
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -14940,7 +15000,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "environment",
-      "relative_position": ["Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -14966,7 +15026,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "enemy",
-      "relative_position": ["Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -14999,7 +15059,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Enemy position",
-      "relative_position": ["Top","Middle"],
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -15088,7 +15148,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "enemy attacking",
-      "relative_position": ["Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -15592,7 +15652,6 @@
     "notes": [],
     "tags": ["Status Effect", "Vitals"]
   },
-
   {
     "game_id": "32",
     "screenshot_id": "1",
@@ -15751,7 +15810,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player input",
-      "relative_position": ["Top","Middle"],
+      "relative_position": ["Top", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -15767,21 +15826,25 @@
     "vis_id": "l1",
     "data": [
       [
-        { "data_value": "Player skills", "data_type": "Nominal" },
-        { "data_value": "Level", "data_type": "Quantitative" }
+        {
+          "data_value": "Player skills",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Level",
+          "data_type": "Quantitative"
+        }
       ]
     ],
     "marks": [["Rectangle", "Symbol", "Text"]],
     "channels": [["Shape", "Length", "Size", "Text"]],
     "vis_name": "Player Stats",
     "vis_usage": ["Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Middle", "Middle"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Middle", "Middle"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [],
     "tags": ["Ability"]
@@ -15805,7 +15868,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "hit location",
-      "relative_position": ["Top","Middle"],
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -15920,7 +15983,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player",
-      "relative_position": ["Top","Middle"],
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -16061,7 +16124,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player input",
-      "relative_position": ["Top","Middle"],
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -16753,7 +16816,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "card",
-      "relative_position": ["Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -18218,7 +18281,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Craftable item",
-      "relative_position": ["Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -19696,7 +19759,7 @@
     "vis_usage": ["Game", "Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Right"],
+      "screen_position": ["Right","Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -19732,7 +19795,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "character",
-      "relative_position": ["Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", true]],
@@ -19800,7 +19863,6 @@
     ],
     "tags": ["Ability"]
   },
-
   {
     "game_id": "40",
     "screenshot_id": "2",
@@ -19820,7 +19882,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "attack",
-      "relative_position": ["Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", false]],
@@ -20095,7 +20157,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "voting screen",
-      "relative_position": ["Bottom","Middle"],
+      "relative_position": ["Bottom", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -20245,7 +20307,7 @@
     "vis_usage": ["Game"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Middle"],
+      "screen_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -20343,7 +20405,7 @@
     "vis_usage": ["Game"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Screen"],
+      "screen_position": ["Middle", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -22375,8 +22437,14 @@
     "vis_id": "l2",
     "data": [
       [
-        { "data_value": "Crafting categories", "data_type": "Nominal" },
-        { "data_value": "Recipe count", "data_type": "Quantitative" }
+        {
+          "data_value": "Crafting categories",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Recipe count",
+          "data_type": "Quantitative"
+        }
       ]
     ],
     "marks": [["Symbol", "Text"]],
@@ -22384,11 +22452,11 @@
     "vis_name": "Crafting Recipe",
     "vis_usage": ["Game"],
     "vis_position": {
-        "screen_relativity": "Relative",
-        "relative_to": "crafting menu",
-        "relative_position": ["Middle", "Middle"],
-        "coords": "Camera"
-      },
+      "screen_relativity": "Relative",
+      "relative_to": "crafting menu",
+      "relative_position": ["Middle", "Middle"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [
       "A specific crafting recipe and/or its category (eg. if its a food item, tools) or the actual recipe (Air ladder)"
@@ -22868,7 +22936,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "character",
-      "relative_position": ["Middle","Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -23172,7 +23240,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player",
-      "relative_position": ["Bottom","Middle"],
+      "relative_position": ["Bottom", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", false]],
@@ -23871,7 +23939,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player",
-      "relative_position": "left",
+      "relative_position": ["left", "Middle"],
       "coords": "Camera"
     },
     "vis_visibility": [["Global", false]],
@@ -23913,7 +23981,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "player",
-      "screen_position": "left",
+      "screen_position":["left", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Global", false]],
@@ -25375,8 +25443,8 @@
     "vis_name": "Attack type & success rate",
     "vis_usage": ["Player"],
     "vis_position": {
-      "screen_relativity": "Screen",
-      "screen_position": "Enemy",
+      "screen_relativity": "Relative",
+      "relative_to": "Enemy",
       "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
@@ -25731,7 +25799,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "consecutive notes",
-      "screen_position": ["Middle", "Middle"],
+      "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", true]],
@@ -25758,11 +25826,11 @@
     "vis_name": "Note Tracking",
     "vis_usage": ["Player"],
     "vis_position": {
-        "screen_relativity": "Relative",
-        "relative_to": "consecutive notes",
-        "screen_position": ["Middle", "Middle"],
-        "coords": "World"
-      },
+      "screen_relativity": "Relative",
+      "relative_to": "consecutive notes",
+      "relative_position": ["Middle", "Middle"],
+      "coords": "World"
+    },
     "vis_visibility": [["Local", true]],
     "notes": [
       "Based on the specific fret colour (i.e. yellow in this case).",
@@ -25776,21 +25844,25 @@
     "vis_id": "l1",
     "data": [
       [
-        { "data_value": "Performance status", "data_type": "Ordinal" },
-        { "data_value": "Exact value", "data_type": "Quantitative" }
+        {
+          "data_value": "Performance status",
+          "data_type": "Ordinal"
+        },
+        {
+          "data_value": "Exact value",
+          "data_type": "Quantitative"
+        }
       ]
     ],
     "marks": [["Rectangle", "Symbol", "Rule"]],
     "channels": [["Colour", "Position", "Hue"]],
     "vis_name": "Rock Meter",
     "vis_usage": ["Game", "Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Bottom", "Left"],
-        "coords": "World"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Left"],
+      "coords": "World"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [
       "The Rock Meter indicates performance status with colours; green is good, yellow is okay, and red is bad."
@@ -25802,19 +25874,22 @@
     "screenshot_id": "2",
     "vis_id": "l2",
     "data": [
-      [{ "data_value": "Multiplier amount", "data_type": "Quantitative" }]
+      [
+        {
+          "data_value": "Multiplier amount",
+          "data_type": "Quantitative"
+        }
+      ]
     ],
     "marks": [["Rectangle", "Rule", "Text"]],
     "channels": [["Text", "Hue", "Length"]],
     "vis_name": "Multiplier",
     "vis_usage": ["Game", "Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Middle", "Right"],
-        "coords": "World"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Middle", "Right"],
+      "coords": "World"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [
       "Each multiply value (i.e. 2x, 3x, 4x) has its own colour value: 2X is orange, 3x is green, 4x is purple, 8x is bright green. Fills up the rectangle as you hit correct notes. Maxes out at 4x."
@@ -25827,22 +25902,29 @@
     "vis_id": "l3",
     "data": [
       [
-        { "data_value": "points accumulated", "data_type": "Quantitative" },
-        { "data_value": "star level", "data_type": "Quantitative" },
-        { "data_value": "note streak", "data_type": "Quantitative" }
+        {
+          "data_value": "points accumulated",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "star level",
+          "data_type": "Quantitative"
+        },
+        {
+          "data_value": "note streak",
+          "data_type": "Quantitative"
+        }
       ]
     ],
     "marks": [["Text"], ["Rectangle"], ["Shape"]],
     "channels": [["Text"], ["Length", "Colour"], ["Text", "Shape"]],
     "vis_name": "Points, note streak, and star level",
     "vis_usage": ["Game", "Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Bottom", "Right"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Right"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [],
     "tags": ["Status Effect", "Progression"]
@@ -25864,11 +25946,11 @@
     "vis_name": "Star-shaped notes",
     "vis_usage": ["Game"],
     "vis_position": {
-        "screen_relativity": "Relative",
-        "relative_to": "note position",
-        "relative_position": ["Middle", "Middle"],
-        "coords": "World"
-      },
+      "screen_relativity": "Relative",
+      "relative_to": "note position",
+      "relative_position": ["Middle", "Middle"],
+      "coords": "World"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [
       "This visualization contributes to star power meter if the entire sequence is hit."
@@ -25879,18 +25961,23 @@
     "game_id": "51",
     "screenshot_id": "3",
     "vis_id": "l2",
-    "data": [[{ "data_value": "Star power", "data_type": "Quantitative" }]],
+    "data": [
+      [
+        {
+          "data_value": "Star power",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
     "marks": [["Rectangle", "Rule"]],
     "channels": [["Length"]],
     "vis_name": "Star power meter",
     "vis_usage": ["Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Bottom", "Right"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Right"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [
       "The bar needs to pass the line in the middle to activate the star power.",
@@ -25905,22 +25992,29 @@
     "vis_id": "le1",
     "data": [
       [
-        { "data_value": "points", "data_type": "Nominal" },
-        { "data_value": "star level", "data_type": "Nominal" },
-        { "data_value": "note streak", "data_type": "Nominal" }
+        {
+          "data_value": "points",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "star level",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "note streak",
+          "data_type": "Nominal"
+        }
       ]
     ],
     "marks": [["Area", "Symbol"]],
     "channels": [["Hue", "Shape"]],
     "vis_name": "Star-power activation",
     "vis_usage": ["Game", "Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Middle", "Middle"],
-        "coords": "Screen"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Middle", "Middle"],
+      "coords": "Screen"
+    },
     "vis_visibility": [["Local", false]],
     "notes": ["Cyan overlay represents star-power.", "Stars over the track."],
     "tags": ["Progression", "Score"]
@@ -26087,30 +26181,34 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "Note position",
-      "screen_position": "Above",
+      "relative_position": "Above",
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
     "notes": ["Notes that can be played without strumming."],
     "tags": ["Ability"]
   },
-
   {
     "game_id": "52",
     "screenshot_id": "1",
     "vis_id": "ge1",
-    "data": [[{ "data_value": "Countdown", "data_type": "Temporal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Countdown",
+          "data_type": "Temporal"
+        }
+      ]
+    ],
     "marks": [["Text"]],
     "channels": [["Text"]],
     "vis_name": "Countdown",
     "vis_usage": ["Game"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Middle", "Middle"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Middle", "Middle"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Global", true]],
     "notes": ["Countdown from 3 till the race starts"],
     "tags": ["Progression"]
@@ -26120,20 +26218,28 @@
     "screenshot_id": "1",
     "vis_id": "l1",
     "data": [
-      [{ "data_value": "coins count", "data_type": "Quantitative" }],
-      [{ "data_value": "lap information", "data_type": "Quantitative" }]
+      [
+        {
+          "data_value": "coins count",
+          "data_type": "Quantitative"
+        }
+      ],
+      [
+        {
+          "data_value": "lap information",
+          "data_type": "Quantitative"
+        }
+      ]
     ],
     "marks": [["Symbol"]],
     "channels": ["Text", "Image"],
     "vis_name": "Coins and Lap Info",
     "vis_usage": ["Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Bottom", "Left"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Left"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [
       "A count of how much coins the player has (out of 10, the more coins you have, you gain a slight speed boost) and what lap of the race you're on."
@@ -26144,18 +26250,23 @@
     "game_id": "52",
     "screenshot_id": "2",
     "vis_id": "g1a",
-    "data": [[{ "data_value": "path", "data_type": "Spatial" }]],
+    "data": [
+      [
+        {
+          "data_value": "path",
+          "data_type": "Spatial"
+        }
+      ]
+    ],
     "marks": [["Trail", "Image"]],
     "channels": [["Trail", "Image"]],
     "vis_name": "Minimap",
     "vis_usage": ["Environment", "Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Middle", "Right"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Middle", "Right"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Global", true]],
     "notes": [
       "Lets the player see the path for the race & where everyone is located.",
@@ -26164,25 +26275,28 @@
     ],
     "tags": ["Map", "Wayfinding"]
   },
-
   {
     "game_id": "52",
     "screenshot_id": "2",
     "vis_id": "g1b",
     "data": [
-      [{ "data_value": "player position in map", "data_type": "Spatial" }]
+      [
+        {
+          "data_value": "player position in map",
+          "data_type": "Spatial"
+        }
+      ]
     ],
     "marks": [["Image", "Circle"]],
     "channels": [["Image", "Shape"]],
     "vis_name": "player position in map",
     "vis_usage": ["Player"],
-    "vis_position":
-      {
-        "screen_relativity": "Relative",
-        "relative_to": "position within the track",
-        "screen_position": ["Middle", "Middle"],
-        "coords": "Camera"
-      },
+    "vis_position": {
+      "screen_relativity": "Relative",
+      "relative_to": "position within the track",
+      "relative_position": ["Middle", "Middle"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Global", false]],
     "notes": [
       "Lets the player see the track layout for the race & where everyone is located.",
@@ -26190,23 +26304,27 @@
     ],
     "tags": ["Movement"]
   },
-
   {
     "game_id": "52",
     "screenshot_id": "2",
     "vis_id": "l1",
-    "data": [[{ "data_value": "Items held", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Items held",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Circle", "Image"]],
     "channels": [["Shape", "Image", "Size"]],
     "vis_name": "Player items",
     "vis_usage": ["Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Top", "Left"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Top", "Left"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [
       "Each player can have up to 2 items.",
@@ -26214,23 +26332,27 @@
     ],
     "tags": ["Item"]
   },
-
   {
     "game_id": "52",
     "screenshot_id": "2",
     "vis_id": "l2",
-    "data": [[{ "data_value": "Player rank", "data_type": "Quantitative" }]],
+    "data": [
+      [
+        {
+          "data_value": "Player rank",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
     "marks": [["Text"]],
     "channels": [["Text"]],
     "vis_name": "Ranking",
     "vis_usage": ["Game", "Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Bottom", "Right"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Bottom", "Right"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Local", false]],
     "notes": ["1st to 12th"],
     "tags": ["Progression"]
@@ -26239,17 +26361,24 @@
     "game_id": "52",
     "screenshot_id": "3",
     "vis_id": "ge1",
-    "data": [[{ "data_value": "Drift type", "data_type": "Ordinal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Drift type",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
     "marks": [["Shape"]],
     "channels": [["Hue"]],
     "vis_name": "Drift Type",
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Relative",
-        "relative_to": "your player wheels",
-        "relative_position": ["Bottom", "Middle"],
-        "coords": "World"
-      },
+      "relative_to": "your player wheels",
+      "relative_position": ["Bottom", "Middle"],
+      "coords": "World"
+    },
     "vis_visibility": [["Global", true]],
     "notes": [
       "Depending on how long the player holds the drift, it changes the colour near the wheel.",
@@ -26263,18 +26392,23 @@
     "game_id": "52",
     "screenshot_id": "4",
     "vis_id": "g1",
-    "data": [[{ "data_value": "player position", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "player position",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Rectangle", "Text"]],
     "channels": [["Position", "Hue", "Image", "Text"]],
     "vis_name": "Player Info",
     "vis_usage": ["Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Middle", "Right"],
-        "coords": "World"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Middle", "Right"],
+      "coords": "World"
+    },
     "vis_visibility": [["Global", false]],
     "notes": [
       "Your player's position on the board",
@@ -26283,23 +26417,27 @@
     ],
     "tags": ["Score"]
   },
-
   {
     "game_id": "52",
     "screenshot_id": "4",
     "vis_id": "g2",
-    "data": [[{ "data_value": "Points", "data_type": "Quantitative" }]],
+    "data": [
+      [
+        {
+          "data_value": "Points",
+          "data_type": "Quantitative"
+        }
+      ]
+    ],
     "marks": [["Text"]],
     "channels": [["Text"]],
     "vis_name": "Points",
     "vis_usage": ["Game", "Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Middle", "Right"],
-        "coords": "World"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Middle", "Right"],
+      "coords": "World"
+    },
     "vis_visibility": [["Global", false]],
     "notes": ["Amount of points accumulated during the game"],
     "tags": ["Score"]
@@ -26310,21 +26448,25 @@
     "vis_id": "g1",
     "data": [
       [
-        { "data_value": "Player standings", "data_type": "Nominal" },
-        { "data_value": "Points and movement", "data_type": "Quantitative" }
+        {
+          "data_value": "Player standings",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Points and movement",
+          "data_type": "Quantitative"
+        }
       ]
     ],
     "marks": [["Arrow", "Text", "Rectangle"]],
     "channels": [["Shape", "Colour"], ["Text"]],
     "vis_name": "Player standings",
     "vis_usage": ["Player"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Middle", "Right"],
-        "coords": "Screen"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Middle", "Right"],
+      "coords": "Screen"
+    },
     "vis_visibility": [["Global", false]],
     "notes": [
       "Player standings based on points and where they've moved.",
@@ -26424,20 +26566,26 @@
     "vis_id": "g3",
     "data": [
       [
-        { "data_value": "Opponent", "data_type": "Nominal" },
-        { "data_value": "Opponent position", "data_type": "Spatial" }
+        {
+          "data_value": "Opponent",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Opponent position",
+          "data_type": "Spatial"
+        }
       ]
     ],
     "marks": [["Circle", "Area"]],
     "channels": [["Position", "Shape"]],
     "vis_name": "Player Indicator",
     "vis_usage": ["Player"],
-    "vis_position":{
-        "screen_relativity": "Relative",
-        "relative_to": "opponent",
-        "relative_position": ["Middle", "Bottom"],
-        "coords": "World"
-      },
+    "vis_position": {
+      "screen_relativity": "Relative",
+      "relative_to": "opponent",
+      "relative_position": ["Middle", "Bottom"],
+      "coords": "World"
+    },
     "vis_visibility": [["Global", false]],
     "notes": [
       "Black circle under the player but this is customizable",
@@ -27049,7 +27197,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "structure",
-      "relative_position": "relative",
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -27164,7 +27312,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "selected item",
-      "relative_position": "Top Right",
+      "relative_position": ["Top","Right"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -27316,7 +27464,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "selected item",
-      "relative_position": "Top Right",
+      "relative_position": ["Top", "Right"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -29935,7 +30083,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "mission location",
-      "relative_position": "N/A",
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -31155,7 +31303,6 @@
     ],
     "tags": ["Ability"]
   },
-
   {
     "game_id": "64",
     "screenshot_id": "4",
@@ -31499,7 +31646,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "enemy",
-      "relative_position": "Above",
+      "relative_position": ["Top", "Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -31840,7 +31987,7 @@
     "vis_position": {
       "screen_relativity": "Relative",
       "relative_to": "NPC position",
-      "relative_position": "NPC position",
+      "relative_position": ["Middle","Middle"],
       "coords": "World"
     },
     "vis_visibility": [["Local", false]],
@@ -32237,7 +32384,7 @@
     "vis_usage": ["Player", "Game"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Top", "Left", "Left"],
+      "screen_position": ["Top", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -33323,18 +33470,23 @@
     "game_id": "69",
     "screenshot_id": "3",
     "vis_id": "le2",
-    "data": [[{ "data_value": "Item", "data_type": "Nominal" }]],
+    "data": [
+      [
+        {
+          "data_value": "Item",
+          "data_type": "Nominal"
+        }
+      ]
+    ],
     "marks": [["Text", "Symbol"]],
     "channels": [["Shape", "Text"]],
     "vis_name": "Achievement unlocked",
     "vis_usage": ["Player", "Game"],
-    "vis_position": 
-      {
-        "screen_relativity": "Screen",
-        "screen_position": ["Middle", "Left"],
-        "coords": "Camera"
-      }
-    ,
+    "vis_position": {
+      "screen_relativity": "Screen",
+      "screen_position": ["Middle", "Left"],
+      "coords": "Camera"
+    },
     "vis_visibility": [["Local", false]],
     "notes": [],
     "tags": ["Item", "Progression"]
@@ -33402,7 +33554,7 @@
     "vis_usage": ["Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Bottom", "Left", "Bottom"],
+      "screen_position": ["Bottom", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -34366,7 +34518,7 @@
     "vis_usage": ["Game", "Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Top", "Left", "Top"],
+      "screen_position": ["Top", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -34391,7 +34543,7 @@
     "vis_usage": ["Game", "Player"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Top", "Left", "Left"],
+      "screen_position": ["Top", "Left"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", false]],
@@ -34447,7 +34599,7 @@
     "vis_usage": ["Player", "Environment"],
     "vis_position": {
       "screen_relativity": "Screen",
-      "screen_position": ["Top", "Right", "Right"],
+      "screen_position": ["Top", "Right"],
       "coords": "Camera"
     },
     "vis_visibility": [["Local", true]],
