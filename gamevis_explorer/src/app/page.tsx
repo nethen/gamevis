@@ -1,6 +1,6 @@
 "use client";
 // import Image from "next/image";
-import { Annotation, Metadata } from "./types/types";
+import { Annotation, Metadata } from "./utils/types/types";
 import rawMeta from "@/app/data/meta.json";
 import rawData from "@/app/data/inprogress_data.json";
 const data: Annotation[] = rawData as unknown as Annotation[];
@@ -8,27 +8,12 @@ const meta: Metadata[] = rawMeta as unknown as Metadata[];
 import { useEffect, useMemo, useState } from "react";
 import { FilterNav, useFilterContext } from "./components/Nav/FilterNav";
 import { TagGraph } from "./components/Vis/TagGraph";
-import { X_DIMENSIONS, Y_DIMENSIONS } from "./types/types";
+import { X_DIMENSIONS, Y_DIMENSIONS } from "./utils/types/types";
 import { EnlargedView } from "./components/EnlargedView/EnlargedView";
-
-const uniqueGenres = [...new Set(meta.map((item) => item.genre))];
+import { getTags } from "./utils/methods/methods";
 
 export default function Page() {
   const { filters, setFilters } = useFilterContext();
-
-  const filterByXY = (
-    data: Annotation[],
-    yDimension: string,
-    xDimension: string
-  ) => {
-    return data.filter((item) =>
-      "relative_position" in item.vis_position
-        ? item.vis_position.relative_position?.[0] == yDimension &&
-          item.vis_position.relative_position[1] == xDimension
-        : item.vis_position.screen_position?.[0] == yDimension &&
-          item.vis_position.screen_position[1] == xDimension
-    );
-  };
 
   // useEffect(() => {
   //   if (typeof window !== "undefined") {
@@ -105,41 +90,12 @@ export default function Page() {
 
   const tagStats = useMemo(() => {
     console.log(filteredData);
-    console.log(
-      filteredData.map((array) =>
-        Object.entries(
-          array
-            .flatMap((item) => item.tags || [])
-            .reduce((acc, tag) => {
-              acc[tag] = (acc[tag] || 0) + 1;
-              return acc;
-            }, {} as Record<string, number>)
-        ).sort((a, b) => b[1] - a[1])
-      )
-    );
+    console.log(filteredData.map((array) => getTags(array)));
     return {
-      value: filteredData.map((array) =>
-        Object.entries(
-          array
-            .flatMap((item) => item.tags || [])
-            .reduce((acc, tag) => {
-              acc[tag] = (acc[tag] || 0) + 1;
-              return acc;
-            }, {} as Record<string, number>)
-        ).sort((a, b) => b[1] - a[1])
-      ),
+      value: filteredData.map((array) => getTags(array)),
       max: Math.max(
         ...filteredData
-          .map((array) =>
-            Object.entries(
-              array
-                .flatMap((item) => item.tags || [])
-                .reduce((acc, tag) => {
-                  acc[tag] = (acc[tag] || 0) + 1;
-                  return acc;
-                }, {} as Record<string, number>)
-            ).sort((a, b) => b[1] - a[1])
-          )
+          .map((array) => getTags(array))
           .map((array) => {
             console.log(array[0]);
             if (array[0] == undefined) return 0;
@@ -178,7 +134,7 @@ export default function Page() {
           ></button>
         </hgroup>
         <div className="mb-8">
-          <ul className="flex flex-col gap-4 mb-4 px-8 pb-16">
+          <ul className="flex flex-col gap-4 mb-4 pb-16">
             {filteredMetadata.map((item, i) => {
               return (
                 <li

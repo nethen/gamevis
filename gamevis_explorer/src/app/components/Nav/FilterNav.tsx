@@ -1,5 +1,5 @@
 "use client";
-import { Metadata } from "@/app/types/types";
+import { Metadata } from "@/app/utils/types/types";
 import { createContext, useContext, useState } from "react";
 
 export const FilterNav = ({ meta }: { meta: Metadata[] }) => {

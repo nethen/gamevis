@@ -1,4 +1,4 @@
-import { Annotation } from "@/app/types/types";
+import { Annotation } from "@/app/utils/types/types";
 
 export const TagGraph = ({
   data,
