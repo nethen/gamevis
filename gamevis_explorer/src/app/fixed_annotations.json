@@ -20592,7 +20592,7 @@
     "notes": [
       "Indicates the path and power of the incoming kick in the form of a curved line."
     ],
-    "tags": ["Ability, Movement"]
+    "tags": ["Ability", "Movement"]
   },
   {
     "game_id": "42",

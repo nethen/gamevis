@@ -9130,7 +9130,7 @@
     "flagged": true,
     "game_id": "18",
     "screenshot_id": "2",
-    "vis_id": "ge2",
+    "vis_id": "g2",
     "data": [
       [
         {
@@ -9149,7 +9149,7 @@
       "relative_position": ["Middle", "Middle"],
       "coords": "World"
     },
-    "vis_visibility": [["Global", true]],
+    "vis_visibility": [["Global", false]],
     "notes": [
       "DATA VALUE: Damage dealt to enemy",
       "ENCODING: Amount of damage they get"
@@ -9786,6 +9786,43 @@
       "relative_to": "destination",
       "relative_position": ["Middle", "Middle"],
       "coords": "World"
+    },
+    "vis_visibility": [["Local", true]],
+    "notes": [
+      "A path will show up to lead the player to 1b. It flashes in and out of the screen."
+    ],
+    "tags": ["Wayfinding"]
+  },
+  {
+    "flagged": true,
+    "game_id": "19",
+    "screenshot_id": "3",
+    "vis_id": "le1c",
+    "data": [
+      [
+        {
+          "data_value": "Waypoint type",
+          "data_type": "Nominal"
+        },
+        {
+          "data_value": "Mission location",
+          "data_type": "Spatial"
+        },
+        {
+          "data_value": "Waypoint availability",
+          "data_type": "Ordinal"
+        }
+      ]
+    ],
+    "marks": [["Symbol"]],
+    "channels": [["Position", "Shape", "Luminance"]],
+    "vis_name": "Light up path",
+    "vis_usage": ["Environment"],
+    "vis_position": {
+      "screen_relativity": "Relative",
+      "relative_to": "destination",
+      "relative_position": ["Middle", "Middle"],
+      "coords": "Camera"
     },
     "vis_visibility": [["Local", true]],
     "notes": [
