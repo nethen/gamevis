@@ -7,7 +7,7 @@ import { useState } from "react";
 export const EnlargedView = ({ data }: { data: Annotation[] }) => {
   const { filters, setFilters } = useFilterContext();
   const tags = getTags(data);
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
   return (
     <div className="fixed inset-0 bg-background/95 p-16 overflow-auto z-100">
       <div className="relative bg-neutral-900 p-8 flex flex-col h-full rounded-lg">
@@ -82,17 +82,63 @@ export const EnlargedView = ({ data }: { data: Annotation[] }) => {
         <div className="flex gap-8 overflow-hidden">
           <section className="w-[20rem] overflow-scroll pr-6">
             <h3 className="mb-2 text-foreground/50">Tags</h3>
+            {selectedTags.size > -1 && (
+              <div className="sticky top-0 bg-neutral-900 border border-white/5 rounded-md p-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-4 content-start bg-neutral-800 rounded-md min-h-[2rem] p-2 ">
+                  {[...selectedTags].map((tag) => (
+                    <div
+                      onClick={() => {
+                        setSelectedTags((prev) => {
+                          const newTags = new Set(prev);
+                          newTags.delete(tag);
+                          return newTags;
+                        });
+                      }}
+                      key={tag}
+                      className="bg-neutral-700 text-sm px-3 py-1 rounded-full h-fit flex items-center gap-2 hover:bg-neutral-500 duration-100 cursor-pointer"
+                    >
+                      <span>{tag}</span>
+                      <button
+                        className="text-foreground/50 hover:text-foreground cursor-pointer"
+                        onClick={() => {
+                          setSelectedTags((prev) => {
+                            const newTags = new Set(prev);
+                            newTags.delete(tag);
+                            return newTags;
+                          });
+                        }}
+                      >
+                        ×
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                <button
+                  className="text-sm underline cursor-pointer text-foreground/60 hover:text-foreground"
+                  onClick={() => setSelectedTags(new Set())}
+                >
+                  Clear selected tags
+                </button>
+              </div>
+            )}
+
             <ul className="flex flex-col gap-4">
               {tags.map((tagGroup, i) => (
                 <li
                   key={`tag-${i}`}
                   className={`flex px-2 py-1 rounded-sm cursor-pointer ${
-                    selectedTag == tagGroup[0] ? "bg-neutral-700 px-2" : ""
+                    selectedTags.has(tagGroup[0]) ? "bg-neutral-700 px-2" : ""
                   }`}
                   onClick={() => {
-                    setSelectedTag(
-                      selectedTag == tagGroup[0] ? null : tagGroup[0]
-                    );
+                    setSelectedTags((prev) => {
+                      const newTags = new Set(prev);
+                      if (newTags.has(tagGroup[0])) {
+                        newTags.delete(tagGroup[0]);
+                      } else {
+                        newTags.add(tagGroup[0]);
+                      }
+                      return newTags;
+                    });
                   }}
                 >
                   {tagGroup[0]}{" "}
@@ -104,7 +150,7 @@ export const EnlargedView = ({ data }: { data: Annotation[] }) => {
             </ul>
           </section>
           <section className="overflow-auto w-full">
-            {selectedTag == null && (
+            {selectedTags == null && (
               <div className="flex gap-8 mb-4">
                 <div>
                   <h4 className="mb-2">Marks</h4>
@@ -149,7 +195,9 @@ export const EnlargedView = ({ data }: { data: Annotation[] }) => {
               </div>
             )}
             {tags
-              .filter((item) => selectedTag == null || item[0] == selectedTag)
+              .filter(
+                (item) => selectedTags.size === 0 || selectedTags.has(item[0])
+              )
               .map((tagGroup) => (
                 <div key={`tag-group-${tagGroup[0]}`} className="mb-12">
                   <h3 className="text-xl border-neutral-500 mb-2">
