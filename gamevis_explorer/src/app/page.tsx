@@ -125,7 +125,19 @@ export default function Page() {
         } transition-all duration-300 ease-in-out`}
       >
         <hgroup className="flex justify-between items-center h-20 pt-8 pb-2 sticky top-0 text-sm bg-background z-20 font-semibold tracking-wider text-foreground/50">
-          {sidebarOpen && <h2>Games</h2>}
+          {sidebarOpen && (
+            <h2
+              onClick={() => {
+                setFilters({
+                  ...filters,
+                  position: ["All", "All"],
+                });
+              }}
+              className="cursor-pointer"
+            >
+              Games
+            </h2>
+          )}
           <button
             onClick={() => {
               setSidebarOpen(!sidebarOpen);
@@ -294,15 +306,17 @@ export default function Page() {
       {filters.position[0] != "" && filters.position[1] != "" ? (
         <EnlargedView
           data={
-            filteredData[
-              Object.keys(X_DIMENSIONS)
-                .filter((v) => isNaN(Number(v)))
-                .findIndex((v) => v == filters.position[1]) +
-                3 *
-                  Object.keys(Y_DIMENSIONS)
+            filters.position[0] == "All"
+              ? filteredData.flat()
+              : filteredData[
+                  Object.keys(X_DIMENSIONS)
                     .filter((v) => isNaN(Number(v)))
-                    .findIndex((v) => v == filters.position[0])
-            ]
+                    .findIndex((v) => v == filters.position[1]) +
+                    3 *
+                      Object.keys(Y_DIMENSIONS)
+                        .filter((v) => isNaN(Number(v)))
+                        .findIndex((v) => v == filters.position[0])
+                ]
           }
         />
       ) : null}
