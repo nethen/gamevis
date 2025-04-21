@@ -55,8 +55,8 @@ export default function Page() {
         Object.keys(X_DIMENSIONS)
           .filter((v) => isNaN(Number(v)))
           .map((xDimension, j) => {
-            console.log(yDimension);
-            console.log(xDimension);
+            // console.log(yDimension);
+            // console.log(xDimension);
             return data
               .filter((item) =>
                 filters.coords.length > 0
@@ -89,15 +89,15 @@ export default function Page() {
   }, [filteredMetadata, filters]);
 
   const tagStats = useMemo(() => {
-    console.log(filteredData);
-    console.log(filteredData.map((array) => getTags(array)));
+    // console.log(filteredData);
+    // console.log(filteredData.map((array) => getTags(array)));
     return {
       value: filteredData.map((array) => getTags(array)),
       max: Math.max(
         ...filteredData
           .map((array) => getTags(array))
           .map((array) => {
-            console.log(array[0]);
+            // console.log(array[0]);
             if (array[0] == undefined) return 0;
             return array[0][1];
           })

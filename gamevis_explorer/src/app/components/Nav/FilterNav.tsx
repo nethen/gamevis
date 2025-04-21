@@ -8,7 +8,7 @@ export const FilterNav = ({ meta }: { meta: Metadata[] }) => {
   const [isOpen, setIsOpen] = useState("");
   const { filters, setFilters } = useFilterContext();
   return (
-    <nav className="px-4 pt-6 pb-4 col-span-full flex gap-4 relative border-b-neutral-800 border-b">
+    <nav className="px-4 pt-6 pb-4 col-span-full flex gap-4 relative border-b-neutral-800 border-b z-20">
       {[
         {
           name: "Coords",
