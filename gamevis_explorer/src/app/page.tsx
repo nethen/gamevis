@@ -6,11 +6,15 @@ import rawData from "@/app/data/inprogress_data.json";
 const data: Annotation[] = rawData as unknown as Annotation[];
 const meta: Metadata[] = rawMeta as unknown as Metadata[];
 import { useEffect, useMemo, useState } from "react";
-import { FilterNav, useFilterContext } from "./components/Nav/FilterNav";
+import {
+  FilterNav,
+  useFilterContext,
+} from "./components/Nav/FilterNav/FilterNav";
 import { TagGraph } from "./components/Vis/TagGraph";
 import { X_DIMENSIONS, Y_DIMENSIONS } from "./utils/types/types";
 import { EnlargedView } from "./components/EnlargedView/EnlargedView";
 import { getTags } from "./utils/methods/methods";
+import { SpatialNav } from "./components/Nav/SpatialNav/SpatialNav";
 
 export default function Page() {
   const { filters, setFilters } = useFilterContext();
@@ -320,6 +324,7 @@ export default function Page() {
           }
         />
       ) : null}
+      <SpatialNav />
     </div>
   );
 }

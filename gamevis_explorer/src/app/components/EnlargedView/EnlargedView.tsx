@@ -1,7 +1,7 @@
 "use client";
 import { getTags } from "@/app/utils/methods/methods";
 import { Annotation, VisUsage } from "../../utils/types/types";
-import { useFilterContext } from "../Nav/FilterNav";
+import { useFilterContext } from "../Nav/FilterNav/FilterNav";
 import { useState } from "react";
 
 export const EnlargedView = ({ data }: { data: Annotation[] }) => {
