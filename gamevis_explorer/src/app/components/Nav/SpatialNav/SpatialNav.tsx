@@ -45,7 +45,15 @@ export const SpatialNav = ({
               {data.map((item, index) => (
                 <motion.button
                   key={index}
-                  className="flex items-center justify-center p-4 rounded-md cursor-pointer"
+                  className={`flex items-center justify-center p-4 rounded-md cursor-pointer ${
+                    filters.position.some(
+                      (item) =>
+                        item.x == keys.x[Math.floor(index / 3)] &&
+                        item.y == keys.y[index % 3]
+                    )
+                      ? "bg-green-500"
+                      : "bg-neutral-700"
+                  } transition-colors`}
                   onClick={() => {
                     setFilters({
                       ...filters,
@@ -71,13 +79,7 @@ export const SpatialNav = ({
                     });
                   }}
                   animate={{
-                    background: filters.position.some(
-                      (item) =>
-                        item.x == keys.x[Math.floor(index / 3)] &&
-                        item.y == keys.y[index % 3]
-                    )
-                      ? "var(--color-green-500)"
-                      : "var(--color-neutral-700)",
+                    opacity: item.length > 0 ? 1 : 0.1,
                   }}
                 >
                   {item.length}
@@ -86,7 +88,19 @@ export const SpatialNav = ({
             </div>
             <div className="mb-4 flex justify-center">
               <motion.button
-                className="cursor-pointer text-sm tracking-wide font-bold text-foreground/80"
+                className={`text-sm tracking-wide font-bold text-foreground/80 ${
+                  filters.position.some((item) => item.x == "All") ||
+                  filters.position.length == 0
+                    ? "cursor-not-allowed"
+                    : "cursor-pointer"
+                }`}
+                animate={{
+                  opacity:
+                    filters.position.some((item) => item.x == "All") ||
+                    filters.position.length == 0
+                      ? 0.5
+                      : 1,
+                }}
                 onClick={() =>
                   setFilters({
                     ...filters,
@@ -112,7 +126,7 @@ export const SpatialNav = ({
           }`}
           onClick={() => setIsOpen(!isOpen)}
         >
-          Group by region
+          Group by all
           <AnimatePresence>
             {!active && (
               <motion.svg
@@ -137,20 +151,20 @@ export const SpatialNav = ({
         </p>
         <motion.div
           className={`flex p-1 w-12 bg-neutral-600 rounded-full cursor-pointer ${
-            active ? "justify-end " : "justify-start"
+            !active ? "justify-end " : "justify-start"
           }`}
           onClick={() => {
             handler(active ? options[0] : options[1]);
             setFilters({
               ...filters,
-              position: active ? [{ x: "All", y: "All" }] : [],
+              position: !active ? [{ x: "All", y: "All" }] : [],
             });
           }}
           layout
         >
           <motion.div
             className={`size-4 rounded-full transition-colors ${
-              active ? "bg-green-500" : "bg-neutral-800"
+              !active ? "bg-green-500" : "bg-neutral-800"
             }`}
             layout
             key="toggle-thumb"
