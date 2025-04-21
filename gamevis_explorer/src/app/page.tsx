@@ -18,7 +18,7 @@ import { SpatialNav } from "./components/Nav/SpatialNav/SpatialNav";
 
 export default function Page() {
   const { filters, setFilters } = useFilterContext();
-  const [grouping, setGrouping] = useState("linear");
+  const [grouping, setGrouping] = useState("spatial");
 
   const filteredMetadata = useMemo(() => {
     return meta
@@ -58,6 +58,17 @@ export default function Page() {
       )
       .filter((item) =>
         filters.game != "" ? item.game_id == filters.game : true
+      )
+      .filter((item) =>
+        filters.position.length > 1
+          ? filters.position.some((pos) =>
+              "relative_position" in item.vis_position
+                ? item.vis_position.relative_position?.[0] == pos.y &&
+                  item.vis_position.relative_position[1] == pos.x
+                : item.vis_position.screen_position?.[0] == pos.y &&
+                  item.vis_position.screen_position[1] == pos.x
+            )
+          : true
       );
     return result;
   }, [filteredMetadata, filters]);
@@ -129,14 +140,14 @@ export default function Page() {
   }, [filteredData]);
   // console.log(meta);
 
-  useEffect(() => {
-    console.log("Filtered data:", filteredData);
-    console.log("Filtered metadata:", filteredMetadata);
-  }, [filteredData, filteredMetadata]);
+  // useEffect(() => {
+  //   console.log("Filtered data:", filteredData);
+  //   console.log("Filtered metadata:", filteredMetadata);
+  // }, [filteredData, filteredMetadata]);
 
-  useEffect(() => {
-    console.log(tagStats);
-  }, [tagStats]);
+  // useEffect(() => {
+  //   console.log(tagStats);
+  // }, [tagStats]);
 
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
@@ -153,7 +164,7 @@ export default function Page() {
               onClick={() => {
                 setFilters({
                   ...filters,
-                  position: ["All", "All"],
+                  position: [{ x: "All", y: "All" }],
                 });
               }}
               className="cursor-pointer"
@@ -268,7 +279,9 @@ export default function Page() {
                                 onClick={() => {
                                   setFilters({
                                     ...filters,
-                                    position: [yDimension, xDimension],
+                                    position: [
+                                      { y: yDimension, x: xDimension },
+                                    ],
                                   });
                                 }}
                               >
@@ -348,7 +361,7 @@ export default function Page() {
                       onClick={() => {
                         setFilters({
                           ...filters,
-                          position: ["All", "All"],
+                          position: [{ y: "All", x: "All" }],
                         });
                       }}
                     >
@@ -369,7 +382,7 @@ export default function Page() {
           )}
         </div>
       </main>
-      {filters.position[0] != "" && filters.position[1] != "" ? (
+      {/* {filters.position.some((item) => item.x != "" && item.y != "") ? (
         <EnlargedView
           data={
             filters.position[0] == "All"
@@ -385,8 +398,9 @@ export default function Page() {
                 ]
           }
         />
-      ) : null}
+      ) : null} */}
       <SpatialNav
+        data={spatializedData}
         value={grouping}
         handler={setGrouping}
         options={["linear", "spatial"]}

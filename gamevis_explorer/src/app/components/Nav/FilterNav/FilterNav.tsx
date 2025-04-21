@@ -165,7 +165,7 @@ type FilterState = {
   game: string;
   genre: string[];
 
-  position: string[];
+  position: { x: string; y: string }[];
   usages: string[];
   speed: number[];
 };
@@ -185,7 +185,7 @@ export const FilterContextProvider = ({
     relativity: [],
     game: "",
     genre: [],
-    position: ["", ""],
+    position: [] as { x: string; y: string }[],
     usages: [] as string[],
     speed: [4, 12],
   });
