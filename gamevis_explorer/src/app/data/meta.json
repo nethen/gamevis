@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Super Smash Bros. Ultimate",
+    "slug": "super-smash-bros-ultimate",
     "Developer": "Bandai Namco, Sora Ltd,",
     "Publisher": "Nintendo",
     "Origin": "Japan",
@@ -20,7 +21,8 @@
   },
   {
     "id": 2,
-    "name": "Mortal Kombat One",
+    "name": "Mortal Kombat 1 2023",
+    "slug": "Mortal Kombat 1 2023",
     "Developer": "NetherRealm, QLOC",
     "Publisher": "Warner Bros. Games",
     "Origin": "USA",
@@ -40,6 +42,7 @@
   {
     "id": 3,
     "name": "Tekken 8",
+    "slug": "Tekken 8",
     "Developer": "Bandai Namco",
     "Publisher": "Bandai Namco",
     "Origin": "Japan",
@@ -59,6 +62,7 @@
   {
     "id": 4,
     "name": "Street Fighter 6",
+    "slug": "Street Fighter 6",
     "Developer": "Capcom",
     "Publisher": "Capcom",
     "Origin": "Japan",
@@ -78,6 +82,7 @@
   {
     "id": 5,
     "name": "PUBG: Battlegrounds",
+    "slug": "playerunknowns-battlegrounds",
     "Developer": "PUBG Corporation",
     "Publisher": "KRAFTON",
     "Origin": "South Korea",
@@ -97,6 +102,7 @@
   {
     "id": 6,
     "name": "Counter-Strike 2",
+    "slug": "counter-strike-2-2",
     "Developer": "Valve",
     "Publisher": "Valve",
     "Origin": "USA",
@@ -116,6 +122,7 @@
   {
     "id": 7,
     "name": "Apex Legends",
+    "slug": "Apex Legends",
     "Developer": "Respawn",
     "Publisher": "Electronic Arts",
     "Origin": "USA",
@@ -134,7 +141,8 @@
   },
   {
     "id": 8,
-    "name": "Call of Duty",
+    "name": "Call of Duty: Black ops 6",
+    "slug": "call-of-duty-black-ops-6",
     "Developer": "Treyarch, Raven Software, Beenox, High Moon Studios, Activision, Sledgehammer Games, Infinity Ward, Demonware, Toys for Bob",
     "Publisher": "Activision",
     "Origin": "USA",
@@ -154,6 +162,7 @@
   {
     "id": 9,
     "name": "Marvel Rivals",
+    "slug": "Marvel Rivals",
     "Developer": "NetEase",
     "Publisher": "NetEase",
     "Origin": "China",
@@ -173,6 +182,7 @@
   {
     "id": 10,
     "name": "Fortnite",
+    "slug": "Fortnite",
     "Developer": "Epic Games",
     "Publisher": "Epic Games",
     "Origin": "USA",
@@ -192,6 +202,7 @@
   {
     "id": 11,
     "name": "Valorant",
+    "slug": "Valorant",
     "Developer": "Riot Games",
     "Publisher": "Riot Games",
     "Origin": "USA",
@@ -211,6 +222,7 @@
   {
     "id": 12,
     "name": "Deadlock",
+    "slug": "Deadlock",
     "Developer": "Valve",
     "Publisher": "Valve",
     "Origin": "USA",
@@ -230,6 +242,7 @@
   {
     "id": 13,
     "name": "Splatoon 3",
+    "slug": "Splatoon 3",
     "Developer": "Nintendo",
     "Publisher": "Nintendo",
     "Origin": "Japan",
@@ -249,6 +262,7 @@
   {
     "id": 14,
     "name": "Dota 2",
+    "slug": "Dota 2",
     "Developer": "Valve",
     "Publisher": "Valve",
     "Origin": "USA",
@@ -268,6 +282,7 @@
   {
     "id": 15,
     "name": "World of Warships",
+    "slug": "World of Warships",
     "Developer": "Wargaming Group Limited",
     "Publisher": "Wargaming Group Limited",
     "Origin": "Cyprus",
@@ -287,6 +302,7 @@
   {
     "id": 16,
     "name": "Starcraft 2",
+    "slug": "Starcraft 2",
     "Developer": "Blizzard",
     "Publisher": "Blizzard",
     "Origin": "South Korea",
@@ -306,6 +322,7 @@
   {
     "id": 17,
     "name": "Cyberpunk 2077",
+    "slug": "Cyberpunk 2077",
     "Developer": "CD Projekt Red",
     "Publisher": "CD Projekt Red",
     "Origin": "Poland",
@@ -325,6 +342,7 @@
   {
     "id": 18,
     "name": "ELDEN RING",
+    "slug": "ELDEN RING",
     "Developer": "FromSoftware",
     "Publisher": "FromSoftware, Bandai Namco",
     "Origin": "Japan",
@@ -344,6 +362,7 @@
   {
     "id": 19,
     "name": "Genshin Impact",
+    "slug": "Genshin Impact",
     "Developer": "Mihoyo",
     "Publisher": "Mihoyo",
     "Origin": "China",
@@ -363,6 +382,7 @@
   {
     "id": 20,
     "name": "HELLDIVERS 2",
+    "slug": "HELLDIVERS 2",
     "Developer": "Arrowhead Game Studios",
     "Publisher": "Playstation Publishing",
     "Origin": "Sweden",
@@ -382,6 +402,7 @@
   {
     "id": 21,
     "name": "Destiny 2",
+    "slug": "destiny-2",
     "Developer": "Bungie",
     "Publisher": "Bungie",
     "Origin": "USA",
@@ -401,6 +422,7 @@
   {
     "id": 22,
     "name": "Hogwarts Legacy",
+    "slug": "Hogwarts Legacy",
     "Developer": "Avalanche Software",
     "Publisher": "Warner Bros. Games",
     "Origin": "USA",
@@ -420,6 +442,7 @@
   {
     "id": 23,
     "name": "Warframe",
+    "slug": "Warframe",
     "Developer": "Digital Extremes",
     "Publisher": "Digital Extremes",
     "Origin": "Canada",
@@ -439,6 +462,7 @@
   {
     "id": 24,
     "name": "Black Myth: Wukong",
+    "slug": "black-myth-wu-kong",
     "Developer": "Game Science",
     "Publisher": "Game Science",
     "Origin": "China",
@@ -458,6 +482,7 @@
   {
     "id": 25,
     "name": "Breath of the Wild",
+    "slug": "the-legend-of-zelda-breath-of-the-wild",
     "Developer": "Nintendo",
     "Publisher": "Nintendo",
     "Origin": "Japan",
@@ -477,6 +502,7 @@
   {
     "id": 26,
     "name": "Last of Us",
+    "slug": "the Last of Us",
     "Developer": "Naughty Dog",
     "Publisher": "Sony",
     "Origin": "USA",
@@ -496,6 +522,7 @@
   {
     "id": 27,
     "name": "Grand Theft Auto V",
+    "slug": "Grand Theft Auto V",
     "Developer": "Rockstar",
     "Publisher": "Rockstar",
     "Origin": "USA",
@@ -515,6 +542,7 @@
   {
     "id": 28,
     "name": "Red Dead Redemption 2",
+    "slug": "Red Dead Redemption 2",
     "Developer": "Rockstar",
     "Publisher": "Rockstar",
     "Origin": "USA",
@@ -534,6 +562,7 @@
   {
     "id": 29,
     "name": "Palworld",
+    "slug": "Palworld",
     "Developer": "Pocketpair",
     "Publisher": "Pocketpair",
     "Origin": "Japan",
@@ -553,6 +582,7 @@
   {
     "id": 30,
     "name": "Hades",
+    "slug": "Hades-2018",
     "Developer": "Supergiant Games",
     "Publisher": "Supergiant Games",
     "Origin": "USA",
@@ -572,6 +602,7 @@
   {
     "id": 31,
     "name": "Terraria",
+    "slug": "Terraria",
     "Developer": "Re-Logic",
     "Publisher": "Re-Logic",
     "Origin": "USA",
@@ -591,6 +622,7 @@
   {
     "id": 32,
     "name": "Stardew Valley",
+    "slug": "Stardew Valley",
     "Developer": "ConcernedApe",
     "Publisher": "ConcernedApe",
     "Origin": "USA",
@@ -610,6 +642,7 @@
   {
     "id": 33,
     "name": "Lost Ark",
+    "slug": "Lost Ark",
     "Developer": "Smilegates RPG",
     "Publisher": "Amazon Games",
     "Origin": "South Korea",
@@ -629,6 +662,7 @@
   {
     "id": 34,
     "name": "Yu-Gi-Oh Master Duel",
+    "slug": "Yu-Gi-Oh Master Duel",
     "Developer": "KONAMI",
     "Publisher": "KONAMI",
     "Origin": "Japan",
@@ -648,6 +682,7 @@
   {
     "id": 35,
     "name": "Forza Horizon 5",
+    "slug": "Forza Horizon 5",
     "Developer": "Playground Games",
     "Publisher": "Xbox Game Studios",
     "Origin": "UK",
@@ -667,6 +702,7 @@
   {
     "id": 36,
     "name": "Valheim",
+    "slug": "Valheim",
     "Developer": "Iron Gate AB",
     "Publisher": "Coffee Stain Publishing",
     "Origin": "Sweden",
@@ -686,6 +722,7 @@
   {
     "id": 37,
     "name": "Minecraft",
+    "slug": "Minecraft",
     "Developer": "Mojang",
     "Publisher": "Mojang, Xbox Game Studios",
     "Origin": "Sweden",
@@ -705,6 +742,7 @@
   {
     "id": 38,
     "name": "Animal Crossing: New Horizons",
+    "slug": "animal-crossing-2019",
     "Developer": "Nintendo",
     "Publisher": "Nintendo",
     "Origin": "Japan",
@@ -724,6 +762,7 @@
   {
     "id": 39,
     "name": "Sid Meier's Civilization VI",
+    "slug": "civilization-vi",
     "Developer": "Firaxis Games",
     "Publisher": "2K",
     "Origin": "USA",
@@ -743,6 +782,7 @@
   {
     "id": 40,
     "name": "Cuphead",
+    "slug": "Cuphead",
     "Developer": "Studio MDHR Entertainment",
     "Publisher": "Studio MDHR Entertainment",
     "Origin": "Canada",
@@ -762,6 +802,7 @@
   {
     "id": 41,
     "name": "Among Us",
+    "slug": "Among Us",
     "Developer": "Innersloth",
     "Publisher": "Innersloth",
     "Origin": "USA",
@@ -781,6 +822,7 @@
   {
     "id": 42,
     "name": "EA FC 2025",
+    "slug": "ea-sports-fc-25",
     "Developer": "Electronic Arts",
     "Publisher": "Electronic Arts",
     "Origin": "Canada, Romania",
@@ -800,6 +842,7 @@
   {
     "id": 43,
     "name": "New World: Aeternum",
+    "slug": "new-world-2",
     "Developer": "Amazon Games",
     "Publisher": "Amazon Games",
     "Origin": "USA",
@@ -819,6 +862,7 @@
   {
     "id": 44,
     "name": "Fallout 4",
+    "slug": "Fallout 4",
     "Developer": "Bethesda",
     "Publisher": "Bethesda",
     "Origin": "USA",
@@ -838,6 +882,7 @@
   {
     "id": 45,
     "name": "The Binding of Isaac: Rebirth",
+    "slug": "the-binding-of-isaac-rebirth",
     "Developer": "Nicalis",
     "Publisher": "Nicalis",
     "Origin": "USA",
@@ -857,6 +902,7 @@
   {
     "id": 46,
     "name": "Subnautica",
+    "slug": "Subnautica",
     "Developer": "Unknown Worlds Entertainment",
     "Publisher": "Unknown Worlds Entertainment",
     "Origin": "USA",
@@ -876,6 +922,7 @@
   {
     "id": 47,
     "name": "Teamfight Tactics",
+    "slug": "Teamfight Tactics",
     "Developer": "Riot Games",
     "Publisher": "Riot Games",
     "Origin": "USA",
@@ -895,6 +942,7 @@
   {
     "id": 48,
     "name": "Wii Sports",
+    "slug": "Wii Sports",
     "Developer": "Nintendo",
     "Publisher": "Nintendo",
     "Origin": "Japan",
@@ -914,6 +962,7 @@
   {
     "id": 49,
     "name": "Dead Cells",
+    "slug": "Dead Cells",
     "Developer": "Motion Twin",
     "Publisher": "Motion Twin",
     "Origin": "France",
@@ -932,7 +981,8 @@
   },
   {
     "id": 50,
-    "name": "Baldur’s Gate 3",
+    "name": "Baldur\u2019s Gate 3",
+    "slug": "baldurs-gate-3",
     "Developer": "Larian Studios",
     "Publisher": "Larian Studios",
     "Origin": "Belgium",
@@ -951,7 +1001,8 @@
   },
   {
     "id": 51,
-    "name": "Guitar Hero",
+    "name": "Guitar Hero 5",
+    "slug": "Guitar Hero 5",
     "Developer": "Neverson",
     "Publisher": "Activision",
     "Origin": "USA",
@@ -970,7 +1021,8 @@
   },
   {
     "id": 52,
-    "name": "Mario Kart Deluxe 8",
+    "name": "Mario Kart 8 Deluxe",
+    "slug": "mario-kart-8-deluxe",
     "Developer": "Nintendo",
     "Publisher": "Nintendo",
     "Origin": "Japan",
@@ -990,6 +1042,7 @@
   {
     "id": 53,
     "name": "NBA 2K25",
+    "slug": "NBA 2K25",
     "Developer": "Visual Concept",
     "Publisher": "2K",
     "Origin": "USA",
@@ -1009,6 +1062,7 @@
   {
     "id": 54,
     "name": "Sons of the Forest",
+    "slug": "Sons of the Forest",
     "Developer": "Endnight Games",
     "Publisher": "Newnight",
     "Origin": "Canada",
@@ -1028,6 +1082,7 @@
   {
     "id": 55,
     "name": "ARK: Survival Evolved",
+    "slug": "ark-survival-evolved",
     "Developer": "Studio Wildcard",
     "Publisher": "Studio Wildcard",
     "Origin": "USA",
@@ -1047,6 +1102,7 @@
   {
     "id": 56,
     "name": "Eurotruck Simulator 2",
+    "slug": "euro-truck-simulator-2",
     "Developer": "SCS Software",
     "Publisher": "SCS Software",
     "Origin": "Czech",
@@ -1066,6 +1122,7 @@
   {
     "id": 57,
     "name": "Dota Underlords",
+    "slug": "Dota Underlords",
     "Developer": "Valve",
     "Publisher": "Valve",
     "Origin": "USA",
@@ -1085,6 +1142,7 @@
   {
     "id": 58,
     "name": "Path of Exile 2",
+    "slug": "Path of Exile 2",
     "Developer": "Grinding Gear Games",
     "Publisher": "Grinding Gear Games",
     "Origin": "New Zealand",
@@ -1104,6 +1162,7 @@
   {
     "id": 59,
     "name": "Tetris 99",
+    "slug": "Tetris 99",
     "Developer": "Arika",
     "Publisher": "Nintendo",
     "Origin": "Japan",
@@ -1123,6 +1182,7 @@
   {
     "id": 60,
     "name": "Overcooked 2",
+    "slug": "Overcooked 2",
     "Developer": "Team17, Ghost Town Games",
     "Publisher": "Team 17",
     "Origin": "UK",
@@ -1141,7 +1201,8 @@
   },
   {
     "id": 61,
-    "name": "No Man’s Sky",
+    "name": "No Man\u2019s Sky",
+    "slug": "no-mans-sky",
     "Developer": "Hello Games",
     "Publisher": "Hello Games",
     "Origin": "UK",
@@ -1161,6 +1222,7 @@
   {
     "id": 62,
     "name": "FNAF",
+    "slug": "five-nights-at-freddys",
     "Developer": "Scott Cawthon",
     "Publisher": "Scott Cawthon",
     "Origin": "USA",
@@ -1179,7 +1241,8 @@
   },
   {
     "id": 63,
-    "name": "Don’t Starve Together",
+    "name": "Don\u2019t Starve Together",
+    "slug": "dont-starve-together",
     "Developer": "Kiei Entertainment",
     "Publisher": "Kiei Entertainment",
     "Origin": "Canada",
@@ -1199,6 +1262,7 @@
   {
     "id": 64,
     "name": "Hearthstone",
+    "slug": "Hearthstone",
     "Developer": "Blizzard",
     "Publisher": "Blizzard",
     "Origin": "South Korea",
@@ -1218,6 +1282,7 @@
   {
     "id": 65,
     "name": "Dark Souls III",
+    "slug": "Dark Souls III",
     "Developer": "FromSoftware",
     "Publisher": "FromSoftware, Bandai Namco",
     "Origin": "Japan",
@@ -1237,6 +1302,7 @@
   {
     "id": 66,
     "name": "HITMAN 2",
+    "slug": "HITMAN 2",
     "Developer": "IO Interactive",
     "Publisher": "IO Interactive",
     "Origin": "Denmark",
@@ -1256,6 +1322,7 @@
   {
     "id": 67,
     "name": "Starfield",
+    "slug": "Starfield",
     "Developer": "Bethesda",
     "Publisher": "Bethesda",
     "Origin": "USA",
@@ -1275,6 +1342,7 @@
   {
     "id": 68,
     "name": "Persona 5",
+    "slug": "Persona 5",
     "Developer": "ATLUS",
     "Publisher": "SEGA",
     "Origin": "Japan",
@@ -1294,6 +1362,7 @@
   {
     "id": 69,
     "name": "Hollow Knight",
+    "slug": "Hollow Knight",
     "Developer": "Team Cherry",
     "Publisher": "Team Cherry",
     "Origin": "Australia",
@@ -1313,6 +1382,7 @@
   {
     "id": 70,
     "name": "Final Fantasy VII Remake",
+    "slug": "Final Fantasy VII Remake",
     "Developer": "Square Enix",
     "Publisher": "Square Enix",
     "Origin": "Japan",
@@ -1331,7 +1401,8 @@
   },
   {
     "id": 71,
-    "name": "Mario Odyssey",
+    "name": "Super Mario Odyssey",
+    "slug": "Super Mario Odyssey",
     "Developer": "Nintendo",
     "Publisher": "Nintendo",
     "Origin": "Japan",

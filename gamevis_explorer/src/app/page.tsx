@@ -11,6 +11,7 @@ import { TagGraph } from "./components/Vis/TagGraph";
 import { X_DIMENSIONS, Y_DIMENSIONS } from "./utils/types/types";
 import { EnlargedView } from "./components/EnlargedView/EnlargedView";
 import { getTags } from "./utils/methods/methods";
+import GameInfo from "./components/GameInfo/GameInfo";
 
 export default function Page() {
   const { filters, setFilters } = useFilterContext();
@@ -44,6 +45,7 @@ export default function Page() {
         return {
           id: item.id.toString(),
           name: item.name.toString(),
+          slug: item.slug.toString()
         };
       });
   }, [filters]);
@@ -206,7 +208,9 @@ export default function Page() {
           </div>
         )}
       </nav>
-      <main className="max-h-screen w-full relative flex flex-col">
+      <main className="min-h-screen w-full relative flex flex-col">
+        <GameInfo gameName={filteredMetadata.find((g) => g.id === filters.game)?.slug.replaceAll(" ", "-") || ""}/>
+        
         <FilterNav meta={meta} />
         <div className="p-4 grid grid-rows-3 grid-cols-3 gap-8 h-full min-h-[40rem]">
           {["Top", "Middle", "Bottom"].map((yDimension, y) => {

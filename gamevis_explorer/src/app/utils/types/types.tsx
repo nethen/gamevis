@@ -1,6 +1,7 @@
 export type Metadata = {
   id: number;
   name: string;
+  slug: string;
   Developer: string;
   Publisher: string;
   Origin: string;
