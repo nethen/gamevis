@@ -194,15 +194,26 @@ export const EnlargedView = ({ data }: { data: Annotation[] }) => {
                 </div>
               </div>
             )}
-            {tags
-              .filter(
-                (item) => selectedTags.size === 0 || selectedTags.has(item[0])
-              )
-              .map((tagGroup) => (
+            {selectedTags.size === 0 ? (
+              tags.map((tagGroup) => (
                 <div key={`tag-group-${tagGroup[0]}`} className="mb-12">
-                  <h3 className="text-xl border-neutral-500 mb-2">
-                    {tagGroup[0]}
-                  </h3>
+                  <hgroup className="mb-4">
+                    <h3 className="text-xl border-neutral-500">
+                      {tagGroup[0]}
+                    </h3>
+                    <span>
+                      {
+                        data.filter((item) => item.tags?.includes(tagGroup[0]))
+                          .length
+                      }{" "}
+                      item
+                      {data.filter(
+                        (item) => item.tags && item.tags?.includes(tagGroup[0])
+                      ).length == 1
+                        ? ""
+                        : "s"}
+                    </span>
+                  </hgroup>
                   <div className="flex gap-8 mb-4">
                     <div>
                       <h4 className="mb-2">Marks</h4>
@@ -363,7 +374,202 @@ export const EnlargedView = ({ data }: { data: Annotation[] }) => {
                       ))}
                   </ul>
                 </div>
-              ))}
+              ))
+            ) : (
+              <div key={`tag-group-filtered`} className="mb-12">
+                <hgroup className="mb-4">
+                  <h3 className="text-xl border-neutral-500">
+                    {[...selectedTags].map((tag) => tag).join(", ")}
+                  </h3>
+                  <span>
+                    {
+                      data.filter(
+                        (item) =>
+                          item.tags &&
+                          item.tags.some((tag) => selectedTags.has(tag))
+                      ).length
+                    }{" "}
+                    item
+                    {data.filter(
+                      (item) =>
+                        item.tags &&
+                        item.tags.some((tag) => selectedTags.has(tag))
+                    ).length == 1
+                      ? ""
+                      : "s"}
+                  </span>
+                </hgroup>
+                <div className="flex gap-8 mb-4">
+                  <div>
+                    <h4 className="mb-2">Marks</h4>
+                    {Object.entries(
+                      data
+                        .filter(
+                          (item) =>
+                            item.tags &&
+                            item.tags.some((tag) => selectedTags.has(tag))
+                        )
+                        .map((item) => item.marks)
+                        .flat(Infinity)
+                        .reduce((acc: Record<string, number>, mark) => {
+                          const markStr = mark as string; // Ensure mark is treated as a string
+                          acc[markStr] = (acc[markStr] || 0) + 1;
+                          return acc;
+                        }, {} as Record<string, number>)
+                    )
+                      .sort((a, b) => b[1] - a[1])
+                      .map(([mark, count]) => (
+                        <div key={mark}>
+                          {mark}: {count}
+                        </div>
+                      ))}
+                  </div>
+                  <div>
+                    <h4 className="mb-2">Channels</h4>
+                    {Object.entries(
+                      data
+                        .filter(
+                          (item) =>
+                            item.tags &&
+                            item.tags.some((tag) => selectedTags.has(tag))
+                        )
+                        .map((item) => item.channels)
+                        .flat(Infinity)
+                        .reduce((acc: Record<string, number>, channel) => {
+                          const channelStr = channel as string; // Ensure mark is treated as a string
+                          acc[channelStr] = (acc[channelStr] || 0) + 1;
+                          return acc;
+                        }, {} as Record<string, number>)
+                    )
+                      .sort((a, b) => b[1] - a[1])
+                      .map(([channel, count]) => (
+                        <div key={channel}>
+                          {channel}: {count}
+                        </div>
+                      ))}
+                  </div>
+                </div>
+
+                <ul className="flex flex-wrap gap-4 ">
+                  {data
+                    .filter(
+                      (item) =>
+                        item.tags &&
+                        item.tags.some((tag) => selectedTags.has(tag))
+                    )
+                    .map((item, i) => (
+                      <li
+                        key={"modal-item-" + i}
+                        className={`${
+                          filters.usages.length == 0 ||
+                          item.vis_usage.some((usage) =>
+                            filters.usages.includes(usage)
+                          )
+                            ? "-order-1 opacity-100"
+                            : "opacity-10"
+                        }`}
+                      >
+                        <hgroup
+                          className={`${
+                            filters.usages.length == 0 ||
+                            item.vis_usage.some((usage) =>
+                              filters.usages.includes(usage)
+                            )
+                              ? "opacity-100"
+                              : "opacity-10"
+                          }`}
+                        >
+                          <span className="uppercase font-bold tracking-widest text-xs">
+                            {item.game_id +
+                              "_" +
+                              item.screenshot_id +
+                              "_" +
+                              item.vis_id}
+                          </span>
+                          <div className="flex gap-4 items-center">
+                            <h5 className="text-lg">{item.vis_name}</h5>
+                            <ul className="flex gap-2">
+                              {item.vis_usage.map((usage, i) => (
+                                <li
+                                  key={i}
+                                  className={`px-2 bg-neutral-800 rounded-full leading-none flex`}
+                                >
+                                  <span className="text-sm">
+                                    {usage == "Environment"
+                                      ? "Ev"
+                                      : usage.substring(0, 2)}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </hgroup>
+                        <img
+                          loading="lazy"
+                          className={`
+              mb-4`}
+                          // className={`${item.vis_usage.includes(
+                          //   "Player`"
+                          // )} ? "bg-red-500" : ""`}
+                          src={
+                            "/games/" +
+                            item.game_id +
+                            "_" +
+                            item.screenshot_id +
+                            "_" +
+                            item.vis_id +
+                            ".jpg"
+                          }
+                          alt={item.notes.join(", ")}
+                        />
+                        <ul className="flex flex-wrap gap-4">
+                          {item.data.map((dataGroup, i) => (
+                            <li key={i} className={`flex flex-col`}>
+                              <div className="text-sm flex flex-col flex-wrap">
+                                {dataGroup.map((data, j) => (
+                                  <span
+                                    key={j}
+                                    className={`
+                        ${
+                          data.data_type == "Nominal"
+                            ? "text-red-400"
+                            : data.data_type == "Ordinal"
+                            ? "text-amber-400"
+                            : data.data_type == "Quantitative"
+                            ? "text-blue-400"
+                            : data.data_type == "Spatial"
+                            ? "text-green-400"
+                            : data.data_type == "Temporal"
+                            ? "text-purple-400"
+                            : "text-foreground"
+                        } font-bold`}
+                                  >
+                                    {data.data_value}
+                                  </span>
+                                ))}
+                              </div>
+                              <span className="text-sm opacity-50">
+                                M:{" "}
+                                {Array.isArray(item.marks[i])
+                                  ? item.marks[i].map((item) => item).join(", ")
+                                  : "N/A"}
+                              </span>
+                              <span className="text-sm opacity-50">
+                                C:{" "}
+                                {Array.isArray(item.channels[i])
+                                  ? item.channels[i]
+                                      .map((item) => item)
+                                      .join(", ")
+                                  : "N/A"}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            )}
           </section>
         </div>
       </div>
