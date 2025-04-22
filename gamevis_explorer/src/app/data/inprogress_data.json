@@ -1121,7 +1121,7 @@
       ]
     ],
     "marks": [["Path"]],
-    "channels": [["Hue", "Positiion"]],
+    "channels": [["Hue", "Position"]],
     "vis_name": "Dangerous area",
     "vis_usage": ["Environment"],
     "vis_position": {
@@ -12515,7 +12515,7 @@
     ],
     "marks": [["Rectangle"], ["Rectangle"], ["Rectangle"]],
     "channels": [
-      ["Length", "Colour", "Szie"],
+      ["Length", "Colour", "Size"],
       ["Length", "Colour"],
       ["Length", "Colour"]
     ],
@@ -15201,7 +15201,7 @@
       ]
     ],
     "marks": [["Image"]],
-    "channels": [["Imasge"]],
+    "channels": [["Image"]],
     "vis_name": "Item equipped",
     "vis_usage": ["Player"],
     "vis_position": {
@@ -16598,7 +16598,7 @@
       ]
     ],
     "marks": [["Rectangle", "Path", "Text", "Symbol"], ["Rectangle"]],
-    "channels": [["Length", "Colour", "Text"], ["Lenght"]],
+    "channels": [["Length", "Colour", "Text"], ["Length"]],
     "vis_name": "Enemy health",
     "vis_usage": ["Enemy"],
     "vis_position": {

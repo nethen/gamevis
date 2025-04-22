@@ -24,8 +24,24 @@ export default function GameInfo({ gameName }: Props) {
     getGame();
   }, [gameName]);
 
+  function decodeHtmlEntities(input: string): string {
+    const txt = document.createElement("textarea");
+    txt.innerHTML = input;
+    return txt.value;
+  }
+
+  function cleanHtmlDescription(raw: string): string {
+    const decoded = decodeHtmlEntities(raw);
+    return decoded
+      .replace(/<\/p>/gi, "\n")
+      .replace(/<br\s*\/?>/gi, "\n")
+      .replace(/<[^>]+>/g, "")
+      .trim();
+  }
+
+
   if (!game) return <p>Loading game info...</p>;
-  
+  const plainDescription = cleanHtmlDescription(game.description);
 
   return (
     <div className="p-4 border-b border-neutral-800">
@@ -35,10 +51,9 @@ export default function GameInfo({ gameName }: Props) {
         alt={game.name}
         className="w-full max-w-md rounded-lg mb-2"
       />
-      <p
-        className="text-sm text-foreground/70 mb-2 max-w-[100ch]"
-        dangerouslySetInnerHTML={{ __html: game.description }}
-      />
+      <p className="whitespace-pre-wrap text-sm text-foreground/70 mb-2 max-w-[100ch]">
+        {plainDescription}
+      </p>
       <p className="text-xs">Released: {game.released}</p>
       <p className="text-xs">Rating: {game.rating}</p>
     </div>
