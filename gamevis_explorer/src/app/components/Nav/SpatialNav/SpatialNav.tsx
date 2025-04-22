@@ -45,7 +45,7 @@ export const SpatialNav = ({
               {data.map((item, index) => (
                 <motion.button
                   key={index}
-                  className={`flex items-center justify-center p-4 rounded-md cursor-pointer ${
+                  className={`flex items-center justify-center p-4 rounded-md ${
                     filters.position.some(
                       (item) =>
                         item.x == keys.x[Math.floor(index / 3)] &&
@@ -53,8 +53,13 @@ export const SpatialNav = ({
                     )
                       ? "bg-green-500"
                       : "bg-neutral-700"
+                  } ${
+                    item.length > 0
+                      ? "opacity-100 cursor-pointer"
+                      : "opacity-10 cursor-not-allowed"
                   } transition-colors`}
                   onClick={() => {
+                    if (item.length <= 0) return;
                     setFilters({
                       ...filters,
                       position: filters.position.some(
@@ -77,9 +82,6 @@ export const SpatialNav = ({
                             },
                           ],
                     });
-                  }}
-                  animate={{
-                    opacity: item.length > 0 ? 1 : 0.1,
                   }}
                 >
                   {item.length}
