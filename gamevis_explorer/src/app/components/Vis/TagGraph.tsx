@@ -42,25 +42,37 @@ export const TagGraph = ({
             >
               {record[0]}
             </span>
-            <div
-              className="flex gap-2 cursor-pointer"
-              onClick={() => {
-                handler(true);
-                setFilters({
-                  ...filters,
-                  tags: [record[0]],
-                  position: dimensions
-                    ? [{ x: dimensions.x, y: dimensions.y }]
-                    : filters.position,
-                });
-              }}
-            >
-              <span className="w-8 text-right">{record[1]}</span>
+            <div className="flex gap-2">
+              <span
+                className="w-8 text-right cursor-pointer"
+                onClick={() => {
+                  handler(true);
+                  setFilters({
+                    ...filters,
+                    tags: [record[0]],
+                    position: dimensions
+                      ? [{ x: dimensions.x, y: dimensions.y }]
+                      : filters.position,
+                  });
+                }}
+              >
+                {record[1]}
+              </span>
               <div className="w-full flex">
                 <div
-                  className="bg-neutral-500 rounded-sm"
+                  className="bg-neutral-500 rounded-sm cursor-pointer"
                   style={{
                     width: ((record[1] / baseline) * 100).toString() + "%",
+                  }}
+                  onClick={() => {
+                    handler(true);
+                    setFilters({
+                      ...filters,
+                      tags: [record[0]],
+                      position: dimensions
+                        ? [{ x: dimensions.x, y: dimensions.y }]
+                        : filters.position,
+                    });
                   }}
                 />
               </div>
