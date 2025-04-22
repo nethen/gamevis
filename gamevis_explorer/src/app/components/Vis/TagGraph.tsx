@@ -1,25 +1,60 @@
 import { Annotation } from "@/app/utils/types/types";
+import React from "react";
+import { useFilterContext } from "../Nav/FilterNav/FilterNav";
 
 export const TagGraph = ({
   data,
   dimensions,
   baseline,
+  handler,
 }: {
   data: [string, number][];
-  dimensions: { x: string; y: string };
+  dimensions?: { x: string; y: string };
   baseline: number;
+  handler: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const { filters, setFilters } = useFilterContext();
   return (
     <div className="">
       {/* <h4 className="font-bold">Tags</h4> */}
       <ul className="flex flex-col gap-2 mb-4">
         {data.map((record, i) => (
           <li
-            key={`taglist-${dimensions.y}-${dimensions.x}-${i}`}
+            key={
+              dimensions
+                ? `taglist-${dimensions.y}-${dimensions.x}-${i}`
+                : `taglist-${i}`
+            }
             className="grid grid-cols-[6rem_3fr] gap-2"
           >
-            <span className="text-sm">{record[0]}</span>
-            <div className="flex gap-2">
+            <span
+              className="text-sm cursor-pointer"
+              onClick={() => {
+                setFilters({
+                  ...filters,
+                  tags: [record[0]],
+                  position: dimensions
+                    ? [{ x: dimensions.x, y: dimensions.y }]
+                    : [],
+                });
+                handler(true);
+              }}
+            >
+              {record[0]}
+            </span>
+            <div
+              className="flex gap-2 cursor-pointer"
+              onClick={() => {
+                handler(true);
+                setFilters({
+                  ...filters,
+                  tags: [record[0]],
+                  position: dimensions
+                    ? [{ x: dimensions.x, y: dimensions.y }]
+                    : [],
+                });
+              }}
+            >
               <span className="w-8 text-right">{record[1]}</span>
               <div className="w-full flex">
                 <div

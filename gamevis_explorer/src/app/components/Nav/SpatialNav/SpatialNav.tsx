@@ -21,7 +21,7 @@ export const SpatialNav = ({
   const { filters, setFilters } = useFilterContext();
 
   useEffect(() => {
-    console.log(XY_KEYS);
+    // console.log(XY_KEYS);
     console.log(filters.position);
   }, [filters]);
 

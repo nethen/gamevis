@@ -297,6 +297,7 @@ export default function Page() {
                             data={tagStats.spatial.value[x + 3 * y]}
                             dimensions={{ x: xDimension, y: yDimension }}
                             baseline={tagStats.spatial.max}
+                            handler={setModalOpen}
                           />
                           {/* {filters.game != "" || filters.genre.length > 0 ? (
                           <ul className="flex flex-wrap gap-4 size-full">
@@ -372,8 +373,8 @@ export default function Page() {
               <div className="overflow-auto size-full flex flex-col p-4 bg-neutral-900 divide-neutral-700 divide-y">
                 <TagGraph
                   data={tagStats.linear.value}
-                  dimensions={{ x: "All", y: "All" }}
                   baseline={tagStats.linear.max}
+                  handler={setModalOpen}
                 />
               </div>
             </section>
