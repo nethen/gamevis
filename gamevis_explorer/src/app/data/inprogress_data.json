@@ -4885,7 +4885,7 @@
     },
     "vis_visibility": [["Global", false]],
     "notes": [],
-    "tags": ["Resources", "Vitals"]
+    "tags": ["Resource", "Vitals"]
   },
   {
     "game_id": "11",
@@ -8755,7 +8755,7 @@
     },
     "vis_visibility": [["Local", false]],
     "notes": ["Pop up will show the contents dropped from the killed NPC."],
-    "tags": ["items"]
+    "tags": ["Item"]
   },
   {
     "game_id": "17",
@@ -9549,7 +9549,7 @@
       "There's the arrow thing pointing towards the time",
       "Rotates over time showing progression / how close phase is done"
     ],
-    "tags": ["Time", "Game"]
+    "tags": ["Timer", "Game"]
   },
   {
     "game_id": "18",
@@ -11236,7 +11236,7 @@
     },
     "vis_visibility": [["Local", false]],
     "notes": [],
-    "tags": ["Abilities", "Weapons"]
+    "tags": ["Ability", "Weapon"]
   },
   {
     "game_id": "21",
@@ -20352,7 +20352,7 @@
       "Number of people in the room",
       "Area vs corridor"
     ],
-    "tags": ["Movement", "Wayfiding"]
+    "tags": ["Movement", "Wayfinding"]
   },
   {
     "game_id": "41",
@@ -20803,7 +20803,7 @@
       "Indicates the path and power of the incoming kick in the form of a outward cone overlay.",
       "Diverging 2 lines (makes a triangle shape) which indicate the range of which the ball will be kicked towards."
     ],
-    "tags": ["Abilities"]
+    "tags": ["Ability"]
   },
   {
     "game_id": "42",
@@ -20831,7 +20831,7 @@
     "notes": [
       "Indicates the path and power of the incoming kick in the form of a curved line."
     ],
-    "tags": ["Ability, Movement"]
+    "tags": ["Ability", "Movement"]
   },
   {
     "game_id": "42",
@@ -20957,7 +20957,7 @@
     },
     "vis_visibility": [["Global", true]],
     "notes": [],
-    "tags": ["Abilities"]
+    "tags": ["Ability"]
   },
   {
     "game_id": "42",
