@@ -281,7 +281,37 @@ export const EnlargedView = ({
                               : "text-foreground"
                           } font-bold`}
                                     >
-                                      {data.data_value}
+                                      {data.data_value}{" "}
+                                      <div className="inline-block">
+                                        <span
+                                          className={`flex size-4 rounded-full items-center justify-center
+                                          ${
+                                            data.data_type == "Nominal"
+                                              ? "bg-red-400 text-red-950"
+                                              : data.data_type == "Ordinal"
+                                              ? "bg-amber-400 text-amber-950"
+                                              : data.data_type == "Quantitative"
+                                              ? "bg-blue-400 text-blue-950"
+                                              : data.data_type == "Spatial"
+                                              ? "bg-green-400 text-green-950"
+                                              : data.data_type == "Temporal"
+                                              ? "bg-purple-400 text-purple-950"
+                                              : "text-foreground"
+                                          } font-bold`}
+                                        >
+                                          {data.data_type == "Nominal"
+                                            ? "N"
+                                            : data.data_type == "Ordinal"
+                                            ? "O"
+                                            : data.data_type == "Quantitative"
+                                            ? "Q"
+                                            : data.data_type == "Spatial"
+                                            ? "S"
+                                            : data.data_type == "Temporal"
+                                            ? "T"
+                                            : "text-foreground"}
+                                        </span>
+                                      </div>
                                     </span>
                                   ))}
                                 </div>
@@ -415,7 +445,37 @@ export const EnlargedView = ({
                             : "text-foreground"
                         } font-bold`}
                                   >
-                                    {data.data_value}
+                                    {data.data_value}{" "}
+                                    <div className="inline-block">
+                                      <span
+                                        className={`flex size-4 rounded-full items-center justify-center
+                                          ${
+                                            data.data_type == "Nominal"
+                                              ? "bg-red-400 text-red-950"
+                                              : data.data_type == "Ordinal"
+                                              ? "bg-amber-400 text-amber-950"
+                                              : data.data_type == "Quantitative"
+                                              ? "bg-blue-400 text-blue-950"
+                                              : data.data_type == "Spatial"
+                                              ? "bg-green-400 text-green-950"
+                                              : data.data_type == "Temporal"
+                                              ? "bg-purple-400 text-purple-950"
+                                              : "text-foreground"
+                                          } font-bold`}
+                                      >
+                                        {data.data_type == "Nominal"
+                                          ? "N"
+                                          : data.data_type == "Ordinal"
+                                          ? "O"
+                                          : data.data_type == "Quantitative"
+                                          ? "Q"
+                                          : data.data_type == "Spatial"
+                                          ? "S"
+                                          : data.data_type == "Temporal"
+                                          ? "T"
+                                          : "text-foreground"}
+                                      </span>
+                                    </div>
                                   </span>
                                 ))}
                               </div>
