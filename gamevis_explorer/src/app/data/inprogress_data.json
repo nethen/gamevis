@@ -14292,7 +14292,7 @@
     },
     "vis_visibility": [["Local", false]],
     "notes": ["INFO ON THEIR HEALTH, HUNGER, TEMPERATURE, & TIME OF DAY"],
-    "tags": ["Health", "Energy", "Vital"]
+    "tags": ["Health", "Energy", "Vitals"]
   },
   {
     "game_id": "29",
@@ -27706,7 +27706,7 @@
     },
     "vis_visibility": [["Local", false]],
     "notes": [],
-    "tags": ["Status Effect", "Vital"]
+    "tags": ["Status Effect", "Vitals"]
   },
   {
     "game_id": "56",
