@@ -13998,7 +13998,7 @@
     },
     "vis_visibility": [["Local", false]],
     "notes": [],
-    "tags": ["timer"]
+    "tags": ["Timer"]
   },
   {
     "game_id": "28",
@@ -17304,7 +17304,7 @@
     },
     "vis_visibility": [["Local", false]],
     "notes": ["Lap number is bigger than other info."],
-    "tags": ["Progression", "timer"]
+    "tags": ["Progression", "Timer"]
   },
   {
     "game_id": "35",
@@ -24095,7 +24095,7 @@
     },
     "vis_visibility": [["Global", false]],
     "notes": [],
-    "tags": ["timer"]
+    "tags": ["Timer"]
   },
   {
     "game_id": "48",
@@ -24752,7 +24752,7 @@
     "notes": [
       "Data value: Time it took for player to clear the area. Paused in between areas."
     ],
-    "tags": ["timer"]
+    "tags": ["Timer"]
   },
   {
     "game_id": "49",
@@ -26525,7 +26525,7 @@
     "notes": [
       "Scores for both teams, what team they are shown through name acronym and logo image (lakers vs mavericks), how many timeouts each team has, how many fouls they committed in the game, what quarter in the game we're at, what time we're at, and shotclock timer"
     ],
-    "tags": ["Score", "timer"]
+    "tags": ["Score", "Timer"]
   },
   {
     "game_id": "53",
