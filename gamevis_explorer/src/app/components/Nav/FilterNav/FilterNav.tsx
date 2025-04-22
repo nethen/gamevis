@@ -168,6 +168,7 @@ type FilterState = {
   position: { x: string; y: string }[];
   usages: string[];
   speed: number[];
+  tags: string[];
 };
 
 const FilterContext = createContext<{
@@ -188,6 +189,7 @@ export const FilterContextProvider = ({
     position: [] as { x: string; y: string }[],
     usages: [] as string[],
     speed: [4, 12],
+    tags: [],
   });
 
   return (

@@ -13,7 +13,7 @@ export const EnlargedView = ({
 }) => {
   const { filters, setFilters } = useFilterContext();
   const tags = getTags(data);
-  const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
+
   return (
     <div className="fixed inset-0 bg-background/95 p-16 overflow-auto z-100">
       <div className="relative bg-neutral-900 p-8 flex flex-col h-full rounded-lg">
@@ -35,10 +35,30 @@ export const EnlargedView = ({
             {["Player", "Enemy", "Game", "Environment"].map((item, i) => (
               <div
                 key={`usage-check-${item.toLowerCase()}`}
-                className="flex gap-2 items-center"
+                className={`flex gap-2 items-center ${
+                  data.filter((subitem) =>
+                    subitem.vis_usage.includes(item as VisUsage)
+                  ).length > 0
+                    ? "cursor-pointer"
+                    : "opacity-10 cursor-not-allowed"
+                }`}
               >
-                <input type="checkbox" name={`state-${i}`} value={item} />
-                <label htmlFor={`state-${i}`}>
+                <input
+                  type="checkbox"
+                  name={`state-${i}`}
+                  id={`state-${i}`}
+                  value={item}
+                />
+                <label
+                  htmlFor={`state-${i}`}
+                  className={`${
+                    data.filter((subitem) =>
+                      subitem.vis_usage.includes(item as VisUsage)
+                    ).length > 0
+                      ? "cursor-pointer"
+                      : "opacity-10 cursor-not-allowed"
+                  }`}
+                >
                   {item} (
                   {
                     data.filter((subitem) =>
@@ -89,16 +109,15 @@ export const EnlargedView = ({
         <div className="flex gap-8 overflow-hidden">
           <section className="w-[20rem] overflow-scroll pr-6">
             <h3 className="mb-2 text-foreground/50">Tags</h3>
-            {selectedTags.size > -1 && (
+            {filters.tags.length > -1 && (
               <div className="sticky top-0 bg-neutral-900 border border-white/5 rounded-md p-2 mb-4">
                 <div className="flex flex-wrap gap-2 mb-4 content-start bg-neutral-800 rounded-md min-h-[2rem] p-2 ">
-                  {[...selectedTags].map((tag) => (
+                  {filters.tags.map((tag) => (
                     <div
                       onClick={() => {
-                        setSelectedTags((prev) => {
-                          const newTags = new Set(prev);
-                          newTags.delete(tag);
-                          return newTags;
+                        setFilters({
+                          ...filters,
+                          tags: filters.tags.filter((item) => item != tag),
                         });
                       }}
                       key={tag}
@@ -108,12 +127,12 @@ export const EnlargedView = ({
                       <button
                         className="text-foreground/50 hover:text-foreground cursor-pointer"
                         onClick={() => {
-                          setSelectedTags((prev) => {
-                            const newTags = new Set(prev);
-                            newTags.delete(tag);
-                            return newTags;
+                          setFilters({
+                            ...filters,
+                            tags: filters.tags.filter((item) => item != tag),
                           });
                         }}
+                        key={tag}
                       >
                         ×
                       </button>
@@ -122,7 +141,7 @@ export const EnlargedView = ({
                 </div>
                 <button
                   className="text-sm underline cursor-pointer text-foreground/60 hover:text-foreground"
-                  onClick={() => setSelectedTags(new Set())}
+                  onClick={() => setFilters({ ...filters, tags: [] })}
                 >
                   Clear selected tags
                 </button>
@@ -134,17 +153,16 @@ export const EnlargedView = ({
                 <li
                   key={`tag-${i}`}
                   className={`flex px-2 py-1 rounded-sm cursor-pointer ${
-                    selectedTags.has(tagGroup[0]) ? "bg-neutral-700 px-2" : ""
+                    filters.tags.includes(tagGroup[0])
+                      ? "bg-neutral-700 px-2"
+                      : ""
                   }`}
                   onClick={() => {
-                    setSelectedTags((prev) => {
-                      const newTags = new Set(prev);
-                      if (newTags.has(tagGroup[0])) {
-                        newTags.delete(tagGroup[0]);
-                      } else {
-                        newTags.add(tagGroup[0]);
-                      }
-                      return newTags;
+                    setFilters({
+                      ...filters,
+                      tags: filters.tags.includes(tagGroup[0])
+                        ? filters.tags.filter((item) => item != tagGroup[0])
+                        : [...filters.tags, tagGroup[0]],
                     });
                   }}
                 >
@@ -157,7 +175,7 @@ export const EnlargedView = ({
             </ul>
           </section>
           <section className="overflow-auto w-full">
-            {selectedTags == null && (
+            {filters.tags.length === 0 && (
               <div className="flex gap-8 mb-4">
                 <div>
                   <h4 className="mb-2">Marks</h4>
@@ -201,7 +219,7 @@ export const EnlargedView = ({
                 </div>
               </div>
             )}
-            {selectedTags.size === 0 ? (
+            {filters.tags.length === 0 ? (
               tags.map((tagGroup) => (
                 <div key={`tag-group-${tagGroup[0]}`} className="mb-12">
                   <hgroup className="mb-4">
@@ -386,21 +404,21 @@ export const EnlargedView = ({
               <div key={`tag-group-filtered`} className="mb-12">
                 <hgroup className="mb-4">
                   <h3 className="text-xl border-neutral-500">
-                    {[...selectedTags].map((tag) => tag).join(", ")}
+                    {filters.tags.map((tag) => tag).join(", ")}
                   </h3>
                   <span>
                     {
                       data.filter(
                         (item) =>
                           item.tags &&
-                          item.tags.some((tag) => selectedTags.has(tag))
+                          item.tags.some((tag) => filters.tags.includes(tag))
                       ).length
                     }{" "}
                     item
                     {data.filter(
                       (item) =>
                         item.tags &&
-                        item.tags.some((tag) => selectedTags.has(tag))
+                        item.tags.some((tag) => filters.tags.includes(tag))
                     ).length == 1
                       ? ""
                       : "s"}
@@ -414,7 +432,7 @@ export const EnlargedView = ({
                         .filter(
                           (item) =>
                             item.tags &&
-                            item.tags.some((tag) => selectedTags.has(tag))
+                            item.tags.some((tag) => filters.tags.includes(tag))
                         )
                         .map((item) => item.marks)
                         .flat(Infinity)
@@ -438,7 +456,7 @@ export const EnlargedView = ({
                         .filter(
                           (item) =>
                             item.tags &&
-                            item.tags.some((tag) => selectedTags.has(tag))
+                            item.tags.some((tag) => filters.tags.includes(tag))
                         )
                         .map((item) => item.channels)
                         .flat(Infinity)
@@ -462,7 +480,7 @@ export const EnlargedView = ({
                     .filter(
                       (item) =>
                         item.tags &&
-                        item.tags.some((tag) => selectedTags.has(tag))
+                        item.tags.some((tag) => filters.tags.includes(tag))
                     )
                     .map((item, i) => (
                       <li
