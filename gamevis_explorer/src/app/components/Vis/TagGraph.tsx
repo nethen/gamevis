@@ -35,7 +35,7 @@ export const TagGraph = ({
                   tags: [record[0]],
                   position: dimensions
                     ? [{ x: dimensions.x, y: dimensions.y }]
-                    : [],
+                    : filters.position,
                 });
                 handler(true);
               }}
@@ -51,7 +51,7 @@ export const TagGraph = ({
                   tags: [record[0]],
                   position: dimensions
                     ? [{ x: dimensions.x, y: dimensions.y }]
-                    : [],
+                    : filters.position,
                 });
               }}
             >

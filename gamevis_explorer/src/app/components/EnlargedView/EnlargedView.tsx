@@ -2,7 +2,7 @@
 import { getTags } from "@/app/utils/methods/methods";
 import { Annotation, VisUsage } from "../../utils/types/types";
 import { useFilterContext } from "../Nav/FilterNav/FilterNav";
-import { useState, Dispatch } from "react";
+import { Dispatch } from "react";
 
 export const EnlargedView = ({
   data,
@@ -82,6 +82,7 @@ export const EnlargedView = ({
             <button
               className="px-3 leading-0 rounded-full bg-neutral-500 font-bold text-sm cursor-pointer"
               onClick={() => {
+                setFilters({ ...filters, tags: [] });
                 handler(false);
               }}
             >
