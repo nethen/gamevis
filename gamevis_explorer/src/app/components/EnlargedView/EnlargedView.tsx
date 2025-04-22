@@ -19,7 +19,9 @@ export const EnlargedView = ({
       <div className="relative bg-neutral-900 p-8 flex flex-col h-full rounded-lg">
         <header className="flex justify-between mb-4">
           <h2 className="text-lg font-medium">
-            {filters.position.map((item) => item.y + " " + item.x).join(", ")}
+            {filters.position.length > 0
+              ? filters.position.map((item) => item.y + " " + item.x).join(", ")
+              : "All data"}
           </h2>
           <form
             className="flex gap-4"
