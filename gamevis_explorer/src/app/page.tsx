@@ -161,12 +161,12 @@ export default function Page() {
       >
         <hgroup className="flex justify-between items-center h-20 pt-8 pb-2 sticky top-0 text-sm bg-background z-20 font-semibold tracking-wider text-foreground/50">
           {sidebarOpen && <h2 className="cursor-pointer">Games</h2>}
-          <button
+          {/* <button
             onClick={() => {
               setSidebarOpen(!sidebarOpen);
             }}
             className="size-8 bg-neutral-800 rounded-full"
-          ></button>
+          ></button> */}
         </hgroup>
         <div className="mb-8">
           <ul className="flex flex-col gap-4 mb-4 pb-16">
