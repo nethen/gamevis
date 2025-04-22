@@ -32,7 +32,7 @@ export const SpatialNav = ({
     console.log(filters.position);
   }, [filters]);
   return (
-    <motion.aside className="fixed bottom-6 left-6 bg-neutral-800 rounded-xl p-4 z-10 w-64">
+    <motion.aside className="fixed bottom-4 left-4 bg-neutral-800 rounded-xl p-4 z-10 w-64">
       <AnimatePresence>
         {!active && isOpen && (
           <motion.section
@@ -159,6 +159,7 @@ export const SpatialNav = ({
               ...filters,
               position: !active ? [{ x: "All", y: "All" }] : [],
             });
+            setIsOpen(true);
           }}
           layout
         >
