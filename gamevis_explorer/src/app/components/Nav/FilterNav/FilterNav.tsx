@@ -164,7 +164,6 @@ type FilterState = {
   relativity: string[];
   game: string;
   genre: string[];
-
   position: { x: string; y: string }[];
   usages: string[];
   speed: number[];

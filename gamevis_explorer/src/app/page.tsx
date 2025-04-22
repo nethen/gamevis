@@ -61,6 +61,11 @@ export default function Page() {
         filters.game != "" ? item.game_id == filters.game : true
       )
       .filter((item) =>
+        filters.tags.length > 0
+          ? filters.tags.some((tag) => item.tags?.includes(tag))
+          : true
+      )
+      .filter((item) =>
         filters.position.length > 0
           ? filters.position.some((pos) =>
               "relative_position" in item.vis_position

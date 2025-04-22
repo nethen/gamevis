@@ -40,7 +40,7 @@ export const EnlargedView = ({
                     subitem.vis_usage.includes(item as VisUsage)
                   ).length > 0
                     ? "cursor-pointer"
-                    : "opacity-10 cursor-not-allowed"
+                    : "hidden"
                 }`}
               >
                 <input
@@ -70,18 +70,6 @@ export const EnlargedView = ({
                 {}
               </div>
             ))}
-            {/* <div>
-          <input type="checkbox" name="state2" value="Enemy" />
-          <label htmlFor="state2">Enemy</label>
-        </div>
-        <div>
-          <input type="checkbox" name="state3" value="Environment" />
-          <label htmlFor="state3">Environment</label>
-        </div>
-        <div>
-          <input type="checkbox" name="state4" value="Game" />
-          <label htmlFor="state4">Game</label>
-        </div> */}
           </form>
           <div className="flex gap-4">
             <div className="text-sm font-semibold text-right">
@@ -94,10 +82,6 @@ export const EnlargedView = ({
             <button
               className="px-3 leading-0 rounded-full bg-neutral-500 font-bold text-sm cursor-pointer"
               onClick={() => {
-                // setFilters({
-                //   ...filters,
-                //   position: [],
-                // });
                 handler(false);
               }}
             >
@@ -163,6 +147,7 @@ export const EnlargedView = ({
                       tags: filters.tags.includes(tagGroup[0])
                         ? filters.tags.filter((item) => item != tagGroup[0])
                         : [...filters.tags, tagGroup[0]],
+                      usages: [],
                     });
                   }}
                 >
