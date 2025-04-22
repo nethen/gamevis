@@ -1,12 +1,9 @@
 "use client";
-import {
-  Annotation,
-  X_DIMENSIONS,
-  Y_DIMENSIONS,
-} from "@/app/utils/types/types";
+import { Annotation, XY_KEYS } from "@/app/utils/types/types";
 import { Dispatch, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useFilterContext } from "../FilterNav/FilterNav";
+
 export const SpatialNav = ({
   data,
   value,
@@ -20,19 +17,16 @@ export const SpatialNav = ({
 }) => {
   const [isOpen, setIsOpen] = useState(true);
   const active = value == options[1];
-  const keys = {
-    y: Object.keys(Y_DIMENSIONS).filter((v) => isNaN(Number(v))),
-    x: Object.keys(X_DIMENSIONS).filter((v) => isNaN(Number(v))),
-  };
 
   const { filters, setFilters } = useFilterContext();
 
   useEffect(() => {
-    console.log(keys);
+    console.log(XY_KEYS);
     console.log(filters.position);
   }, [filters]);
+
   return (
-    <motion.aside className="fixed bottom-4 left-4 bg-neutral-800 rounded-xl p-4 z-10 w-64">
+    <motion.aside className="bg-neutral-800 rounded-xl p-4 z-10 w-full sticky bottom-4">
       <AnimatePresence>
         {!active && isOpen && (
           <motion.section
@@ -48,8 +42,8 @@ export const SpatialNav = ({
                   className={`flex items-center justify-center p-4 rounded-md ${
                     filters.position.some(
                       (item) =>
-                        item.x == keys.x[Math.floor(index / 3)] &&
-                        item.y == keys.y[index % 3]
+                        item.y == XY_KEYS.y[Math.floor(index / 3)] &&
+                        item.x == XY_KEYS.x[index % 3]
                     )
                       ? "bg-green-500"
                       : "bg-neutral-700"
@@ -64,21 +58,19 @@ export const SpatialNav = ({
                       ...filters,
                       position: filters.position.some(
                         (item) =>
-                          item.x == keys.x[Math.floor(index / 3)] &&
-                          item.y == keys.y[index % 3]
+                          item.y == XY_KEYS.y[Math.floor(index / 3)] &&
+                          item.x == XY_KEYS.x[index % 3]
                       )
                         ? filters.position.filter(
                             (item) =>
-                              item.x != keys.x[Math.floor(index / 3)] ||
-                              item.y != keys.y[index % 3]
+                              item.y != XY_KEYS.y[Math.floor(index / 3)] ||
+                              item.x != XY_KEYS.x[index % 3]
                           )
                         : [
-                            ...(filters.position.filter(
-                              (item) => item.x != "All" && item.y != "All"
-                            ) || []),
+                            ...filters.position,
                             {
-                              x: keys.x[Math.floor(index / 3)],
-                              y: keys.y[index % 3],
+                              y: XY_KEYS.y[Math.floor(index / 3)],
+                              x: XY_KEYS.x[index % 3],
                             },
                           ],
                     });
@@ -91,27 +83,17 @@ export const SpatialNav = ({
             <div className="mb-4 flex justify-center">
               <motion.button
                 className={`text-sm tracking-wide font-bold text-foreground/80 ${
-                  filters.position.some((item) => item.x == "All") ||
                   filters.position.length == 0
                     ? "cursor-not-allowed"
                     : "cursor-pointer"
                 }`}
                 animate={{
-                  opacity:
-                    filters.position.some((item) => item.x == "All") ||
-                    filters.position.length == 0
-                      ? 0.5
-                      : 1,
+                  opacity: filters.position.length == 0 ? 0.5 : 1,
                 }}
                 onClick={() =>
                   setFilters({
                     ...filters,
-                    position: [
-                      {
-                        x: "All",
-                        y: "All",
-                      },
-                    ],
+                    position: [],
                   })
                 }
               >
@@ -159,7 +141,7 @@ export const SpatialNav = ({
             handler(active ? options[0] : options[1]);
             setFilters({
               ...filters,
-              position: !active ? [{ x: "All", y: "All" }] : [],
+              position: [],
             });
             setIsOpen(true);
           }}

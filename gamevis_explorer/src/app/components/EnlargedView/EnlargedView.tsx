@@ -2,9 +2,15 @@
 import { getTags } from "@/app/utils/methods/methods";
 import { Annotation, VisUsage } from "../../utils/types/types";
 import { useFilterContext } from "../Nav/FilterNav/FilterNav";
-import { useState } from "react";
+import { useState, Dispatch } from "react";
 
-export const EnlargedView = ({ data }: { data: Annotation[] }) => {
+export const EnlargedView = ({
+  data,
+  handler,
+}: {
+  data: Annotation[];
+  handler: Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const { filters, setFilters } = useFilterContext();
   const tags = getTags(data);
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
@@ -13,7 +19,7 @@ export const EnlargedView = ({ data }: { data: Annotation[] }) => {
       <div className="relative bg-neutral-900 p-8 flex flex-col h-full rounded-lg">
         <header className="flex justify-between mb-4">
           <h2 className="text-lg font-medium">
-            {filters.position[0]} {filters.position[1]}
+            {filters.position.map((item) => item.y + " " + item.x).join(", ")}
           </h2>
           <form
             className="flex gap-4"
@@ -68,10 +74,11 @@ export const EnlargedView = ({ data }: { data: Annotation[] }) => {
             <button
               className="px-3 leading-0 rounded-full bg-neutral-500 font-bold text-sm cursor-pointer"
               onClick={() => {
-                setFilters({
-                  ...filters,
-                  position: ["", ""],
-                });
+                // setFilters({
+                //   ...filters,
+                //   position: [],
+                // });
+                handler(false);
               }}
             >
               Close

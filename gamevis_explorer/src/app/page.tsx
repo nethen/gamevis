@@ -5,13 +5,13 @@ import rawMeta from "@/app/data/meta.json";
 import rawData from "@/app/data/inprogress_data.json";
 const data: Annotation[] = rawData as unknown as Annotation[];
 const meta: Metadata[] = rawMeta as unknown as Metadata[];
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   FilterNav,
   useFilterContext,
 } from "./components/Nav/FilterNav/FilterNav";
 import { TagGraph } from "./components/Vis/TagGraph";
-import { X_DIMENSIONS, Y_DIMENSIONS } from "./utils/types/types";
+import { X_DIMENSIONS, Y_DIMENSIONS, XY_KEYS } from "./utils/types/types";
 import { EnlargedView } from "./components/EnlargedView/EnlargedView";
 import { getTags } from "./utils/methods/methods";
 import { SpatialNav } from "./components/Nav/SpatialNav/SpatialNav";
@@ -19,6 +19,7 @@ import { SpatialNav } from "./components/Nav/SpatialNav/SpatialNav";
 export default function Page() {
   const { filters, setFilters } = useFilterContext();
   const [grouping, setGrouping] = useState("spatial");
+  const [modalOpen, setModalOpen] = useState(false);
 
   const filteredMetadata = useMemo(() => {
     return meta
@@ -60,7 +61,7 @@ export default function Page() {
         filters.game != "" ? item.game_id == filters.game : true
       )
       .filter((item) =>
-        filters.position.length > 1
+        filters.position.length > 0
           ? filters.position.some((pos) =>
               "relative_position" in item.vis_position
                 ? item.vis_position.relative_position?.[0] == pos.y &&
@@ -159,19 +160,7 @@ export default function Page() {
         } transition-all duration-300 ease-in-out`}
       >
         <hgroup className="flex justify-between items-center h-20 pt-8 pb-2 sticky top-0 text-sm bg-background z-20 font-semibold tracking-wider text-foreground/50">
-          {sidebarOpen && (
-            <h2
-              onClick={() => {
-                setFilters({
-                  ...filters,
-                  position: [{ x: "All", y: "All" }],
-                });
-              }}
-              className="cursor-pointer"
-            >
-              Games
-            </h2>
-          )}
+          {sidebarOpen && <h2 className="cursor-pointer">Games</h2>}
           <button
             onClick={() => {
               setSidebarOpen(!sidebarOpen);
@@ -239,6 +228,12 @@ export default function Page() {
             </ul>
           </div>
         )}
+        <SpatialNav
+          data={spatializedData}
+          value={grouping}
+          handler={setGrouping}
+          options={["linear", "spatial"]}
+        />
       </nav>
       <main className="max-h-screen w-full relative flex flex-col">
         <FilterNav meta={meta} />
@@ -283,6 +278,7 @@ export default function Page() {
                                       { y: yDimension, x: xDimension },
                                     ],
                                   });
+                                  setModalOpen(true);
                                 }}
                               >
                                 View all
@@ -359,10 +355,7 @@ export default function Page() {
                     <button
                       className="px-3 leading-0 rounded-full bg-neutral-500 font-bold text-sm cursor-pointer"
                       onClick={() => {
-                        setFilters({
-                          ...filters,
-                          position: [{ y: "All", x: "All" }],
-                        });
+                        setModalOpen(true);
                       }}
                     >
                       View all
@@ -382,29 +375,9 @@ export default function Page() {
           )}
         </div>
       </main>
-      {/* {filters.position.some((item) => item.x != "" && item.y != "") ? (
-        <EnlargedView
-          data={
-            filters.position[0] == "All"
-              ? filteredData
-              : spatializedData[
-                  Object.keys(X_DIMENSIONS)
-                    .filter((v) => isNaN(Number(v)))
-                    .findIndex((v) => v == filters.position[1]) +
-                    3 *
-                      Object.keys(Y_DIMENSIONS)
-                        .filter((v) => isNaN(Number(v)))
-                        .findIndex((v) => v == filters.position[0])
-                ]
-          }
-        />
-      ) : null} */}
-      <SpatialNav
-        data={spatializedData}
-        value={grouping}
-        handler={setGrouping}
-        options={["linear", "spatial"]}
-      />
+      {modalOpen ? (
+        <EnlargedView data={filteredData} handler={setModalOpen} />
+      ) : null}
     </div>
   );
 }

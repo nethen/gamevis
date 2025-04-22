@@ -110,3 +110,8 @@ export enum X_DIMENSIONS {
   Middle,
   Right,
 }
+
+export const XY_KEYS = {
+  y: Object.keys(Y_DIMENSIONS).filter((v) => isNaN(Number(v))),
+  x: Object.keys(X_DIMENSIONS).filter((v) => isNaN(Number(v))),
+};
